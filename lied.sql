@@ -1,0 +1,6847 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : my
+Source Server Version : 50723
+Source Host           : localhost:3306
+Source Database       : lied
+
+Target Server Type    : MYSQL
+Target Server Version : 50723
+File Encoding         : 65001
+
+Date: 2019-06-22 10:37:59
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `lied_admin_menu`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_admin_menu`;
+CREATE TABLE `lied_admin_menu` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '0',
+  `title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uri` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `permission` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of lied_admin_menu
+-- ----------------------------
+INSERT INTO `lied_admin_menu` VALUES ('1', '0', '1', 'Index', 'fa-bar-chart', '/', null, null, null);
+INSERT INTO `lied_admin_menu` VALUES ('2', '0', '2', 'Admin', 'fa-tasks', '', null, null, null);
+INSERT INTO `lied_admin_menu` VALUES ('3', '2', '3', 'Users', 'fa-users', 'auth/users', null, null, null);
+INSERT INTO `lied_admin_menu` VALUES ('4', '2', '4', 'Roles', 'fa-user', 'auth/roles', null, null, null);
+INSERT INTO `lied_admin_menu` VALUES ('5', '2', '5', 'Permission', 'fa-ban', 'auth/permissions', null, null, null);
+INSERT INTO `lied_admin_menu` VALUES ('6', '2', '6', 'Menu', 'fa-bars', 'auth/menu', null, null, null);
+INSERT INTO `lied_admin_menu` VALUES ('7', '2', '7', 'Operation log', 'fa-history', 'auth/logs', null, null, null);
+INSERT INTO `lied_admin_menu` VALUES ('8', '0', '13', '产品管理', 'fa-bars', 'product', null, '2018-12-19 09:59:17', '2019-02-16 14:53:35');
+INSERT INTO `lied_admin_menu` VALUES ('9', '8', '14', '产品列表', 'fa-bars', 'product', null, '2018-12-19 10:21:12', '2019-02-16 14:53:35');
+INSERT INTO `lied_admin_menu` VALUES ('10', '8', '16', '产品规格分类列表', 'fa-bars', 'product/sku/category', null, '2018-12-24 09:16:15', '2019-06-20 15:14:27');
+INSERT INTO `lied_admin_menu` VALUES ('11', '0', '10', '品牌管理', 'fa-bars', null, null, '2018-12-25 03:24:49', '2019-02-16 14:53:35');
+INSERT INTO `lied_admin_menu` VALUES ('12', '11', '11', '品牌列表', 'fa-bars', 'brand', null, '2018-12-25 03:25:21', '2019-02-16 14:53:35');
+INSERT INTO `lied_admin_menu` VALUES ('13', '11', '12', '品牌分类', 'fa-bars', 'brand/category', null, '2018-12-25 03:25:57', '2019-02-16 14:53:35');
+INSERT INTO `lied_admin_menu` VALUES ('14', '8', '15', '产品分类', 'fa-bars', 'product/category', null, '2018-12-25 04:00:55', '2019-02-16 14:53:35');
+INSERT INTO `lied_admin_menu` VALUES ('15', '8', '17', '秒杀管理', 'fa-align-left', 'product/seckill', null, '2019-01-24 09:24:16', '2019-02-16 14:53:35');
+INSERT INTO `lied_admin_menu` VALUES ('16', '0', '8', '用户管理', 'fa-bars', 'user', null, '2019-02-16 14:10:10', '2019-02-16 14:10:38');
+INSERT INTO `lied_admin_menu` VALUES ('17', '16', '9', '用户列表', 'fa-bars', 'user', null, '2019-02-16 14:10:28', '2019-02-16 14:10:38');
+INSERT INTO `lied_admin_menu` VALUES ('20', '8', '18', '订单管理', 'fa-bars', 'product/order', null, '2019-02-18 14:57:08', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('21', '0', '21', '地域管理', 'fa-bars', null, null, '2019-02-18 15:25:13', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('22', '21', '22', '地域列表', 'fa-bars', 'region', null, '2019-02-18 15:25:31', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('23', '0', '24', '广告管理', 'fa-bars', null, null, '2019-02-19 09:23:06', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('24', '23', '25', '广告位置列表', 'fa-bars', 'adv/position', null, '2019-02-19 09:23:30', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('25', '23', '26', '广告列表', 'fa-bars', 'adv', null, '2019-02-19 09:44:55', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('26', '0', '27', '文章管理', 'fa-bars', null, null, '2019-02-19 16:12:18', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('27', '26', '28', '文章分类', 'fa-bars', 'artical/category', null, '2019-02-19 16:12:37', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('28', '26', '29', '文章列表', 'fa-bars', 'artical', null, '2019-02-19 16:12:54', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('29', '21', '23', '地域开通', 'fa-bars', 'region/open', null, '2019-05-21 15:50:21', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('30', '0', '19', '优惠券管理', 'fa-bars', null, null, '2019-06-17 10:09:19', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('31', '30', '20', '优惠券列表', 'fa-bars', 'coupon', null, '2019-06-17 10:09:57', '2019-06-17 10:10:11');
+
+-- ----------------------------
+-- Table structure for `lied_admin_operation_log`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_admin_operation_log`;
+CREATE TABLE `lied_admin_operation_log` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `method` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `input` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `lied_admin_operation_log_user_id_index` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2536 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of lied_admin_operation_log
+-- ----------------------------
+INSERT INTO `lied_admin_operation_log` VALUES ('1', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-19 09:35:50', '2018-12-19 09:35:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-19 09:35:51', '2018-12-19 09:35:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('3', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-19 09:35:52', '2018-12-19 09:35:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('4', '1', 'admin/auth/users', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-19 09:35:55', '2018-12-19 09:35:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('5', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-19 09:58:39', '2018-12-19 09:58:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('6', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u4ea7\\u54c1\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":\"product\",\"roles\":[null],\"permission\":null,\"_token\":\"i7s6MvnfjgdI3vaWTTXbrHWhuxJZiVgRNJbSWdae\"}', '2018-12-19 09:59:17', '2018-12-19 09:59:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('7', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-19 09:59:18', '2018-12-19 09:59:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('8', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"8\",\"title\":\"\\u4ea7\\u54c1\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"product\",\"roles\":[null],\"permission\":null,\"_token\":\"i7s6MvnfjgdI3vaWTTXbrHWhuxJZiVgRNJbSWdae\"}', '2018-12-19 10:21:11', '2018-12-19 10:21:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('9', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-19 10:21:12', '2018-12-19 10:21:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('10', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-19 10:33:42', '2018-12-19 10:33:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('11', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-19 11:02:38', '2018-12-19 11:02:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('12', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-20 00:26:43', '2018-12-20 00:26:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('13', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-20 00:26:55', '2018-12-20 00:26:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('14', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-20 00:27:13', '2018-12-20 00:27:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('15', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-20 00:27:31', '2018-12-20 00:27:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('16', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-20 01:32:13', '2018-12-20 01:32:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('17', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-20 01:54:27', '2018-12-20 01:54:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('18', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-20 01:54:45', '2018-12-20 01:54:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('19', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-20 01:54:55', '2018-12-20 01:54:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('20', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 01:55:18', '2018-12-20 01:55:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('21', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 01:55:22', '2018-12-20 01:55:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('22', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 01:56:13', '2018-12-20 01:56:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('23', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:29:41', '2018-12-20 02:29:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('24', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:32:14', '2018-12-20 02:32:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('25', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:35:33', '2018-12-20 02:35:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('26', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:35:53', '2018-12-20 02:35:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('27', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:36:27', '2018-12-20 02:36:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('28', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:36:51', '2018-12-20 02:36:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('29', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:36:58', '2018-12-20 02:36:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('30', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:41:29', '2018-12-20 02:41:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('31', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:41:57', '2018-12-20 02:41:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('32', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:45:05', '2018-12-20 02:45:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('33', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:45:06', '2018-12-20 02:45:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('34', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:51:38', '2018-12-20 02:51:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('35', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 02:51:56', '2018-12-20 02:51:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('36', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:16:56', '2018-12-20 03:16:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('37', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:17:32', '2018-12-20 03:17:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('38', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:17:48', '2018-12-20 03:17:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('39', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:17:58', '2018-12-20 03:17:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('40', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:20:21', '2018-12-20 03:20:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('41', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:21:03', '2018-12-20 03:21:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('42', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:22:18', '2018-12-20 03:22:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('43', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:35:22', '2018-12-20 03:35:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('44', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:35:38', '2018-12-20 03:35:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('45', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:36:12', '2018-12-20 03:36:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('46', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:36:13', '2018-12-20 03:36:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('47', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:36:14', '2018-12-20 03:36:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('48', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:36:15', '2018-12-20 03:36:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('49', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 03:36:57', '2018-12-20 03:36:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('50', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 05:36:14', '2018-12-20 05:36:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('51', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 05:36:36', '2018-12-20 05:36:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('52', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 05:36:38', '2018-12-20 05:36:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('53', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 05:36:39', '2018-12-20 05:36:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('54', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 05:36:46', '2018-12-20 05:36:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('55', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-20 05:36:47', '2018-12-20 05:36:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('56', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-21 08:20:57', '2018-12-21 08:20:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('57', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-21 08:22:06', '2018-12-21 08:22:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('58', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-21 08:22:10', '2018-12-21 08:22:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('59', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-21 08:31:15', '2018-12-21 08:31:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('60', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-21 08:32:10', '2018-12-21 08:32:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('61', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":null,\"seller_id\":null,\"brand_id\":null,\"category_id\":null,\"market_price\":null,\"price\":null,\"virtual_quantity\":\"0\",\"brief\":null,\"description\":null,\"is_hot\":\"off\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sort_order\":\"99\",\"address\":null,\"phone\":null,\"_token\":\"FFmCTpJM9zhRwEfglpjj1S6wbma9MuCCZUHQ1knT\",\"after-save\":\"3\"}', '2018-12-21 08:32:18', '2018-12-21 08:32:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('62', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-21 08:32:19', '2018-12-21 08:32:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('63', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-21 08:33:49', '2018-12-21 08:33:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('64', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-24 00:53:29', '2018-12-24 00:53:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('65', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 00:53:37', '2018-12-24 00:53:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('66', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:02:46', '2018-12-24 01:02:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('67', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:03:14', '2018-12-24 01:03:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('68', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:03:35', '2018-12-24 01:03:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('69', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:05:44', '2018-12-24 01:05:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('70', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:36:30', '2018-12-24 01:36:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('71', '1', 'admin/product', 'POST', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\"}', '2018-12-24 01:36:38', '2018-12-24 01:36:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('72', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:36:38', '2018-12-24 01:36:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('73', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:38:19', '2018-12-24 01:38:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('74', '1', 'admin/product', 'POST', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\"}', '2018-12-24 01:38:25', '2018-12-24 01:38:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('75', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:38:25', '2018-12-24 01:38:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('76', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:38:53', '2018-12-24 01:38:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('77', '1', 'admin/product', 'POST', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\"}', '2018-12-24 01:38:57', '2018-12-24 01:38:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('78', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:38:58', '2018-12-24 01:38:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('79', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:40:29', '2018-12-24 01:40:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('80', '1', 'admin/product', 'POST', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\"}', '2018-12-24 01:41:44', '2018-12-24 01:41:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('81', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:41:44', '2018-12-24 01:41:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('82', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:43:05', '2018-12-24 01:43:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('83', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:45:00', '2018-12-24 01:45:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('84', '1', 'admin/product', 'POST', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\"}', '2018-12-24 01:45:03', '2018-12-24 01:45:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('85', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:45:04', '2018-12-24 01:45:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('86', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:46:04', '2018-12-24 01:46:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('87', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:46:05', '2018-12-24 01:46:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('88', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:47:16', '2018-12-24 01:47:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('89', '1', 'admin/product', 'POST', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\"}', '2018-12-24 01:47:20', '2018-12-24 01:47:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('90', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:47:21', '2018-12-24 01:47:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('91', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 01:48:19', '2018-12-24 01:48:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('92', '1', 'admin/product', 'POST', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\"}', '2018-12-24 01:48:22', '2018-12-24 01:48:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('93', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 01:48:23', '2018-12-24 01:48:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('94', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 01:51:30', '2018-12-24 01:51:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('95', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 01:52:50', '2018-12-24 01:52:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('96', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 01:53:35', '2018-12-24 01:53:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('97', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 01:53:38', '2018-12-24 01:53:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('98', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 01:54:02', '2018-12-24 01:54:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('99', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:54:04', '2018-12-24 01:54:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('100', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:54:05', '2018-12-24 01:54:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('101', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 01:54:20', '2018-12-24 01:54:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('102', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:54:25', '2018-12-24 01:54:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('103', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:54:26', '2018-12-24 01:54:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('104', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 01:54:30', '2018-12-24 01:54:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('105', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 01:54:30', '2018-12-24 01:54:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('106', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:54:32', '2018-12-24 01:54:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('107', '1', 'admin/product/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:54:56', '2018-12-24 01:54:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('108', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:55:00', '2018-12-24 01:55:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('109', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:55:03', '2018-12-24 01:55:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('110', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:55:18', '2018-12-24 01:55:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('111', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 01:55:37', '2018-12-24 01:55:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('112', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:55:39', '2018-12-24 01:55:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('113', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 01:56:22', '2018-12-24 01:56:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('114', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 01:56:23', '2018-12-24 01:56:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('115', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 01:56:25', '2018-12-24 01:56:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('116', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 01:59:19', '2018-12-24 01:59:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('117', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 02:00:10', '2018-12-24 02:00:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('118', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 02:00:51', '2018-12-24 02:00:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('119', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 02:00:56', '2018-12-24 02:00:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('120', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 02:02:02', '2018-12-24 02:02:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('121', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 02:04:12', '2018-12-24 02:04:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('122', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 02:04:14', '2018-12-24 02:04:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('123', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 02:05:21', '2018-12-24 02:05:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('124', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 02:05:28', '2018-12-24 02:05:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('125', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 02:05:30', '2018-12-24 02:05:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('126', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 02:06:04', '2018-12-24 02:06:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('127', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 02:06:06', '2018-12-24 02:06:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('128', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 02:06:23', '2018-12-24 02:06:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('129', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 02:06:48', '2018-12-24 02:06:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('130', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 02:07:11', '2018-12-24 02:07:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('131', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 02:07:26', '2018-12-24 02:07:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('132', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 02:08:02', '2018-12-24 02:08:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('133', '1', 'admin/product/1', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\"}', '2018-12-24 02:08:05', '2018-12-24 02:08:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('134', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 02:08:05', '2018-12-24 02:08:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('135', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 02:09:53', '2018-12-24 02:09:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('136', '1', 'admin/product', 'POST', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 02:09:59', '2018-12-24 02:09:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('137', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 02:09:59', '2018-12-24 02:09:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('138', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 02:10:03', '2018-12-24 02:10:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('139', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 02:10:14', '2018-12-24 02:10:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('140', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 02:10:27', '2018-12-24 02:10:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('141', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 02:23:42', '2018-12-24 02:23:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('142', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 02:23:43', '2018-12-24 02:23:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('143', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 02:23:54', '2018-12-24 02:23:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('144', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 02:23:54', '2018-12-24 02:23:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('145', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 02:24:45', '2018-12-24 02:24:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('146', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 02:24:46', '2018-12-24 02:24:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('147', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 02:24:56', '2018-12-24 02:24:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('148', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 02:24:57', '2018-12-24 02:24:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('149', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 02:25:28', '2018-12-24 02:25:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('150', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 02:25:32', '2018-12-24 02:25:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('151', '1', 'admin/product/2', 'GET', '127.0.0.1', '[]', '2018-12-24 02:27:51', '2018-12-24 02:27:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('152', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 02:27:53', '2018-12-24 02:27:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('153', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/2\"}', '2018-12-24 02:27:57', '2018-12-24 02:27:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('154', '1', 'admin/product/2', 'GET', '127.0.0.1', '[]', '2018-12-24 03:46:08', '2018-12-24 03:46:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('155', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 03:46:10', '2018-12-24 03:46:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('156', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/2\"}', '2018-12-24 03:46:14', '2018-12-24 03:46:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('157', '1', 'admin/product/2', 'GET', '127.0.0.1', '[]', '2018-12-24 03:50:45', '2018-12-24 03:50:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('158', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 03:50:47', '2018-12-24 03:50:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('159', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/2\"}', '2018-12-24 03:50:51', '2018-12-24 03:50:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('160', '1', 'admin/product/2', 'GET', '127.0.0.1', '[]', '2018-12-24 03:52:04', '2018-12-24 03:52:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('161', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 03:52:05', '2018-12-24 03:52:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('162', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/2\"}', '2018-12-24 03:52:09', '2018-12-24 03:52:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('163', '1', 'admin/product/2', 'GET', '127.0.0.1', '[]', '2018-12-24 03:58:42', '2018-12-24 03:58:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('164', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 03:58:44', '2018-12-24 03:58:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('165', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/2\"}', '2018-12-24 03:58:48', '2018-12-24 03:58:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('166', '1', 'admin/product/2', 'GET', '127.0.0.1', '[]', '2018-12-24 03:59:15', '2018-12-24 03:59:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('167', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 03:59:17', '2018-12-24 03:59:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('168', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/2\"}', '2018-12-24 03:59:27', '2018-12-24 03:59:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('169', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 03:59:28', '2018-12-24 03:59:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('170', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 04:02:37', '2018-12-24 04:02:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('171', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 04:02:42', '2018-12-24 04:02:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('172', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 04:02:42', '2018-12-24 04:02:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('173', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 04:02:59', '2018-12-24 04:02:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('174', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 04:03:59', '2018-12-24 04:03:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('175', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 05:37:51', '2018-12-24 05:37:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('176', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 05:40:13', '2018-12-24 05:40:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('177', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 05:40:31', '2018-12-24 05:40:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('178', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 05:40:32', '2018-12-24 05:40:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('179', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 05:40:33', '2018-12-24 05:40:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('180', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 05:41:15', '2018-12-24 05:41:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('181', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 05:42:05', '2018-12-24 05:42:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('182', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 05:42:05', '2018-12-24 05:42:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('183', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 05:42:12', '2018-12-24 05:42:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('184', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 05:42:39', '2018-12-24 05:42:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('185', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 05:43:19', '2018-12-24 05:43:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('186', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 05:44:56', '2018-12-24 05:44:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('187', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 05:57:58', '2018-12-24 05:57:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('188', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 05:58:23', '2018-12-24 05:58:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('189', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 05:59:52', '2018-12-24 05:59:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('190', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 06:00:07', '2018-12-24 06:00:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('191', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 06:00:23', '2018-12-24 06:00:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('192', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 06:02:29', '2018-12-24 06:02:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('193', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 06:03:09', '2018-12-24 06:03:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('194', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 06:05:59', '2018-12-24 06:05:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('195', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:06:16', '2018-12-24 06:06:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('196', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 06:06:32', '2018-12-24 06:06:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('197', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 06:06:32', '2018-12-24 06:06:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('198', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 06:07:46', '2018-12-24 06:07:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('199', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 06:07:52', '2018-12-24 06:07:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('200', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 06:07:52', '2018-12-24 06:07:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('201', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 06:11:19', '2018-12-24 06:11:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('202', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 06:11:58', '2018-12-24 06:11:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('203', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 06:12:00', '2018-12-24 06:12:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('204', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:13:38', '2018-12-24 06:13:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('205', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:14:11', '2018-12-24 06:14:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('206', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:14:21', '2018-12-24 06:14:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('207', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:14:47', '2018-12-24 06:14:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('208', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:15:04', '2018-12-24 06:15:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('209', '1', 'admin/product/2', 'PUT', '127.0.0.1', '{\"key\":\"3\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\"}', '2018-12-24 06:15:14', '2018-12-24 06:15:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('210', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:17:43', '2018-12-24 06:17:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('211', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:34:19', '2018-12-24 06:34:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('212', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:36:15', '2018-12-24 06:36:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('213', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:36:50', '2018-12-24 06:36:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('214', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:38:42', '2018-12-24 06:38:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('215', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:42:18', '2018-12-24 06:42:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('216', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:42:32', '2018-12-24 06:42:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('217', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:42:43', '2018-12-24 06:42:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('218', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:42:54', '2018-12-24 06:42:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('219', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:46:33', '2018-12-24 06:46:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('220', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:46:51', '2018-12-24 06:46:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('221', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:47:39', '2018-12-24 06:47:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('222', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 06:59:59', '2018-12-24 06:59:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('223', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 07:00:21', '2018-12-24 07:00:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('224', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 07:00:33', '2018-12-24 07:00:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('225', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 07:00:42', '2018-12-24 07:00:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('226', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 07:05:05', '2018-12-24 07:05:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('227', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 07:57:21', '2018-12-24 07:57:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('228', '1', 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:15:15', '2018-12-24 09:15:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('229', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:15:15', '2018-12-24 09:15:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('230', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"8\",\"title\":\"\\u4ea7\\u54c1\\u89c4\\u683c\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"product\\/sku\",\"roles\":[null],\"permission\":null,\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\"}', '2018-12-24 09:16:15', '2018-12-24 09:16:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('231', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-24 09:16:16', '2018-12-24 09:16:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('232', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-24 09:16:19', '2018-12-24 09:16:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('233', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:16:23', '2018-12-24 09:16:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('234', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-24 09:16:23', '2018-12-24 09:16:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('235', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:16:53', '2018-12-24 09:16:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('236', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2018-12-24 09:24:49', '2018-12-24 09:24:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('237', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:25:57', '2018-12-24 09:25:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('238', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:26:52', '2018-12-24 09:26:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('239', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"name\":\"\\u989c\\u8272\",\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"after-save\":\"2\"}', '2018-12-24 09:27:00', '2018-12-24 09:27:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('240', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:27:00', '2018-12-24 09:27:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('241', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"name\":\"\\u767d\\u8272\",\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"after-save\":\"2\"}', '2018-12-24 09:27:22', '2018-12-24 09:27:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('242', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:27:22', '2018-12-24 09:27:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('243', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"name\":\"\\u7ea2\\u8272\",\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\"}', '2018-12-24 09:27:26', '2018-12-24 09:27:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('244', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2018-12-24 09:27:26', '2018-12-24 09:27:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('245', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_order\":\"[{\\\"id\\\":1,\\\"children\\\":[{\\\"id\\\":2},{\\\"id\\\":3}]}]\"}', '2018-12-24 09:27:35', '2018-12-24 09:27:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('246', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:27:35', '2018-12-24 09:27:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('247', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2018-12-24 09:29:04', '2018-12-24 09:29:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('248', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:29:06', '2018-12-24 09:29:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('249', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:29:56', '2018-12-24 09:29:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('250', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:29:58', '2018-12-24 09:29:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('251', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:30:18', '2018-12-24 09:30:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('252', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"name\":\"\\u5bb9\\u91cf\",\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/sku\"}', '2018-12-24 09:30:37', '2018-12-24 09:30:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('253', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:30:37', '2018-12-24 09:30:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('254', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:31:17', '2018-12-24 09:31:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('255', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u5bb9\\u91cf\",\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\"}', '2018-12-24 09:31:22', '2018-12-24 09:31:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('256', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2018-12-24 09:31:22', '2018-12-24 09:31:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('257', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:31:33', '2018-12-24 09:31:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('258', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"pid\":\"4\",\"name\":\"100ml\",\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/sku\"}', '2018-12-24 09:31:42', '2018-12-24 09:31:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('259', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2018-12-24 09:31:43', '2018-12-24 09:31:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('260', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:31:45', '2018-12-24 09:31:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('261', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"pid\":\"4\",\"name\":\"300ml\",\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/sku\"}', '2018-12-24 09:31:53', '2018-12-24 09:31:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('262', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2018-12-24 09:31:54', '2018-12-24 09:31:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('263', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:32:10', '2018-12-24 09:32:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('264', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:32:13', '2018-12-24 09:32:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('265', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2018-12-24 09:32:41', '2018-12-24 09:32:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('266', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:35:03', '2018-12-24 09:35:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('267', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:35:05', '2018-12-24 09:35:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('268', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:35:43', '2018-12-24 09:35:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('269', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:36:36', '2018-12-24 09:36:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('270', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:37:17', '2018-12-24 09:37:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('271', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:37:27', '2018-12-24 09:37:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('272', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:42:53', '2018-12-24 09:42:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('273', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:44:04', '2018-12-24 09:44:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('274', '1', 'admin/product', 'POST', '127.0.0.1', '{\"attr\":{\"new_1\":{\"sku_id\":\"5\",\"price\":null,\"product_number\":\"0\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 09:44:10', '2018-12-24 09:44:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('275', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:44:10', '2018-12-24 09:44:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('276', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:44:18', '2018-12-24 09:44:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('277', '1', 'admin/product', 'POST', '127.0.0.1', '{\"attr\":{\"new_1\":{\"sku_id\":\"5\",\"price\":null,\"product_number\":\"0\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 09:44:23', '2018-12-24 09:44:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('278', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:44:23', '2018-12-24 09:44:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('279', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-24 09:45:02', '2018-12-24 09:45:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('280', '1', 'admin/product', 'POST', '127.0.0.1', '{\"attr\":{\"new_1\":{\"sku_id\":\"5\",\"price\":null,\"product_number\":\"0\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 09:47:09', '2018-12-24 09:47:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('281', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 09:47:09', '2018-12-24 09:47:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('282', '1', 'admin/product/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:47:30', '2018-12-24 09:47:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('283', '1', 'admin/product/4', 'PUT', '127.0.0.1', '{\"attr\":{\"1\":{\"sku_id\":\"5\",\"price\":\"10.00\",\"product_number\":\"3\",\"id\":\"1\",\"_remove_\":\"0\"},\"new_1\":{\"sku_id\":\"6\",\"price\":\"30.00\",\"product_number\":\"4\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 09:47:47', '2018-12-24 09:47:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('284', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 09:47:47', '2018-12-24 09:47:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('285', '1', 'admin/product/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:48:04', '2018-12-24 09:48:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('286', '1', 'admin/product/4', 'PUT', '127.0.0.1', '{\"attr\":{\"1\":{\"sku_id\":\"5\",\"price\":\"10.00\",\"product_number\":\"3\",\"id\":\"1\",\"_remove_\":\"0\"},\"2\":{\"sku_id\":\"6\",\"price\":\"30.00\",\"product_number\":\"4\",\"id\":\"2\",\"_remove_\":\"1\"}},\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 09:48:06', '2018-12-24 09:48:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('287', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 09:48:07', '2018-12-24 09:48:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('288', '1', 'admin/product/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:48:19', '2018-12-24 09:48:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('289', '1', 'admin/product/4', 'PUT', '127.0.0.1', '{\"attr\":{\"1\":{\"sku_id\":\"5\",\"price\":\"10.00\",\"product_number\":\"3\",\"id\":\"1\",\"_remove_\":\"0\"}},\"_token\":\"hFtGMyfwJSrB4p9KXYvvOa7OiDKNsIEzn30aZ8Mj\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-24 09:48:25', '2018-12-24 09:48:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('290', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-24 09:48:25', '2018-12-24 09:48:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('291', '1', 'admin/product/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-24 09:48:30', '2018-12-24 09:48:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('292', '1', 'admin/product/4/edit', 'GET', '127.0.0.1', '[]', '2018-12-24 09:49:16', '2018-12-24 09:49:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('293', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-25 01:32:31', '2018-12-25 01:32:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('294', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 01:32:34', '2018-12-25 01:32:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('295', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 01:36:07', '2018-12-25 01:36:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('296', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 01:42:05', '2018-12-25 01:42:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('297', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 01:42:18', '2018-12-25 01:42:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('298', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 01:42:43', '2018-12-25 01:42:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('299', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 02:58:53', '2018-12-25 02:58:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('300', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:24:29', '2018-12-25 03:24:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('301', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u54c1\\u724c\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":null,\"roles\":[null],\"permission\":null,\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\"}', '2018-12-25 03:24:48', '2018-12-25 03:24:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('302', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-25 03:24:49', '2018-12-25 03:24:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('303', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"11\",\"title\":\"\\u54c1\\u724c\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"brand\",\"roles\":[null],\"permission\":null,\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\"}', '2018-12-25 03:25:20', '2018-12-25 03:25:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('304', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-25 03:25:21', '2018-12-25 03:25:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('305', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"11\",\"title\":\"\\u54c1\\u724c\\u5206\\u7c7b\",\"icon\":\"fa-bars\",\"uri\":\"brand\\/category\",\"roles\":[null],\"permission\":null,\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\"}', '2018-12-25 03:25:57', '2018-12-25 03:25:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('306', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-25 03:25:57', '2018-12-25 03:25:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('307', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-25 03:25:58', '2018-12-25 03:25:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('308', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:26:01', '2018-12-25 03:26:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('309', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:26:03', '2018-12-25 03:26:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('310', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:26:06', '2018-12-25 03:26:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('311', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:28:21', '2018-12-25 03:28:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('312', '1', 'admin/brand/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:28:23', '2018-12-25 03:28:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('313', '1', 'admin/brand/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"qq\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/brand\\/category\"}', '2018-12-25 03:28:46', '2018-12-25 03:28:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('314', '1', 'admin/brand/category/create', 'GET', '127.0.0.1', '[]', '2018-12-25 03:28:46', '2018-12-25 03:28:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('315', '1', 'admin/brand/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"qq\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\"}', '2018-12-25 03:29:39', '2018-12-25 03:29:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('316', '1', 'admin/brand/category', 'GET', '127.0.0.1', '[]', '2018-12-25 03:29:39', '2018-12-25 03:29:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('317', '1', 'admin/brand/category/7/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:29:42', '2018-12-25 03:29:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('318', '1', 'admin/brand/category/7', 'PUT', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6c99\\u5ba3\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/brand\\/category\"}', '2018-12-25 03:29:56', '2018-12-25 03:29:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('319', '1', 'admin/brand/category', 'GET', '127.0.0.1', '[]', '2018-12-25 03:29:57', '2018-12-25 03:29:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('320', '1', 'admin/brand/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:29:59', '2018-12-25 03:29:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('321', '1', 'admin/brand/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u4fdd\\u6d01\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/brand\\/category\"}', '2018-12-25 03:30:07', '2018-12-25 03:30:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('322', '1', 'admin/brand/category', 'GET', '127.0.0.1', '[]', '2018-12-25 03:30:07', '2018-12-25 03:30:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('323', '1', 'admin/brand/category/8/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:31:00', '2018-12-25 03:31:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('324', '1', 'admin/brand/category/8', 'PUT', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6d77\\u98de\\u4e1d\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"after-save\":\"2\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/brand\\/category\"}', '2018-12-25 03:31:19', '2018-12-25 03:31:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('325', '1', 'admin/brand/category/create', 'GET', '127.0.0.1', '[]', '2018-12-25 03:31:19', '2018-12-25 03:31:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('326', '1', 'admin/brand/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6e05\\u626c\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/brand\\/category\\/8\\/edit\"}', '2018-12-25 03:31:26', '2018-12-25 03:31:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('327', '1', 'admin/brand/category/8/edit', 'GET', '127.0.0.1', '[]', '2018-12-25 03:31:26', '2018-12-25 03:31:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('328', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:31:29', '2018-12-25 03:31:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('329', '1', 'admin/brand/category/9/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:31:32', '2018-12-25 03:31:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('330', '1', 'admin/brand/category/9', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:31:34', '2018-12-25 03:31:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('331', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:31:58', '2018-12-25 03:31:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('332', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:32:00', '2018-12-25 03:32:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('333', '1', 'admin/brand', 'GET', '127.0.0.1', '[]', '2018-12-25 03:35:28', '2018-12-25 03:35:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('334', '1', 'admin/brand/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:35:30', '2018-12-25 03:35:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('335', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2018-12-25 03:35:56', '2018-12-25 03:35:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('336', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2018-12-25 03:36:08', '2018-12-25 03:36:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('337', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2018-12-25 03:36:18', '2018-12-25 03:36:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('338', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2018-12-25 03:36:35', '2018-12-25 03:36:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('339', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:37:13', '2018-12-25 03:37:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('340', '1', 'admin/brand/category/7/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:37:15', '2018-12-25 03:37:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('341', '1', 'admin/brand/category/7', 'PUT', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6d17\\u53d1\\u6c34\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/brand\\/category\"}', '2018-12-25 03:37:26', '2018-12-25 03:37:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('342', '1', 'admin/brand/category', 'GET', '127.0.0.1', '[]', '2018-12-25 03:37:27', '2018-12-25 03:37:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('343', '1', 'admin/brand/category', 'POST', '127.0.0.1', '{\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_order\":\"[{\\\"id\\\":7,\\\"children\\\":[{\\\"id\\\":8},{\\\"id\\\":9}]}]\"}', '2018-12-25 03:37:32', '2018-12-25 03:37:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('344', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:37:32', '2018-12-25 03:37:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('345', '1', 'admin/brand/category/8/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:37:34', '2018-12-25 03:37:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('346', '1', 'admin/brand/category/8', 'PUT', '127.0.0.1', '{\"pid\":\"7\",\"name\":\"\\u67d4\\u987a\\u62a4\\u53d1\\u7cfb\\u5217\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/brand\\/category\"}', '2018-12-25 03:37:55', '2018-12-25 03:37:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('347', '1', 'admin/brand/category/8/edit', 'GET', '127.0.0.1', '[]', '2018-12-25 03:37:56', '2018-12-25 03:37:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('348', '1', 'admin/brand/category/8', 'PUT', '127.0.0.1', '{\"pid\":\"7\",\"name\":\"\\u67d4\\u987a\\u62a4\\u53d1\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 03:38:05', '2018-12-25 03:38:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('349', '1', 'admin/brand/category', 'GET', '127.0.0.1', '[]', '2018-12-25 03:38:05', '2018-12-25 03:38:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('350', '1', 'admin/brand/category/9/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:38:09', '2018-12-25 03:38:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('351', '1', 'admin/brand/category/9', 'PUT', '127.0.0.1', '{\"pid\":\"7\",\"name\":\"\\u6301\\u4e45\\u5b9a\\u578b\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/brand\\/category\"}', '2018-12-25 03:38:24', '2018-12-25 03:38:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('352', '1', 'admin/brand/category', 'GET', '127.0.0.1', '[]', '2018-12-25 03:38:24', '2018-12-25 03:38:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('353', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:38:27', '2018-12-25 03:38:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('354', '1', 'admin/brand/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:38:29', '2018-12-25 03:38:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('355', '1', 'admin/brand', 'POST', '127.0.0.1', '{\"name\":\"\\u98d8\\u67d4\",\"category\":\"8\",\"site_url\":\"http:\\/\\/www.baidu.com\",\"description\":\"\\u8001\\u5b57\\u53f7\\u503c\\u5f97\\u4fe1\\u8d56\",\"sort_order\":\"99\",\"is_show\":\"on\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"after-save\":\"2\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/brand\"}', '2018-12-25 03:39:18', '2018-12-25 03:39:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('356', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2018-12-25 03:39:19', '2018-12-25 03:39:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('357', '1', 'admin/brand', 'POST', '127.0.0.1', '{\"name\":\"\\u98d8\\u67d4\",\"category\":\"8\",\"site_url\":\"http:\\/\\/www.baidu.com\",\"description\":\"\\u8001\\u5b57\\u53f7\\u503c\\u5f97\\u4fe1\\u8d56\",\"sort_order\":\"99\",\"is_show\":\"on\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"after-save\":\"2\"}', '2018-12-25 03:39:42', '2018-12-25 03:39:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('358', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2018-12-25 03:39:42', '2018-12-25 03:39:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('359', '1', 'admin/brand', 'POST', '127.0.0.1', '{\"name\":\"\\u98d8\\u67d4\",\"category_id\":\"8\",\"site_url\":\"http:\\/\\/www.baidu.com\",\"description\":\"\\u8001\\u5b57\\u53f7\\u503c\\u5f97\\u4fe1\\u8d56\",\"sort_order\":\"99\",\"is_show\":\"on\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\"}', '2018-12-25 03:40:42', '2018-12-25 03:40:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('360', '1', 'admin/brand', 'GET', '127.0.0.1', '[]', '2018-12-25 03:40:42', '2018-12-25 03:40:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('361', '1', 'admin/brand/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:42:08', '2018-12-25 03:42:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('362', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:42:11', '2018-12-25 03:42:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('363', '1', 'admin/brand', 'GET', '127.0.0.1', '[]', '2018-12-25 03:44:47', '2018-12-25 03:44:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('364', '1', 'admin/brand/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:45:16', '2018-12-25 03:45:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('365', '1', 'admin/brand', 'POST', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"category_id\":\"9\",\"site_url\":\"http:\\/\\/www.baidu.com\",\"description\":\"\\u8001\\u5b57\\u53f7\\u503c\\u5f97\\u4fe1\\u8d56\",\"sort_order\":\"99\",\"is_show\":\"on\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/brand\"}', '2018-12-25 03:45:49', '2018-12-25 03:45:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('366', '1', 'admin/brand', 'GET', '127.0.0.1', '[]', '2018-12-25 03:45:50', '2018-12-25 03:45:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('367', '1', 'admin/brand', 'GET', '127.0.0.1', '[]', '2018-12-25 03:53:31', '2018-12-25 03:53:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('368', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:53:36', '2018-12-25 03:53:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('369', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:53:38', '2018-12-25 03:53:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('370', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 03:53:38', '2018-12-25 03:53:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('371', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 03:54:22', '2018-12-25 03:54:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('372', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:54:24', '2018-12-25 03:54:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('373', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 03:54:24', '2018-12-25 03:54:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('374', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 03:54:39', '2018-12-25 03:54:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('375', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 03:54:41', '2018-12-25 03:54:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('376', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 03:54:45', '2018-12-25 03:54:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('377', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 03:56:20', '2018-12-25 03:56:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('378', '1', 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 04:00:30', '2018-12-25 04:00:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('379', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 04:00:33', '2018-12-25 04:00:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('380', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"8\",\"title\":\"\\u4ea7\\u54c1\\u5206\\u7c7b\",\"icon\":\"fa-bars\",\"uri\":\"product\\/category\",\"roles\":[null],\"permission\":null,\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\"}', '2018-12-25 04:00:55', '2018-12-25 04:00:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('381', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-25 04:00:56', '2018-12-25 04:00:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('382', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_order\":\"[{\\\"id\\\":1},{\\\"id\\\":2,\\\"children\\\":[{\\\"id\\\":3},{\\\"id\\\":4},{\\\"id\\\":5},{\\\"id\\\":6},{\\\"id\\\":7}]},{\\\"id\\\":8,\\\"children\\\":[{\\\"id\\\":9},{\\\"id\\\":14},{\\\"id\\\":10}]},{\\\"id\\\":11,\\\"children\\\":[{\\\"id\\\":12},{\\\"id\\\":13}]}]\"}', '2018-12-25 04:01:05', '2018-12-25 04:01:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('383', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 04:01:05', '2018-12-25 04:01:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('384', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2018-12-25 04:01:06', '2018-12-25 04:01:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('385', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 04:01:08', '2018-12-25 04:01:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('386', '1', 'admin/product/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 04:01:34', '2018-12-25 04:01:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('387', '1', 'admin/product/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6d17\\u53d1\\u6c34\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/category\"}', '2018-12-25 04:01:45', '2018-12-25 04:01:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('388', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2018-12-25 04:01:45', '2018-12-25 04:01:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('389', '1', 'admin/product/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 04:01:47', '2018-12-25 04:01:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('390', '1', 'admin/product/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6c90\\u6d74\\u9732\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/category\"}', '2018-12-25 04:01:54', '2018-12-25 04:01:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('391', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2018-12-25 04:01:54', '2018-12-25 04:01:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('392', '1', 'admin/product/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 04:01:56', '2018-12-25 04:01:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('393', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 04:02:00', '2018-12-25 04:02:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('394', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 04:02:07', '2018-12-25 04:02:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('395', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 04:02:23', '2018-12-25 04:02:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('396', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 04:02:49', '2018-12-25 04:02:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('397', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 05:36:00', '2018-12-25 05:36:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('398', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 05:36:09', '2018-12-25 05:36:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('399', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 05:36:15', '2018-12-25 05:36:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('400', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 05:48:14', '2018-12-25 05:48:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('401', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 05:48:20', '2018-12-25 05:48:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('402', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 05:50:04', '2018-12-25 05:50:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('403', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 05:50:14', '2018-12-25 05:50:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('404', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 05:50:18', '2018-12-25 05:50:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('405', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 05:54:30', '2018-12-25 05:54:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('406', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 05:54:32', '2018-12-25 05:54:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('407', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 05:54:34', '2018-12-25 05:54:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('408', '1', 'admin/api/product/category', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 05:54:36', '2018-12-25 05:54:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('409', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 05:55:39', '2018-12-25 05:55:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('410', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 05:55:47', '2018-12-25 05:55:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('411', '1', 'admin/api/product/category', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 05:55:49', '2018-12-25 05:55:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('412', '1', 'admin/product/sda', 'GET', '127.0.0.1', '[]', '2018-12-25 05:58:15', '2018-12-25 05:58:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('413', '1', 'admin/product/sda', 'GET', '127.0.0.1', '[]', '2018-12-25 05:58:15', '2018-12-25 05:58:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('414', '1', 'admin/product/1', 'GET', '127.0.0.1', '[]', '2018-12-25 05:59:57', '2018-12-25 05:59:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('415', '1', 'admin/product/1', 'GET', '127.0.0.1', '[]', '2018-12-25 05:59:57', '2018-12-25 05:59:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('416', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:02:00', '2018-12-25 06:02:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('417', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:15:52', '2018-12-25 06:15:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('418', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:17:17', '2018-12-25 06:17:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('419', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:29:54', '2018-12-25 06:29:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('420', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:30:34', '2018-12-25 06:30:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('421', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:30:42', '2018-12-25 06:30:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('422', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:31:25', '2018-12-25 06:31:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('423', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:31:27', '2018-12-25 06:31:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('424', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:31:44', '2018-12-25 06:31:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('425', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:33:21', '2018-12-25 06:33:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('426', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:36:44', '2018-12-25 06:36:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('427', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:39:18', '2018-12-25 06:39:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('428', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:42:52', '2018-12-25 06:42:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('429', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:43:16', '2018-12-25 06:43:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('430', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:45:52', '2018-12-25 06:45:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('431', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:46:10', '2018-12-25 06:46:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('432', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:47:19', '2018-12-25 06:47:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('433', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:55:21', '2018-12-25 06:55:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('434', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 06:58:04', '2018-12-25 06:58:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('435', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 07:00:48', '2018-12-25 07:00:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('436', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 07:01:25', '2018-12-25 07:01:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('437', '1', 'admin/api/product/category', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 07:01:27', '2018-12-25 07:01:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('438', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u54c8\\u54c8\\u54c8\",\"description\":\"<p><\\/p><p>qqq<\\/p>\",\"market_price\":\"500.00\",\"price\":\"50.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"new_1\":{\"sku_id\":\"0\",\"price\":null,\"product_number\":\"0\",\"id\":null,\"_remove_\":\"0\"}},\"intergral\":null,\"give_intergral\":null,\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\"}', '2018-12-25 07:02:01', '2018-12-25 07:02:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('439', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 07:02:01', '2018-12-25 07:02:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('440', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 07:04:06', '2018-12-25 07:04:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('441', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 07:04:14', '2018-12-25 07:04:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('442', '1', 'admin/api/product/category', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 07:04:16', '2018-12-25 07:04:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('443', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"11\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":null,\"give_intergral\":null,\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\"}', '2018-12-25 07:04:43', '2018-12-25 07:04:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('444', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2018-12-25 07:04:44', '2018-12-25 07:04:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('445', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 07:05:58', '2018-12-25 07:05:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('446', '1', 'admin/api/product/category', 'GET', '127.0.0.1', '{\"q\":null}', '2018-12-25 07:06:00', '2018-12-25 07:06:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('447', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":null,\"give_intergral\":null,\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\"}', '2018-12-25 07:06:10', '2018-12-25 07:06:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('448', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 07:06:11', '2018-12-25 07:06:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('449', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:06:13', '2018-12-25 07:06:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('450', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '[]', '2018-12-25 07:07:56', '2018-12-25 07:07:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('451', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 07:08:03', '2018-12-25 07:08:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('452', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 07:08:05', '2018-12-25 07:08:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('453', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 07:08:11', '2018-12-25 07:08:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('454', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 07:08:11', '2018-12-25 07:08:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('455', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:08:14', '2018-12-25 07:08:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('456', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 07:08:17', '2018-12-25 07:08:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('457', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-25 07:08:20', '2018-12-25 07:08:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('458', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '[]', '2018-12-25 07:08:20', '2018-12-25 07:08:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('459', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:08:34', '2018-12-25 07:08:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('460', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:08:36', '2018-12-25 07:08:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('461', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-25 07:08:39', '2018-12-25 07:08:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('462', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '[]', '2018-12-25 07:08:39', '2018-12-25 07:08:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('463', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:09:35', '2018-12-25 07:09:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('464', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:11:34', '2018-12-25 07:11:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('465', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-25 07:11:38', '2018-12-25 07:11:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('466', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '[]', '2018-12-25 07:11:38', '2018-12-25 07:11:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('467', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 07:13:51', '2018-12-25 07:13:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('468', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '[]', '2018-12-25 07:13:52', '2018-12-25 07:13:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('469', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 07:14:08', '2018-12-25 07:14:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('470', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 07:14:08', '2018-12-25 07:14:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('471', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:14:12', '2018-12-25 07:14:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('472', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-25 07:14:19', '2018-12-25 07:14:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('473', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '[]', '2018-12-25 07:14:19', '2018-12-25 07:14:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('474', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:15:43', '2018-12-25 07:15:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('475', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:22:22', '2018-12-25 07:22:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('476', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-25 07:22:25', '2018-12-25 07:22:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('477', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 07:22:25', '2018-12-25 07:22:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('478', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:22:28', '2018-12-25 07:22:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('479', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:22:31', '2018-12-25 07:22:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('480', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:24:18', '2018-12-25 07:24:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('481', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 07:24:22', '2018-12-25 07:24:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('482', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 07:24:25', '2018-12-25 07:24:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('483', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '[]', '2018-12-25 07:24:28', '2018-12-25 07:24:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('484', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '[]', '2018-12-25 07:27:26', '2018-12-25 07:27:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('485', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 07:27:38', '2018-12-25 07:27:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('486', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 07:27:39', '2018-12-25 07:27:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('487', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:27:41', '2018-12-25 07:27:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('488', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product-thumb\\/2018-12-25\\/6d4047460bfb6167f7d93ab133adc45b.png\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 07:27:43', '2018-12-25 07:27:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('489', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product-thumb\\/2018-12-25\\/bc1af487ae673e4ef74151c9db2d01fc.jpg\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\"}', '2018-12-25 07:27:46', '2018-12-25 07:27:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('490', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-25 07:27:49', '2018-12-25 07:27:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('491', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 07:27:49', '2018-12-25 07:27:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('492', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:27:51', '2018-12-25 07:27:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('493', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2018-12-25 07:28:23', '2018-12-25 07:28:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('494', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:28:25', '2018-12-25 07:28:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('495', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:28:28', '2018-12-25 07:28:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('496', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u989c\\u8272\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/sku\"}', '2018-12-25 07:28:55', '2018-12-25 07:28:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('497', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2018-12-25 07:28:55', '2018-12-25 07:28:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('498', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:28:58', '2018-12-25 07:28:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('499', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"pid\":\"7\",\"name\":\"\\u767d\\u8272\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"after-save\":\"2\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/sku\"}', '2018-12-25 07:29:13', '2018-12-25 07:29:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('500', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '[]', '2018-12-25 07:29:13', '2018-12-25 07:29:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('501', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u7ea2\\u8272\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"after-save\":\"2\"}', '2018-12-25 07:29:18', '2018-12-25 07:29:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('502', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '[]', '2018-12-25 07:29:18', '2018-12-25 07:29:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('503', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:29:20', '2018-12-25 07:29:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('504', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_order\":\"[{\\\"id\\\":7,\\\"children\\\":[{\\\"id\\\":8},{\\\"id\\\":9}]}]\"}', '2018-12-25 07:29:24', '2018-12-25 07:29:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('505', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:29:24', '2018-12-25 07:29:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('506', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:29:30', '2018-12-25 07:29:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('507', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"new_1\":{\"sku_id\":\"8\",\"attr_price\":\"150.00\",\"product_number\":\"99\",\"id\":null,\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-25 07:29:50', '2018-12-25 07:29:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('508', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 07:29:51', '2018-12-25 07:29:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('509', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:29:53', '2018-12-25 07:29:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('510', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"3\":{\"sku_id\":\"8\",\"attr_price\":\"0.00\",\"product_number\":\"99\",\"id\":\"3\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"0\",\"warn_number\":\"0\",\"is_hot\":\"off\",\"is_best\":\"off\",\"is_new\":\"off\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-25 07:30:02', '2018-12-25 07:30:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('511', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 07:30:02', '2018-12-25 07:30:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('512', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:30:04', '2018-12-25 07:30:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('513', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"3\":{\"sku_id\":\"8\",\"attr_price\":\"0.00\",\"product_number\":\"99\",\"id\":\"3\",\"_remove_\":\"0\"}},\"intergral\":\"200.00\",\"give_intergral\":\"10.00\",\"virtual_quantity\":\"10\",\"warn_number\":\"10\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"foxt12hhHWI7NsHR0tZHlCpJYgpcPo1wA2nq4cZs\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-25 07:30:20', '2018-12-25 07:30:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('514', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-25 07:30:20', '2018-12-25 07:30:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('515', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:30:24', '2018-12-25 07:30:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('516', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-25 07:30:34', '2018-12-25 07:30:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('517', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-26 06:39:01', '2018-12-26 06:39:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('518', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-26 06:39:58', '2018-12-26 06:39:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('519', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-26 06:40:00', '2018-12-26 06:40:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('520', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-26 06:40:10', '2018-12-26 06:40:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('521', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-27 01:36:23', '2018-12-27 01:36:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('522', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-27 01:43:19', '2018-12-27 01:43:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('523', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-27 01:43:21', '2018-12-27 01:43:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('524', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"3\":{\"sku_id\":\"8\",\"attr_price\":\"200.00\",\"product_number\":\"99\",\"id\":\"3\",\"_remove_\":\"0\"}},\"intergral\":\"200.00\",\"give_intergral\":\"10.00\",\"virtual_quantity\":\"10\",\"warn_number\":\"10\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"S398gu0XYTr1uEwHxI1ApfbIzxM9G8Eo5dbF4ToZ\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-27 01:43:34', '2018-12-27 01:43:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('525', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-27 01:43:34', '2018-12-27 01:43:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('526', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-27 01:45:13', '2018-12-27 01:45:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('527', '1', 'admin/product/5', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"brand_id\":\"1\",\"category_id\":\"10\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"market_price\":\"500.00\",\"price\":\"250.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"3\":{\"sku_id\":\"8\",\"attr_price\":\"300.00\",\"product_number\":\"99\",\"id\":\"3\",\"_remove_\":\"0\"}},\"intergral\":\"200.00\",\"give_intergral\":\"10.00\",\"virtual_quantity\":\"10\",\"warn_number\":\"10\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"S398gu0XYTr1uEwHxI1ApfbIzxM9G8Eo5dbF4ToZ\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2018-12-27 01:46:12', '2018-12-27 01:46:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('528', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2018-12-27 01:46:12', '2018-12-27 01:46:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('529', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-27 10:11:36', '2018-12-27 10:11:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('530', '1', 'admin', 'GET', '127.0.0.1', '[]', '2018-12-28 01:10:32', '2018-12-28 01:10:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('531', '1', 'admin/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-28 01:10:51', '2018-12-28 01:10:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('532', '1', 'admin/auth/roles/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-28 01:10:54', '2018-12-28 01:10:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('533', '1', 'admin/auth/users', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-28 01:10:58', '2018-12-28 01:10:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('534', '1', 'admin/auth/users/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2018-12-28 01:11:00', '2018-12-28 01:11:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('535', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-02 01:43:15', '2019-01-02 01:43:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('536', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-02 01:43:50', '2019-01-02 01:43:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('537', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-02 01:43:56', '2019-01-02 01:43:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('538', '1', 'admin/product/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-02 01:44:02', '2019-01-02 01:44:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('539', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-02 01:44:12', '2019-01-02 01:44:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('540', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-02 10:43:44', '2019-01-02 10:43:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('541', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-02 10:43:46', '2019-01-02 10:43:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('542', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-02 10:43:49', '2019-01-02 10:43:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('543', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-08 09:36:02', '2019-01-08 09:36:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('544', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-09 11:12:45', '2019-01-09 11:12:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('545', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:12:48', '2019-01-09 11:12:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('546', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:12:49', '2019-01-09 11:12:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('547', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:12:50', '2019-01-09 11:12:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('548', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:12:53', '2019-01-09 11:12:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('549', '1', 'admin/product/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:12:55', '2019-01-09 11:12:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('550', '1', 'admin/product/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6c99\\u5ba3\",\"_token\":\"G2FHtvtO7VkCoWesX60bWWNEniU1hJbCocwurBKg\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/category\"}', '2019-01-09 11:13:05', '2019-01-09 11:13:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('551', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-01-09 11:13:05', '2019-01-09 11:13:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('552', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:13:07', '2019-01-09 11:13:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('553', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:13:14', '2019-01-09 11:13:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('554', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u901f\\u5b9a\\u578b\",\"_token\":\"G2FHtvtO7VkCoWesX60bWWNEniU1hJbCocwurBKg\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/sku\"}', '2019-01-09 11:13:31', '2019-01-09 11:13:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('555', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 11:13:32', '2019-01-09 11:13:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('556', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:13:36', '2019-01-09 11:13:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('557', '1', 'admin/product/sku', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6301\\u4e45\\u5b9a\\u578b\",\"_token\":\"G2FHtvtO7VkCoWesX60bWWNEniU1hJbCocwurBKg\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/sku\"}', '2019-01-09 11:13:42', '2019-01-09 11:13:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('558', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 11:13:43', '2019-01-09 11:13:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('559', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:13:44', '2019-01-09 11:13:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('560', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:13:46', '2019-01-09 11:13:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('561', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-01-09 11:13:54', '2019-01-09 11:13:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('562', '1', 'admin/api/product/category', 'GET', '127.0.0.1', '{\"q\":null}', '2019-01-09 11:13:58', '2019-01-09 11:13:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('563', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"2\",\"category_id\":\"12\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"new_1\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"intergral\":null,\"give_intergral\":null,\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"G2FHtvtO7VkCoWesX60bWWNEniU1hJbCocwurBKg\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-01-09 11:17:00', '2019-01-09 11:17:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('564', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-01-09 11:17:01', '2019-01-09 11:17:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('565', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-01-09 11:21:06', '2019-01-09 11:21:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('566', '1', 'admin/api/product/category', 'GET', '127.0.0.1', '{\"q\":null}', '2019-01-09 11:21:09', '2019-01-09 11:21:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('567', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"2\",\"category_id\":\"12\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"new_1\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"intergral\":null,\"give_intergral\":null,\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"G2FHtvtO7VkCoWesX60bWWNEniU1hJbCocwurBKg\"}', '2019-01-09 11:21:32', '2019-01-09 11:21:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('568', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-01-09 11:21:32', '2019-01-09 11:21:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('569', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:21:36', '2019-01-09 11:21:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('570', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:21:38', '2019-01-09 11:21:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('571', '1', 'admin/product/category/12/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:21:40', '2019-01-09 11:21:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('572', '1', 'admin/product/category/12', 'PUT', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6d17\\u53d1\\u6c34\",\"_token\":\"G2FHtvtO7VkCoWesX60bWWNEniU1hJbCocwurBKg\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/category\"}', '2019-01-09 11:21:47', '2019-01-09 11:21:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('573', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-01-09 11:21:47', '2019-01-09 11:21:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('574', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:21:49', '2019-01-09 11:21:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('575', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:21:51', '2019-01-09 11:21:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('576', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:21:56', '2019-01-09 11:21:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('577', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:22:15', '2019-01-09 11:22:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('578', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:22:20', '2019-01-09 11:22:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('579', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 11:22:23', '2019-01-09 11:22:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('580', '1', 'admin/brand', 'GET', '127.0.0.1', '[]', '2019-01-09 11:22:48', '2019-01-09 11:22:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('581', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:04:11', '2019-01-09 14:04:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('582', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:04:13', '2019-01-09 14:04:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('583', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:04:20', '2019-01-09 14:04:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('584', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:04:21', '2019-01-09 14:04:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('585', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:10:13', '2019-01-09 14:10:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('586', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:11:56', '2019-01-09 14:11:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('587', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:11:56', '2019-01-09 14:11:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('588', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:12:08', '2019-01-09 14:12:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('589', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:12:12', '2019-01-09 14:12:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('590', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:12:12', '2019-01-09 14:12:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('591', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:12:35', '2019-01-09 14:12:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('592', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:15:02', '2019-01-09 14:15:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('593', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:15:07', '2019-01-09 14:15:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('594', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:21:26', '2019-01-09 14:21:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('595', '1', 'admin/product/sku/10/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:21:30', '2019-01-09 14:21:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('596', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:21:33', '2019-01-09 14:21:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('597', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:21:37', '2019-01-09 14:21:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('598', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:23:43', '2019-01-09 14:23:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('599', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:23:48', '2019-01-09 14:23:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('600', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:23:49', '2019-01-09 14:23:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('601', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:24:45', '2019-01-09 14:24:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('602', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:24:51', '2019-01-09 14:24:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('603', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:24:51', '2019-01-09 14:24:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('604', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:29:06', '2019-01-09 14:29:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('605', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:29:32', '2019-01-09 14:29:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('606', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:29:36', '2019-01-09 14:29:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('607', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:30:18', '2019-01-09 14:30:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('608', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:30:23', '2019-01-09 14:30:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('609', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:30:23', '2019-01-09 14:30:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('610', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:30:43', '2019-01-09 14:30:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('611', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:30:47', '2019-01-09 14:30:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('612', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:31:07', '2019-01-09 14:31:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('613', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:36:00', '2019-01-09 14:36:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('614', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:36:01', '2019-01-09 14:36:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('615', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:36:59', '2019-01-09 14:36:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('616', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:37:02', '2019-01-09 14:37:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('617', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:37:03', '2019-01-09 14:37:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('618', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:37:43', '2019-01-09 14:37:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('619', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:37:43', '2019-01-09 14:37:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('620', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:37:56', '2019-01-09 14:37:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('621', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:37:57', '2019-01-09 14:37:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('622', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:38:56', '2019-01-09 14:38:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('623', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:38:57', '2019-01-09 14:38:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('624', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:41:17', '2019-01-09 14:41:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('625', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:41:58', '2019-01-09 14:41:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('626', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:41:59', '2019-01-09 14:41:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('627', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:42:30', '2019-01-09 14:42:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('628', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:48:08', '2019-01-09 14:48:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('629', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:48:09', '2019-01-09 14:48:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('630', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:48:57', '2019-01-09 14:48:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('631', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:48:58', '2019-01-09 14:48:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('632', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:50:04', '2019-01-09 14:50:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('633', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:50:13', '2019-01-09 14:50:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('634', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:50:22', '2019-01-09 14:50:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('635', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:50:37', '2019-01-09 14:50:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('636', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:50:48', '2019-01-09 14:50:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('637', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:50:55', '2019-01-09 14:50:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('638', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:51:13', '2019-01-09 14:51:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('639', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:51:26', '2019-01-09 14:51:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('640', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:51:42', '2019-01-09 14:51:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('641', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 14:55:25', '2019-01-09 14:55:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('642', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:55:29', '2019-01-09 14:55:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('643', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:55:30', '2019-01-09 14:55:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('644', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:55:43', '2019-01-09 14:55:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('645', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:55:44', '2019-01-09 14:55:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('646', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:55:51', '2019-01-09 14:55:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('647', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 14:55:52', '2019-01-09 14:55:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('648', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 14:56:02', '2019-01-09 14:56:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('649', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 15:03:47', '2019-01-09 15:03:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('650', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 15:03:50', '2019-01-09 15:03:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('651', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 15:03:58', '2019-01-09 15:03:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('652', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 15:04:01', '2019-01-09 15:04:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('653', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 15:04:07', '2019-01-09 15:04:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('654', '1', 'admin/product/sku/10', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 15:04:09', '2019-01-09 15:04:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('655', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 15:04:10', '2019-01-09 15:04:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('656', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-09 15:04:29', '2019-01-09 15:04:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('657', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 15:19:24', '2019-01-09 15:19:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('658', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-09 15:19:26', '2019-01-09 15:19:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('659', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"2\",\"category_id\":\"12\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"2\",\"id\":\"4\",\"_remove_\":\"0\"},\"new_1\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":null,\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-01-09 15:19:59', '2019-01-09 15:19:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('660', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-01-09 15:20:00', '2019-01-09 15:20:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('661', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-01-09 15:20:47', '2019-01-09 15:20:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('662', '1', 'admin/product/6', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"zOrMRKPyeU4EszkIyzJhV16qoR73wgJANRNqUYK9\"}', '2019-01-09 15:20:55', '2019-01-09 15:20:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('663', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-15 16:57:47', '2019-01-15 16:57:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('664', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-15 16:57:51', '2019-01-15 16:57:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('665', '1', 'admin/brand/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-15 16:57:54', '2019-01-15 16:57:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('666', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:57:56', '2019-01-15 16:57:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('667', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:57:58', '2019-01-15 16:57:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('668', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:57:59', '2019-01-15 16:57:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('669', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:58:00', '2019-01-15 16:58:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('670', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:58:01', '2019-01-15 16:58:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('671', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-15 16:58:02', '2019-01-15 16:58:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('672', '1', 'admin/brand/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-15 16:58:04', '2019-01-15 16:58:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('673', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:58:05', '2019-01-15 16:58:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('674', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:58:06', '2019-01-15 16:58:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('675', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:58:07', '2019-01-15 16:58:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('676', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:58:08', '2019-01-15 16:58:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('677', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:58:08', '2019-01-15 16:58:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('678', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:58:09', '2019-01-15 16:58:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('679', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:58:10', '2019-01-15 16:58:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('680', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:58:10', '2019-01-15 16:58:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('681', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-01-15 16:58:11', '2019-01-15 16:58:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('682', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-16 15:05:32', '2019-01-16 15:05:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('683', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-16 17:58:50', '2019-01-16 17:58:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('684', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-16 17:58:52', '2019-01-16 17:58:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('685', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-16 17:58:54', '2019-01-16 17:58:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('686', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-16 17:58:56', '2019-01-16 17:58:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('687', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-16 17:58:58', '2019-01-16 17:58:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('688', '1', 'admin/product/sku/11/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-16 17:59:00', '2019-01-16 17:59:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('689', '1', 'admin/product/sku/11', 'PUT', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6301\\u4e45\\u5b9a\\u578b\",\"_token\":\"kScqrKef8GahpPWOaS2wYwXl9p1nvQOAnhw9r7QV\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/sku\"}', '2019-01-16 17:59:02', '2019-01-16 17:59:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('690', '1', 'admin/product/sku', 'GET', '127.0.0.1', '[]', '2019-01-16 17:59:02', '2019-01-16 17:59:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('691', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-16 17:59:03', '2019-01-16 17:59:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('692', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-16 17:59:07', '2019-01-16 17:59:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('693', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"2\",\"category_id\":\"12\",\"brief\":\"\\u6d4b\\u8bd5\",\"description\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"kScqrKef8GahpPWOaS2wYwXl9p1nvQOAnhw9r7QV\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-01-16 17:59:11', '2019-01-16 17:59:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('694', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-01-16 17:59:11', '2019-01-16 17:59:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('695', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-16 17:59:15', '2019-01-16 17:59:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('696', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-16 17:59:21', '2019-01-16 17:59:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('697', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-16 17:59:22', '2019-01-16 17:59:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('698', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-17 10:28:41', '2019-01-17 10:28:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('699', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-17 12:03:35', '2019-01-17 12:03:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('700', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-17 12:03:38', '2019-01-17 12:03:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('701', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-17 12:03:46', '2019-01-17 12:03:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('702', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-17 12:07:32', '2019-01-17 12:07:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('703', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-17 14:36:47', '2019-01-17 14:36:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('704', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-17 14:36:49', '2019-01-17 14:36:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('705', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-17 14:36:53', '2019-01-17 14:36:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('706', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-01-24 09:23:08', '2019-01-24 09:23:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('707', '1', 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-24 09:23:18', '2019-01-24 09:23:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('708', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-24 09:23:22', '2019-01-24 09:23:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('709', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"8\",\"title\":\"\\u79d2\\u6740\\u7ba1\\u7406\",\"icon\":\"fa-align-left\",\"uri\":\"seckill\",\"roles\":[null],\"permission\":null,\"_token\":\"1skVoBympZr5S6gNyVFW4x56x4eOb297rzU0oSfY\"}', '2019-01-24 09:24:16', '2019-01-24 09:24:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('710', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-01-24 09:24:17', '2019-01-24 09:24:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('711', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-01-24 09:24:20', '2019-01-24 09:24:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('712', '1', 'admin/auth/menu/15/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-24 09:54:34', '2019-01-24 09:54:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('713', '1', 'admin/auth/menu/15', 'PUT', '127.0.0.1', '{\"parent_id\":\"8\",\"title\":\"\\u79d2\\u6740\\u7ba1\\u7406\",\"icon\":\"fa-align-left\",\"uri\":\"product\\/seckill\",\"roles\":[null],\"permission\":null,\"_token\":\"1skVoBympZr5S6gNyVFW4x56x4eOb297rzU0oSfY\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/auth\\/menu\"}', '2019-01-24 09:54:43', '2019-01-24 09:54:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('714', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-01-24 09:54:43', '2019-01-24 09:54:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('715', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-01-24 11:50:35', '2019-01-24 11:50:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('716', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-24 11:50:40', '2019-01-24 11:50:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('717', '1', 'admin/product/seckill/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-01-24 11:52:46', '2019-01-24 11:52:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('718', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":null}', '2019-01-24 11:52:51', '2019-01-24 11:52:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('719', '1', 'admin/product/seckill/create', 'GET', '127.0.0.1', '[]', '2019-01-24 11:54:51', '2019-01-24 11:54:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('720', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":null}', '2019-01-24 11:55:05', '2019-01-24 11:55:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('721', '1', 'admin/product/seckill', 'POST', '127.0.0.1', '{\"product_id\":\"6\",\"number\":\"2\",\"limit_user\":null,\"start_time\":\"2019-01-24 00:00:00\",\"end_time\":\"2019-01-25 00:00:00\",\"is_show\":\"on\",\"_token\":\"1skVoBympZr5S6gNyVFW4x56x4eOb297rzU0oSfY\"}', '2019-01-24 11:55:09', '2019-01-24 11:55:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('722', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '[]', '2019-01-24 11:55:10', '2019-01-24 11:55:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('723', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-02-15 14:53:00', '2019-02-15 14:53:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('724', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-02-16 14:02:43', '2019-02-16 14:02:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('725', '1', 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:09:48', '2019-02-16 14:09:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('726', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:09:51', '2019-02-16 14:09:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('727', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u7528\\u6237\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":\"user\",\"roles\":[null],\"permission\":null,\"_token\":\"RnB5kZ8xKpk198fHLzNxsbbAhcgFtvMjRemyQBIh\"}', '2019-02-16 14:10:10', '2019-02-16 14:10:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('728', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-16 14:10:11', '2019-02-16 14:10:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('729', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"16\",\"title\":\"\\u7528\\u6237\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"user\",\"roles\":[null],\"permission\":null,\"_token\":\"RnB5kZ8xKpk198fHLzNxsbbAhcgFtvMjRemyQBIh\"}', '2019-02-16 14:10:28', '2019-02-16 14:10:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('730', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-16 14:10:28', '2019-02-16 14:10:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('731', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"_token\":\"RnB5kZ8xKpk198fHLzNxsbbAhcgFtvMjRemyQBIh\",\"_order\":\"[{\\\"id\\\":1},{\\\"id\\\":2,\\\"children\\\":[{\\\"id\\\":3},{\\\"id\\\":4},{\\\"id\\\":5},{\\\"id\\\":6},{\\\"id\\\":7}]},{\\\"id\\\":16,\\\"children\\\":[{\\\"id\\\":17}]},{\\\"id\\\":8,\\\"children\\\":[{\\\"id\\\":9},{\\\"id\\\":14},{\\\"id\\\":10},{\\\"id\\\":15}]},{\\\"id\\\":11,\\\"children\\\":[{\\\"id\\\":12},{\\\"id\\\":13}]}]\"}', '2019-02-16 14:10:38', '2019-02-16 14:10:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('732', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:10:38', '2019-02-16 14:10:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('733', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-16 14:10:39', '2019-02-16 14:10:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('734', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:10:41', '2019-02-16 14:10:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('735', '1', 'admin/user', 'GET', '127.0.0.1', '[]', '2019-02-16 14:11:40', '2019-02-16 14:11:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('736', '1', 'admin/user', 'GET', '127.0.0.1', '[]', '2019-02-16 14:12:56', '2019-02-16 14:12:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('737', '1', 'admin/user', 'GET', '127.0.0.1', '[]', '2019-02-16 14:15:46', '2019-02-16 14:15:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('738', '1', 'admin/user', 'GET', '127.0.0.1', '[]', '2019-02-16 14:15:54', '2019-02-16 14:15:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('739', '1', 'admin/user/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:16:08', '2019-02-16 14:16:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('740', '1', 'admin/user/1/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 14:16:30', '2019-02-16 14:16:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('741', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:18:01', '2019-02-16 14:18:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('742', '1', 'admin/user', 'GET', '127.0.0.1', '[]', '2019-02-16 14:19:58', '2019-02-16 14:19:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('743', '1', 'admin/user', 'GET', '127.0.0.1', '[]', '2019-02-16 14:20:00', '2019-02-16 14:20:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('744', '1', 'admin/user', 'GET', '127.0.0.1', '[]', '2019-02-16 14:21:19', '2019-02-16 14:21:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('745', '1', 'admin/user', 'GET', '127.0.0.1', '[]', '2019-02-16 14:21:32', '2019-02-16 14:21:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('746', '1', 'admin/user', 'GET', '127.0.0.1', '[]', '2019-02-16 14:24:01', '2019-02-16 14:24:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('747', '1', 'admin/user/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:24:03', '2019-02-16 14:24:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('748', '1', 'admin/user/1/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 14:24:18', '2019-02-16 14:24:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('749', '1', 'admin/user/1/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 14:25:14', '2019-02-16 14:25:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('750', '1', 'admin/user/1', 'PUT', '127.0.0.1', '{\"nick_name\":null,\"mobile\":\"13888888887\",\"email\":null,\"_token\":\"RnB5kZ8xKpk198fHLzNxsbbAhcgFtvMjRemyQBIh\",\"after-save\":\"1\",\"_method\":\"PUT\"}', '2019-02-16 14:25:33', '2019-02-16 14:25:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('751', '1', 'admin/user/1/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 14:25:33', '2019-02-16 14:25:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('752', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:25:47', '2019-02-16 14:25:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('753', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:45:09', '2019-02-16 14:45:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('754', '1', 'admin/brand/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:45:11', '2019-02-16 14:45:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('755', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:45:21', '2019-02-16 14:45:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('756', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:45:24', '2019-02-16 14:45:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('757', '1', 'admin/brand/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:45:26', '2019-02-16 14:45:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('758', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:45:35', '2019-02-16 14:45:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('759', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:45:37', '2019-02-16 14:45:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('760', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:45:56', '2019-02-16 14:45:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('761', '1', 'admin/product/seckill/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:45:59', '2019-02-16 14:45:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('762', '1', 'admin/product/seckill/1/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 14:49:48', '2019-02-16 14:49:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('763', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 14:49:58', '2019-02-16 14:49:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('764', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:50:05', '2019-02-16 14:50:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('765', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:50:06', '2019-02-16 14:50:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('766', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:50:09', '2019-02-16 14:50:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('767', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:50:10', '2019-02-16 14:50:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('768', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:50:11', '2019-02-16 14:50:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('769', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:53:01', '2019-02-16 14:53:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('770', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u8ba2\\u5355\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":null,\"roles\":[null],\"permission\":null,\"_token\":\"RnB5kZ8xKpk198fHLzNxsbbAhcgFtvMjRemyQBIh\"}', '2019-02-16 14:53:12', '2019-02-16 14:53:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('771', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-16 14:53:12', '2019-02-16 14:53:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('772', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u8ba2\\u5355\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"order\",\"roles\":[null],\"permission\":null,\"_token\":\"RnB5kZ8xKpk198fHLzNxsbbAhcgFtvMjRemyQBIh\"}', '2019-02-16 14:53:24', '2019-02-16 14:53:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('773', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-16 14:53:24', '2019-02-16 14:53:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('774', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"_token\":\"RnB5kZ8xKpk198fHLzNxsbbAhcgFtvMjRemyQBIh\",\"_order\":\"[{\\\"id\\\":1},{\\\"id\\\":2,\\\"children\\\":[{\\\"id\\\":3},{\\\"id\\\":4},{\\\"id\\\":5},{\\\"id\\\":6},{\\\"id\\\":7}]},{\\\"id\\\":16,\\\"children\\\":[{\\\"id\\\":17}]},{\\\"id\\\":11,\\\"children\\\":[{\\\"id\\\":12},{\\\"id\\\":13}]},{\\\"id\\\":8,\\\"children\\\":[{\\\"id\\\":9},{\\\"id\\\":14},{\\\"id\\\":10},{\\\"id\\\":15}]},{\\\"id\\\":18,\\\"children\\\":[{\\\"id\\\":19}]}]\"}', '2019-02-16 14:53:35', '2019-02-16 14:53:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('775', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:53:35', '2019-02-16 14:53:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('776', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-16 14:54:14', '2019-02-16 14:54:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('777', '1', 'admin/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 14:54:17', '2019-02-16 14:54:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('778', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 15:05:04', '2019-02-16 15:05:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('779', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 15:12:22', '2019-02-16 15:12:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('780', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 15:12:25', '2019-02-16 15:12:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('781', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 15:12:43', '2019-02-16 15:12:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('782', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 15:13:21', '2019-02-16 15:13:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('783', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 15:52:00', '2019-02-16 15:52:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('784', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 15:52:01', '2019-02-16 15:52:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('785', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 15:52:04', '2019-02-16 15:52:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('786', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 15:55:18', '2019-02-16 15:55:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('787', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 15:55:21', '2019-02-16 15:55:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('788', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"2\"}', '2019-02-16 15:55:23', '2019-02-16 15:55:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('789', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"3\"}', '2019-02-16 15:55:24', '2019-02-16 15:55:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('790', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"4\"}', '2019-02-16 15:55:25', '2019-02-16 15:55:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('791', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 15:55:51', '2019-02-16 15:55:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('792', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 15:55:53', '2019-02-16 15:55:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('793', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"2\"}', '2019-02-16 15:55:54', '2019-02-16 15:55:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('794', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"3\"}', '2019-02-16 15:55:55', '2019-02-16 15:55:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('795', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 15:56:14', '2019-02-16 15:56:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('796', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 15:58:19', '2019-02-16 15:58:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('797', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 15:58:22', '2019-02-16 15:58:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('798', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"2\"}', '2019-02-16 15:58:28', '2019-02-16 15:58:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('799', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 15:58:43', '2019-02-16 15:58:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('800', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 15:58:46', '2019-02-16 15:58:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('801', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 15:59:06', '2019-02-16 15:59:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('802', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 15:59:09', '2019-02-16 15:59:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('803', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"2\"}', '2019-02-16 15:59:10', '2019-02-16 15:59:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('804', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 15:59:21', '2019-02-16 15:59:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('805', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 15:59:30', '2019-02-16 15:59:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('806', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"2\"}', '2019-02-16 15:59:32', '2019-02-16 15:59:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('807', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"3\"}', '2019-02-16 15:59:33', '2019-02-16 15:59:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('808', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:00:02', '2019-02-16 16:00:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('809', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 16:00:04', '2019-02-16 16:00:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('810', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 16:00:35', '2019-02-16 16:00:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('811', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 16:00:55', '2019-02-16 16:00:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('812', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"2\"}', '2019-02-16 16:00:56', '2019-02-16 16:00:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('813', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:02:37', '2019-02-16 16:02:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('814', '1', 'admin/api/province', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 16:02:40', '2019-02-16 16:02:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('815', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:02:54', '2019-02-16 16:02:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('816', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"2\"}', '2019-02-16 16:02:59', '2019-02-16 16:02:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('817', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-02-16 16:03:01', '2019-02-16 16:03:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('818', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"0\"}', '2019-02-16 16:03:02', '2019-02-16 16:03:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('819', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:08:53', '2019-02-16 16:08:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('820', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:09:03', '2019-02-16 16:09:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('821', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"566\"}', '2019-02-16 16:09:11', '2019-02-16 16:09:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('822', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:09:41', '2019-02-16 16:09:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('823', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"322\"}', '2019-02-16 16:09:45', '2019-02-16 16:09:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('824', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:12:44', '2019-02-16 16:12:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('825', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"566\"}', '2019-02-16 16:12:47', '2019-02-16 16:12:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('826', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 16:12:47', '2019-02-16 16:12:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('827', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 16:12:48', '2019-02-16 16:12:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('828', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:14:45', '2019-02-16 16:14:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('829', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"690\"}', '2019-02-16 16:14:49', '2019-02-16 16:14:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('830', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:15:10', '2019-02-16 16:15:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('831', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"322\"}', '2019-02-16 16:15:14', '2019-02-16 16:15:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('832', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 16:15:14', '2019-02-16 16:15:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('833', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-16 16:15:15', '2019-02-16 16:15:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('834', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:15:39', '2019-02-16 16:15:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('835', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"322\"}', '2019-02-16 16:15:44', '2019-02-16 16:15:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('836', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"323\"}', '2019-02-16 16:15:45', '2019-02-16 16:15:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('837', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"323\"}', '2019-02-16 16:15:46', '2019-02-16 16:15:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('838', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:16:44', '2019-02-16 16:16:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('839', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"322\"}', '2019-02-16 16:16:47', '2019-02-16 16:16:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('840', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"323\"}', '2019-02-16 16:16:48', '2019-02-16 16:16:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('841', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"323\"}', '2019-02-16 16:16:49', '2019-02-16 16:16:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('842', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"386\"}', '2019-02-16 16:16:50', '2019-02-16 16:16:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('843', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:17:18', '2019-02-16 16:17:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('844', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"566\"}', '2019-02-16 16:17:28', '2019-02-16 16:17:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('845', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"567\"}', '2019-02-16 16:17:28', '2019-02-16 16:17:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('846', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"814\"}', '2019-02-16 16:17:37', '2019-02-16 16:17:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('847', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"815\"}', '2019-02-16 16:17:37', '2019-02-16 16:17:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('848', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"865\"}', '2019-02-16 16:17:41', '2019-02-16 16:17:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('849', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"423\"}', '2019-02-16 16:17:50', '2019-02-16 16:17:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('850', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"424\"}', '2019-02-16 16:17:50', '2019-02-16 16:17:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('851', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"441\"}', '2019-02-16 16:17:54', '2019-02-16 16:17:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('852', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:20:32', '2019-02-16 16:20:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('853', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:20:58', '2019-02-16 16:20:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('854', '1', 'admin/order/17', 'PUT', '127.0.0.1', '{\"mobile\":\"18825099087\",\"region_proviceId\":\"423\",\"region_cityId\":\"441\",\"region_areaId\":\"3284\",\"address\":\"\\u4e1c\\u7eb5\\u8def111\\u53f7\",\"postscript\":\"asda\",\"to_buyer\":null,\"_token\":\"RnB5kZ8xKpk198fHLzNxsbbAhcgFtvMjRemyQBIh\",\"_method\":\"PUT\"}', '2019-02-16 16:21:04', '2019-02-16 16:21:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('855', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 16:21:04', '2019-02-16 16:21:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('856', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 16:21:37', '2019-02-16 16:21:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('857', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"322\"}', '2019-02-16 16:21:48', '2019-02-16 16:21:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('858', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"323\"}', '2019-02-16 16:21:48', '2019-02-16 16:21:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('859', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"332\"}', '2019-02-16 16:21:49', '2019-02-16 16:21:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('860', '1', 'admin/order/17', 'PUT', '127.0.0.1', '{\"mobile\":\"18825099087\",\"region_proviceId\":\"322\",\"region_cityId\":\"332\",\"region_areaId\":\"335\",\"address\":\"\\u4e1c\\u7eb5\\u8def111\\u53f7\",\"to_buyer\":\"111\",\"_token\":\"RnB5kZ8xKpk198fHLzNxsbbAhcgFtvMjRemyQBIh\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/order\"}', '2019-02-16 16:21:56', '2019-02-16 16:21:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('861', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 16:21:57', '2019-02-16 16:21:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('862', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 16:22:05', '2019-02-16 16:22:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('863', '1', 'admin/order/17/edit', 'GET', '127.0.0.1', '[]', '2019-02-16 16:50:37', '2019-02-16 16:50:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('864', '1', 'admin/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 16:50:39', '2019-02-16 16:50:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('865', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 16:52:00', '2019-02-16 16:52:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('866', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 16:53:31', '2019-02-16 16:53:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('867', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 16:56:11', '2019-02-16 16:56:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('868', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 16:57:41', '2019-02-16 16:57:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('869', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 16:57:47', '2019-02-16 16:57:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('870', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 16:58:52', '2019-02-16 16:58:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('871', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 16:59:25', '2019-02-16 16:59:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('872', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:00:08', '2019-02-16 17:00:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('873', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:11:12', '2019-02-16 17:11:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('874', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:15:27', '2019-02-16 17:15:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('875', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:16:17', '2019-02-16 17:16:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('876', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:17:15', '2019-02-16 17:17:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('877', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:17:21', '2019-02-16 17:17:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('878', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:17:40', '2019-02-16 17:17:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('879', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:17:43', '2019-02-16 17:17:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('880', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:18:35', '2019-02-16 17:18:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('881', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:29:43', '2019-02-16 17:29:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('882', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:40:28', '2019-02-16 17:40:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('883', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:43:57', '2019-02-16 17:43:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('884', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:44:18', '2019-02-16 17:44:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('885', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:46:22', '2019-02-16 17:46:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('886', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:47:52', '2019-02-16 17:47:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('887', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:48:26', '2019-02-16 17:48:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('888', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:48:59', '2019-02-16 17:48:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('889', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:49:45', '2019-02-16 17:49:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('890', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:50:15', '2019-02-16 17:50:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('891', '1', 'admin/order/17', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 17:53:51', '2019-02-16 17:53:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('892', '1', 'admin/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 17:54:00', '2019-02-16 17:54:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('893', '1', 'admin/order/17', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 17:54:17', '2019-02-16 17:54:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('894', '1', 'admin/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-16 17:54:26', '2019-02-16 17:54:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('895', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:59:09', '2019-02-16 17:59:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('896', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2019-02-16 17:59:57', '2019-02-16 17:59:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('897', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-02-18 14:31:42', '2019-02-18 14:31:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('898', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-18 14:56:00', '2019-02-18 14:56:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('899', '1', 'admin/auth/menu/18', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"2X4H3eO8sCv1q1XzZw8HLipcrmYU1rM3Rgx3njj5\"}', '2019-02-18 14:56:34', '2019-02-18 14:56:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('900', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-18 14:56:35', '2019-02-18 14:56:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('901', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"8\",\"title\":\"\\u8ba2\\u5355\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":\"order\",\"roles\":[null],\"permission\":null,\"_token\":\"2X4H3eO8sCv1q1XzZw8HLipcrmYU1rM3Rgx3njj5\"}', '2019-02-18 14:57:08', '2019-02-18 14:57:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('902', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-18 14:57:08', '2019-02-18 14:57:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('903', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-02-18 14:57:13', '2019-02-18 14:57:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('904', '1', 'admin/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-18 14:57:15', '2019-02-18 14:57:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('905', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-18 14:58:35', '2019-02-18 14:58:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('906', '1', 'admin/auth/menu/20/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-18 14:58:40', '2019-02-18 14:58:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('907', '1', 'admin/auth/menu/20', 'PUT', '127.0.0.1', '{\"parent_id\":\"8\",\"title\":\"\\u8ba2\\u5355\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":\"product\\/order\",\"roles\":[null],\"permission\":null,\"_token\":\"2X4H3eO8sCv1q1XzZw8HLipcrmYU1rM3Rgx3njj5\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/auth\\/menu\"}', '2019-02-18 14:58:50', '2019-02-18 14:58:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('908', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-18 14:58:51', '2019-02-18 14:58:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('909', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-18 14:58:54', '2019-02-18 14:58:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('910', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-18 14:58:57', '2019-02-18 14:58:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('911', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-18 14:59:33', '2019-02-18 14:59:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('912', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-18 15:25:01', '2019-02-18 15:25:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('913', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u5730\\u57df\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":null,\"roles\":[null],\"permission\":null,\"_token\":\"2X4H3eO8sCv1q1XzZw8HLipcrmYU1rM3Rgx3njj5\"}', '2019-02-18 15:25:13', '2019-02-18 15:25:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('914', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-18 15:25:13', '2019-02-18 15:25:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('915', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"21\",\"title\":\"\\u5730\\u57df\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"region\",\"roles\":[null],\"permission\":null,\"_token\":\"2X4H3eO8sCv1q1XzZw8HLipcrmYU1rM3Rgx3njj5\"}', '2019-02-18 15:25:31', '2019-02-18 15:25:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('916', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-18 15:25:31', '2019-02-18 15:25:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('917', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-18 15:25:32', '2019-02-18 15:25:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('918', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-18 15:25:34', '2019-02-18 15:25:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('919', '1', 'admin/region', 'GET', '127.0.0.1', '[]', '2019-02-18 15:28:11', '2019-02-18 15:28:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('920', '1', 'admin/region', 'GET', '127.0.0.1', '[]', '2019-02-18 15:30:13', '2019-02-18 15:30:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('921', '1', 'admin/region/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-18 15:38:06', '2019-02-18 15:38:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('922', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-18 15:38:24', '2019-02-18 15:38:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('923', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-18 15:43:43', '2019-02-18 15:43:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('924', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-02-19 09:10:16', '2019-02-19 09:10:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('925', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 09:22:52', '2019-02-19 09:22:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('926', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u5e7f\\u544a\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":null,\"roles\":[null],\"permission\":null,\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 09:23:06', '2019-02-19 09:23:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('927', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-19 09:23:06', '2019-02-19 09:23:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('928', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"23\",\"title\":\"\\u5e7f\\u544a\\u4f4d\\u7f6e\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"adv\\/position\",\"roles\":[null],\"permission\":null,\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 09:23:29', '2019-02-19 09:23:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('929', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-19 09:23:30', '2019-02-19 09:23:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('930', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-19 09:23:32', '2019-02-19 09:23:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('931', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 09:23:35', '2019-02-19 09:23:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('932', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 09:24:07', '2019-02-19 09:24:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('933', '1', 'admin/adv/position/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 09:30:17', '2019-02-19 09:30:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('934', '1', 'admin/adv/position', 'POST', '127.0.0.1', '{\"name\":\"\\u9996\\u9875\\u8f6e\\u64ad\",\"width\":\"750\",\"height\":\"640\",\"is_show\":\"on\",\"sort_order\":\"99\",\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/adv\\/position\"}', '2019-02-19 09:31:15', '2019-02-19 09:31:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('935', '1', 'admin/adv/position/create', 'GET', '127.0.0.1', '[]', '2019-02-19 09:31:16', '2019-02-19 09:31:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('936', '1', 'admin/adv/position', 'POST', '127.0.0.1', '{\"name\":\"\\u9996\\u9875\\u8f6e\\u64ad\",\"width\":\"750\",\"height\":\"640\",\"is_show\":\"on\",\"sort_order\":\"99\",\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 09:32:17', '2019-02-19 09:32:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('937', '1', 'admin/adv/position', 'GET', '127.0.0.1', '[]', '2019-02-19 09:32:17', '2019-02-19 09:32:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('938', '1', 'admin/adv/position/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 09:32:38', '2019-02-19 09:32:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('939', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 09:32:40', '2019-02-19 09:32:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('940', '1', 'admin/adv/position', 'GET', '127.0.0.1', '[]', '2019-02-19 09:33:05', '2019-02-19 09:33:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('941', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 09:44:41', '2019-02-19 09:44:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('942', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"23\",\"title\":\"\\u5e7f\\u544a\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"adv\",\"roles\":[null],\"permission\":null,\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 09:44:55', '2019-02-19 09:44:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('943', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-19 09:44:55', '2019-02-19 09:44:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('944', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-19 09:45:34', '2019-02-19 09:45:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('945', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 09:45:37', '2019-02-19 09:45:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('946', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-02-19 09:58:28', '2019-02-19 09:58:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('947', '1', 'admin/adv/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 09:58:29', '2019-02-19 09:58:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('948', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"42\"}', '2019-02-19 09:58:32', '2019-02-19 09:58:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('949', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"43\"}', '2019-02-19 09:58:32', '2019-02-19 09:58:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('950', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 10:00:13', '2019-02-19 10:00:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('951', '1', 'admin/api/city', 'GET', '127.0.0.1', '{\"q\":\"62\"}', '2019-02-19 10:00:22', '2019-02-19 10:00:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('952', '1', 'admin/api/area', 'GET', '127.0.0.1', '{\"q\":\"63\"}', '2019-02-19 10:00:22', '2019-02-19 10:00:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('953', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 10:07:23', '2019-02-19 10:07:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('954', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 10:07:40', '2019-02-19 10:07:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('955', '1', 'admin/api/multiple/city', 'GET', '127.0.0.1', '{\"q\":\"42\"}', '2019-02-19 10:07:47', '2019-02-19 10:07:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('956', '1', 'admin/api/multiple/city', 'GET', '127.0.0.1', '{\"q\":\"42\"}', '2019-02-19 10:07:49', '2019-02-19 10:07:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('957', '1', 'admin/api/multiple/city', 'GET', '127.0.0.1', '{\"q\":\"42\"}', '2019-02-19 10:07:58', '2019-02-19 10:07:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('958', '1', 'admin/api/multiple/city', 'GET', '127.0.0.1', '{\"q\":\"62\"}', '2019-02-19 10:08:02', '2019-02-19 10:08:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('959', '1', 'admin/api/multiple/city', 'GET', '127.0.0.1', '{\"q\":\"104\"}', '2019-02-19 10:08:04', '2019-02-19 10:08:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('960', '1', 'admin/api/multiple/city', 'GET', '127.0.0.1', '{\"q\":\"42\"}', '2019-02-19 10:13:46', '2019-02-19 10:13:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('961', '1', 'admin/api/multiple/city', 'GET', '127.0.0.1', '{\"q\":\"21\"}', '2019-02-19 10:13:48', '2019-02-19 10:13:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('962', '1', 'admin/api/multiple/city', 'GET', '127.0.0.1', '{\"q\":\"21\"}', '2019-02-19 10:13:50', '2019-02-19 10:13:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('963', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 10:23:18', '2019-02-19 10:23:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('964', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 10:23:49', '2019-02-19 10:23:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('965', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 10:23:58', '2019-02-19 10:23:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('966', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 10:27:00', '2019-02-19 10:27:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('967', '1', 'admin/api/adv/position', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 10:27:02', '2019-02-19 10:27:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('968', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 10:36:08', '2019-02-19 10:36:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('969', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 10:36:11', '2019-02-19 10:36:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('970', '1', 'admin/api/adv/position', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 10:36:16', '2019-02-19 10:36:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('971', '1', 'admin/api/adv/position', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:03:57', '2019-02-19 11:03:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('972', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:03:59', '2019-02-19 11:03:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('973', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:07:01', '2019-02-19 11:07:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('974', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:07:06', '2019-02-19 11:07:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('975', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:09:14', '2019-02-19 11:09:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('976', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:09:28', '2019-02-19 11:09:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('977', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:09:30', '2019-02-19 11:09:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('978', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:13:23', '2019-02-19 11:13:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('979', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:13:25', '2019-02-19 11:13:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('980', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:13:46', '2019-02-19 11:13:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('981', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:13:49', '2019-02-19 11:13:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('982', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:25:31', '2019-02-19 11:25:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('983', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:25:33', '2019-02-19 11:25:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('984', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"2\"}', '2019-02-19 11:25:35', '2019-02-19 11:25:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('985', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"3\"}', '2019-02-19 11:25:36', '2019-02-19 11:25:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('986', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"4\"}', '2019-02-19 11:25:38', '2019-02-19 11:25:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('987', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"5\"}', '2019-02-19 11:25:39', '2019-02-19 11:25:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('988', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"6\"}', '2019-02-19 11:25:40', '2019-02-19 11:25:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('989', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"7\"}', '2019-02-19 11:25:41', '2019-02-19 11:25:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('990', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"8\"}', '2019-02-19 11:25:43', '2019-02-19 11:25:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('991', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"9\"}', '2019-02-19 11:25:44', '2019-02-19 11:25:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('992', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"10\"}', '2019-02-19 11:25:45', '2019-02-19 11:25:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('993', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":\"chanpi\"}', '2019-02-19 11:25:47', '2019-02-19 11:25:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('994', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":\"chan\"}', '2019-02-19 11:25:48', '2019-02-19 11:25:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('995', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":\"changpin\"}', '2019-02-19 11:25:50', '2019-02-19 11:25:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('996', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":\"changping\"}', '2019-02-19 11:25:50', '2019-02-19 11:25:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('997', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":\"\\u5e38\\u5e73\"}', '2019-02-19 11:25:51', '2019-02-19 11:25:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('998', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":\"\\u5e38\"}', '2019-02-19 11:25:56', '2019-02-19 11:25:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('999', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:25:58', '2019-02-19 11:25:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1000', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":\"\\u4e1c\\u839e\"}', '2019-02-19 11:26:00', '2019-02-19 11:26:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1001', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:26:04', '2019-02-19 11:26:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1002', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":\"\\u60e0\\u5dde\"}', '2019-02-19 11:26:06', '2019-02-19 11:26:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1003', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:26:08', '2019-02-19 11:26:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1004', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":\"\\u4e1c\\u839e\"}', '2019-02-19 11:26:16', '2019-02-19 11:26:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1005', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:26:26', '2019-02-19 11:26:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1006', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"2\"}', '2019-02-19 11:26:27', '2019-02-19 11:26:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1007', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:27:06', '2019-02-19 11:27:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1008', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:37:18', '2019-02-19 11:37:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1009', '1', 'admin/api/adv/position', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:37:21', '2019-02-19 11:37:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1010', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:37:23', '2019-02-19 11:37:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1011', '1', 'admin/api/adv/position', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:42:51', '2019-02-19 11:42:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1012', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:42:55', '2019-02-19 11:42:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1013', '1', 'admin/api/region/city', 'GET', '127.0.0.1', '{\"q\":null,\"page\":\"2\"}', '2019-02-19 11:42:59', '2019-02-19 11:42:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1014', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:53:28', '2019-02-19 11:53:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1015', '1', 'admin/api/adv/position', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:55:16', '2019-02-19 11:55:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1016', '1', 'admin/adv', 'POST', '127.0.0.1', '{\"name\":null,\"url\":null,\"position_id\":\"1\",\"region_city_id\":[\"43\",\"63\",\"105\",null],\"start_time\":\"2019-02-19 00:00:00\",\"end_time\":\"2019-02-28 00:00:00\",\"is_show\":\"off\",\"sort_order\":\"99\",\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 11:55:28', '2019-02-19 11:55:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1017', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:55:28', '2019-02-19 11:55:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1018', '1', 'admin/api/adv/position', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:56:25', '2019-02-19 11:56:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1019', '1', 'admin/adv', 'POST', '127.0.0.1', '{\"name\":null,\"url\":null,\"position_id\":\"1\",\"region_city_id\":[\"43\",\"63\",\"105\",null],\"start_time\":\"2019-02-19 00:00:00\",\"end_time\":\"2019-02-28 00:00:00\",\"is_show\":\"off\",\"sort_order\":\"99\",\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 11:56:27', '2019-02-19 11:56:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1020', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:56:28', '2019-02-19 11:56:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1021', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:57:21', '2019-02-19 11:57:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1022', '1', 'admin/adv', 'POST', '127.0.0.1', '{\"name\":null,\"url\":null,\"position_id\":null,\"start_time\":\"2019-02-19 00:00:00\",\"end_time\":\"2019-02-27 00:00:00\",\"is_show\":\"off\",\"sort_order\":\"99\",\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 11:57:31', '2019-02-19 11:57:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1023', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:57:32', '2019-02-19 11:57:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1024', '1', 'admin/api/adv/position', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:57:53', '2019-02-19 11:57:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1025', '1', 'admin/adv', 'POST', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"url\":\"http:\\/\\/6vxvgb.natappfree.cc\",\"position_id\":\"1\",\"start_time\":\"2019-02-19 00:00:00\",\"end_time\":\"2019-02-27 00:00:00\",\"is_show\":\"on\",\"sort_order\":\"99\",\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 11:57:56', '2019-02-19 11:57:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1026', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:57:57', '2019-02-19 11:57:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('1027', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-02-19 11:59:05', '2019-02-19 11:59:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1028', '1', 'admin/api/adv/position', 'GET', '127.0.0.1', '{\"q\":null}', '2019-02-19 11:59:15', '2019-02-19 11:59:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('1029', '1', 'admin/adv', 'POST', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"url\":\"http:\\/\\/6vxvgb.natappfree.cc\",\"position_id\":\"1\",\"region_city_id\":[\"22\",\"63\",null],\"start_time\":\"2019-02-19 00:00:00\",\"end_time\":\"2019-02-28 00:00:00\",\"is_show\":\"on\",\"sort_order\":\"99\",\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 11:59:25', '2019-02-19 11:59:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1030', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-02-19 11:59:26', '2019-02-19 11:59:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1031', '1', 'admin/adv/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 11:59:50', '2019-02-19 11:59:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1032', '1', 'admin/adv/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 13:38:25', '2019-02-19 13:38:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1033', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 13:38:27', '2019-02-19 13:38:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1034', '1', 'admin/adv/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 14:11:29', '2019-02-19 14:11:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1035', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 14:11:37', '2019-02-19 14:11:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1036', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 14:15:12', '2019-02-19 14:15:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1037', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 14:15:30', '2019-02-19 14:15:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1038', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 14:16:21', '2019-02-19 14:16:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1039', '1', 'admin/adv/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 14:16:27', '2019-02-19 14:16:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1040', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 14:16:35', '2019-02-19 14:16:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1041', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 16:12:08', '2019-02-19 16:12:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1042', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u6587\\u7ae0\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":null,\"roles\":[null],\"permission\":null,\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 16:12:18', '2019-02-19 16:12:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1043', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-19 16:12:18', '2019-02-19 16:12:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1044', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"26\",\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7b\",\"icon\":\"fa-bars\",\"uri\":\"artical\\/category\",\"roles\":[null],\"permission\":null,\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 16:12:37', '2019-02-19 16:12:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1045', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-19 16:12:37', '2019-02-19 16:12:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1046', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"26\",\"title\":\"\\u6587\\u7ae0\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"artical\",\"roles\":[null],\"permission\":null,\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 16:12:54', '2019-02-19 16:12:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1047', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-19 16:12:54', '2019-02-19 16:12:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1048', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-02-19 16:12:55', '2019-02-19 16:12:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1049', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 16:12:58', '2019-02-19 16:12:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1050', '1', 'admin/artical/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 16:13:01', '2019-02-19 16:13:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1051', '1', 'admin/artical/category/create', 'GET', '127.0.0.1', '[]', '2019-02-19 16:18:50', '2019-02-19 16:18:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1052', '1', 'admin/artical/category/create', 'GET', '127.0.0.1', '[]', '2019-02-19 16:19:19', '2019-02-19 16:19:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1053', '1', 'admin/artical/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u5546\\u57ce\\u65b0\\u4e0a\\u7ebf\",\"desc\":null,\"is_show\":\"off\",\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 16:19:26', '2019-02-19 16:19:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1054', '1', 'admin/artical/category/create', 'GET', '127.0.0.1', '[]', '2019-02-19 16:19:26', '2019-02-19 16:19:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1055', '1', 'admin/artical/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u5546\\u57ce\\u65b0\\u4e0a\\u7ebf\",\"desc\":null,\"is_show\":\"off\",\"_token\":\"nq9dXnmwSW4COBSpsJKNN0zKihL8uN6RYh6G3RLv\"}', '2019-02-19 16:20:11', '2019-02-19 16:20:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1056', '1', 'admin/artical/category', 'GET', '127.0.0.1', '[]', '2019-02-19 16:20:11', '2019-02-19 16:20:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1057', '1', 'admin/artical/category', 'GET', '127.0.0.1', '[]', '2019-02-19 16:20:22', '2019-02-19 16:20:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1058', '1', 'admin/artical/category/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 16:20:52', '2019-02-19 16:20:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1059', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 16:20:54', '2019-02-19 16:20:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1060', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-19 16:21:46', '2019-02-19 16:21:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1061', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-02-21 09:44:53', '2019-02-21 09:44:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1062', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 09:44:58', '2019-02-21 09:44:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1063', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-02-21 09:56:24', '2019-02-21 09:56:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1064', '1', 'admin/artical/create', 'GET', '127.0.0.1', '[]', '2019-02-21 13:36:44', '2019-02-21 13:36:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1065', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:36:48', '2019-02-21 13:36:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1066', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:49:48', '2019-02-21 13:49:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1067', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:49:50', '2019-02-21 13:49:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1068', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:49:54', '2019-02-21 13:49:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1069', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:49:59', '2019-02-21 13:49:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1070', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:50:16', '2019-02-21 13:50:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1071', '1', 'admin/artical/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:50:18', '2019-02-21 13:50:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1072', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:52:15', '2019-02-21 13:52:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('1073', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:52:17', '2019-02-21 13:52:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1074', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:52:25', '2019-02-21 13:52:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1075', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:55:00', '2019-02-21 13:55:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1076', '1', 'admin/artical/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:55:02', '2019-02-21 13:55:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1077', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-02-21 13:55:02', '2019-02-21 13:55:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1078', '1', 'admin/artical/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 13:55:45', '2019-02-21 13:55:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('1079', '1', 'admin/artical/create', 'GET', '127.0.0.1', '[]', '2019-02-21 13:57:59', '2019-02-21 13:57:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1080', '1', 'admin/artical/create', 'GET', '127.0.0.1', '[]', '2019-02-21 13:58:13', '2019-02-21 13:58:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('1081', '1', 'admin/artical/create', 'GET', '127.0.0.1', '[]', '2019-02-21 13:58:56', '2019-02-21 13:58:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1082', '1', 'admin/artical', 'POST', '127.0.0.1', '{\"title\":\"\\u5546\\u57ce\\u65b0\\u4e0a\\u7ebf\",\"category_id\":\"1\",\"desc\":\"<p><\\/p><p>\\u54c8\\u54c8\\u54c8<\\/p>\",\"content\":\"<p><\\/p><p>\\u54c8\\u54c8\\u54c8<\\/p>\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_hot\":\"on\",\"user_id\":\"1\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\"}', '2019-02-21 13:59:19', '2019-02-21 13:59:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1083', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-02-21 13:59:20', '2019-02-21 13:59:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1084', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:39:20', '2019-02-21 14:39:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1085', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"title\":\"\\u5546\\u57ce\\u65b0\\u4e0a\\u7ebf\",\"category_id\":\"1\",\"description\":\"<p><\\/p><p><\\/p><p>asdas<\\/p><p><br><\\/p>\",\"content\":\"<p><\\/p><p>\\u54c8\\u54c8\\u54c8<\\/p>\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_hot\":\"on\",\"user_id\":\"1\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/artical\"}', '2019-02-21 14:39:41', '2019-02-21 14:39:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('1086', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-02-21 14:39:41', '2019-02-21 14:39:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('1087', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:39:51', '2019-02-21 14:39:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1088', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"title\":\"\\u5546\\u57ce\\u65b0\\u4e0a\\u7ebf\",\"category_id\":\"0\",\"description\":\"<p><\\/p><p><\\/p><p>asda<\\/p>\",\"content\":\"<p><\\/p><p>\\u54c8\\u54c8\\u54c8<\\/p>\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_hot\":\"on\",\"user_id\":\"1\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/artical\"}', '2019-02-21 14:39:59', '2019-02-21 14:39:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1089', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-02-21 14:39:59', '2019-02-21 14:39:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1090', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:44:49', '2019-02-21 14:44:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1091', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"title\":\"\\u5546\\u57ce\\u65b0\\u4e0a\\u7ebf\",\"category_id\":\"0\",\"description\":\"<p><\\/p><p><\\/p><p>\\u8bf7\\u95ee\\u8bf7\\u95ee\\u65e5\\u671f<\\/p><p><br><\\/p>\",\"content\":\"<p><\\/p><p>\\u54c8\\u54c8\\u54c8<\\/p>\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_hot\":\"on\",\"user_id\":\"1\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/artical\"}', '2019-02-21 14:44:54', '2019-02-21 14:44:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1092', '1', 'admin/artical/1', 'GET', '127.0.0.1', '[]', '2019-02-21 14:45:14', '2019-02-21 14:45:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1093', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:45:17', '2019-02-21 14:45:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1094', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:45:18', '2019-02-21 14:45:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1095', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"title\":\"\\u5546\\u57ce\\u65b0\\u4e0a\\u7ebf\",\"category_id\":\"0\",\"description\":\"<p><\\/p><p><\\/p><p>\\u963f\\u65af\\u8fbe<\\/p><p><br><\\/p>\",\"content\":\"<p><\\/p><p>\\u54c8\\u54c8\\u54c8<\\/p>\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_hot\":\"on\",\"user_id\":\"1\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/artical\"}', '2019-02-21 14:45:23', '2019-02-21 14:45:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1096', '1', 'admin/artical/1', 'GET', '127.0.0.1', '[]', '2019-02-21 14:45:34', '2019-02-21 14:45:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1097', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:45:36', '2019-02-21 14:45:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1098', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"title\":\"\\u5546\\u57ce\\u65b0\\u4e0a\\u7ebf\\u662f\",\"category_id\":\"0\",\"description\":\"<p><\\/p><p><\\/p><p>\\u554a\\u6c99\\u53d1\\u6c99\\u53d1<\\/p><p><br><\\/p>\",\"content\":\"<p><\\/p><p>\\u54c8\\u54c8\\u54c8<\\/p>\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_hot\":\"on\",\"user_id\":\"1\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/artical\\/1\"}', '2019-02-21 14:45:44', '2019-02-21 14:45:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1099', '1', 'admin/artical/1', 'GET', '127.0.0.1', '[]', '2019-02-21 14:45:45', '2019-02-21 14:45:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('1100', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:46:35', '2019-02-21 14:46:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1101', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"title\":\"\\u5546\\u57ce\\u65b0\\u4e0a\\u7ebf\\u662f\",\"category_id\":\"0\",\"description\":\"<p><\\/p><p><\\/p><p>\\u554a\\u5b9e\\u6253\\u5b9e\\u7684<\\/p><p><br><\\/p>\",\"content\":\"<p><\\/p><p>\\u54c8\\u54c8\\u54c8<\\/p>\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_hot\":\"on\",\"user_id\":\"1\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/artical\\/1\"}', '2019-02-21 14:46:39', '2019-02-21 14:46:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1102', '1', 'admin/artical/1', 'GET', '127.0.0.1', '[]', '2019-02-21 14:46:40', '2019-02-21 14:46:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1103', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:46:46', '2019-02-21 14:46:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1104', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:47:52', '2019-02-21 14:47:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1105', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:47:53', '2019-02-21 14:47:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1106', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"title\":\"\\u5546\\u57ce\\u65b0\\u4e0a\\u7ebf\\u662f\",\"category_id\":\"0\",\"description\":\"<p><\\/p><p><\\/p><p><\\/p><p>\\u554a\\u5b9e\\u6253\\u5b9e\\u7684\\u4eb2\\u543b\\u9752\\u86d9<\\/p><p><br><\\/p>\",\"content\":\"<p><\\/p><p><\\/p><p>\\u963f\\u8428\\u65af\\u6cd5\\u6240\\u53d1\\u751f\\u7684\\u53d1\\u5927\\u6c34\\u7684<\\/p><p><br><\\/p>\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_hot\":\"on\",\"user_id\":\"1\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/artical\"}', '2019-02-21 14:48:02', '2019-02-21 14:48:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1107', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-02-21 14:48:03', '2019-02-21 14:48:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1108', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:48:09', '2019-02-21 14:48:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1109', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:52:49', '2019-02-21 14:52:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1110', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:52:59', '2019-02-21 14:52:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1111', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 14:53:00', '2019-02-21 14:53:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1112', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 14:54:53', '2019-02-21 14:54:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1113', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:55:15', '2019-02-21 14:55:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('1114', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:55:17', '2019-02-21 14:55:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1115', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 14:55:20', '2019-02-21 14:55:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1116', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:55:44', '2019-02-21 14:55:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1117', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:55:46', '2019-02-21 14:55:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1118', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 14:55:49', '2019-02-21 14:55:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1119', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:56:08', '2019-02-21 14:56:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1120', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:56:12', '2019-02-21 14:56:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1121', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 14:56:14', '2019-02-21 14:56:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1122', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:56:33', '2019-02-21 14:56:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1123', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:56:35', '2019-02-21 14:56:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1124', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 14:56:39', '2019-02-21 14:56:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1125', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:57:05', '2019-02-21 14:57:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1126', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:57:07', '2019-02-21 14:57:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1127', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 14:57:09', '2019-02-21 14:57:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1128', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:57:24', '2019-02-21 14:57:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1129', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:57:25', '2019-02-21 14:57:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1130', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"thumb\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 14:57:27', '2019-02-21 14:57:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1131', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:57:33', '2019-02-21 14:57:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1132', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:57:35', '2019-02-21 14:57:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1133', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:57:55', '2019-02-21 14:57:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1134', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:58:11', '2019-02-21 14:58:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1135', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:58:13', '2019-02-21 14:58:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('1136', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 14:58:16', '2019-02-21 14:58:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1137', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 14:58:17', '2019-02-21 14:58:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1138', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:58:34', '2019-02-21 14:58:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1139', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:58:36', '2019-02-21 14:58:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1140', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 14:58:39', '2019-02-21 14:58:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1141', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:58:41', '2019-02-21 14:58:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('1142', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 14:58:42', '2019-02-21 14:58:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1143', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":null,\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 14:59:02', '2019-02-21 14:59:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1144', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-02-21 14:59:03', '2019-02-21 14:59:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1145', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:00:06', '2019-02-21 15:00:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1146', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:00:09', '2019-02-21 15:00:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1147', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":null,\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 15:00:16', '2019-02-21 15:00:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1148', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-02-21 15:00:17', '2019-02-21 15:00:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1149', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:01:25', '2019-02-21 15:01:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1150', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:01:27', '2019-02-21 15:01:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1151', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":null,\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 15:01:29', '2019-02-21 15:01:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1152', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-02-21 15:01:29', '2019-02-21 15:01:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1153', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"8\",\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:01:47', '2019-02-21 15:01:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1154', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-02-21 15:01:48', '2019-02-21 15:01:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1155', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:01:55', '2019-02-21 15:01:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1156', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:01:58', '2019-02-21 15:01:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1157', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:02:00', '2019-02-21 15:02:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1158', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:02:04', '2019-02-21 15:02:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1159', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:03:07', '2019-02-21 15:03:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1160', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:03:09', '2019-02-21 15:03:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1161', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:03:32', '2019-02-21 15:03:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1162', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:03:54', '2019-02-21 15:03:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1163', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:04:28', '2019-02-21 15:04:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1164', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:04:39', '2019-02-21 15:04:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1165', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:04:47', '2019-02-21 15:04:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1166', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:06:51', '2019-02-21 15:06:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1167', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:06:53', '2019-02-21 15:06:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1168', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"8\",\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 15:07:05', '2019-02-21 15:07:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1169', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-02-21 15:07:06', '2019-02-21 15:07:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1170', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:07:10', '2019-02-21 15:07:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1171', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:07:21', '2019-02-21 15:07:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1172', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:07:31', '2019-02-21 15:07:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1173', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:07:34', '2019-02-21 15:07:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1174', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:07:37', '2019-02-21 15:07:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1175', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:07:49', '2019-02-21 15:07:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1176', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:07:59', '2019-02-21 15:07:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1177', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"8\",\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 15:08:18', '2019-02-21 15:08:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1178', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-02-21 15:08:18', '2019-02-21 15:08:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1179', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:08:20', '2019-02-21 15:08:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1180', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:08:24', '2019-02-21 15:08:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1181', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:08:27', '2019-02-21 15:08:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1182', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:08:32', '2019-02-21 15:08:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1183', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"8\",\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 15:09:59', '2019-02-21 15:09:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1184', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-02-21 15:10:00', '2019-02-21 15:10:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1185', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:10:01', '2019-02-21 15:10:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1186', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:10:05', '2019-02-21 15:10:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1187', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:10:15', '2019-02-21 15:10:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('1188', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:10:27', '2019-02-21 15:10:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1189', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"3\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:10:46', '2019-02-21 15:10:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1190', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"3\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:11:01', '2019-02-21 15:11:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1191', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"3\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:11:10', '2019-02-21 15:11:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1192', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"3\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:11:39', '2019-02-21 15:11:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1193', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"3\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:12:27', '2019-02-21 15:12:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1194', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"3\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:12:50', '2019-02-21 15:12:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1195', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"3\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:13:31', '2019-02-21 15:13:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1196', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:13:37', '2019-02-21 15:13:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1197', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:13:39', '2019-02-21 15:13:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1198', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"8\",\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 15:14:02', '2019-02-21 15:14:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1199', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-02-21 15:14:02', '2019-02-21 15:14:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1200', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:14:08', '2019-02-21 15:14:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1201', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:14:10', '2019-02-21 15:14:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1202', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"3\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:14:15', '2019-02-21 15:14:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('1203', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:14:56', '2019-02-21 15:14:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1204', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:15:22', '2019-02-21 15:15:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1205', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:15:28', '2019-02-21 15:15:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1206', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:19:24', '2019-02-21 15:19:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1207', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:19:25', '2019-02-21 15:19:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1208', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:19:29', '2019-02-21 15:19:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1209', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-02-21 15:21:48', '2019-02-21 15:21:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1210', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:21:51', '2019-02-21 15:21:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1211', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-02-21 15:22:02', '2019-02-21 15:22:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1212', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:22:05', '2019-02-21 15:22:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1213', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:22:09', '2019-02-21 15:22:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1214', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:22:14', '2019-02-21 15:22:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1215', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:22:16', '2019-02-21 15:22:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1216', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"8\",\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 15:22:24', '2019-02-21 15:22:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1217', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-02-21 15:22:25', '2019-02-21 15:22:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1218', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:22:37', '2019-02-21 15:22:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1219', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:22:39', '2019-02-21 15:22:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1220', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:22:52', '2019-02-21 15:22:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1221', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:23:53', '2019-02-21 15:23:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1222', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:23:56', '2019-02-21 15:23:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1223', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:23:58', '2019-02-21 15:23:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1224', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:24:05', '2019-02-21 15:24:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1225', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:24:09', '2019-02-21 15:24:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1226', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:24:11', '2019-02-21 15:24:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1227', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"8\",\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 15:24:20', '2019-02-21 15:24:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1228', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-02-21 15:24:20', '2019-02-21 15:24:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1229', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:24:23', '2019-02-21 15:24:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1230', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:24:28', '2019-02-21 15:24:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1231', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:24:32', '2019-02-21 15:24:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1232', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-02-21 15:25:43', '2019-02-21 15:25:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1233', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:25:47', '2019-02-21 15:25:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1234', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:26:03', '2019-02-21 15:26:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1235', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:26:29', '2019-02-21 15:26:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1236', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:26:48', '2019-02-21 15:26:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1237', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:27:02', '2019-02-21 15:27:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1238', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:27:10', '2019-02-21 15:27:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1239', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:27:17', '2019-02-21 15:27:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1240', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"8\",\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:27:27', '2019-02-21 15:27:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1241', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-02-21 15:27:27', '2019-02-21 15:27:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1242', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:27:29', '2019-02-21 15:27:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1243', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:27:39', '2019-02-21 15:27:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1244', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:27:46', '2019-02-21 15:27:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1245', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:27:55', '2019-02-21 15:27:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1246', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:28:08', '2019-02-21 15:28:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1247', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"0\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:28:42', '2019-02-21 15:28:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1248', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:28:50', '2019-02-21 15:28:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1249', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:28:52', '2019-02-21 15:28:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1250', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"8\",\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 15:28:58', '2019-02-21 15:28:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1251', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-02-21 15:28:59', '2019-02-21 15:28:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1252', '1', 'admin/product/6', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:29:12', '2019-02-21 15:29:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1253', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:29:15', '2019-02-21 15:29:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('1254', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:29:16', '2019-02-21 15:29:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1255', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:29:24', '2019-02-21 15:29:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1256', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"1\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:29:32', '2019-02-21 15:29:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1257', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:29:37', '2019-02-21 15:29:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1258', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:30:11', '2019-02-21 15:30:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1259', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:37:59', '2019-02-21 15:37:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1260', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"3\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:38:16', '2019-02-21 15:38:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1261', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:38:55', '2019-02-21 15:38:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1262', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"2\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:39:23', '2019-02-21 15:39:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1263', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:39:26', '2019-02-21 15:39:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1264', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:39:50', '2019-02-21 15:39:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1265', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-02-21\\/253e74651c7b6ce92d3090f1b5959f38.jpg\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:40:14', '2019-02-21 15:40:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1266', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-02-21\\/253e74651c7b6ce92d3090f1b5959f38.jpg\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:40:29', '2019-02-21 15:40:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1267', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-02-21\\/253e74651c7b6ce92d3090f1b5959f38.jpg\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:40:56', '2019-02-21 15:40:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1268', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-02-21\\/f6721d1873ae0a3e1a46b40f8846f231.png\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:41:08', '2019-02-21 15:41:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1269', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-02-21\\/f6721d1873ae0a3e1a46b40f8846f231.png\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:41:29', '2019-02-21 15:41:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1270', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-02-21\\/e1d17511249c7de85fb3c7498384b00c.png\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:41:34', '2019-02-21 15:41:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1271', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-02-21\\/e1d17511249c7de85fb3c7498384b00c.png\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:41:43', '2019-02-21 15:41:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1272', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"8\",\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 15:41:55', '2019-02-21 15:41:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1273', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-02-21 15:41:55', '2019-02-21 15:41:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1274', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-02-21 15:41:58', '2019-02-21 15:41:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1275', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-02-21\\/ecfa755b310ea2b503c6f6b93e0183f1.jpg\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:42:01', '2019-02-21 15:42:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1276', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-02-21\\/09c5d17d53db03bf642ed6f67611d777.jpg\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:42:06', '2019-02-21 15:42:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1277', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-02-21\\/ac0ce22e18d5fda00066bef87e53ada6.png\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:42:10', '2019-02-21 15:42:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1278', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-02-21\\/8a6c7fd1d0b8b80e9fc5a0df337e3ef5.jpg\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\"}', '2019-02-21 15:42:14', '2019-02-21 15:42:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1279', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"brand_id\":\"8\",\"category_id\":\"12\",\"description\":null,\"content\":null,\"market_price\":\"130.00\",\"price\":\"100.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"attr\":{\"4\":{\"sku_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"intergral\":\"0.00\",\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"Sw2l9e49L3rA6qcPmsu3T3AYWtxvLtJ2XAuM6OPo\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-02-21 15:42:24', '2019-02-21 15:42:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1280', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-02-21 15:42:24', '2019-02-21 15:42:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1281', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-03-12 21:52:22', '2019-03-12 21:52:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1282', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-12 21:52:28', '2019-03-12 21:52:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1283', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-12 21:52:30', '2019-03-12 21:52:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1284', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-03-18 13:36:13', '2019-03-18 13:36:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('1285', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-03-18 14:53:46', '2019-03-18 14:53:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1286', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 14:53:51', '2019-03-18 14:53:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1287', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 14:53:57', '2019-03-18 14:53:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('1288', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-03-18 14:55:36', '2019-03-18 14:55:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1289', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 14:56:09', '2019-03-18 14:56:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1290', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 14:56:52', '2019-03-18 14:56:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1291', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 14:57:24', '2019-03-18 14:57:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1292', '1', 'admin/brand/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 14:57:26', '2019-03-18 14:57:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1293', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 14:57:32', '2019-03-18 14:57:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1294', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 14:57:37', '2019-03-18 14:57:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1295', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 14:57:39', '2019-03-18 14:57:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1296', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:03:16', '2019-03-18 15:03:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1297', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:03:37', '2019-03-18 15:03:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1298', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:03:40', '2019-03-18 15:03:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1299', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:03:44', '2019-03-18 15:03:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1300', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:03:51', '2019-03-18 15:03:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1301', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:03:53', '2019-03-18 15:03:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1302', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:04:54', '2019-03-18 15:04:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1303', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:05:03', '2019-03-18 15:05:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1304', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_id\":\"10\",\"attr_price\":\"12.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\"}', '2019-03-18 15:05:47', '2019-03-18 15:05:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1305', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:05:48', '2019-03-18 15:05:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1306', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":null,\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_id\":\"10\",\"attr_price\":\"12.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\"}', '2019-03-18 15:07:52', '2019-03-18 15:07:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1307', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:07:53', '2019-03-18 15:07:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1308', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:08:19', '2019-03-18 15:08:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1309', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:08:40', '2019-03-18 15:08:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1310', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:09:02', '2019-03-18 15:09:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1311', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_id\":\"10\",\"attr_price\":\"12.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\"}', '2019-03-18 15:09:33', '2019-03-18 15:09:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1312', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:09:34', '2019-03-18 15:09:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1313', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:10:35', '2019-03-18 15:10:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1314', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"1\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_id\":\"10\",\"attr_price\":\"12.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\"}', '2019-03-18 15:10:49', '2019-03-18 15:10:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1315', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:10:50', '2019-03-18 15:10:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1316', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:11:34', '2019-03-18 15:11:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1317', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"1\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_category_id\":\"0\",\"attr_price\":\"12.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\"}', '2019-03-18 15:11:47', '2019-03-18 15:11:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1318', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:11:48', '2019-03-18 15:11:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1319', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:11:58', '2019-03-18 15:11:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1320', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"1\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_category_id\":\"10\",\"attr_price\":\"12.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\"}', '2019-03-18 15:12:13', '2019-03-18 15:12:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('1321', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:12:14', '2019-03-18 15:12:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1322', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:15:21', '2019-03-18 15:15:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1323', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"1\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_category_id\":\"10\",\"attr_price\":\"12.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\"}', '2019-03-18 15:15:31', '2019-03-18 15:15:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1324', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:15:31', '2019-03-18 15:15:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1325', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:15:40', '2019-03-18 15:15:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1326', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"1\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_category_id\":\"10\",\"attr_price\":\"12.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\"}', '2019-03-18 15:15:49', '2019-03-18 15:15:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1327', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:15:50', '2019-03-18 15:15:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1328', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:16:34', '2019-03-18 15:16:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1329', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_category_id\":\"10\",\"attr_price\":\"12.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\"}', '2019-03-18 15:16:42', '2019-03-18 15:16:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1330', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-03-18 15:16:43', '2019-03-18 15:16:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1331', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-03-18 15:18:35', '2019-03-18 15:18:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1332', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_category_id\":\"11\",\"attr_price\":\"12.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"1\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\"}', '2019-03-18 15:18:44', '2019-03-18 15:18:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1333', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-03-18 15:18:45', '2019-03-18 15:18:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('1334', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 15:18:47', '2019-03-18 15:18:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1335', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_category_id\":\"10\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 15:19:02', '2019-03-18 15:19:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1336', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '[]', '2019-03-18 15:19:02', '2019-03-18 15:19:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1337', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_category_id\":\"10\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\"}', '2019-03-18 15:19:50', '2019-03-18 15:19:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1338', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '[]', '2019-03-18 15:19:50', '2019-03-18 15:19:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1339', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-03-18\\/ea243608190b4b471f027cadacc0e8e9.jpg\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\"}', '2019-03-18 15:19:57', '2019-03-18 15:19:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('1340', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-03-18\\/0d5a6931ad3323f3c26a7f366dd03182.png\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\"}', '2019-03-18 15:19:59', '2019-03-18 15:19:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1341', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-03-18\\/ae44fcdcc6ca4b3ae3412a966cd8875c.jpg\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\"}', '2019-03-18 15:20:02', '2019-03-18 15:20:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1342', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"new_1\":{\"sku_category_id\":\"10\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":null,\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\"}', '2019-03-18 15:20:08', '2019-03-18 15:20:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1343', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-03-18 15:20:09', '2019-03-18 15:20:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1344', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 15:20:12', '2019-03-18 15:20:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1345', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"10\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 15:20:22', '2019-03-18 15:20:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1346', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '[]', '2019-03-18 15:20:22', '2019-03-18 15:20:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1347', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"10\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\"}', '2019-03-18 16:05:38', '2019-03-18 16:05:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1348', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '[]', '2019-03-18 16:05:38', '2019-03-18 16:05:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1349', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '[]', '2019-03-18 16:11:52', '2019-03-18 16:11:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1350', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-03-18\\/fb3c87ffad278b7c465e4537627ed79a.jpg\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\"}', '2019-03-18 16:13:29', '2019-03-18 16:13:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1351', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:13:49', '2019-03-18 16:13:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1352', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:13:51', '2019-03-18 16:13:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1353', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"0\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 16:13:54', '2019-03-18 16:13:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1354', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '[]', '2019-03-18 16:13:54', '2019-03-18 16:13:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1355', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"0\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\"}', '2019-03-18 16:15:13', '2019-03-18 16:15:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('1356', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:18:07', '2019-03-18 16:18:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1357', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:18:09', '2019-03-18 16:18:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1358', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"0\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 16:18:12', '2019-03-18 16:18:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1359', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:18:23', '2019-03-18 16:18:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1360', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:18:25', '2019-03-18 16:18:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1361', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"0\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 16:18:28', '2019-03-18 16:18:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1362', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:18:32', '2019-03-18 16:18:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1363', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:18:34', '2019-03-18 16:18:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1364', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"0\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 16:18:42', '2019-03-18 16:18:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1365', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:18:52', '2019-03-18 16:18:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1366', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:18:54', '2019-03-18 16:18:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1367', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"0\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 16:19:04', '2019-03-18 16:19:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1368', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-03-18 16:19:04', '2019-03-18 16:19:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1369', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:19:11', '2019-03-18 16:19:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1370', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:19:22', '2019-03-18 16:19:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1371', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:19:23', '2019-03-18 16:19:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1372', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"10\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 16:19:29', '2019-03-18 16:19:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1373', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-03-18 16:19:29', '2019-03-18 16:19:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1374', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:20:57', '2019-03-18 16:20:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('1375', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"10\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 16:21:02', '2019-03-18 16:21:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1376', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-03-18 16:21:03', '2019-03-18 16:21:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1377', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:21:24', '2019-03-18 16:21:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1378', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"key\":\"images\\/product_picture\\/2019-03-18\\/3afd563ccf982c03020734150f44cf94.jpg\",\"picture\":\"_file_del_\",\"_file_del_\":null,\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\"}', '2019-03-18 16:21:26', '2019-03-18 16:21:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1379', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"10\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 16:21:32', '2019-03-18 16:21:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1380', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-03-18 16:21:32', '2019-03-18 16:21:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1381', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 16:21:37', '2019-03-18 16:21:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1382', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"10\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 16:21:43', '2019-03-18 16:21:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1383', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-03-18 16:21:44', '2019-03-18 16:21:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1384', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:21:32', '2019-03-18 17:21:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1385', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"10\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 17:21:34', '2019-03-18 17:21:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1386', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-03-18 17:21:34', '2019-03-18 17:21:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1387', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:21:36', '2019-03-18 17:21:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1388', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"name\":\"\\u54c8\\u54c8\\u54c8\",\"category_id\":\"12\",\"brand_id\":\"2\",\"description\":\"sss\",\"content\":null,\"market_price\":\"20.00\",\"price\":\"20.00\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"sku\":{\"6\":{\"sku_category_id\":\"11\",\"attr_price\":\"21.00\",\"product_number\":\"2\",\"id\":\"6\",\"_remove_\":\"0\"}},\"give_intergral\":\"1.00\",\"virtual_quantity\":\"1\",\"warn_number\":\"1\",\"is_hot\":\"on\",\"is_best\":\"on\",\"is_new\":\"on\",\"_token\":\"edr9XwlxrG7RnE4tnM6kps6BNV0Pn7iawiGc9IYc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-03-18 17:21:42', '2019-03-18 17:21:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1389', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-03-18 17:21:43', '2019-03-18 17:21:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1390', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:21:46', '2019-03-18 17:21:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1391', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:21:52', '2019-03-18 17:21:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1392', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:28:42', '2019-03-18 17:28:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1393', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:28:44', '2019-03-18 17:28:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1394', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:28:46', '2019-03-18 17:28:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1395', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:28:48', '2019-03-18 17:28:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1396', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:29:00', '2019-03-18 17:29:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1397', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:29:04', '2019-03-18 17:29:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1398', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:29:06', '2019-03-18 17:29:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1399', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:29:07', '2019-03-18 17:29:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1400', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:29:12', '2019-03-18 17:29:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1401', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-18 17:29:14', '2019-03-18 17:29:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1402', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-03-20 10:36:54', '2019-03-20 10:36:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1403', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-20 10:37:04', '2019-03-20 10:37:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1404', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-20 10:41:47', '2019-03-20 10:41:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1405', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-20 10:44:14', '2019-03-20 10:44:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1406', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-20 10:44:17', '2019-03-20 10:44:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1407', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-20 10:44:21', '2019-03-20 10:44:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1408', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-20 10:44:22', '2019-03-20 10:44:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1409', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-20 10:44:26', '2019-03-20 10:44:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1410', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-20 10:44:28', '2019-03-20 10:44:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1411', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-20 10:44:30', '2019-03-20 10:44:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1412', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-03-21 16:27:17', '2019-03-21 16:27:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1413', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-21 16:27:36', '2019-03-21 16:27:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1414', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"id\":null,\"user_loan\":{\"created_at\":{\"start\":\"2019-03-21 00:00:00\",\"end\":\"2019-03-23 00:00:00\"}}}', '2019-03-21 16:27:48', '2019-03-21 16:27:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1415', '1', 'admin/product', 'GET', '127.0.0.1', '{\"id\":null,\"user_loan\":{\"created_at\":{\"start\":\"2019-03-21 00:00:00\",\"end\":\"2019-03-23 00:00:00\"}}}', '2019-03-21 16:28:12', '2019-03-21 16:28:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1416', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-03-22 09:07:18', '2019-03-22 09:07:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1417', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-22 09:07:26', '2019-03-22 09:07:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1418', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-22 09:07:38', '2019-03-22 09:07:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1419', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-03-22 09:09:14', '2019-03-22 09:09:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1420', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-04-01 09:47:03', '2019-04-01 09:47:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1421', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-01 10:30:10', '2019-04-01 10:30:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1422', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-01 10:30:18', '2019-04-01 10:30:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1423', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-01 10:30:20', '2019-04-01 10:30:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1424', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-01 10:30:22', '2019-04-01 10:30:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1425', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-01 10:30:25', '2019-04-01 10:30:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1426', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-01 10:30:54', '2019-04-01 10:30:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1427', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-01 10:30:58', '2019-04-01 10:30:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1428', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-01 10:31:02', '2019-04-01 10:31:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1429', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-01 10:31:03', '2019-04-01 10:31:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1430', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-04-13 14:06:59', '2019-04-13 14:06:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1431', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:07:10', '2019-04-13 14:07:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1432', '1', 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:07:17', '2019-04-13 14:07:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1433', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:07:19', '2019-04-13 14:07:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1434', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:07:20', '2019-04-13 14:07:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1435', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:08:11', '2019-04-13 14:08:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1436', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:08:13', '2019-04-13 14:08:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('1437', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:08:23', '2019-04-13 14:08:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1438', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-04-13 14:08:23', '2019-04-13 14:08:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1439', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:08:30', '2019-04-13 14:08:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1440', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-04-13 14:08:30', '2019-04-13 14:08:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1441', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:08:32', '2019-04-13 14:08:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1442', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:08:33', '2019-04-13 14:08:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1443', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-04-13 14:08:34', '2019-04-13 14:08:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1444', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-04-13 14:15:11', '2019-04-13 14:15:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1445', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-04-13 14:15:13', '2019-04-13 14:15:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('1446', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-04-13 14:15:14', '2019-04-13 14:15:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1447', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:15:17', '2019-04-13 14:15:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1448', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:15:20', '2019-04-13 14:15:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1449', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:15:22', '2019-04-13 14:15:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1450', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:15:23', '2019-04-13 14:15:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1451', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:15:24', '2019-04-13 14:15:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1452', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:34:20', '2019-04-13 14:34:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1453', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-13 14:34:22', '2019-04-13 14:34:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1454', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-04-15 14:08:58', '2019-04-15 14:08:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1455', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:56:59', '2019-04-15 14:56:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1456', '1', 'admin/user/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:06', '2019-04-15 14:57:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1457', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:18', '2019-04-15 14:57:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1458', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:20', '2019-04-15 14:57:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1459', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:24', '2019-04-15 14:57:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1460', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:26', '2019-04-15 14:57:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1461', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:29', '2019-04-15 14:57:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1462', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:30', '2019-04-15 14:57:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1463', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:31', '2019-04-15 14:57:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1464', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:35', '2019-04-15 14:57:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1465', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:44', '2019-04-15 14:57:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1466', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:46', '2019-04-15 14:57:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1467', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:48', '2019-04-15 14:57:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1468', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:57:50', '2019-04-15 14:57:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1469', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:58:17', '2019-04-15 14:58:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1470', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:58:20', '2019-04-15 14:58:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1471', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-04-15 14:58:22', '2019-04-15 14:58:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1472', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-05-04 13:45:47', '2019-05-04 13:45:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1473', '1', 'admin/user', 'GET', '127.0.0.1', '[]', '2019-05-04 14:26:30', '2019-05-04 14:26:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1474', '1', 'admin/user/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:26:37', '2019-05-04 14:26:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1475', '1', 'admin/user/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:26:42', '2019-05-04 14:26:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1476', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:26:48', '2019-05-04 14:26:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1477', '1', 'admin/user/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:26:51', '2019-05-04 14:26:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1478', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:26:54', '2019-05-04 14:26:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1479', '1', 'admin/user/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:26:56', '2019-05-04 14:26:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1480', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:27:03', '2019-05-04 14:27:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1481', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:27:06', '2019-05-04 14:27:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1482', '1', 'admin/brand/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:27:09', '2019-05-04 14:27:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1483', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:27:12', '2019-05-04 14:27:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1484', '1', 'admin/brand/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:27:14', '2019-05-04 14:27:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1485', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:27:17', '2019-05-04 14:27:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1486', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:27:21', '2019-05-04 14:27:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1487', '1', 'admin/product/6', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:27:24', '2019-05-04 14:27:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1488', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:27:41', '2019-05-04 14:27:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('1489', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:37:19', '2019-05-04 14:37:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1490', '1', 'admin/user/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:41:03', '2019-05-04 14:41:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1491', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:41:17', '2019-05-04 14:41:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1492', '1', 'admin/brand/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:41:21', '2019-05-04 14:41:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1493', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-05-04 14:42:53', '2019-05-04 14:42:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1494', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-05-04 14:42:55', '2019-05-04 14:42:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1495', '1', 'admin/brand/1', 'GET', '127.0.0.1', '[]', '2019-05-04 14:45:35', '2019-05-04 14:45:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1496', '1', 'admin/brand/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:45:50', '2019-05-04 14:45:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1497', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:45:52', '2019-05-04 14:45:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1498', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:45:58', '2019-05-04 14:45:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1499', '1', 'admin/brand/category/9/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:46:02', '2019-05-04 14:46:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1500', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 14:46:06', '2019-05-04 14:46:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1501', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:47:08', '2019-05-04 14:47:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1502', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:48:40', '2019-05-04 14:48:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1503', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:49:00', '2019-05-04 14:49:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1504', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:53:30', '2019-05-04 14:53:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1505', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:53:41', '2019-05-04 14:53:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('1506', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:53:59', '2019-05-04 14:53:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1507', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:54:20', '2019-05-04 14:54:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1508', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:54:48', '2019-05-04 14:54:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1509', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:55:21', '2019-05-04 14:55:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1510', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:55:23', '2019-05-04 14:55:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1511', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:55:23', '2019-05-04 14:55:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1512', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:55:36', '2019-05-04 14:55:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1513', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:57:07', '2019-05-04 14:57:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1514', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:57:09', '2019-05-04 14:57:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1515', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:57:10', '2019-05-04 14:57:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1516', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:57:27', '2019-05-04 14:57:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1517', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:57:28', '2019-05-04 14:57:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1518', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:57:29', '2019-05-04 14:57:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1519', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:57:44', '2019-05-04 14:57:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1520', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:58:58', '2019-05-04 14:58:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1521', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 14:59:36', '2019-05-04 14:59:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1522', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:05:55', '2019-05-04 15:05:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1523', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:06:22', '2019-05-04 15:06:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1524', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:07:25', '2019-05-04 15:07:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1525', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:08:36', '2019-05-04 15:08:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1526', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:11:15', '2019-05-04 15:11:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('1527', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:11:55', '2019-05-04 15:11:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1528', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:11:56', '2019-05-04 15:11:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1529', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:11:57', '2019-05-04 15:11:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('1530', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:12:22', '2019-05-04 15:12:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1531', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:12:24', '2019-05-04 15:12:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1532', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:12:25', '2019-05-04 15:12:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1533', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:13:23', '2019-05-04 15:13:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1534', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:13:38', '2019-05-04 15:13:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1535', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:13:59', '2019-05-04 15:13:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1536', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:14:03', '2019-05-04 15:14:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1537', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:19:22', '2019-05-04 15:19:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1538', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:24:39', '2019-05-04 15:24:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1539', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:24:40', '2019-05-04 15:24:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1540', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:24:41', '2019-05-04 15:24:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('1541', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:24:42', '2019-05-04 15:24:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1542', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:24:42', '2019-05-04 15:24:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1543', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:25:51', '2019-05-04 15:25:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1544', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:28:56', '2019-05-04 15:28:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1545', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:28:57', '2019-05-04 15:28:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('1546', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:28:58', '2019-05-04 15:28:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1547', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:32:19', '2019-05-04 15:32:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1548', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:33:48', '2019-05-04 15:33:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1549', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:36:07', '2019-05-04 15:36:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1550', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:36:29', '2019-05-04 15:36:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1551', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:39:01', '2019-05-04 15:39:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1552', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"name\",\"value\":\"\\u6c99\\u5ba31\",\"pk\":\"6\",\"_token\":\"oUcsxbZMWt1ROdxfUzNKagiBppIANsJERM9Jjtq9\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-05-04 15:39:11', '2019-05-04 15:39:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1553', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:39:14', '2019-05-04 15:39:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1554', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"sort_order\",\"value\":\"98\",\"pk\":\"6\",\"_token\":\"oUcsxbZMWt1ROdxfUzNKagiBppIANsJERM9Jjtq9\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-05-04 15:39:22', '2019-05-04 15:39:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1555', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:42:25', '2019-05-04 15:42:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1556', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:42:40', '2019-05-04 15:42:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1557', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:42:52', '2019-05-04 15:42:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1558', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:45:16', '2019-05-04 15:45:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1559', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:45:31', '2019-05-04 15:45:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1560', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:45:48', '2019-05-04 15:45:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1561', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:46:25', '2019-05-04 15:46:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1562', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:46:37', '2019-05-04 15:46:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1563', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:46:46', '2019-05-04 15:46:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1564', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:46:52', '2019-05-04 15:46:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1565', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:47:09', '2019-05-04 15:47:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1566', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:47:29', '2019-05-04 15:47:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1567', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:47:30', '2019-05-04 15:47:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1568', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:47:56', '2019-05-04 15:47:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1569', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:48:03', '2019-05-04 15:48:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1570', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:48:22', '2019-05-04 15:48:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1571', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:48:48', '2019-05-04 15:48:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1572', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:48:49', '2019-05-04 15:48:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1573', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:49:00', '2019-05-04 15:49:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1574', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:49:01', '2019-05-04 15:49:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1575', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:49:02', '2019-05-04 15:49:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1576', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:49:16', '2019-05-04 15:49:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1577', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:50:00', '2019-05-04 15:50:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1578', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:50:08', '2019-05-04 15:50:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1579', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:50:23', '2019-05-04 15:50:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1580', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:52:06', '2019-05-04 15:52:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1581', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:52:59', '2019-05-04 15:52:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1582', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:54:36', '2019-05-04 15:54:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1583', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:55:50', '2019-05-04 15:55:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1584', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:55:51', '2019-05-04 15:55:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1585', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:55:52', '2019-05-04 15:55:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1586', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:55:53', '2019-05-04 15:55:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1587', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:55:53', '2019-05-04 15:55:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1588', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:55:54', '2019-05-04 15:55:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1589', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:56:14', '2019-05-04 15:56:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1590', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:57:14', '2019-05-04 15:57:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1591', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-05-04 15:57:44', '2019-05-04 15:57:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1592', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 15:58:20', '2019-05-04 15:58:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1593', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 15:58:26', '2019-05-04 15:58:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1594', '1', 'admin/product/6', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 16:01:49', '2019-05-04 16:01:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1595', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-04 16:11:33', '2019-05-04 16:11:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1596', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-05-07 13:46:44', '2019-05-07 13:46:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1597', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 13:46:50', '2019-05-07 13:46:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1598', '1', 'admin/product/13', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 13:47:07', '2019-05-07 13:47:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1599', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 13:47:10', '2019-05-07 13:47:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1600', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 13:47:12', '2019-05-07 13:47:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1601', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 13:47:20', '2019-05-07 13:47:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1602', '1', 'admin/product/6', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 13:48:47', '2019-05-07 13:48:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1603', '1', 'admin/product/6', 'GET', '127.0.0.1', '[]', '2019-05-07 13:54:13', '2019-05-07 13:54:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('1604', '1', 'admin/product/6', 'GET', '127.0.0.1', '[]', '2019-05-07 13:54:22', '2019-05-07 13:54:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1605', '1', 'admin/product/6', 'GET', '127.0.0.1', '[]', '2019-05-07 13:55:35', '2019-05-07 13:55:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1606', '1', 'admin/product/6', 'GET', '127.0.0.1', '[]', '2019-05-07 13:56:16', '2019-05-07 13:56:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1607', '1', 'admin/product/6', 'GET', '127.0.0.1', '[]', '2019-05-07 13:56:38', '2019-05-07 13:56:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1608', '1', 'admin/product/6', 'GET', '127.0.0.1', '[]', '2019-05-07 13:57:04', '2019-05-07 13:57:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1609', '1', 'admin/product/6', 'GET', '127.0.0.1', '[]', '2019-05-07 13:57:19', '2019-05-07 13:57:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1610', '1', 'admin/product/6', 'GET', '127.0.0.1', '[]', '2019-05-07 13:57:31', '2019-05-07 13:57:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1611', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 13:57:36', '2019-05-07 13:57:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1612', '1', 'admin/product/13', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 13:57:41', '2019-05-07 13:57:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('1613', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 13:59:56', '2019-05-07 13:59:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1614', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:00:17', '2019-05-07 14:00:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1615', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:00:24', '2019-05-07 14:00:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1616', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:00:33', '2019-05-07 14:00:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1617', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:01:00', '2019-05-07 14:01:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1618', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:01:01', '2019-05-07 14:01:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1619', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:01:17', '2019-05-07 14:01:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1620', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:05:26', '2019-05-07 14:05:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1621', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:05:31', '2019-05-07 14:05:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1622', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:05:32', '2019-05-07 14:05:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1623', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:05:40', '2019-05-07 14:05:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1624', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:05:42', '2019-05-07 14:05:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1625', '1', 'admin/product/13', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:05:45', '2019-05-07 14:05:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('1626', '1', 'admin/product/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:05:47', '2019-05-07 14:05:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1627', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:05:48', '2019-05-07 14:05:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1628', '1', 'admin/product/13/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:05:54', '2019-05-07 14:05:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1629', '1', 'admin/product/13', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:05:56', '2019-05-07 14:05:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1630', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:09:36', '2019-05-07 14:09:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1631', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:09:38', '2019-05-07 14:09:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1632', '1', 'admin/brand/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:09:40', '2019-05-07 14:09:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1633', '1', 'admin/product/13', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:09:50', '2019-05-07 14:09:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1634', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:11:07', '2019-05-07 14:11:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1635', '1', 'admin/brand/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:11:21', '2019-05-07 14:11:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1636', '1', 'admin/brand/2', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba3\",\"category_id\":\"9\",\"site_url\":\"http:\\/\\/www.baidu.com\",\"description\":\"\\u8001\\u5b57\\u53f7\\u503c\\u5f97\\u4fe1\\u8d56\",\"sort_order\":\"99\",\"is_show\":\"on\",\"_token\":\"eEJYDaBLI3aMAvFdpPu6VEuL8EI1oOTnCCTMrVWk\",\"_method\":\"PUT\"}', '2019-05-07 14:11:27', '2019-05-07 14:11:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1637', '1', 'admin/brand', 'GET', '127.0.0.1', '[]', '2019-05-07 14:11:27', '2019-05-07 14:11:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1638', '1', 'admin/brand/2', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:11:31', '2019-05-07 14:11:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1639', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:11:36', '2019-05-07 14:11:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1640', '1', 'admin/product/13', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:11:38', '2019-05-07 14:11:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1641', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:12:30', '2019-05-07 14:12:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1642', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:15:47', '2019-05-07 14:15:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1643', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:15:50', '2019-05-07 14:15:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1644', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:15:51', '2019-05-07 14:15:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1645', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-05-07 14:16:03', '2019-05-07 14:16:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1646', '1', 'admin/product/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:16:07', '2019-05-07 14:16:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1647', '1', 'admin/product/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"qq\",\"_token\":\"eEJYDaBLI3aMAvFdpPu6VEuL8EI1oOTnCCTMrVWk\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/category\"}', '2019-05-07 14:16:11', '2019-05-07 14:16:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1648', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-05-07 14:16:11', '2019-05-07 14:16:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1649', '1', 'admin/product/category', 'POST', '127.0.0.1', '{\"_token\":\"eEJYDaBLI3aMAvFdpPu6VEuL8EI1oOTnCCTMrVWk\",\"_order\":\"[{\\\"id\\\":13,\\\"children\\\":[{\\\"id\\\":12}]}]\"}', '2019-05-07 14:16:18', '2019-05-07 14:16:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1650', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:16:19', '2019-05-07 14:16:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1651', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:16:21', '2019-05-07 14:16:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1652', '1', 'admin/product/category/13', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"eEJYDaBLI3aMAvFdpPu6VEuL8EI1oOTnCCTMrVWk\"}', '2019-05-07 14:16:35', '2019-05-07 14:16:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1653', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:16:36', '2019-05-07 14:16:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1654', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-05-07 14:18:34', '2019-05-07 14:18:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1655', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-05-07 14:18:35', '2019-05-07 14:18:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1656', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-05-07 14:18:46', '2019-05-07 14:18:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1657', '1', 'admin/product/category/13', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"eEJYDaBLI3aMAvFdpPu6VEuL8EI1oOTnCCTMrVWk\"}', '2019-05-07 14:18:51', '2019-05-07 14:18:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1658', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:18:52', '2019-05-07 14:18:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1659', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2019-05-07 14:19:14', '2019-05-07 14:19:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1660', '1', 'admin/product/category', 'POST', '127.0.0.1', '{\"_token\":\"eEJYDaBLI3aMAvFdpPu6VEuL8EI1oOTnCCTMrVWk\",\"_order\":\"[{\\\"id\\\":13},{\\\"id\\\":12}]\"}', '2019-05-07 14:19:17', '2019-05-07 14:19:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1661', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:19:17', '2019-05-07 14:19:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1662', '1', 'admin/product/category/13', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"eEJYDaBLI3aMAvFdpPu6VEuL8EI1oOTnCCTMrVWk\"}', '2019-05-07 14:19:20', '2019-05-07 14:19:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1663', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:19:21', '2019-05-07 14:19:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1664', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:19:36', '2019-05-07 14:19:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1665', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:24:16', '2019-05-07 14:24:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1666', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:31:55', '2019-05-07 14:31:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1667', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:37:53', '2019-05-07 14:37:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1668', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:38:35', '2019-05-07 14:38:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1669', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:38:37', '2019-05-07 14:38:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1670', '1', 'admin/product/6', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:38:42', '2019-05-07 14:38:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1671', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:38:50', '2019-05-07 14:38:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1672', '1', 'admin/product/13', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:41:09', '2019-05-07 14:41:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1673', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:41:36', '2019-05-07 14:41:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1674', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:41:38', '2019-05-07 14:41:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1675', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:42:11', '2019-05-07 14:42:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1676', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-05-07 14:42:12', '2019-05-07 14:42:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1677', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:47:15', '2019-05-07 14:47:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('1678', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:47:21', '2019-05-07 14:47:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1679', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:47:27', '2019-05-07 14:47:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1680', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:47:29', '2019-05-07 14:47:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1681', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:47:32', '2019-05-07 14:47:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1682', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:47:35', '2019-05-07 14:47:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1683', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:47:46', '2019-05-07 14:47:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1684', '1', 'admin/adv/position', 'GET', '127.0.0.1', '[]', '2019-05-07 14:51:23', '2019-05-07 14:51:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1685', '1', 'admin/adv/position', 'GET', '127.0.0.1', '[]', '2019-05-07 14:55:44', '2019-05-07 14:55:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1686', '1', 'admin/adv/position/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:55:47', '2019-05-07 14:55:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1687', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 14:55:50', '2019-05-07 14:55:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1688', '1', 'admin/adv/position/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:11:26', '2019-05-07 15:11:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1689', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:11:33', '2019-05-07 15:11:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1690', '1', 'admin/adv/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:11:37', '2019-05-07 15:11:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1691', '1', 'admin/adv/1', 'GET', '127.0.0.1', '[]', '2019-05-07 15:19:28', '2019-05-07 15:19:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1692', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:19:31', '2019-05-07 15:19:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1693', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 15:19:32', '2019-05-07 15:19:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1694', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 15:23:44', '2019-05-07 15:23:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1695', '1', 'admin/auth/permissions', 'GET', '127.0.0.1', '[]', '2019-05-07 15:33:21', '2019-05-07 15:33:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1696', '1', 'admin/auth/permissions/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:33:33', '2019-05-07 15:33:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1697', '1', 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:33:43', '2019-05-07 15:33:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1698', '1', 'admin/auth/permissions/5/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:33:46', '2019-05-07 15:33:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1699', '1', 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:33:50', '2019-05-07 15:33:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1700', '1', 'admin/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:33:57', '2019-05-07 15:33:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('1701', '1', 'admin/auth/roles/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:34:00', '2019-05-07 15:34:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1702', '1', 'admin/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:34:07', '2019-05-07 15:34:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1703', '1', 'admin/auth/users', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:34:11', '2019-05-07 15:34:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1704', '1', 'admin/auth/users/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:34:13', '2019-05-07 15:34:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('1705', '1', 'admin/auth/users', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:34:37', '2019-05-07 15:34:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1706', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:35:11', '2019-05-07 15:35:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1707', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:38:26', '2019-05-07 15:38:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1708', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:39:14', '2019-05-07 15:39:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1709', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 15:39:50', '2019-05-07 15:39:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1710', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 15:41:31', '2019-05-07 15:41:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1711', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 15:41:54', '2019-05-07 15:41:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1712', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 15:42:42', '2019-05-07 15:42:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1713', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 15:47:16', '2019-05-07 15:47:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1714', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 15:47:28', '2019-05-07 15:47:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1715', '1', 'admin/adv/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:47:31', '2019-05-07 15:47:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1716', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 15:48:49', '2019-05-07 15:48:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1717', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 16:05:53', '2019-05-07 16:05:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1718', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 16:06:55', '2019-05-07 16:06:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1719', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 17:08:58', '2019-05-07 17:08:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1720', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 17:09:10', '2019-05-07 17:09:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1721', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 17:09:31', '2019-05-07 17:09:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1722', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 17:10:04', '2019-05-07 17:10:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1723', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 17:10:20', '2019-05-07 17:10:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1724', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 17:15:07', '2019-05-07 17:15:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1725', '1', 'admin/adv/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:15:18', '2019-05-07 17:15:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1726', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:15:22', '2019-05-07 17:15:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1727', '1', 'admin/adv/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:15:24', '2019-05-07 17:15:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1728', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:15:26', '2019-05-07 17:15:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1729', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_columns_\":\"name,url,adv_position.name,region_city_id,start_time,end_time,click_num,is_show\",\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:15:31', '2019-05-07 17:15:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1730', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:15:35', '2019-05-07 17:15:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1731', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:16:05', '2019-05-07 17:16:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1732', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:16:06', '2019-05-07 17:16:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1733', '1', 'admin/artical/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:17:07', '2019-05-07 17:17:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1734', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:17:18', '2019-05-07 17:17:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1735', '1', 'admin/artical/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:17:20', '2019-05-07 17:17:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1736', '1', 'admin/artical/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6d4b\\u8bd5\\u6d4b\\u8bd5\",\"description\":null,\"is_show\":\"on\",\"_token\":\"eEJYDaBLI3aMAvFdpPu6VEuL8EI1oOTnCCTMrVWk\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/artical\\/category\"}', '2019-05-07 17:17:33', '2019-05-07 17:17:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1737', '1', 'admin/artical/category', 'GET', '127.0.0.1', '[]', '2019-05-07 17:17:33', '2019-05-07 17:17:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1738', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:17:41', '2019-05-07 17:17:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('1739', '1', 'admin/artical/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:17:43', '2019-05-07 17:17:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1740', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:18:10', '2019-05-07 17:18:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1741', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:28:07', '2019-05-07 17:28:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1742', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:28:36', '2019-05-07 17:28:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1743', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:28:39', '2019-05-07 17:28:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1744', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:28:42', '2019-05-07 17:28:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1745', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:31:43', '2019-05-07 17:31:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1746', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:31:44', '2019-05-07 17:31:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1747', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:31:45', '2019-05-07 17:31:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('1748', '1', 'admin/artical/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-07 17:31:46', '2019-05-07 17:31:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1749', '1', 'admin/artical/1', 'PUT', '127.0.0.1', '{\"title\":\"\\u5546\\u57ce\\u65b0\\u4e0a\\u7ebf\\u662f\",\"category_id\":\"1\",\"description\":\"<p><\\/p><p><\\/p><p><\\/p><p>\\u554a\\u5b9e\\u6253\\u5b9e\\u7684\\u4eb2\\u543b\\u9752\\u86d9<\\/p><p><br><\\/p>\",\"content\":\"<p><\\/p><p><\\/p><p>\\u963f\\u8428\\u65af\\u6cd5\\u6240\\u53d1\\u751f\\u7684\\u53d1\\u5927\\u6c34\\u7684<\\/p><p><br><\\/p>\",\"sort_order\":\"99\",\"is_show\":\"on\",\"is_hot\":\"on\",\"user_id\":\"1\",\"_token\":\"eEJYDaBLI3aMAvFdpPu6VEuL8EI1oOTnCCTMrVWk\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/artical\"}', '2019-05-07 17:31:52', '2019-05-07 17:31:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1750', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:31:52', '2019-05-07 17:31:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1751', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:32:19', '2019-05-07 17:32:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1752', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:32:46', '2019-05-07 17:32:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1753', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-07 17:34:06', '2019-05-07 17:34:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1754', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:34:08', '2019-05-07 17:34:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1755', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:34:29', '2019-05-07 17:34:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1756', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:49:10', '2019-05-07 17:49:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1757', '1', 'admin/artical', 'GET', '127.0.0.1', '[]', '2019-05-07 17:49:19', '2019-05-07 17:49:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1758', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-05-08 09:08:23', '2019-05-08 09:08:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1759', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-08 09:08:32', '2019-05-08 09:08:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1760', '1', 'admin/artical/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-08 09:08:35', '2019-05-08 09:08:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1761', '1', 'admin/artical/1', 'GET', '127.0.0.1', '[]', '2019-05-08 09:09:19', '2019-05-08 09:09:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1762', '1', 'admin/artical/1', 'GET', '127.0.0.1', '[]', '2019-05-08 09:09:21', '2019-05-08 09:09:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1763', '1', 'admin/artical/1', 'GET', '127.0.0.1', '[]', '2019-05-08 09:09:35', '2019-05-08 09:09:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1764', '1', 'admin/artical/1', 'GET', '127.0.0.1', '[]', '2019-05-08 09:09:42', '2019-05-08 09:09:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1765', '1', 'admin/artical/1', 'GET', '127.0.0.1', '[]', '2019-05-08 09:11:19', '2019-05-08 09:11:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1766', '1', 'admin/artical/1', 'GET', '127.0.0.1', '[]', '2019-05-08 09:11:20', '2019-05-08 09:11:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1767', '1', 'admin/artical/1', 'GET', '127.0.0.1', '[]', '2019-05-08 09:11:36', '2019-05-08 09:11:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1768', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-08 09:11:43', '2019-05-08 09:11:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1769', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-05-20 10:36:54', '2019-05-20 10:36:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1770', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 10:36:59', '2019-05-20 10:36:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1771', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 10:37:01', '2019-05-20 10:37:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1772', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 10:37:10', '2019-05-20 10:37:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1773', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 10:37:38', '2019-05-20 10:37:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1774', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 10:37:40', '2019-05-20 10:37:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1775', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 10:37:42', '2019-05-20 10:37:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1776', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 10:37:53', '2019-05-20 10:37:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1777', '1', 'admin/product/6', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 10:38:02', '2019-05-20 10:38:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1778', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 10:38:16', '2019-05-20 10:38:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1779', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:01:48', '2019-05-20 11:01:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1780', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:01:49', '2019-05-20 11:01:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1781', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:01:53', '2019-05-20 11:01:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1782', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:01:56', '2019-05-20 11:01:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1783', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:02:00', '2019-05-20 11:02:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1784', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:02:03', '2019-05-20 11:02:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1785', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:02:05', '2019-05-20 11:02:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1786', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:02:06', '2019-05-20 11:02:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1787', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:02:07', '2019-05-20 11:02:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1788', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:02:09', '2019-05-20 11:02:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1789', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:02:11', '2019-05-20 11:02:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1790', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:02:17', '2019-05-20 11:02:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1791', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:09:05', '2019-05-20 11:09:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1792', '1', 'admin/product/seckill/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:09:08', '2019-05-20 11:09:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1793', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:09:26', '2019-05-20 11:09:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1794', '1', 'admin/product/seckill/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:09:28', '2019-05-20 11:09:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1795', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:09:31', '2019-05-20 11:09:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1796', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:11:34', '2019-05-20 11:11:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1797', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:11:37', '2019-05-20 11:11:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1798', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '[]', '2019-05-20 11:55:41', '2019-05-20 11:55:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('1799', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:55:46', '2019-05-20 11:55:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1800', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '[]', '2019-05-20 11:55:46', '2019-05-20 11:55:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1801', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '[]', '2019-05-20 11:56:18', '2019-05-20 11:56:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1802', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:56:21', '2019-05-20 11:56:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1803', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '[]', '2019-05-20 11:56:22', '2019-05-20 11:56:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1804', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '[]', '2019-05-20 11:56:57', '2019-05-20 11:56:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('1805', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:56:59', '2019-05-20 11:56:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1806', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '[]', '2019-05-20 11:57:00', '2019-05-20 11:57:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1807', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:57:45', '2019-05-20 11:57:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('1808', '1', 'admin/region/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:57:54', '2019-05-20 11:57:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1809', '1', 'admin/region/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:58:02', '2019-05-20 11:58:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1810', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:58:05', '2019-05-20 11:58:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1811', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 11:58:54', '2019-05-20 11:58:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1812', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 12:00:14', '2019-05-20 12:00:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1813', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-20 12:00:35', '2019-05-20 12:00:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1814', '1', 'admin/adv', 'GET', '127.0.0.1', '[]', '2019-05-20 12:00:58', '2019-05-20 12:00:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1815', '1', 'admin/adv/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 12:01:00', '2019-05-20 12:01:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1816', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-05-20 12:01:30', '2019-05-20 12:01:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1817', '1', 'admin/adv/create', 'GET', '127.0.0.1', '[]', '2019-05-20 12:01:32', '2019-05-20 12:01:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1818', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 13:43:28', '2019-05-20 13:43:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1819', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 13:43:29', '2019-05-20 13:43:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1820', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 13:43:37', '2019-05-20 13:43:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1821', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-20 13:43:38', '2019-05-20 13:43:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1822', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-05-21 15:39:12', '2019-05-21 15:39:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1823', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-21 15:43:05', '2019-05-21 15:43:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1824', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-05-21 15:49:54', '2019-05-21 15:49:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1825', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"21\",\"title\":\"\\u5730\\u57df\\u5f00\\u901a\",\"icon\":\"fa-bars\",\"uri\":\"region\\/open\",\"roles\":[null],\"permission\":null,\"_token\":\"guGPTaSQOAdikGRWWj6kk4wvAps79zjWvde1yExG\"}', '2019-05-21 15:50:21', '2019-05-21 15:50:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1826', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-05-21 15:50:21', '2019-05-21 15:50:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1827', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-05-21 15:50:25', '2019-05-21 15:50:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1828', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-21 15:50:28', '2019-05-21 15:50:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1829', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-21 17:20:19', '2019-05-21 17:20:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1830', '1', 'admin/region/open/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-21 17:20:21', '2019-05-21 17:20:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1831', '1', 'admin/region/open/create', 'GET', '127.0.0.1', '[]', '2019-05-21 17:21:29', '2019-05-21 17:21:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1832', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-21 17:22:06', '2019-05-21 17:22:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1833', '1', 'admin/region/open/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-21 17:22:10', '2019-05-21 17:22:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1834', '1', 'admin/region/open/create', 'GET', '127.0.0.1', '[]', '2019-05-21 17:22:46', '2019-05-21 17:22:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1835', '1', 'admin/region/open', 'POST', '127.0.0.1', '{\"region_id\":\"424\",\"is_show\":\"on\",\"sort_order\":null,\"_token\":\"guGPTaSQOAdikGRWWj6kk4wvAps79zjWvde1yExG\"}', '2019-05-21 17:23:04', '2019-05-21 17:23:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1836', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-21 17:23:04', '2019-05-21 17:23:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1837', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-05-22 09:40:21', '2019-05-22 09:40:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1838', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 09:41:08', '2019-05-22 09:41:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1839', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 09:43:16', '2019-05-22 09:43:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1840', '1', 'admin/region/open/1', 'PUT', '127.0.0.1', '{\"name\":\"sort_order\",\"value\":\"20\",\"pk\":\"1\",\"_token\":\"bReIAKJG1t0nJvPO8anVnbDcXehhgfgYTzHxQBHC\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-05-22 09:43:23', '2019-05-22 09:43:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1841', '1', 'admin/region/open/1', 'PUT', '127.0.0.1', '{\"name\":\"sort_order\",\"value\":\"99\",\"pk\":\"1\",\"_token\":\"bReIAKJG1t0nJvPO8anVnbDcXehhgfgYTzHxQBHC\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-05-22 09:43:38', '2019-05-22 09:43:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1842', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 09:45:33', '2019-05-22 09:45:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1843', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 09:45:51', '2019-05-22 09:45:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1844', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 09:46:09', '2019-05-22 09:46:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1845', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 09:47:14', '2019-05-22 09:47:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('1846', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 09:47:39', '2019-05-22 09:47:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1847', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 09:47:40', '2019-05-22 09:47:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1848', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 09:48:21', '2019-05-22 09:48:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1849', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 09:48:23', '2019-05-22 09:48:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1850', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 09:49:21', '2019-05-22 09:49:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1851', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 09:50:24', '2019-05-22 09:50:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1852', '1', 'admin/region/open/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 09:50:27', '2019-05-22 09:50:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1853', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 09:50:30', '2019-05-22 09:50:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1854', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 10:10:44', '2019-05-22 10:10:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1855', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 10:11:02', '2019-05-22 10:11:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1856', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 10:30:05', '2019-05-22 10:30:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('1857', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 10:32:12', '2019-05-22 10:32:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1858', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 10:33:29', '2019-05-22 10:33:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1859', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 10:38:43', '2019-05-22 10:38:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1860', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 11:19:58', '2019-05-22 11:19:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1861', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 11:20:06', '2019-05-22 11:20:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1862', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 11:22:58', '2019-05-22 11:22:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1863', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 11:23:17', '2019-05-22 11:23:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1864', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 11:24:04', '2019-05-22 11:24:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1865', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 11:24:21', '2019-05-22 11:24:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1866', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:17:24', '2019-05-22 14:17:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1867', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:17:33', '2019-05-22 14:17:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1868', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:17:54', '2019-05-22 14:17:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1869', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:19:08', '2019-05-22 14:19:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1870', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:19:44', '2019-05-22 14:19:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1871', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:20:51', '2019-05-22 14:20:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1872', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:20:53', '2019-05-22 14:20:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1873', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:21:19', '2019-05-22 14:21:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1874', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:21:48', '2019-05-22 14:21:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1875', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:23:54', '2019-05-22 14:23:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1876', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:26:16', '2019-05-22 14:26:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1877', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:29:51', '2019-05-22 14:29:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1878', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:30:31', '2019-05-22 14:30:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('1879', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:34:27', '2019-05-22 14:34:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1880', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:34:46', '2019-05-22 14:34:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1881', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:34:54', '2019-05-22 14:34:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1882', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:34:55', '2019-05-22 14:34:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1883', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:34:56', '2019-05-22 14:34:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1884', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:40:28', '2019-05-22 14:40:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1885', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:45:18', '2019-05-22 14:45:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1886', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:46:54', '2019-05-22 14:46:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1887', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:48:55', '2019-05-22 14:48:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1888', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:49:09', '2019-05-22 14:49:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1889', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:49:22', '2019-05-22 14:49:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1890', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:49:33', '2019-05-22 14:49:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('1891', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:50:35', '2019-05-22 14:50:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1892', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 14:53:39', '2019-05-22 14:53:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('1893', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:00:11', '2019-05-22 15:00:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1894', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:03:34', '2019-05-22 15:03:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1895', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-05-22 15:03:51', '2019-05-22 15:03:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1896', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:04:07', '2019-05-22 15:04:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1897', '1', 'admin/region/open/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:04:09', '2019-05-22 15:04:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1898', '1', 'admin/region/open', 'POST', '127.0.0.1', '{\"region_id\":\"441\",\"is_show\":\"on\",\"sort_order\":null,\"_token\":\"XHVr4RDchnZ1qyl5xrXIxQCGOXG2vsDkDSl1i44R\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/region\\/open\"}', '2019-05-22 15:04:24', '2019-05-22 15:04:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1899', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:04:24', '2019-05-22 15:04:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1900', '1', 'admin/region/open/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:04:27', '2019-05-22 15:04:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1901', '1', 'admin/region/open', 'POST', '127.0.0.1', '{\"region_id\":\"448\",\"is_show\":\"on\",\"sort_order\":\"12\",\"_token\":\"XHVr4RDchnZ1qyl5xrXIxQCGOXG2vsDkDSl1i44R\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/region\\/open\"}', '2019-05-22 15:04:38', '2019-05-22 15:04:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1902', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:04:38', '2019-05-22 15:04:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1903', '1', 'admin/region/open/2', 'PUT', '127.0.0.1', '{\"name\":\"sort_order\",\"value\":\"99\",\"pk\":\"2\",\"_token\":\"XHVr4RDchnZ1qyl5xrXIxQCGOXG2vsDkDSl1i44R\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-05-22 15:04:44', '2019-05-22 15:04:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1904', '1', 'admin/region/open/3', 'PUT', '127.0.0.1', '{\"name\":\"sort_order\",\"value\":\"99\",\"pk\":\"3\",\"_token\":\"XHVr4RDchnZ1qyl5xrXIxQCGOXG2vsDkDSl1i44R\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-05-22 15:04:49', '2019-05-22 15:04:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1905', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:05:00', '2019-05-22 15:05:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1906', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:06:42', '2019-05-22 15:06:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1907', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:09:02', '2019-05-22 15:09:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('1908', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:09:48', '2019-05-22 15:09:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1909', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:10:17', '2019-05-22 15:10:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('1910', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:10:36', '2019-05-22 15:10:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1911', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:22:03', '2019-05-22 15:22:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('1912', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:22:27', '2019-05-22 15:22:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1913', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:22:34', '2019-05-22 15:22:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1914', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:23:01', '2019-05-22 15:23:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1915', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:24:36', '2019-05-22 15:24:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1916', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:25:26', '2019-05-22 15:25:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1917', '1', 'admin/region/open/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:25:47', '2019-05-22 15:25:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('1918', '1', 'admin/region/open', 'POST', '127.0.0.1', '{\"region_id\":\"2\",\"is_show\":\"on\",\"sort_order\":\"99\",\"_token\":\"XHVr4RDchnZ1qyl5xrXIxQCGOXG2vsDkDSl1i44R\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/region\\/open\"}', '2019-05-22 15:25:53', '2019-05-22 15:25:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('1919', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:25:54', '2019-05-22 15:25:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1920', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:26:08', '2019-05-22 15:26:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1921', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:26:11', '2019-05-22 15:26:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1922', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:26:49', '2019-05-22 15:26:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('1923', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:32:16', '2019-05-22 15:32:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1924', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:35:04', '2019-05-22 15:35:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1925', '1', 'admin/region/open/4', 'PUT', '127.0.0.1', '{\"is_show\":\"off\",\"_token\":\"XHVr4RDchnZ1qyl5xrXIxQCGOXG2vsDkDSl1i44R\",\"_method\":\"PUT\"}', '2019-05-22 15:35:20', '2019-05-22 15:35:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1926', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:35:21', '2019-05-22 15:35:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1927', '1', 'admin/region/open/4', 'PUT', '127.0.0.1', '{\"is_show\":\"on\",\"_token\":\"XHVr4RDchnZ1qyl5xrXIxQCGOXG2vsDkDSl1i44R\",\"_method\":\"PUT\"}', '2019-05-22 15:35:27', '2019-05-22 15:35:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('1928', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:35:29', '2019-05-22 15:35:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('1929', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:36:54', '2019-05-22 15:36:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1930', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:37:36', '2019-05-22 15:37:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1931', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:37:50', '2019-05-22 15:37:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1932', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:38:58', '2019-05-22 15:38:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1933', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:39:00', '2019-05-22 15:39:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('1934', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:39:28', '2019-05-22 15:39:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1935', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:39:30', '2019-05-22 15:39:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1936', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:39:36', '2019-05-22 15:39:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1937', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:39:40', '2019-05-22 15:39:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1938', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:40:36', '2019-05-22 15:40:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('1939', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:42:21', '2019-05-22 15:42:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('1940', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:42:44', '2019-05-22 15:42:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1941', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:42:46', '2019-05-22 15:42:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('1942', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:43:12', '2019-05-22 15:43:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1943', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:43:45', '2019-05-22 15:43:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('1944', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:44:18', '2019-05-22 15:44:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('1945', '1', 'admin/region/open', 'GET', '127.0.0.1', '[]', '2019-05-22 15:47:32', '2019-05-22 15:47:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1946', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:47:40', '2019-05-22 15:47:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('1947', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:47:44', '2019-05-22 15:47:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1948', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:47:48', '2019-05-22 15:47:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1949', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:47:50', '2019-05-22 15:47:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1950', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:47:51', '2019-05-22 15:47:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1951', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:47:52', '2019-05-22 15:47:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('1952', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:47:55', '2019-05-22 15:47:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1953', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:47:56', '2019-05-22 15:47:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('1954', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:47:59', '2019-05-22 15:47:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1955', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:48:08', '2019-05-22 15:48:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('1956', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-22 15:48:10', '2019-05-22 15:48:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1957', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-05-23 09:14:48', '2019-05-23 09:14:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1958', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-23 09:14:55', '2019-05-23 09:14:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('1959', '1', 'admin/region/open/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-23 09:14:59', '2019-05-23 09:14:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1960', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-23 09:15:07', '2019-05-23 09:15:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('1961', '1', 'admin/region/open/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-23 09:15:09', '2019-05-23 09:15:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('1962', '1', 'admin/region/open/1', 'GET', '127.0.0.1', '[]', '2019-05-23 09:19:28', '2019-05-23 09:19:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1963', '1', 'admin/region/open/1', 'GET', '127.0.0.1', '[]', '2019-05-23 09:19:57', '2019-05-23 09:19:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('1964', '1', 'admin/region/424/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-23 09:20:01', '2019-05-23 09:20:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1965', '1', 'admin/region/open/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-05-23 09:20:12', '2019-05-23 09:20:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1966', '1', 'admin/region/open/1', 'GET', '127.0.0.1', '[]', '2019-05-23 15:58:54', '2019-05-23 15:58:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('1967', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-05-23 17:13:24', '2019-05-23 17:13:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('1968', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-14 09:26:51', '2019-06-14 09:26:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1969', '1', 'admin/artical/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:26:58', '2019-06-14 09:26:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1970', '1', 'admin/artical', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:01', '2019-06-14 09:27:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1971', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:04', '2019-06-14 09:27:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('1972', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:06', '2019-06-14 09:27:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1973', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:11', '2019-06-14 09:27:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1974', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:16', '2019-06-14 09:27:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1975', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:23', '2019-06-14 09:27:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('1976', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:25', '2019-06-14 09:27:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('1977', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:26', '2019-06-14 09:27:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('1978', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:28', '2019-06-14 09:27:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1979', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:28', '2019-06-14 09:27:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1980', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:32', '2019-06-14 09:27:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1981', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:34', '2019-06-14 09:27:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('1982', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:37', '2019-06-14 09:27:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('1983', '1', 'admin/auth/users', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:41', '2019-06-14 09:27:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('1984', '1', 'admin/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:42', '2019-06-14 09:27:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('1985', '1', 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:44', '2019-06-14 09:27:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('1986', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:45', '2019-06-14 09:27:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('1987', '1', 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-14 09:27:48', '2019-06-14 09:27:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1988', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-17 10:02:38', '2019-06-17 10:02:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1989', '1', 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 10:02:58', '2019-06-17 10:02:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('1990', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 10:09:01', '2019-06-17 10:09:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('1991', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u4f18\\u60e0\\u5238\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":null,\"roles\":[null],\"permission\":null,\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\"}', '2019-06-17 10:09:19', '2019-06-17 10:09:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('1992', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-06-17 10:09:20', '2019-06-17 10:09:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1993', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"30\",\"title\":\"\\u4f18\\u60e0\\u5238\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"coupon\",\"roles\":[null],\"permission\":null,\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\"}', '2019-06-17 10:09:57', '2019-06-17 10:09:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('1994', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-06-17 10:09:57', '2019-06-17 10:09:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('1995', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-06-17 10:09:59', '2019-06-17 10:09:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('1996', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\",\"_order\":\"[{\\\"id\\\":1},{\\\"id\\\":2,\\\"children\\\":[{\\\"id\\\":3},{\\\"id\\\":4},{\\\"id\\\":5},{\\\"id\\\":6},{\\\"id\\\":7}]},{\\\"id\\\":16,\\\"children\\\":[{\\\"id\\\":17}]},{\\\"id\\\":11,\\\"children\\\":[{\\\"id\\\":12},{\\\"id\\\":13}]},{\\\"id\\\":8,\\\"children\\\":[{\\\"id\\\":9},{\\\"id\\\":14},{\\\"id\\\":10},{\\\"id\\\":15},{\\\"id\\\":20}]},{\\\"id\\\":30,\\\"children\\\":[{\\\"id\\\":31}]},{\\\"id\\\":21,\\\"children\\\":[{\\\"id\\\":22},{\\\"id\\\":29}]},{\\\"id\\\":23,\\\"children\\\":[{\\\"id\\\":24},{\\\"id\\\":25}]},{\\\"id\\\":26,\\\"children\\\":[{\\\"id\\\":27},{\\\"id\\\":28}]}]\"}', '2019-06-17 10:10:10', '2019-06-17 10:10:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('1997', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 10:10:11', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('1998', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-06-17 10:10:16', '2019-06-17 10:10:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('1999', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 11:01:35', '2019-06-17 11:01:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('2000', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 11:02:46', '2019-06-17 11:02:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2001', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 11:03:36', '2019-06-17 11:03:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2002', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 11:03:40', '2019-06-17 11:03:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('2003', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 11:04:30', '2019-06-17 11:04:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2004', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 11:04:37', '2019-06-17 11:04:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2005', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 11:05:33', '2019-06-17 11:05:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2006', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-17 11:32:41', '2019-06-17 11:32:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2007', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-17 11:46:00', '2019-06-17 11:46:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2008', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-17 11:58:01', '2019-06-17 11:58:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2009', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-17 13:36:00', '2019-06-17 13:36:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2010', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-17 13:37:08', '2019-06-17 13:37:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2011', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-17 14:28:07', '2019-06-17 14:28:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2012', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 14:28:12', '2019-06-17 14:28:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2013', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 14:28:14', '2019-06-17 14:28:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2014', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-17 14:29:45', '2019-06-17 14:29:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2015', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-17 14:31:28', '2019-06-17 14:31:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2016', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-17 14:55:37', '2019-06-17 14:55:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2017', '1', 'admin/coupon', 'POST', '127.0.0.1', '{\"name\":\"\\u4eac\\u4e1c618\\u5927\\u4fc3\\u4f18\\u60e0\\u5238\",\"reveive_limit\":\"1\",\"stock_number\":\"10\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"receive_start_time\":\"2019-06-17 00:00:00\",\"receive_end_time\":\"2020-06-18 00:00:00\",\"use_start_time\":\"2019-06-17 00:00:00\",\"use_end_time\":\"2020-06-18 00:00:00\",\"is_online\":\"on\",\"is_show\":\"on\",\"sort_order\":\"99\",\"created_id\":\"1\",\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\"}', '2019-06-17 15:33:49', '2019-06-17 15:33:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2018', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 15:33:50', '2019-06-17 15:33:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2019', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:35:37', '2019-06-17 15:35:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2020', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 15:36:32', '2019-06-17 15:36:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('2021', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:36:57', '2019-06-17 15:36:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2022', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:37:05', '2019-06-17 15:37:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2023', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:37:10', '2019-06-17 15:37:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('2024', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:37:13', '2019-06-17 15:37:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2025', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-06-17 15:38:36', '2019-06-17 15:38:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2026', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-06-17 15:38:59', '2019-06-17 15:38:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2027', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:39:33', '2019-06-17 15:39:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2028', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:39:38', '2019-06-17 15:39:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2029', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-17 15:39:51', '2019-06-17 15:39:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2030', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"category_id\":\"12\",\"brand_id\":\"1\",\"market_price\":\"100.00\",\"price\":\"88.00\",\"description\":null,\"content\":null,\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"on\",\"give_intergral\":null,\"virtual_quantity\":null,\"warn_number\":null,\"is_hot\":\"off\",\"is_new\":\"off\",\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-06-17 15:40:04', '2019-06-17 15:40:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2031', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-06-17 15:40:04', '2019-06-17 15:40:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2032', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-06-17 15:40:44', '2019-06-17 15:40:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2033', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-17 15:41:00', '2019-06-17 15:41:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2034', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"category_id\":\"12\",\"brand_id\":\"1\",\"market_price\":\"100.00\",\"price\":\"80.00\",\"description\":null,\"content\":null,\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"give_intergral\":null,\"virtual_quantity\":null,\"warn_number\":null,\"is_hot\":\"off\",\"is_new\":\"off\",\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\"}', '2019-06-17 15:41:08', '2019-06-17 15:41:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2035', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-06-17 15:41:09', '2019-06-17 15:41:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2036', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-17 15:41:22', '2019-06-17 15:41:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2037', '1', 'admin/product', 'POST', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\",\"category_id\":\"12\",\"brand_id\":\"1\",\"market_price\":\"100.00\",\"price\":\"80.00\",\"description\":null,\"content\":null,\"sort_order\":\"99\",\"is_show\":\"on\",\"is_audit\":\"off\",\"give_intergral\":null,\"virtual_quantity\":null,\"warn_number\":null,\"is_hot\":\"off\",\"is_new\":\"off\",\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\"}', '2019-06-17 15:41:39', '2019-06-17 15:41:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2038', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-17 15:41:40', '2019-06-17 15:41:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('2039', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:41:44', '2019-06-17 15:41:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2040', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:41:51', '2019-06-17 15:41:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2041', '1', 'admin/product/14/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:41:56', '2019-06-17 15:41:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2042', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:42:04', '2019-06-17 15:42:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2043', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-17 15:43:07', '2019-06-17 15:43:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2044', '1', 'admin/product/14', 'PUT', '127.0.0.1', '{\"is_audit\":\"on\",\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\",\"_method\":\"PUT\"}', '2019-06-17 15:43:12', '2019-06-17 15:43:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2045', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-17 15:43:13', '2019-06-17 15:43:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2046', '1', 'admin/product/14', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:43:18', '2019-06-17 15:43:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('2047', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:43:33', '2019-06-17 15:43:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2048', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:45:27', '2019-06-17 15:45:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2049', '1', 'admin/coupon/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:45:31', '2019-06-17 15:45:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2050', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:45:33', '2019-06-17 15:45:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2051', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:45:34', '2019-06-17 15:45:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2052', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 15:46:02', '2019-06-17 15:46:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2053', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 15:46:07', '2019-06-17 15:46:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2054', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 15:48:47', '2019-06-17 15:48:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('2055', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 15:49:04', '2019-06-17 15:49:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2056', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:49:06', '2019-06-17 15:49:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('2057', '1', 'admin/coupon', 'POST', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\\u6d4b\\u8bd5\",\"reveive_limit\":\"1\",\"stock_number\":\"1\",\"description\":null,\"receive_start_time\":null,\"receive_end_time\":null,\"use_start_time\":null,\"use_end_time\":null,\"is_online\":\"on\",\"is_show\":\"on\",\"sort_order\":\"99\",\"created_id\":\"1\",\"couponsPrice\":{\"new_1\":{\"min_consume_price\":\"1.00\",\"price\":\"13.00\",\"id\":null,\"_remove_\":\"0\"}},\"couponsDiscount\":{\"new_2\":{\"discount\":\"60\",\"product_num\":\"2\",\"max_discount_price\":null,\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/coupon\"}', '2019-06-17 15:49:46', '2019-06-17 15:49:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2058', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-17 15:49:46', '2019-06-17 15:49:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2059', '1', 'admin/coupon', 'POST', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\\u6d4b\\u8bd5\",\"reveive_limit\":\"1\",\"stock_number\":\"1\",\"description\":null,\"receive_start_time\":\"2019-06-17 00:00:00\",\"receive_end_time\":\"2019-06-28 00:00:00\",\"use_start_time\":\"2019-06-17 00:00:00\",\"use_end_time\":\"2019-06-28 00:00:00\",\"is_online\":\"on\",\"is_show\":\"on\",\"sort_order\":\"99\",\"created_id\":\"1\",\"couponsPrice\":{\"new___LA_KEY__\":{\"min_consume_price\":\"1.00\",\"price\":\"13.00\",\"id\":null,\"_remove_\":\"0\"}},\"couponsDiscount\":{\"new___LA_KEY__\":{\"discount\":\"60\",\"product_num\":\"2\",\"max_discount_price\":null,\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\"}', '2019-06-17 15:50:10', '2019-06-17 15:50:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('2060', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-17 15:50:11', '2019-06-17 15:50:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2061', '1', 'admin/coupon', 'POST', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\\u6d4b\\u8bd5\",\"reveive_limit\":\"1\",\"stock_number\":\"1\",\"description\":null,\"receive_start_time\":\"2019-06-17 00:00:00\",\"receive_end_time\":\"2019-06-28 00:00:00\",\"use_start_time\":\"2019-06-17 00:00:00\",\"use_end_time\":\"2019-06-28 00:00:00\",\"is_online\":\"on\",\"is_show\":\"on\",\"sort_order\":\"99\",\"created_id\":\"1\",\"couponsPrice\":{\"new___LA_KEY__\":{\"min_consume_price\":\"1.00\",\"price\":\"13.00\",\"id\":null,\"_remove_\":\"0\"}},\"couponsDiscount\":{\"new___LA_KEY__\":{\"discount\":\"60\",\"product_num\":\"2\",\"max_discount_price\":null,\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\"}', '2019-06-17 15:51:09', '2019-06-17 15:51:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2062', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-17 15:51:09', '2019-06-17 15:51:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2063', '1', 'admin/coupon', 'POST', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\\u6d4b\\u8bd5\",\"reveive_limit\":\"1\",\"stock_number\":\"1\",\"description\":null,\"receive_start_time\":\"2019-06-17 00:00:00\",\"receive_end_time\":\"2019-06-28 00:00:00\",\"use_start_time\":\"2019-06-17 00:00:00\",\"use_end_time\":\"2019-06-28 00:00:00\",\"is_online\":\"on\",\"is_show\":\"on\",\"sort_order\":\"99\",\"created_id\":\"1\",\"couponsPrice\":{\"new___LA_KEY__\":{\"min_consume_price\":\"1.00\",\"price\":\"13.00\",\"id\":null,\"_remove_\":\"0\"}},\"couponsDiscount\":{\"new___LA_KEY__\":{\"discount\":\"60\",\"product_num\":\"2\",\"max_discount_price\":null,\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"HeDgz4HRqzD1hMsavgEQDBKnlR6SpSpyVegdilg9\"}', '2019-06-17 15:52:07', '2019-06-17 15:52:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2064', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 15:52:07', '2019-06-17 15:52:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2065', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 15:52:12', '2019-06-17 15:52:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2066', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 15:52:47', '2019-06-17 15:52:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('2067', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 15:53:41', '2019-06-17 15:53:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2068', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:04:23', '2019-06-17 16:04:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('2069', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:05:54', '2019-06-17 16:05:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2070', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:06:33', '2019-06-17 16:06:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2071', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:06:34', '2019-06-17 16:06:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2072', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:06:35', '2019-06-17 16:06:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('2073', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:07:55', '2019-06-17 16:07:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('2074', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:07:56', '2019-06-17 16:07:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2075', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:07:57', '2019-06-17 16:07:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2076', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:07:58', '2019-06-17 16:07:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2077', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:07:58', '2019-06-17 16:07:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2078', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:07:59', '2019-06-17 16:07:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2079', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:07:59', '2019-06-17 16:07:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2080', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:08:00', '2019-06-17 16:08:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2081', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:08:00', '2019-06-17 16:08:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2082', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:08:02', '2019-06-17 16:08:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2083', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:08:03', '2019-06-17 16:08:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2084', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:08:37', '2019-06-17 16:08:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2085', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:08:38', '2019-06-17 16:08:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2086', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:08:46', '2019-06-17 16:08:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2087', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:09:01', '2019-06-17 16:09:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2088', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:09:11', '2019-06-17 16:09:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2089', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:09:13', '2019-06-17 16:09:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2090', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-17 16:11:15', '2019-06-17 16:11:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('2091', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-17 16:12:59', '2019-06-17 16:12:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2092', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:14:03', '2019-06-17 16:14:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2093', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:14:04', '2019-06-17 16:14:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2094', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:14:21', '2019-06-17 16:14:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2095', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:14:38', '2019-06-17 16:14:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2096', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:14:39', '2019-06-17 16:14:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2097', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:17:22', '2019-06-17 16:17:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2098', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:19:21', '2019-06-17 16:19:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2099', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:20:11', '2019-06-17 16:20:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2100', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:20:38', '2019-06-17 16:20:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2101', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:20:46', '2019-06-17 16:20:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2102', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:21:49', '2019-06-17 16:21:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2103', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-17 16:23:35', '2019-06-17 16:23:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('2104', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-17 16:24:38', '2019-06-17 16:24:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2105', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:25:12', '2019-06-17 16:25:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2106', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:25:18', '2019-06-17 16:25:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('2107', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:25:25', '2019-06-17 16:25:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('2108', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:25:44', '2019-06-17 16:25:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2109', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:25:45', '2019-06-17 16:25:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2110', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:25:56', '2019-06-17 16:25:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2111', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:27:00', '2019-06-17 16:27:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2112', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:27:42', '2019-06-17 16:27:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2113', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-17 16:28:58', '2019-06-17 16:28:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2114', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-18 14:35:00', '2019-06-18 14:35:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2115', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-18 14:35:04', '2019-06-18 14:35:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2116', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:21:26', '2019-06-18 15:21:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2117', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:21:42', '2019-06-18 15:21:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2118', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:21:57', '2019-06-18 15:21:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2119', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:22:04', '2019-06-18 15:22:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2120', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:25:01', '2019-06-18 15:25:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2121', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:25:13', '2019-06-18 15:25:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2122', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-18 15:26:54', '2019-06-18 15:26:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2123', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-18 15:27:09', '2019-06-18 15:27:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2124', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:28:04', '2019-06-18 15:28:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2125', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:28:05', '2019-06-18 15:28:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2126', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:28:56', '2019-06-18 15:28:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2127', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:29:19', '2019-06-18 15:29:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('2128', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:31:17', '2019-06-18 15:31:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2129', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 15:58:50', '2019-06-18 15:58:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2130', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 16:19:11', '2019-06-18 16:19:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2131', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 16:21:41', '2019-06-18 16:21:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2132', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 16:21:43', '2019-06-18 16:21:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2133', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 16:21:51', '2019-06-18 16:21:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2134', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 16:22:12', '2019-06-18 16:22:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2135', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 16:22:18', '2019-06-18 16:22:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('2136', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-18 16:22:21', '2019-06-18 16:22:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2137', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:23:48', '2019-06-18 16:23:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2138', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:25:24', '2019-06-18 16:25:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2139', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-18 16:25:29', '2019-06-18 16:25:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2140', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-18 16:25:30', '2019-06-18 16:25:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2141', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-18 16:25:31', '2019-06-18 16:25:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2142', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-18 16:25:41', '2019-06-18 16:25:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2143', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-18 16:25:42', '2019-06-18 16:25:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2144', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-18 16:26:06', '2019-06-18 16:26:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('2145', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-18 16:26:07', '2019-06-18 16:26:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2146', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-18 16:26:52', '2019-06-18 16:26:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2147', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:26:59', '2019-06-18 16:26:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2148', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:27:01', '2019-06-18 16:27:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2149', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:27:01', '2019-06-18 16:27:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2150', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:27:02', '2019-06-18 16:27:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2151', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:27:02', '2019-06-18 16:27:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2152', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:27:02', '2019-06-18 16:27:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2153', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:27:03', '2019-06-18 16:27:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2154', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:27:03', '2019-06-18 16:27:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2155', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:27:03', '2019-06-18 16:27:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2156', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:27:04', '2019-06-18 16:27:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2157', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:27:04', '2019-06-18 16:27:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2158', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:27:05', '2019-06-18 16:27:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2159', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-18 16:28:22', '2019-06-18 16:28:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2160', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 16:28:25', '2019-06-18 16:28:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('2161', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 16:33:56', '2019-06-18 16:33:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2162', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 17:41:48', '2019-06-18 17:41:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2163', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-18 17:41:53', '2019-06-18 17:41:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2164', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-18 17:41:56', '2019-06-18 17:41:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2165', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-18 17:41:59', '2019-06-18 17:41:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2166', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-18 17:42:01', '2019-06-18 17:42:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2167', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-18 17:43:24', '2019-06-18 17:43:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2168', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-19 14:50:27', '2019-06-19 14:50:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2169', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 14:51:03', '2019-06-19 14:51:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2170', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 14:51:05', '2019-06-19 14:51:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2171', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 14:51:10', '2019-06-19 14:51:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('2172', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 14:51:12', '2019-06-19 14:51:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2173', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:52:27', '2019-06-19 14:52:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2174', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:52:28', '2019-06-19 14:52:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2175', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:52:33', '2019-06-19 14:52:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2176', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-19 14:55:04', '2019-06-19 14:55:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2177', '1', 'admin/product/14/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 14:55:08', '2019-06-19 14:55:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2178', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:55:13', '2019-06-19 14:55:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2179', '1', 'admin/product/14/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:55:36', '2019-06-19 14:55:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2180', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:55:40', '2019-06-19 14:55:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('2181', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:55:44', '2019-06-19 14:55:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2182', '1', 'admin/product/14/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:55:45', '2019-06-19 14:55:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2183', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 14:55:52', '2019-06-19 14:55:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2184', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 14:55:54', '2019-06-19 14:55:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2185', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:55:57', '2019-06-19 14:55:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2186', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:56:02', '2019-06-19 14:56:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2187', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:56:29', '2019-06-19 14:56:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2188', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:56:38', '2019-06-19 14:56:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2189', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:59:25', '2019-06-19 14:59:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('2190', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:59:28', '2019-06-19 14:59:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2191', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:59:44', '2019-06-19 14:59:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2192', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:59:49', '2019-06-19 14:59:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2193', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 14:59:58', '2019-06-19 14:59:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2194', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:00:01', '2019-06-19 15:00:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2195', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:01:42', '2019-06-19 15:01:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2196', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:01:49', '2019-06-19 15:01:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2197', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:03:42', '2019-06-19 15:03:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2198', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:03:44', '2019-06-19 15:03:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2199', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-19 15:03:49', '2019-06-19 15:03:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2200', '1', 'admin/product/14/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:03:52', '2019-06-19 15:03:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2201', '1', 'admin/product/14/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:03:58', '2019-06-19 15:03:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2202', '1', 'admin/product/14/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:04:13', '2019-06-19 15:04:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2203', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:04:16', '2019-06-19 15:04:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('2204', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:09:17', '2019-06-19 15:09:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2205', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:09:46', '2019-06-19 15:09:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2206', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:10:55', '2019-06-19 15:10:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('2207', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:11:00', '2019-06-19 15:11:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2208', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:12:12', '2019-06-19 15:12:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2209', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:12:13', '2019-06-19 15:12:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2210', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:12:44', '2019-06-19 15:12:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2211', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:13:00', '2019-06-19 15:13:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2212', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:13:32', '2019-06-19 15:13:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('2213', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:13:41', '2019-06-19 15:13:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2214', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:14:07', '2019-06-19 15:14:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2215', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:14:22', '2019-06-19 15:14:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2216', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:18:09', '2019-06-19 15:18:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2217', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:18:11', '2019-06-19 15:18:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2218', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:18:40', '2019-06-19 15:18:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('2219', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:18:45', '2019-06-19 15:18:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2220', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:18:47', '2019-06-19 15:18:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('2221', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:19:15', '2019-06-19 15:19:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('2222', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:19:36', '2019-06-19 15:19:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2223', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:20:08', '2019-06-19 15:20:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2224', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:20:24', '2019-06-19 15:20:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2225', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:20:41', '2019-06-19 15:20:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2226', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:20:43', '2019-06-19 15:20:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2227', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-19 15:20:59', '2019-06-19 15:20:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2228', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:21:04', '2019-06-19 15:21:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2229', '1', 'admin/coupon/4', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:21:10', '2019-06-19 15:21:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('2230', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:21:12', '2019-06-19 15:21:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2231', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:21:28', '2019-06-19 15:21:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2232', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:21:36', '2019-06-19 15:21:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2233', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:21:48', '2019-06-19 15:21:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2234', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:21:58', '2019-06-19 15:21:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2235', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:23:37', '2019-06-19 15:23:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2236', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:25:29', '2019-06-19 15:25:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2237', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:26:04', '2019-06-19 15:26:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2238', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:30:51', '2019-06-19 15:30:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2239', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 15:54:27', '2019-06-19 15:54:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2240', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 15:54:29', '2019-06-19 15:54:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2241', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:54:42', '2019-06-19 15:54:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2242', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:54:56', '2019-06-19 15:54:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2243', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:55:01', '2019-06-19 15:55:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2244', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:55:04', '2019-06-19 15:55:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2245', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:55:08', '2019-06-19 15:55:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2246', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:55:49', '2019-06-19 15:55:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2247', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:55:50', '2019-06-19 15:55:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2248', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-19 15:55:55', '2019-06-19 15:55:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('2249', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:04:33', '2019-06-19 17:04:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2250', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:04:35', '2019-06-19 17:04:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('2251', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:04:39', '2019-06-19 17:04:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2252', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:04:41', '2019-06-19 17:04:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2253', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:04:43', '2019-06-19 17:04:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2254', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:04:52', '2019-06-19 17:04:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2255', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:04:54', '2019-06-19 17:04:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2256', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:04:59', '2019-06-19 17:04:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2257', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:05:02', '2019-06-19 17:05:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2258', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:05:04', '2019-06-19 17:05:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2259', '1', 'admin/product/14/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:05:07', '2019-06-19 17:05:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2260', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:05:11', '2019-06-19 17:05:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2261', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:05:12', '2019-06-19 17:05:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2262', '1', 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:10:24', '2019-06-19 17:10:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2263', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:10:26', '2019-06-19 17:10:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2264', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-19 17:10:28', '2019-06-19 17:10:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2265', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:10:31', '2019-06-19 17:10:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2266', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:10:34', '2019-06-19 17:10:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2267', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:10:35', '2019-06-19 17:10:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('2268', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:10:42', '2019-06-19 17:10:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2269', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 17:10:45', '2019-06-19 17:10:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2270', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:11:02', '2019-06-19 17:11:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2271', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:11:05', '2019-06-19 17:11:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2272', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 17:12:51', '2019-06-19 17:12:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2273', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:12:54', '2019-06-19 17:12:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2274', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 17:12:55', '2019-06-19 17:12:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('2275', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:12:58', '2019-06-19 17:12:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2276', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"2\"}', '2019-06-19 17:12:59', '2019-06-19 17:12:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2277', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:13:10', '2019-06-19 17:13:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('2278', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 17:13:11', '2019-06-19 17:13:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2279', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:13:20', '2019-06-19 17:13:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('2280', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"2\"}', '2019-06-19 17:13:21', '2019-06-19 17:13:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2281', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:17:12', '2019-06-19 17:17:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2282', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 17:17:13', '2019-06-19 17:17:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2283', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 17:19:53', '2019-06-19 17:19:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2284', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:19:56', '2019-06-19 17:19:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2285', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:20:00', '2019-06-19 17:20:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2286', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 17:20:01', '2019-06-19 17:20:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2287', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 17:20:17', '2019-06-19 17:20:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2288', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 17:20:24', '2019-06-19 17:20:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2289', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:20:27', '2019-06-19 17:20:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2290', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 17:20:28', '2019-06-19 17:20:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2291', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 17:22:53', '2019-06-19 17:22:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2292', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:22:57', '2019-06-19 17:22:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2293', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 17:22:58', '2019-06-19 17:22:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2294', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 17:23:18', '2019-06-19 17:23:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('2295', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:23:21', '2019-06-19 17:23:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2296', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 17:23:22', '2019-06-19 17:23:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2297', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:23:23', '2019-06-19 17:23:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('2298', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 17:29:34', '2019-06-19 17:29:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2299', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 17:29:38', '2019-06-19 17:29:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2300', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 17:29:38', '2019-06-19 17:29:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2301', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:02:45', '2019-06-19 18:02:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2302', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:02:48', '2019-06-19 18:02:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2303', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 18:02:49', '2019-06-19 18:02:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2304', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:04:12', '2019-06-19 18:04:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2305', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:04:13', '2019-06-19 18:04:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2306', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:04:19', '2019-06-19 18:04:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('2307', '1', 'admin/api/product', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 18:04:23', '2019-06-19 18:04:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('2308', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:07:11', '2019-06-19 18:07:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2309', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:07:14', '2019-06-19 18:07:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2310', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 18:07:14', '2019-06-19 18:07:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2311', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:07:45', '2019-06-19 18:07:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2312', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:07:48', '2019-06-19 18:07:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2313', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 18:07:49', '2019-06-19 18:07:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2314', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:07:52', '2019-06-19 18:07:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2315', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"2\"}', '2019-06-19 18:07:53', '2019-06-19 18:07:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2316', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-19 18:08:04', '2019-06-19 18:08:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2317', '1', 'admin/product/13', 'PUT', '127.0.0.1', '{\"is_audit\":\"on\",\"_token\":\"4Rle0d9vZtIBVt0n8VH2eQNNnMP4IibPGihd3dM2\",\"_method\":\"PUT\"}', '2019-06-19 18:08:11', '2019-06-19 18:08:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2318', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:08:15', '2019-06-19 18:08:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('2319', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:08:18', '2019-06-19 18:08:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('2320', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 18:08:19', '2019-06-19 18:08:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('2321', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:08:22', '2019-06-19 18:08:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2322', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"2\"}', '2019-06-19 18:08:23', '2019-06-19 18:08:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('2323', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-19 18:08:32', '2019-06-19 18:08:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('2324', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-19 18:08:34', '2019-06-19 18:08:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2325', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:11:45', '2019-06-19 18:11:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2326', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:11:48', '2019-06-19 18:11:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2327', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 18:11:49', '2019-06-19 18:11:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2328', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:11:51', '2019-06-19 18:11:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2329', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"2\"}', '2019-06-19 18:11:52', '2019-06-19 18:11:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2330', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-19 18:12:00', '2019-06-19 18:12:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2331', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:12:03', '2019-06-19 18:12:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2332', '1', 'admin/product/6', 'PUT', '127.0.0.1', '{\"name\":\"\\u6c99\\u5ba31\",\"category_id\":\"12\",\"brand_id\":\"2\",\"market_price\":\"130.00\",\"price\":\"100.00\",\"description\":null,\"content\":null,\"sort_order\":\"98\",\"is_show\":\"on\",\"is_audit\":\"on\",\"sku\":{\"4\":{\"sku_category_id\":\"10\",\"attr_price\":\"99.00\",\"product_number\":\"3\",\"id\":\"4\",\"_remove_\":\"0\"},\"5\":{\"sku_category_id\":\"11\",\"attr_price\":\"123.00\",\"product_number\":\"5\",\"id\":\"5\",\"_remove_\":\"0\"}},\"give_intergral\":\"0.00\",\"virtual_quantity\":\"3\",\"warn_number\":\"2\",\"is_hot\":\"on\",\"is_new\":\"on\",\"_token\":\"4Rle0d9vZtIBVt0n8VH2eQNNnMP4IibPGihd3dM2\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2019-06-19 18:12:06', '2019-06-19 18:12:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('2333', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-19 18:12:06', '2019-06-19 18:12:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('2334', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:12:13', '2019-06-19 18:12:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2335', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:12:16', '2019-06-19 18:12:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('2336', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"2\"}', '2019-06-19 18:12:17', '2019-06-19 18:12:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2337', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:12:20', '2019-06-19 18:12:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('2338', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 18:12:20', '2019-06-19 18:12:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('2339', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:13:05', '2019-06-19 18:13:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2340', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"2\"}', '2019-06-19 18:13:07', '2019-06-19 18:13:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2341', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\\u6d4b\\u8bd5\",\"reveive_limit\":\"1\",\"stock_number\":\"1\",\"description\":null,\"receive_start_time\":\"2019-06-17 00:00:00\",\"receive_end_time\":\"2019-06-28 00:00:00\",\"use_start_time\":\"2019-06-17 00:00:00\",\"use_end_time\":\"2019-06-28 00:00:00\",\"is_online\":\"on\",\"is_show\":\"on\",\"sort_order\":\"99\",\"created_id\":\"1\",\"rellimit\":{\"new_1\":{\"brand_id\":\"1\",\"product_id\":\"\\u6d4b\\u8bd5\",\"id\":null,\"_remove_\":\"0\"},\"new_2\":{\"brand_id\":\"2\",\"product_id\":\"\\u6c99\\u5ba31\",\"id\":null,\"_remove_\":\"0\"}},\"relprice\":{\"1\":{\"min_consume_price\":\"1.00\",\"price\":\"13.00\",\"id\":\"1\",\"_remove_\":\"0\"}},\"reldiscount\":{\"1\":{\"discount\":\"60.0\",\"product_num\":\"2\",\"max_discount_price\":\"0.00\",\"id\":\"1\",\"_remove_\":\"0\"}},\"_token\":\"4Rle0d9vZtIBVt0n8VH2eQNNnMP4IibPGihd3dM2\",\"_method\":\"PUT\"}', '2019-06-19 18:13:10', '2019-06-19 18:13:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('2342', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:13:10', '2019-06-19 18:13:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('2343', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:13:50', '2019-06-19 18:13:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2344', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:13:53', '2019-06-19 18:13:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2345', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 18:13:54', '2019-06-19 18:13:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2346', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:14:38', '2019-06-19 18:14:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2347', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:14:42', '2019-06-19 18:14:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2348', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 18:14:43', '2019-06-19 18:14:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2349', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:16:04', '2019-06-19 18:16:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2350', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:16:07', '2019-06-19 18:16:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2351', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 18:16:08', '2019-06-19 18:16:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2352', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:16:25', '2019-06-19 18:16:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('2353', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:16:29', '2019-06-19 18:16:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2354', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"2\"}', '2019-06-19 18:16:30', '2019-06-19 18:16:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2355', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:17:30', '2019-06-19 18:17:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2356', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:17:34', '2019-06-19 18:17:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2357', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"2\"}', '2019-06-19 18:17:35', '2019-06-19 18:17:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('2358', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-19 18:20:13', '2019-06-19 18:20:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2359', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-19 18:20:16', '2019-06-19 18:20:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('2360', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-19 18:20:17', '2019-06-19 18:20:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2361', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-20 09:10:16', '2019-06-20 09:10:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('2362', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 09:10:27', '2019-06-20 09:10:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2363', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 09:10:36', '2019-06-20 09:10:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2364', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 09:10:41', '2019-06-20 09:10:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2365', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-20 09:10:54', '2019-06-20 09:10:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2366', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-20 09:10:55', '2019-06-20 09:10:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('2367', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 09:11:34', '2019-06-20 09:11:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2368', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 09:12:49', '2019-06-20 09:12:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2369', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 09:12:58', '2019-06-20 09:12:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2370', '1', 'admin/region/open/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 09:13:05', '2019-06-20 09:13:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2371', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 09:13:10', '2019-06-20 09:13:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('2372', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 09:13:14', '2019-06-20 09:13:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2373', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '[]', '2019-06-20 10:40:14', '2019-06-20 10:40:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2374', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 11:17:34', '2019-06-20 11:17:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2375', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 11:17:37', '2019-06-20 11:17:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2376', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 11:17:56', '2019-06-20 11:17:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2377', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 11:23:15', '2019-06-20 11:23:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('2378', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 11:30:57', '2019-06-20 11:30:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2379', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 11:31:56', '2019-06-20 11:31:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2380', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-20 11:44:31', '2019-06-20 11:44:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2381', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_columns_\":\"brand.name,category.name,id,is_audit,is_show,market_price,name,price,sort_order\",\"_pjax\":\"#pjax-container\"}', '2019-06-20 11:45:02', '2019-06-20 11:45:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2382', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 11:45:07', '2019-06-20 11:45:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2383', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-20 11:45:28', '2019-06-20 11:45:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2384', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 11:46:31', '2019-06-20 11:46:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2385', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 11:48:44', '2019-06-20 11:48:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2386', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 11:55:23', '2019-06-20 11:55:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('2387', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-20 11:55:52', '2019-06-20 11:55:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2388', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-20 11:56:23', '2019-06-20 11:56:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('2389', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-20 11:57:17', '2019-06-20 11:57:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2390', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-20 11:57:25', '2019-06-20 11:57:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('2391', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-06-20 13:44:28', '2019-06-20 13:44:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2392', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 13:44:31', '2019-06-20 13:44:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2393', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 13:44:33', '2019-06-20 13:44:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2394', '1', 'admin/product/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 13:44:34', '2019-06-20 13:44:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2395', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 13:44:37', '2019-06-20 13:44:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2396', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 13:55:57', '2019-06-20 13:55:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2397', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 13:57:38', '2019-06-20 13:57:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2398', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 13:57:39', '2019-06-20 13:57:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2399', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 13:58:25', '2019-06-20 13:58:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('2400', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 13:58:27', '2019-06-20 13:58:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2401', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 13:59:04', '2019-06-20 13:59:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2402', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:01:42', '2019-06-20 14:01:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2403', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:02:30', '2019-06-20 14:02:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2404', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:02:47', '2019-06-20 14:02:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('2405', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:02:59', '2019-06-20 14:02:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2406', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '[]', '2019-06-20 14:03:48', '2019-06-20 14:03:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2407', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\\u6d4b\\u8bd5\",\"reveive_limit\":\"1\",\"description\":null,\"receive_start_time\":\"2019-06-17 00:00:00\",\"receive_end_time\":\"2019-06-28 00:00:00\",\"use_start_time\":\"2019-06-17 00:00:00\",\"use_end_time\":\"2019-06-28 00:00:00\",\"is_online\":\"on\",\"is_show\":\"on\",\"sort_order\":\"99\",\"created_id\":\"1\",\"relprice\":{\"1\":{\"min_consume_price\":\"1.00\",\"price\":\"13.00\",\"stock_number\":\"1\",\"id\":\"1\",\"_remove_\":\"0\"}},\"reldiscount\":{\"1\":{\"discount\":\"60\",\"min_product_number\":\"2\",\"max_discount_price\":\"0.00\",\"stock_number\":\"1\",\"id\":\"1\",\"_remove_\":\"0\"}},\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/coupon\"}', '2019-06-20 14:04:07', '2019-06-20 14:04:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2408', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:04:07', '2019-06-20 14:04:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2409', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:06:45', '2019-06-20 14:06:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2410', '1', 'admin/coupon/1', 'PUT', '127.0.0.1', '{\"is_online\":\"off\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:06:49', '2019-06-20 14:06:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2411', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:06:50', '2019-06-20 14:06:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2412', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:06:51', '2019-06-20 14:06:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2413', '1', 'admin/coupon/1', 'PUT', '127.0.0.1', '{\"is_online\":\"off\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:06:54', '2019-06-20 14:06:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2414', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:06:54', '2019-06-20 14:06:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2415', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:07:04', '2019-06-20 14:07:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2416', '1', 'admin/coupon/1', 'PUT', '127.0.0.1', '{\"is_show\":\"off\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:07:31', '2019-06-20 14:07:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2417', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:07:31', '2019-06-20 14:07:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2418', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:07:36', '2019-06-20 14:07:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2419', '1', 'admin/coupon/1', 'PUT', '127.0.0.1', '{\"name\":\"reveive_limit\",\"value\":\"2\",\"pk\":\"1\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-06-20 14:07:42', '2019-06-20 14:07:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2420', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"is_online\":\"off\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:07:48', '2019-06-20 14:07:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2421', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:07:48', '2019-06-20 14:07:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2422', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:07:50', '2019-06-20 14:07:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2423', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"name\":\"reveive_limit\",\"value\":\"12\",\"pk\":\"4\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-06-20 14:07:54', '2019-06-20 14:07:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2424', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:09', '2019-06-20 14:08:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2425', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"name\":\"reveive_limit\",\"value\":\"2\",\"pk\":\"4\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-06-20 14:08:15', '2019-06-20 14:08:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('2426', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:17', '2019-06-20 14:08:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2427', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"is_online\":\"off\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:08:19', '2019-06-20 14:08:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('2428', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:20', '2019-06-20 14:08:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('2429', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"is_show\":\"off\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:08:22', '2019-06-20 14:08:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2430', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:22', '2019-06-20 14:08:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2431', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"is_show\":\"on\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:08:24', '2019-06-20 14:08:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2432', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"is_online\":\"on\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:08:25', '2019-06-20 14:08:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('2433', '1', 'admin/coupon/1', 'PUT', '127.0.0.1', '{\"is_show\":\"off\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:08:26', '2019-06-20 14:08:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2434', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:27', '2019-06-20 14:08:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2435', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:29', '2019-06-20 14:08:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2436', '1', 'admin/coupon/1', 'PUT', '127.0.0.1', '{\"is_show\":\"on\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:08:31', '2019-06-20 14:08:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2437', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:33', '2019-06-20 14:08:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2438', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"is_show\":\"off\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:08:35', '2019-06-20 14:08:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('2439', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:37', '2019-06-20 14:08:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2440', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:38', '2019-06-20 14:08:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2441', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"is_show\":\"on\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\"}', '2019-06-20 14:08:39', '2019-06-20 14:08:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2442', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:40', '2019-06-20 14:08:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('2443', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"name\":\"reveive_limit\",\"value\":\"1\",\"pk\":\"4\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-06-20 14:08:46', '2019-06-20 14:08:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2444', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:47', '2019-06-20 14:08:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('2445', '1', 'admin/coupon/1', 'PUT', '127.0.0.1', '{\"name\":\"reveive_limit\",\"value\":\"2\",\"pk\":\"1\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-06-20 14:08:51', '2019-06-20 14:08:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2446', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:52', '2019-06-20 14:08:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2447', '1', 'admin/coupon/1', 'PUT', '127.0.0.1', '{\"name\":\"reveive_limit\",\"value\":\"1\",\"pk\":\"1\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-06-20 14:08:56', '2019-06-20 14:08:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2448', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:08:57', '2019-06-20 14:08:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2449', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:09:07', '2019-06-20 14:09:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2450', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:09:13', '2019-06-20 14:09:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2451', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:09:57', '2019-06-20 14:09:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2452', '1', 'admin/coupon/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:14:38', '2019-06-20 14:14:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2453', '1', 'admin/coupon/1', 'GET', '127.0.0.1', '[]', '2019-06-20 14:15:11', '2019-06-20 14:15:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2454', '1', 'admin/coupon/1', 'GET', '127.0.0.1', '[]', '2019-06-20 14:16:04', '2019-06-20 14:16:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2455', '1', 'admin/coupon/1', 'GET', '127.0.0.1', '[]', '2019-06-20 14:17:57', '2019-06-20 14:17:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2456', '1', 'admin/coupon/1', 'GET', '127.0.0.1', '[]', '2019-06-20 14:18:20', '2019-06-20 14:18:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('2457', '1', 'admin/coupon/1', 'GET', '127.0.0.1', '[]', '2019-06-20 14:18:28', '2019-06-20 14:18:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2458', '1', 'admin/coupon/1', 'GET', '127.0.0.1', '[]', '2019-06-20 14:18:58', '2019-06-20 14:18:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2459', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:19:15', '2019-06-20 14:19:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('2460', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:19:22', '2019-06-20 14:19:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2461', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\\u6d4b\\u8bd5\",\"reveive_limit\":\"1\",\"description\":null,\"receive_start_time\":\"2019-06-17 00:00:00\",\"receive_end_time\":\"2019-06-26 00:00:00\",\"use_start_time\":\"2019-06-17 00:00:00\",\"use_end_time\":\"2019-06-28 00:00:00\",\"is_online\":\"on\",\"is_show\":\"on\",\"sort_order\":\"99\",\"created_id\":\"1\",\"relprice\":{\"1\":{\"min_consume_price\":\"1.00\",\"price\":\"13.00\",\"stock_number\":\"1\",\"id\":\"1\",\"_remove_\":\"0\"}},\"reldiscount\":{\"1\":{\"discount\":\"60\",\"min_product_number\":\"2\",\"max_discount_price\":\"0.00\",\"stock_number\":\"1\",\"id\":\"1\",\"_remove_\":\"0\"}},\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/coupon\"}', '2019-06-20 14:19:31', '2019-06-20 14:19:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2462', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-20 14:19:31', '2019-06-20 14:19:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2463', '1', 'admin/coupon/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:19:34', '2019-06-20 14:19:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2464', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:19:36', '2019-06-20 14:19:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2465', '1', 'admin/coupon/4', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:19:38', '2019-06-20 14:19:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2466', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:20:02', '2019-06-20 14:20:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2467', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\\u6d4b\\u8bd5\",\"reveive_limit\":\"1\",\"description\":null,\"use_start_time\":\"2019-06-17 00:00:00\",\"use_end_time\":\"2019-06-28 00:00:00\",\"receive_start_time\":\"2019-06-17 00:00:00\",\"receive_end_time\":\"2019-06-30 00:00:00\",\"is_online\":\"on\",\"is_show\":\"on\",\"sort_order\":\"99\",\"created_id\":\"1\",\"relprice\":{\"1\":{\"min_consume_price\":\"1.00\",\"price\":\"13.00\",\"stock_number\":\"1\",\"id\":\"1\",\"_remove_\":\"0\"}},\"reldiscount\":{\"1\":{\"discount\":\"60\",\"min_product_number\":\"2\",\"max_discount_price\":\"0.00\",\"stock_number\":\"1\",\"id\":\"1\",\"_remove_\":\"0\"}},\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/coupon\\/4\"}', '2019-06-20 14:20:09', '2019-06-20 14:20:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2468', '1', 'admin/coupon/4', 'GET', '127.0.0.1', '[]', '2019-06-20 14:20:09', '2019-06-20 14:20:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2469', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:20:11', '2019-06-20 14:20:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2470', '1', 'admin/coupon/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:20:13', '2019-06-20 14:20:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2471', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:20:15', '2019-06-20 14:20:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('2472', '1', 'admin/coupon/4', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:20:17', '2019-06-20 14:20:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2473', '1', 'admin/coupon/4', 'GET', '127.0.0.1', '[]', '2019-06-20 14:21:31', '2019-06-20 14:21:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2474', '1', 'admin/product/6', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:55:40', '2019-06-20 14:55:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('2475', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"product_id\":\"6\",\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:55:47', '2019-06-20 14:55:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('2476', '1', 'admin/product/6', 'GET', '127.0.0.1', '[]', '2019-06-20 14:55:48', '2019-06-20 14:55:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2477', '1', 'admin/product/sku/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:56:01', '2019-06-20 14:56:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2478', '1', 'admin/product/6', 'GET', '127.0.0.1', '[]', '2019-06-20 14:56:01', '2019-06-20 14:56:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2479', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:59:25', '2019-06-20 14:59:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('2480', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:59:26', '2019-06-20 14:59:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2481', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:59:27', '2019-06-20 14:59:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2482', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:59:30', '2019-06-20 14:59:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2483', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:59:34', '2019-06-20 14:59:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2484', '1', 'admin/product/sku/10/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:59:37', '2019-06-20 14:59:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2485', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:59:41', '2019-06-20 14:59:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2486', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:59:50', '2019-06-20 14:59:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2487', '1', 'admin/product/13', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:59:52', '2019-06-20 14:59:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2488', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"product_id\":\"13\",\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:59:56', '2019-06-20 14:59:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2489', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 14:59:58', '2019-06-20 14:59:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2490', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:00:03', '2019-06-20 15:00:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2491', '1', 'admin/product/14', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:00:06', '2019-06-20 15:00:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('2492', '1', 'admin/product/sku/create', 'GET', '127.0.0.1', '{\"product_id\":\"14\",\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:00:11', '2019-06-20 15:00:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2493', '1', 'admin/product/14', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:00:15', '2019-06-20 15:00:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('2494', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:00:21', '2019-06-20 15:00:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2495', '1', 'admin/product/13', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:00:26', '2019-06-20 15:00:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2496', '1', 'admin/product/sku/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:00:29', '2019-06-20 15:00:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2497', '1', 'admin/product/13', 'GET', '127.0.0.1', '[]', '2019-06-20 15:00:29', '2019-06-20 15:00:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2498', '1', 'admin/product/sku', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:13:49', '2019-06-20 15:13:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2499', '1', 'admin/coupon/4', 'GET', '127.0.0.1', '[]', '2019-06-20 15:13:49', '2019-06-20 15:13:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2500', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:13:56', '2019-06-20 15:13:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2501', '1', 'admin/auth/menu/10/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:14:04', '2019-06-20 15:14:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2502', '1', 'admin/auth/menu/10', 'PUT', '127.0.0.1', '{\"parent_id\":\"8\",\"title\":\"\\u4ea7\\u54c1\\u89c4\\u683c\\u5206\\u7c7b\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"product\\/sku\\/category\",\"roles\":[null],\"permission\":null,\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/auth\\/menu\"}', '2019-06-20 15:14:27', '2019-06-20 15:14:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2503', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-06-20 15:14:27', '2019-06-20 15:14:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2504', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-06-20 15:14:29', '2019-06-20 15:14:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2505', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:14:32', '2019-06-20 15:14:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('2506', '1', 'admin/product/sku/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:14:35', '2019-06-20 15:14:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('2507', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:14:36', '2019-06-20 15:14:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2508', '1', 'admin/product/sku/category/10/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:14:38', '2019-06-20 15:14:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2509', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:14:40', '2019-06-20 15:14:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('2510', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:14:54', '2019-06-20 15:14:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2511', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '[]', '2019-06-20 15:16:58', '2019-06-20 15:16:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2512', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '[]', '2019-06-20 15:17:22', '2019-06-20 15:17:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2513', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '[]', '2019-06-20 15:17:28', '2019-06-20 15:17:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2514', '1', 'admin/product/sku/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:17:29', '2019-06-20 15:17:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2515', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '[]', '2019-06-20 15:17:30', '2019-06-20 15:17:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2516', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '[]', '2019-06-20 15:18:20', '2019-06-20 15:18:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('2517', '1', 'admin/product/sku/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:18:22', '2019-06-20 15:18:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2518', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:18:24', '2019-06-20 15:18:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2519', '1', 'admin/product/sku/category/10/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:18:26', '2019-06-20 15:18:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2520', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:18:28', '2019-06-20 15:18:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2521', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '[]', '2019-06-20 15:19:16', '2019-06-20 15:19:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('2522', '1', 'admin/product/sku/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:19:17', '2019-06-20 15:19:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2523', '1', 'admin/product/sku/category', 'POST', '127.0.0.1', '{\"pid\":\"0\",\"name\":\"\\u6d4b\\u8bd5\\u6d4b\\u8bd5\",\"sort_order\":\"99\",\"_token\":\"lyoE6ax3OdR1Zt100NeN1X6Vv5juR8ojhZnI7nUe\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\\/sku\\/category\"}', '2019-06-20 15:19:24', '2019-06-20 15:19:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2524', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '[]', '2019-06-20 15:19:24', '2019-06-20 15:19:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2525', '1', 'admin/product/sku/category/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:19:28', '2019-06-20 15:19:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2526', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:19:29', '2019-06-20 15:19:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2527', '1', 'admin/product/sku/category/12/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:19:30', '2019-06-20 15:19:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2528', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:19:32', '2019-06-20 15:19:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('2529', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '[]', '2019-06-20 15:22:38', '2019-06-20 15:22:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2530', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '[]', '2019-06-20 15:22:58', '2019-06-20 15:22:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2531', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:23:04', '2019-06-20 15:23:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2532', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:23:11', '2019-06-20 15:23:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2533', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:23:16', '2019-06-20 15:23:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('2534', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:26:41', '2019-06-20 15:26:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2535', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:39:07', '2019-06-20 15:39:07');
+
+-- ----------------------------
+-- Table structure for `lied_admin_permissions`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_admin_permissions`;
+CREATE TABLE `lied_admin_permissions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `http_method` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `http_path` text COLLATE utf8mb4_unicode_ci,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `lied_admin_permissions_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of lied_admin_permissions
+-- ----------------------------
+INSERT INTO `lied_admin_permissions` VALUES ('1', 'All permission', '*', '', '*', null, null);
+INSERT INTO `lied_admin_permissions` VALUES ('2', 'Dashboard', 'dashboard', 'GET', '/', null, null);
+INSERT INTO `lied_admin_permissions` VALUES ('3', 'Login', 'auth.login', '', '/auth/login\r\n/auth/logout', null, null);
+INSERT INTO `lied_admin_permissions` VALUES ('4', 'User setting', 'auth.setting', 'GET,PUT', '/auth/setting', null, null);
+INSERT INTO `lied_admin_permissions` VALUES ('5', 'Auth management', 'auth.management', '', '/auth/roles\r\n/auth/permissions\r\n/auth/menu\r\n/auth/logs', null, null);
+
+-- ----------------------------
+-- Table structure for `lied_admin_roles`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_admin_roles`;
+CREATE TABLE `lied_admin_roles` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `lied_admin_roles_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of lied_admin_roles
+-- ----------------------------
+INSERT INTO `lied_admin_roles` VALUES ('1', 'Administrator', 'administrator', '2018-12-19 09:35:18', '2018-12-19 09:35:18');
+
+-- ----------------------------
+-- Table structure for `lied_admin_role_menu`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_admin_role_menu`;
+CREATE TABLE `lied_admin_role_menu` (
+  `role_id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  KEY `lied_admin_role_menu_role_id_menu_id_index` (`role_id`,`menu_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of lied_admin_role_menu
+-- ----------------------------
+INSERT INTO `lied_admin_role_menu` VALUES ('1', '2', null, null);
+
+-- ----------------------------
+-- Table structure for `lied_admin_role_permissions`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_admin_role_permissions`;
+CREATE TABLE `lied_admin_role_permissions` (
+  `role_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  KEY `lied_admin_role_permissions_role_id_permission_id_index` (`role_id`,`permission_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of lied_admin_role_permissions
+-- ----------------------------
+INSERT INTO `lied_admin_role_permissions` VALUES ('1', '1', null, null);
+
+-- ----------------------------
+-- Table structure for `lied_admin_role_users`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_admin_role_users`;
+CREATE TABLE `lied_admin_role_users` (
+  `role_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  KEY `lied_admin_role_users_role_id_user_id_index` (`role_id`,`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of lied_admin_role_users
+-- ----------------------------
+INSERT INTO `lied_admin_role_users` VALUES ('1', '1', null, null);
+
+-- ----------------------------
+-- Table structure for `lied_admin_users`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_admin_users`;
+CREATE TABLE `lied_admin_users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `lied_admin_users_username_unique` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of lied_admin_users
+-- ----------------------------
+INSERT INTO `lied_admin_users` VALUES ('1', 'admin', '$2y$10$7QvNbNNMgfrh8UmBcnhfdOJExSbF6jayvpFmBxf1JYWX/snjwc5Qi', 'Administrator', null, null, '2018-12-19 09:35:18', '2018-12-19 09:35:18');
+
+-- ----------------------------
+-- Table structure for `lied_admin_user_permissions`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_admin_user_permissions`;
+CREATE TABLE `lied_admin_user_permissions` (
+  `user_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  KEY `lied_admin_user_permissions_user_id_permission_id_index` (`user_id`,`permission_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of lied_admin_user_permissions
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_adv`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_adv`;
+CREATE TABLE `lied_adv` (
+  `id` int(16) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL COMMENT '名称',
+  `url` varchar(255) DEFAULT NULL COMMENT '广告链接',
+  `thumb` int(16) NOT NULL COMMENT '广告图片',
+  `position_id` int(16) unsigned NOT NULL COMMENT '广告位置ID',
+  `region_city_id` varchar(64) NOT NULL COMMENT '展示城市ID',
+  `start_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '开始时间',
+  `end_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
+  `click_num` int(16) DEFAULT '0' COMMENT '点击数量',
+  `is_show` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否显示 1-显示 0-不显示',
+  `sort_order` int(4) DEFAULT NULL COMMENT '排序',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `position_id` (`position_id`),
+  CONSTRAINT `adv-position_id` FOREIGN KEY (`position_id`) REFERENCES `lied_adv_position` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='广告展示表';
+
+-- ----------------------------
+-- Records of lied_adv
+-- ----------------------------
+INSERT INTO `lied_adv` VALUES ('1', '沙宣', 'http://6vxvgb.natappfree.cc', '71', '1', '22,63', '2019-02-19 00:00:00', '2019-02-28 00:00:00', '0', '1', '99', '2019-02-19 11:59:25', '2019-02-19 11:59:25', null);
+
+-- ----------------------------
+-- Table structure for `lied_adv_position`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_adv_position`;
+CREATE TABLE `lied_adv_position` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL COMMENT '名称',
+  `width` int(8) NOT NULL COMMENT '宽度',
+  `height` int(8) NOT NULL COMMENT '高度',
+  `is_show` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否显示 1-显示 0-不显示',
+  `sort_order` int(4) DEFAULT NULL COMMENT '排序',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='广告位置表';
+
+-- ----------------------------
+-- Records of lied_adv_position
+-- ----------------------------
+INSERT INTO `lied_adv_position` VALUES ('1', '首页轮播', '750', '640', '1', '99', '2019-02-19 09:32:17', '2019-02-19 09:32:17', null);
+
+-- ----------------------------
+-- Table structure for `lied_artical`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_artical`;
+CREATE TABLE `lied_artical` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT COMMENT '文章自增id',
+  `category_id` int(16) unsigned NOT NULL COMMENT '分类id',
+  `user_id` int(32) unsigned NOT NULL COMMENT '创建者id',
+  `title` varchar(128) NOT NULL COMMENT '文章标题',
+  `thumb` int(16) NOT NULL COMMENT '文章缩略图',
+  `description` text COMMENT '简介',
+  `content` text NOT NULL COMMENT '内容',
+  `is_hot` tinyint(1) unsigned DEFAULT NULL COMMENT '热门文章',
+  `is_show` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `sort_order` int(4) unsigned DEFAULT NULL COMMENT '排序',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='文章表';
+
+-- ----------------------------
+-- Records of lied_artical
+-- ----------------------------
+INSERT INTO `lied_artical` VALUES ('1', '1', '1', '商城新上线是', '161', '&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;啊实打实的亲吻青蛙&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;阿萨斯法所发生的发大水的&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '1', '1', '99', '2019-02-21 13:59:19', '2019-05-07 17:31:52', null);
+
+-- ----------------------------
+-- Table structure for `lied_artical_category`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_artical_category`;
+CREATE TABLE `lied_artical_category` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类id',
+  `name` varchar(64) NOT NULL COMMENT '分类名称',
+  `description` text COMMENT '分类描述',
+  `pid` int(16) unsigned NOT NULL COMMENT '父级id',
+  `sort_order` int(1) unsigned DEFAULT NULL COMMENT '排序',
+  `is_show` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='文章分类表';
+
+-- ----------------------------
+-- Records of lied_artical_category
+-- ----------------------------
+INSERT INTO `lied_artical_category` VALUES ('1', '商城新上线', null, '0', null, '1', '2019-02-19 16:20:11', '2019-02-19 16:20:11', null);
+INSERT INTO `lied_artical_category` VALUES ('2', '测试测试', null, '0', null, '1', '2019-05-07 17:17:33', '2019-05-07 17:17:33', null);
+
+-- ----------------------------
+-- Table structure for `lied_brand`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_brand`;
+CREATE TABLE `lied_brand` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL COMMENT '品牌名称',
+  `category_id` int(16) unsigned DEFAULT '0' COMMENT '品牌分类id',
+  `thumb` int(16) unsigned NOT NULL COMMENT '品牌logo',
+  `description` text NOT NULL COMMENT '品牌描述',
+  `site_url` varchar(255) NOT NULL COMMENT '品牌的网址',
+  `sort_order` tinyint(4) NOT NULL,
+  `is_audit` tinyint(1) NOT NULL,
+  `is_show` tinyint(1) NOT NULL COMMENT '是否显示',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `brand-category_id` (`category_id`),
+  KEY `brand-thumb` (`thumb`),
+  CONSTRAINT `brand-category_id` FOREIGN KEY (`category_id`) REFERENCES `lied_brand_category` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `brand-thumb` FOREIGN KEY (`thumb`) REFERENCES `lied_picture` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lied_brand
+-- ----------------------------
+INSERT INTO `lied_brand` VALUES ('1', '飘柔', '8', '62', '老字号值得信赖', 'http://www.baidu.com', '99', '1', '1', '2018-12-25 03:40:42', '2018-12-25 03:40:42', null);
+INSERT INTO `lied_brand` VALUES ('2', '沙宣', '9', '158', '老字号值得信赖', 'http://www.baidu.com', '99', '1', '1', '2018-12-25 03:45:50', '2019-05-07 14:11:27', null);
+
+-- ----------------------------
+-- Table structure for `lied_brand_category`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_brand_category`;
+CREATE TABLE `lied_brand_category` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `pid` int(16) unsigned NOT NULL,
+  `name` varchar(64) NOT NULL COMMENT '名称',
+  `sort_order` int(4) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lied_brand_category
+-- ----------------------------
+INSERT INTO `lied_brand_category` VALUES ('7', '0', '洗发水', '1', '2018-12-25 03:29:39', '2018-12-25 03:37:32', null);
+INSERT INTO `lied_brand_category` VALUES ('8', '7', '柔顺护发', '2', '2018-12-25 03:30:07', '2018-12-25 03:38:05', null);
+INSERT INTO `lied_brand_category` VALUES ('9', '7', '持久定型', '3', '2018-12-25 03:31:26', '2018-12-25 03:38:24', null);
+
+-- ----------------------------
+-- Table structure for `lied_cart`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_cart`;
+CREATE TABLE `lied_cart` (
+  `id` int(16) NOT NULL,
+  `user_id` int(16) unsigned NOT NULL COMMENT '用户id',
+  `product_id` int(16) unsigned NOT NULL COMMENT '产品id',
+  `attr_id` int(16) unsigned NOT NULL COMMENT '属性id',
+  `brand_id` int(16) unsigned NOT NULL COMMENT '品牌id',
+  `number` int(4) unsigned NOT NULL COMMENT '产品书数量',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cart-usre_id` (`user_id`),
+  KEY `cart-product_id` (`product_id`),
+  KEY `cart-brand_id` (`brand_id`),
+  CONSTRAINT `cart-brand_id` FOREIGN KEY (`brand_id`) REFERENCES `lied_brand` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `cart-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `cart-usre_id` FOREIGN KEY (`user_id`) REFERENCES `lied_users` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='购物车';
+
+-- ----------------------------
+-- Records of lied_cart
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_coupons`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_coupons`;
+CREATE TABLE `lied_coupons` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL COMMENT '优惠券名称',
+  `reveive_limit` int(4) unsigned NOT NULL COMMENT '限领取数量',
+  `use_start_time` datetime NOT NULL COMMENT '使用开始时间',
+  `use_end_time` datetime NOT NULL COMMENT '使用结束时间',
+  `receive_start_time` datetime NOT NULL COMMENT '领取开始时间',
+  `receive_end_time` datetime NOT NULL COMMENT '领取结束时间',
+  `thumb` int(16) unsigned NOT NULL COMMENT '缩略图',
+  `description` varchar(255) DEFAULT NULL COMMENT '描述',
+  `is_online` tinyint(1) unsigned NOT NULL COMMENT '核销方式 1-线上 0-线下',
+  `is_show` tinyint(1) unsigned DEFAULT '0' COMMENT '显示 1-是 0-否',
+  `sort_order` int(4) unsigned DEFAULT '0' COMMENT '排序',
+  `created_id` int(16) unsigned NOT NULL DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='优惠券基本表';
+
+-- ----------------------------
+-- Records of lied_coupons
+-- ----------------------------
+INSERT INTO `lied_coupons` VALUES ('1', '京东618大促优惠券', '1', '2019-06-17 00:00:00', '2020-06-18 00:00:00', '2019-06-17 00:00:00', '2020-06-18 00:00:00', '0', '&lt;p&gt;&lt;/p&gt;&lt;p&gt;测试测试&lt;/p&gt;', '1', '1', '99', '1', '2019-06-17 15:33:49', '2019-06-20 14:08:56', null);
+INSERT INTO `lied_coupons` VALUES ('4', '测试测试', '1', '2019-06-17 00:00:00', '2019-06-28 00:00:00', '2019-06-17 00:00:00', '2019-06-30 00:00:00', '179', null, '1', '1', '99', '1', '2019-06-17 15:52:07', '2019-06-20 14:20:09', null);
+
+-- ----------------------------
+-- Table structure for `lied_coupons_batch`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_coupons_batch`;
+CREATE TABLE `lied_coupons_batch` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL COMMENT '批次名称',
+  `num` int(4) unsigned NOT NULL COMMENT '生成数量',
+  `coupon_limit_id` int(16) unsigned NOT NULL COMMENT '优惠券限领表id',
+  `created_id` int(16) unsigned NOT NULL COMMENT '创建者id',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `coupons_batch-coupon_limit_id` (`coupon_limit_id`),
+  CONSTRAINT `coupons_batch-coupon_limit_id` FOREIGN KEY (`coupon_limit_id`) REFERENCES `lied_coupons_limit` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='优惠券线下券生成批次设置表';
+
+-- ----------------------------
+-- Records of lied_coupons_batch
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_coupons_discount`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_coupons_discount`;
+CREATE TABLE `lied_coupons_discount` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `coupon_id` int(16) unsigned NOT NULL COMMENT '优惠券id',
+  `discount` int(8) unsigned NOT NULL COMMENT '折扣',
+  `stock_number` int(8) unsigned NOT NULL DEFAULT '0' COMMENT '库存数量',
+  `min_product_number` int(8) unsigned NOT NULL DEFAULT '0' COMMENT '最小购买产品数量',
+  `max_discount_price` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '最大优惠金额',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `coupons_discount-coupon_id` (`coupon_id`),
+  CONSTRAINT `coupons_discount-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='优惠券折扣表';
+
+-- ----------------------------
+-- Records of lied_coupons_discount
+-- ----------------------------
+INSERT INTO `lied_coupons_discount` VALUES ('1', '4', '60', '1', '2', '0.00', '2019-06-17 15:52:07', '2019-06-20 14:04:07', null);
+
+-- ----------------------------
+-- Table structure for `lied_coupons_limit`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_coupons_limit`;
+CREATE TABLE `lied_coupons_limit` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `coupon_id` int(16) unsigned NOT NULL COMMENT '优惠券id',
+  `brand_id` int(16) unsigned NOT NULL COMMENT '品牌id',
+  `product_id` int(16) unsigned DEFAULT NULL COMMENT '产品id',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `coupons_limit-coupon_id` (`coupon_id`),
+  CONSTRAINT `coupons_limit-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='优惠券限领表';
+
+-- ----------------------------
+-- Records of lied_coupons_limit
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_coupons_offline`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_coupons_offline`;
+CREATE TABLE `lied_coupons_offline` (
+  `id` int(16) unsigned NOT NULL,
+  `coupon_batch_id` int(16) unsigned NOT NULL COMMENT '优惠券线下券生成批次设置表id',
+  `code` varchar(16) NOT NULL COMMENT '券码',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `coupons_offline-coupon_batch_id` (`coupon_batch_id`),
+  CONSTRAINT `coupons_offline-coupon_batch_id` FOREIGN KEY (`coupon_batch_id`) REFERENCES `lied_coupons_batch` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='优惠券线下券生成码记录表';
+
+-- ----------------------------
+-- Records of lied_coupons_offline
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_coupons_price`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_coupons_price`;
+CREATE TABLE `lied_coupons_price` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `coupon_id` int(16) unsigned NOT NULL COMMENT '优惠券id',
+  `stock_number` int(8) unsigned NOT NULL DEFAULT '0' COMMENT '库存数量',
+  `price` decimal(8,2) unsigned NOT NULL COMMENT '优惠金额',
+  `min_consume_price` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '最低消费金额',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `coupons_price-coupon_id` (`coupon_id`),
+  CONSTRAINT `coupons_price-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='优惠券满减表';
+
+-- ----------------------------
+-- Records of lied_coupons_price
+-- ----------------------------
+INSERT INTO `lied_coupons_price` VALUES ('1', '4', '1', '13.00', '1.00', '2019-06-17 15:52:07', '2019-06-20 14:04:07', null);
+
+-- ----------------------------
+-- Table structure for `lied_migrations`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_migrations`;
+CREATE TABLE `lied_migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of lied_migrations
+-- ----------------------------
+INSERT INTO `lied_migrations` VALUES ('4', '2014_10_12_000000_create_users_table', '1');
+INSERT INTO `lied_migrations` VALUES ('5', '2014_10_12_100000_create_password_resets_table', '1');
+INSERT INTO `lied_migrations` VALUES ('6', '2016_01_04_173148_create_admin_tables', '1');
+INSERT INTO `lied_migrations` VALUES ('8', '2018_12_19_092710_create_products_table', '2');
+
+-- ----------------------------
+-- Table structure for `lied_order`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_order`;
+CREATE TABLE `lied_order` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `temp_id` varchar(32) NOT NULL COMMENT '区别订单多商家产生的唯一标识',
+  `temp_sid` varchar(32) NOT NULL COMMENT '区别订单单一商家多产品的唯一标识',
+  `order_id` varchar(32) NOT NULL COMMENT '订单生成唯一编号',
+  `order_num` varchar(64) DEFAULT NULL COMMENT '订单流水支付号',
+  `user_id` int(16) unsigned NOT NULL,
+  `order_status` tinyint(1) NOT NULL COMMENT '订单的状态;,0关闭,1正常,2完成,',
+  `shipping_status` tinyint(1) NOT NULL COMMENT '商品配送情况;0未发货,1已发货,2已收货,3退货',
+  `pay_status` tinyint(1) NOT NULL COMMENT '支付状态;0未付款;1已付款',
+  `brand_id` int(16) unsigned NOT NULL COMMENT '商家id',
+  `product_id` int(16) unsigned NOT NULL COMMENT '产品id',
+  `attr_id` int(16) NOT NULL,
+  `product_num` int(4) NOT NULL COMMENT '产品数量',
+  `product_price` decimal(8,2) NOT NULL COMMENT '产品价格',
+  `product_intergral` decimal(8,2) NOT NULL COMMENT '产品积分',
+  `total_price` decimal(8,2) unsigned NOT NULL COMMENT '订单总金额',
+  `total_intergral` decimal(8,2) unsigned NOT NULL COMMENT '订单总积分',
+  `pay_price` decimal(8,2) NOT NULL COMMENT '已支付价格',
+  `pay_intergral` decimal(8,2) NOT NULL COMMENT '已支付的积分',
+  `discount_price` decimal(8,2) NOT NULL COMMENT '优惠价格',
+  `shipping_fee` decimal(8,2) NOT NULL COMMENT '配送费用',
+  `region_province_id` int(16) unsigned NOT NULL COMMENT '第一级省id',
+  `region_city_id` int(16) unsigned NOT NULL COMMENT '第二级市id',
+  `region_area_id` int(16) unsigned NOT NULL COMMENT '第三级区id',
+  `address` varchar(255) NOT NULL COMMENT '收货地址',
+  `mobile` varchar(32) NOT NULL COMMENT '收货人手机号',
+  `postscript` varchar(255) DEFAULT NULL COMMENT '订单留言，由用户提交填写',
+  `pay_id` int(16) DEFAULT NULL,
+  `pay_time` datetime DEFAULT NULL,
+  `to_buyer` varchar(255) DEFAULT NULL COMMENT '商家给用户留言',
+  `type` varchar(16) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `order-product_id` (`product_id`),
+  KEY `order-user_id` (`user_id`),
+  CONSTRAINT `order-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `order-user_id` FOREIGN KEY (`user_id`) REFERENCES `lied_users` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lied_order
+-- ----------------------------
+INSERT INTO `lied_order` VALUES ('17', 'P20190116174011468054', 'S20190116174011297401', 'O20190116174011648216', null, '1', '1', '0', '0', '2', '6', '4', '1', '99.00', '0.00', '99.00', '0.00', '0.00', '0.00', '0.00', '0.00', '322', '332', '335', '东纵路111号', '18825099087', 'asda', null, null, '111', 'mall', '2019-01-16 17:40:11', '2019-02-16 16:21:57', null);
+
+-- ----------------------------
+-- Table structure for `lied_password_resets`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_password_resets`;
+CREATE TABLE `lied_password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  KEY `lied_password_resets_email_index` (`email`(191))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of lied_password_resets
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_picture`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_picture`;
+CREATE TABLE `lied_picture` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `link` varchar(255) DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lied_picture
+-- ----------------------------
+INSERT INTO `lied_picture` VALUES ('62', 'images/product-thumb/2019-01-09/3652f1ea80ec1e4a9d21ccee38d7d321.png', '2019-01-09 11:21:32', '2019-01-09 11:21:32', null);
+INSERT INTO `lied_picture` VALUES ('64', 'images/product-thumb/2019-01-09/7717b27822adf6c8c8587ba31d67d2c9.jpg', '2019-01-09 11:21:32', '2019-02-21 14:58:16', '2019-02-21 14:58:16');
+INSERT INTO `lied_picture` VALUES ('65', 'images/product-thumb/2019-01-09/7ff47eb938483b641eb0515633229452.png', '2019-01-09 11:21:32', '2019-02-21 14:58:39', '2019-02-21 14:58:39');
+INSERT INTO `lied_picture` VALUES ('66', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', '2019-01-09 11:21:32', '2019-01-09 11:21:32', null);
+INSERT INTO `lied_picture` VALUES ('67', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', '2019-01-09 15:19:59', '2019-01-09 15:19:59', null);
+INSERT INTO `lied_picture` VALUES ('71', 'images/adv-thumb/2019-02-19/f4ca8373a3cc25fe1306b7cdd077af58.png', '2019-02-19 11:59:25', '2019-02-19 11:59:25', null);
+INSERT INTO `lied_picture` VALUES ('72', 'images/artical_thumb/2018310f75949f56792080d303c1cef7.png', '2019-02-21 13:59:19', '2019-02-21 14:57:27', '2019-02-21 14:57:27');
+INSERT INTO `lied_picture` VALUES ('79', 'images/product_picture/2019-02-21/0708b9591360e18962bac52d725fb08a.jpg', '2019-02-21 15:01:47', '2019-02-21 15:01:58', '2019-02-21 15:01:58');
+INSERT INTO `lied_picture` VALUES ('80', 'images/product_picture/2019-02-21/997bbfb7cd63e0c5aa1e4cf79e5982e3.jpg', '2019-02-21 15:01:47', '2019-02-21 15:04:47', '2019-02-21 15:04:47');
+INSERT INTO `lied_picture` VALUES ('81', 'images/product_picture/2019-02-21/9e52ad590aa0e4842c937306b0e867b7.png', '2019-02-21 15:01:48', '2019-02-21 15:02:00', '2019-02-21 15:02:00');
+INSERT INTO `lied_picture` VALUES ('82', 'images/product_picture/2019-02-21/492aaaf569b570e5e1a238a7fdfb5bcc.jpg', '2019-02-21 15:07:06', '2019-02-21 15:08:00', '2019-02-21 15:08:00');
+INSERT INTO `lied_picture` VALUES ('83', 'images/product_picture/2019-02-21/d60ca2a3f463ef5a86c36507aaf683c4.jpg', '2019-02-21 15:07:06', '2019-02-21 15:07:34', '2019-02-21 15:07:34');
+INSERT INTO `lied_picture` VALUES ('84', 'images/product_picture/2019-02-21/35d467fc8af1e09c2ddd9c44a6c3bfa4.png', '2019-02-21 15:07:06', '2019-02-21 15:07:31', '2019-02-21 15:07:31');
+INSERT INTO `lied_picture` VALUES ('85', 'images/product_picture/2019-02-21/35d1c6d1a7235e1f5148a3b0a3cdaf71.jpg', '2019-02-21 15:08:18', '2019-02-21 15:08:24', '2019-02-21 15:08:24');
+INSERT INTO `lied_picture` VALUES ('86', 'images/product_picture/2019-02-21/fb762f025ff36da54661f257dec386b0.jpg', '2019-02-21 15:08:18', '2019-02-21 15:10:27', '2019-02-21 15:10:27');
+INSERT INTO `lied_picture` VALUES ('87', 'images/product_picture/2019-02-21/bdfda9f7aab22611418d10e425724749.png', '2019-02-21 15:08:18', '2019-02-21 15:08:28', '2019-02-21 15:08:28');
+INSERT INTO `lied_picture` VALUES ('88', 'images/product_picture/2019-02-21/78ee680eb2d7e77b1f1755ac0f3167cf.jpg', '2019-02-21 15:09:59', '2019-02-21 15:10:15', '2019-02-21 15:10:15');
+INSERT INTO `lied_picture` VALUES ('89', 'images/product_picture/2019-02-21/38068d8dede1a509f220b7383aab406d.jpg', '2019-02-21 15:09:59', '2019-02-21 15:10:05', '2019-02-21 15:10:05');
+INSERT INTO `lied_picture` VALUES ('90', 'images/product_picture/2019-02-21/3abd5705d4433bd5627da89049cc4d39.png', '2019-02-21 15:09:59', '2019-02-21 15:13:31', '2019-02-21 15:13:31');
+INSERT INTO `lied_picture` VALUES ('91', 'images/product_picture/2019-02-21/9dab3295d052be1244f869f36e15e0e6.jpg', '2019-02-21 15:14:02', '2019-02-21 15:15:22', '2019-02-21 15:15:22');
+INSERT INTO `lied_picture` VALUES ('92', 'images/product_picture/2019-02-21/f4f4eca924a8d9717c4be7b39ea44664.jpg', '2019-02-21 15:14:02', '2019-02-21 15:14:11', '2019-02-21 15:14:11');
+INSERT INTO `lied_picture` VALUES ('93', 'images/product_picture/2019-02-21/98e1bc400d52f7005f1925f089861648.jpg', '2019-02-21 15:14:02', '2019-02-21 15:22:10', '2019-02-21 15:22:10');
+INSERT INTO `lied_picture` VALUES ('94', 'images/product_picture/2019-02-21/3d96d959e95b43561cc840dfef13a445.png', '2019-02-21 15:14:02', '2019-02-21 15:14:02', null);
+INSERT INTO `lied_picture` VALUES ('95', 'images/product_picture/2019-02-21/1d0506531926755dd63a10a8f2bbe904.jpg', '2019-02-21 15:22:24', '2019-02-21 15:22:24', null);
+INSERT INTO `lied_picture` VALUES ('96', 'images/product_picture/2019-02-21/6ee663b15c22701db619d986e266e409.jpg', '2019-02-21 15:22:24', '2019-02-21 15:24:05', '2019-02-21 15:24:05');
+INSERT INTO `lied_picture` VALUES ('97', 'images/product_picture/2019-02-21/aec6bcbdc5ab70947c8e49e2f9a18602.png', '2019-02-21 15:22:24', '2019-02-21 15:23:58', '2019-02-21 15:23:58');
+INSERT INTO `lied_picture` VALUES ('98', 'images/product_picture/2019-02-21/14dd1348ab5c6f06bb5c858017d53b02.jpg', '2019-02-21 15:24:20', '2019-02-21 15:27:17', '2019-02-21 15:27:17');
+INSERT INTO `lied_picture` VALUES ('99', 'images/product_picture/2019-02-21/339c9521387ef4fcda85594565eb3f48.jpg', '2019-02-21 15:24:20', '2019-02-21 15:24:28', '2019-02-21 15:24:28');
+INSERT INTO `lied_picture` VALUES ('100', 'images/product_picture/2019-02-21/a865ff273e304aef8e974e9f41d9fb49.png', '2019-02-21 15:24:20', '2019-02-21 15:26:48', '2019-02-21 15:26:48');
+INSERT INTO `lied_picture` VALUES ('101', 'images/product_picture/2019-02-21/7d5112686cec342fa82ddcde3a0d13ca.jpg', '2019-02-21 15:27:27', '2019-02-21 15:28:42', '2019-02-21 15:28:42');
+INSERT INTO `lied_picture` VALUES ('102', 'images/product_picture/2019-02-21/b805bd250f896d8424d02a9f36c57e90.jpg', '2019-02-21 15:27:27', '2019-02-21 15:27:46', '2019-02-21 15:27:46');
+INSERT INTO `lied_picture` VALUES ('103', 'images/product_picture/2019-02-21/e1d17511249c7de85fb3c7498384b00c.png', '2019-02-21 15:27:27', '2019-02-21 15:41:43', '2019-02-21 15:41:43');
+INSERT INTO `lied_picture` VALUES ('104', 'images/product_picture/2019-02-21/1b7bb7bddbc03acfd6ade2d7b42ef1ad.jpg', '2019-02-21 15:28:59', '2019-02-21 15:29:32', '2019-02-21 15:29:32');
+INSERT INTO `lied_picture` VALUES ('105', 'images/product_picture/2019-02-21/253e74651c7b6ce92d3090f1b5959f38.jpg', '2019-02-21 15:28:59', '2019-02-21 15:40:56', '2019-02-21 15:40:56');
+INSERT INTO `lied_picture` VALUES ('106', 'images/product_picture/2019-02-21/f6721d1873ae0a3e1a46b40f8846f231.png', '2019-02-21 15:28:59', '2019-02-21 15:41:29', '2019-02-21 15:41:29');
+INSERT INTO `lied_picture` VALUES ('107', 'images/product_picture/2019-02-21/09c5d17d53db03bf642ed6f67611d777.jpg', '2019-02-21 15:41:55', '2019-02-21 15:42:06', '2019-02-21 15:42:06');
+INSERT INTO `lied_picture` VALUES ('108', 'images/product_picture/2019-02-21/ecfa755b310ea2b503c6f6b93e0183f1.jpg', '2019-02-21 15:41:55', '2019-02-21 15:42:01', '2019-02-21 15:42:01');
+INSERT INTO `lied_picture` VALUES ('109', 'images/product_picture/2019-02-21/8a6c7fd1d0b8b80e9fc5a0df337e3ef5.jpg', '2019-02-21 15:41:55', '2019-02-21 15:42:14', '2019-02-21 15:42:14');
+INSERT INTO `lied_picture` VALUES ('110', 'images/product_picture/2019-02-21/ac0ce22e18d5fda00066bef87e53ada6.png', '2019-02-21 15:41:55', '2019-02-21 15:42:10', '2019-02-21 15:42:10');
+INSERT INTO `lied_picture` VALUES ('111', 'images/product_picture/2019-02-21/3f6928850b48674f787bc407bb4eeeed.jpg', '2019-02-21 15:42:24', '2019-02-21 15:42:24', null);
+INSERT INTO `lied_picture` VALUES ('112', 'images/product_picture/2019-02-21/3d5b79be0d5252675037a4baa5e833c6.jpg', '2019-02-21 15:42:24', '2019-02-21 15:42:24', null);
+INSERT INTO `lied_picture` VALUES ('113', 'images/product_picture/2019-02-21/cd84c1fdea14b3ee6d5c61e5a24109fb.png', '2019-02-21 15:42:24', '2019-02-21 15:42:24', null);
+INSERT INTO `lied_picture` VALUES ('145', 'images/product_thumb/2019-03-18/a2a58e4958fa382321703e84ab8e0b7c.png', '2019-03-18 15:18:44', '2019-03-18 15:18:44', null);
+INSERT INTO `lied_picture` VALUES ('146', 'images/product_picture/2019-03-18/ae44fcdcc6ca4b3ae3412a966cd8875c.jpg', '2019-03-18 15:18:44', '2019-03-18 15:20:02', '2019-03-18 15:20:02');
+INSERT INTO `lied_picture` VALUES ('147', 'images/product_picture/2019-03-18/ea243608190b4b471f027cadacc0e8e9.jpg', '2019-03-18 15:18:44', '2019-03-18 15:19:58', '2019-03-18 15:19:58');
+INSERT INTO `lied_picture` VALUES ('148', 'images/product_picture/2019-03-18/0d5a6931ad3323f3c26a7f366dd03182.png', '2019-03-18 15:18:44', '2019-03-18 15:19:59', '2019-03-18 15:19:59');
+INSERT INTO `lied_picture` VALUES ('149', 'images/product_picture/2019-03-18/3afd563ccf982c03020734150f44cf94.jpg', '2019-03-18 15:20:09', '2019-03-18 16:21:27', '2019-03-18 16:21:27');
+INSERT INTO `lied_picture` VALUES ('150', 'images/product_picture/2019-03-18/fb3c87ffad278b7c465e4537627ed79a.jpg', '2019-03-18 15:20:09', '2019-03-18 15:20:09', null);
+INSERT INTO `lied_picture` VALUES ('151', 'images/product_picture/2019-03-18/a7697c72b5aef6e4c11259442f613d46.png', '2019-03-18 15:20:09', '2019-03-18 15:20:09', null);
+INSERT INTO `lied_picture` VALUES ('152', 'images/product_attr_thumb/2019-03-18/66b0f992446fc254bac0ef02bf0f347e.jpg', '2019-03-18 15:20:09', '2019-03-18 15:20:09', null);
+INSERT INTO `lied_picture` VALUES ('153', 'images/product_picture/2019-03-18/a31d65648ff36227ee3ea7393a3bf090.jpg', '2019-03-18 16:21:43', '2019-03-18 16:21:43', null);
+INSERT INTO `lied_picture` VALUES ('154', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', '2019-05-04 15:58:21', '2019-05-04 15:58:21', null);
+INSERT INTO `lied_picture` VALUES ('155', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', '2019-05-04 15:58:21', '2019-05-04 15:58:21', null);
+INSERT INTO `lied_picture` VALUES ('156', 'images/product_attr_thumb/2019-03-18/66b0f992446fc254bac0ef02bf0f347e.jpg', '2019-05-07 13:47:12', '2019-05-07 13:47:12', null);
+INSERT INTO `lied_picture` VALUES ('157', 'images/product_attr_thumb/2019-03-18/66b0f992446fc254bac0ef02bf0f347e.jpg', '2019-05-07 14:05:54', '2019-05-07 14:05:54', null);
+INSERT INTO `lied_picture` VALUES ('158', 'images/brand_thumb/201905/a988e834e85861cb5bbc323b34c49f0a.jpg', '2019-05-07 14:11:27', '2019-05-07 14:11:27', null);
+INSERT INTO `lied_picture` VALUES ('159', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', '2019-05-07 14:38:37', '2019-05-07 14:38:37', null);
+INSERT INTO `lied_picture` VALUES ('160', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', '2019-05-07 14:38:38', '2019-05-07 14:38:38', null);
+INSERT INTO `lied_picture` VALUES ('161', 'images/artical_thumb/201905/02b2e90015f5e6f6dec7514e685a76da.jpg', '2019-05-07 17:31:52', '2019-05-07 17:31:52', null);
+INSERT INTO `lied_picture` VALUES ('162', 'images/product_thumb/20190617/00a592413e45cf60c542544ed4cf86df.png', '2019-06-17 15:41:39', '2019-06-17 15:41:39', null);
+INSERT INTO `lied_picture` VALUES ('163', 'images/product_picture/20190617/46f52faeb7bf5a65e3d14826f4734b88.JPG', '2019-06-17 15:41:39', '2019-06-17 15:41:39', null);
+INSERT INTO `lied_picture` VALUES ('164', 'images/product_picture/20190617/3bc76486d30ed0348d17e5656353f321.png', '2019-06-17 15:41:39', '2019-06-17 15:41:39', null);
+INSERT INTO `lied_picture` VALUES ('165', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', '2019-06-17 15:41:44', '2019-06-17 15:41:44', null);
+INSERT INTO `lied_picture` VALUES ('166', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', '2019-06-17 15:41:44', '2019-06-17 15:41:44', null);
+INSERT INTO `lied_picture` VALUES ('167', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', '2019-06-19 14:55:54', '2019-06-19 14:55:54', null);
+INSERT INTO `lied_picture` VALUES ('168', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', '2019-06-19 14:55:54', '2019-06-19 14:55:54', null);
+INSERT INTO `lied_picture` VALUES ('169', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', '2019-06-19 14:56:02', '2019-06-19 14:56:02', null);
+INSERT INTO `lied_picture` VALUES ('170', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', '2019-06-19 14:56:02', '2019-06-19 14:56:02', null);
+INSERT INTO `lied_picture` VALUES ('171', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', '2019-06-19 17:04:43', '2019-06-19 17:04:43', null);
+INSERT INTO `lied_picture` VALUES ('172', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', '2019-06-19 17:04:43', '2019-06-19 17:04:43', null);
+INSERT INTO `lied_picture` VALUES ('173', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', '2019-06-19 17:04:54', '2019-06-19 17:04:54', null);
+INSERT INTO `lied_picture` VALUES ('174', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', '2019-06-19 17:04:54', '2019-06-19 17:04:54', null);
+INSERT INTO `lied_picture` VALUES ('175', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', '2019-06-19 18:12:01', '2019-06-19 18:12:01', null);
+INSERT INTO `lied_picture` VALUES ('176', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', '2019-06-19 18:12:01', '2019-06-19 18:12:01', null);
+INSERT INTO `lied_picture` VALUES ('177', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', '2019-06-20 13:44:35', '2019-06-20 13:44:35', null);
+INSERT INTO `lied_picture` VALUES ('178', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', '2019-06-20 13:44:35', '2019-06-20 13:44:35', null);
+INSERT INTO `lied_picture` VALUES ('179', 'images/coupon_thumb/20190620/8d32d1c829fd01f00b5aed0e5672bfb1.png', '2019-06-20 14:04:07', '2019-06-20 14:04:07', null);
+
+-- ----------------------------
+-- Table structure for `lied_product`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_product`;
+CREATE TABLE `lied_product` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT COMMENT '商品ID',
+  `name` varchar(64) NOT NULL DEFAULT '' COMMENT '商品名称',
+  `brand_id` int(16) NOT NULL COMMENT '商家品牌ID',
+  `category_id` int(16) unsigned NOT NULL COMMENT '商品类别ID',
+  `virtual_quantity` int(8) DEFAULT '0' COMMENT '虚拟购买量',
+  `market_price` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '市场价格',
+  `price` decimal(8,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '销售价格',
+  `thumb` int(16) unsigned NOT NULL COMMENT '商品缩略图',
+  `picture` varchar(255) NOT NULL COMMENT '图库ID',
+  `description` text COMMENT '商品描述',
+  `content` text COMMENT '内容',
+  `give_intergral` int(8) unsigned DEFAULT '0' COMMENT '赠送积分',
+  `warn_number` int(8) unsigned DEFAULT '0' COMMENT '库存报警数',
+  `is_real` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否实物，1为是',
+  `is_new` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否新品，1为是',
+  `is_hot` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否热卖，1为是',
+  `is_audit` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '审核，1为审核',
+  `is_show` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示，1为显示',
+  `sort_order` int(4) unsigned DEFAULT '0' COMMENT '排序',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `product-thumb` (`thumb`),
+  KEY `product-category_id` (`category_id`),
+  CONSTRAINT `product-category_id` FOREIGN KEY (`category_id`) REFERENCES `lied_product_category` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='商品基本表';
+
+-- ----------------------------
+-- Records of lied_product
+-- ----------------------------
+INSERT INTO `lied_product` VALUES ('6', '沙宣1', '2', '12', '3', '130.00', '100.00', '62', '111,112,113', null, '', '0', '2', '0', '1', '1', '1', '1', '98', '2019-01-09 11:21:32', '2019-06-19 18:12:06', null);
+INSERT INTO `lied_product` VALUES ('13', '哈哈哈', '2', '12', '1', '20.00', '20.00', '145', '150,151,153', 'sss', null, '1', '1', '0', '1', '1', '1', '1', '99', '2019-03-18 15:18:44', '2019-06-19 18:08:11', null);
+INSERT INTO `lied_product` VALUES ('14', '测试', '1', '12', null, '100.00', '80.00', '162', '163,164', null, null, '0', null, '0', '0', '0', '1', '1', '99', '2019-06-17 15:41:39', '2019-06-17 15:43:13', null);
+
+-- ----------------------------
+-- Table structure for `lied_product_category`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_product_category`;
+CREATE TABLE `lied_product_category` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `pid` int(16) unsigned DEFAULT NULL,
+  `name` varchar(64) NOT NULL COMMENT '名称',
+  `sort_order` int(4) DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lied_product_category
+-- ----------------------------
+INSERT INTO `lied_product_category` VALUES ('12', '0', '洗发水', '2', '2019-01-09 11:13:05', '2019-05-07 14:19:17', null);
+INSERT INTO `lied_product_category` VALUES ('13', '0', 'qq', '1', '2019-05-07 14:16:11', '2019-05-07 14:19:21', '2019-05-07 14:19:21');
+
+-- ----------------------------
+-- Table structure for `lied_product_seckill`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_product_seckill`;
+CREATE TABLE `lied_product_seckill` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `product_id` int(16) unsigned NOT NULL COMMENT '产品id',
+  `stock_number` int(4) unsigned NOT NULL COMMENT '秒杀库存',
+  `limit_user` varchar(128) DEFAULT '0' COMMENT '限定用户',
+  `limit_buy_num` int(4) unsigned DEFAULT '0' COMMENT '限定用户购买次数',
+  `start_time` datetime NOT NULL COMMENT '开始时间',
+  `end_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
+  `is_show` tinyint(1) NOT NULL COMMENT '是否显示 1为显示',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `seckill-product_id` (`product_id`),
+  CONSTRAINT `seckill-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='秒杀产品管理';
+
+-- ----------------------------
+-- Records of lied_product_seckill
+-- ----------------------------
+INSERT INTO `lied_product_seckill` VALUES ('1', '6', '2', null, null, '0000-00-00 00:00:00', '2019-01-25 00:00:00', '1', '2019-01-24 11:55:10', '2019-01-24 11:55:10', null);
+
+-- ----------------------------
+-- Table structure for `lied_product_sku`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_product_sku`;
+CREATE TABLE `lied_product_sku` (
+  `id` int(16) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `sku_category_id` int(16) unsigned NOT NULL,
+  `product_id` int(16) unsigned NOT NULL COMMENT '商品ID',
+  `attr_price` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '价格',
+  `stock_number` int(8) unsigned NOT NULL DEFAULT '0' COMMENT '库存数量',
+  `thumb` int(16) unsigned NOT NULL COMMENT '缩略图',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sku_id` (`sku_category_id`),
+  KEY `thumb` (`thumb`),
+  KEY `product_attr-product_id` (`product_id`),
+  CONSTRAINT `product_sku-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `product_sku-sku_category_id` FOREIGN KEY (`sku_category_id`) REFERENCES `lied_product_sku_category` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='产品属性表';
+
+-- ----------------------------
+-- Records of lied_product_sku
+-- ----------------------------
+INSERT INTO `lied_product_sku` VALUES ('4', '10', '6', '99.00', '3', '66', '2019-01-09 11:21:32', '2019-01-16 17:39:49', null);
+INSERT INTO `lied_product_sku` VALUES ('5', '11', '6', '123.00', '5', '67', '2019-01-09 15:19:59', '2019-01-09 15:19:59', null);
+INSERT INTO `lied_product_sku` VALUES ('6', '11', '13', '21.00', '2', '152', '2019-03-18 15:20:09', '2019-03-18 17:21:42', null);
+
+-- ----------------------------
+-- Table structure for `lied_product_sku_category`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_product_sku_category`;
+CREATE TABLE `lied_product_sku_category` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `pid` int(16) unsigned DEFAULT NULL,
+  `name` varchar(64) NOT NULL COMMENT '规格名称',
+  `sort_order` int(4) NOT NULL DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='产品规格分类表';
+
+-- ----------------------------
+-- Records of lied_product_sku_category
+-- ----------------------------
+INSERT INTO `lied_product_sku_category` VALUES ('10', '0', '速定型', '0', '2019-01-09 11:13:31', '2019-01-09 15:04:09', null);
+INSERT INTO `lied_product_sku_category` VALUES ('11', '0', '持久定型', '0', '2019-01-09 11:13:42', '2019-01-09 11:13:42', null);
+INSERT INTO `lied_product_sku_category` VALUES ('12', '0', '测试测试', '99', '2019-06-20 15:19:24', '2019-06-20 15:19:24', null);
+
+-- ----------------------------
+-- Table structure for `lied_regions`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_regions`;
+CREATE TABLE `lied_regions` (
+  `region_id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) unsigned DEFAULT NULL,
+  `region_path` varchar(20) DEFAULT NULL,
+  `region_grade` mediumint(8) unsigned DEFAULT NULL,
+  `region_name` varchar(50) NOT NULL,
+  `sort_order` int(4) unsigned DEFAULT NULL COMMENT '排序',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`region_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3300 DEFAULT CHARSET=gbk;
+
+-- ----------------------------
+-- Records of lied_regions
+-- ----------------------------
+INSERT INTO `lied_regions` VALUES ('1', null, ',1,', '1', '北京', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2', '1', ',1,2,', '2', '北京市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3', '2', ',1,2,3,', '3', '东城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('4', '2', ',1,2,4,', '3', '西城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('5', '2', ',1,2,5,', '3', '崇文区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('6', '2', ',1,2,6,', '3', '宣武区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('7', '2', ',1,2,7,', '3', '朝阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('8', '2', ',1,2,8,', '3', '丰台区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('9', '2', ',1,2,9,', '3', '石景山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('10', '2', ',1,2,10,', '3', '海淀区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('11', '2', ',1,2,11,', '3', '门头沟区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('12', '2', ',1,2,12,', '3', '房山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('13', '2', ',1,2,13,', '3', '通州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('14', '2', ',1,2,14,', '3', '顺义区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('15', '2', ',1,2,15,', '3', '昌平区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('16', '2', ',1,2,16,', '3', '大兴区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('17', '2', ',1,2,17,', '3', '怀柔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('18', '2', ',1,2,18,', '3', '平谷区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('19', '2', ',1,2,19,', '3', '密云县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('20', '2', ',1,2,20,', '3', '延庆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('21', null, ',21,', '1', '上海', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('22', '21', ',21,22,', '2', '上海市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('23', '22', ',21,22,23,', '3', '黄浦区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('24', '22', ',21,22,24,', '3', '卢湾区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('25', '22', ',21,22,25,', '3', '徐汇区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('26', '22', ',21,22,26,', '3', '长宁区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('27', '22', ',21,22,27,', '3', '静安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('28', '22', ',21,22,28,', '3', '普陀区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('29', '22', ',21,22,29,', '3', '闸北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('30', '22', ',21,22,30,', '3', '虹口区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('31', '22', ',21,22,31,', '3', '杨浦区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('32', '22', ',21,22,32,', '3', '闵行区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('33', '22', ',21,22,33,', '3', '宝山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('34', '22', ',21,22,34,', '3', '嘉定区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('35', '22', ',21,22,35,', '3', '浦东新区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('36', '22', ',21,22,36,', '3', '金山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('37', '22', ',21,22,37,', '3', '松江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('38', '22', ',21,22,38,', '3', '青浦区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('39', '22', ',21,22,39,', '3', '南汇区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('40', '22', ',21,22,40,', '3', '奉贤区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('41', '22', ',21,22,41,', '3', '崇明县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('42', null, ',42,', '1', '天津', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('43', '42', ',42,43,', '2', '天津市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('44', '43', ',42,43,44,', '3', '和平区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('45', '43', ',42,43,45,', '3', '河东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('46', '43', ',42,43,46,', '3', '河西区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('47', '43', ',42,43,47,', '3', '南开区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('48', '43', ',42,43,48,', '3', '河北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('49', '43', ',42,43,49,', '3', '红桥区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('50', '43', ',42,43,50,', '3', '塘沽区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('51', '43', ',42,43,51,', '3', '汉沽区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('52', '43', ',42,43,52,', '3', '大港区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('53', '43', ',42,43,53,', '3', '东丽区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('54', '43', ',42,43,54,', '3', '西青区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('55', '43', ',42,43,55,', '3', '津南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('56', '43', ',42,43,56,', '3', '北辰区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('57', '43', ',42,43,57,', '3', '武清区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('58', '43', ',42,43,58,', '3', '宝坻区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('59', '43', ',42,43,59,', '3', '宁河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('60', '43', ',42,43,60,', '3', '静海县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('61', '43', ',42,43,61,', '3', '蓟县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('62', null, ',62,', '1', '重庆', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('63', '62', ',62,63,', '2', '重庆市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('64', '63', ',62,63,64,', '3', '万州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('65', '63', ',62,63,65,', '3', '涪陵区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('66', '63', ',62,63,66,', '3', '渝中区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('67', '63', ',62,63,67,', '3', '大渡口区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('68', '63', ',62,63,68,', '3', '江北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('69', '63', ',62,63,69,', '3', '沙坪坝区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('70', '63', ',62,63,70,', '3', '九龙坡区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('71', '63', ',62,63,71,', '3', '南岸区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('72', '63', ',62,63,72,', '3', '北碚区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('73', '63', ',62,63,73,', '3', '万盛区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('74', '63', ',62,63,74,', '3', '双桥区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('75', '63', ',62,63,75,', '3', '渝北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('76', '63', ',62,63,76,', '3', '巴南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('77', '63', ',62,63,77,', '3', '黔江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('78', '63', ',62,63,78,', '3', '长寿区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('79', '63', ',62,63,79,', '3', '綦江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('80', '63', ',62,63,80,', '3', '潼南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('81', '63', ',62,63,81,', '3', '铜梁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('82', '63', ',62,63,82,', '3', '大足县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('83', '63', ',62,63,83,', '3', '荣昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('84', '63', ',62,63,84,', '3', '璧山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('85', '63', ',62,63,85,', '3', '梁平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('86', '63', ',62,63,86,', '3', '城口县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('87', '63', ',62,63,87,', '3', '丰都县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('88', '63', ',62,63,88,', '3', '垫江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('89', '63', ',62,63,89,', '3', '武隆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('90', '63', ',62,63,90,', '3', '忠县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('91', '63', ',62,63,91,', '3', '开县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('92', '63', ',62,63,92,', '3', '云阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('93', '63', ',62,63,93,', '3', '奉节县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('94', '63', ',62,63,94,', '3', '巫山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('95', '63', ',62,63,95,', '3', '巫溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('96', '63', ',62,63,96,', '3', '石柱土家族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('97', '63', ',62,63,97,', '3', '秀山土家族苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('98', '63', ',62,63,98,', '3', '酉阳土家族苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('99', '63', ',62,63,99,', '3', '彭水苗族土家族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('100', '63', ',62,63,100,', '3', '江津市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('101', '63', ',62,63,101,', '3', '合川市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('102', '63', ',62,63,102,', '3', '永川市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('103', '63', ',62,63,103,', '3', '南川市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('104', null, ',104,', '1', '安徽', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('105', '104', ',104,105,', '2', '合肥市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('106', '105', ',104,105,106,', '3', '瑶海区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('107', '105', ',104,105,107,', '3', '庐阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('108', '105', ',104,105,108,', '3', '蜀山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('109', '105', ',104,105,109,', '3', '包河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('110', '105', ',104,105,110,', '3', '长丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('111', '105', ',104,105,111,', '3', '肥东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('112', '105', ',104,105,112,', '3', '肥西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('113', '104', ',104,113,', '2', '安庆市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('114', '113', ',104,113,114,', '3', '迎江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('115', '113', ',104,113,115,', '3', '大观区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('116', '113', ',104,113,116,', '3', '郊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('117', '113', ',104,113,117,', '3', '怀宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('118', '113', ',104,113,118,', '3', '枞阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('119', '113', ',104,113,119,', '3', '潜山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('120', '113', ',104,113,120,', '3', '太湖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('121', '113', ',104,113,121,', '3', '宿松县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('122', '113', ',104,113,122,', '3', '望江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('123', '113', ',104,113,123,', '3', '岳西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('124', '113', ',104,113,124,', '3', '桐城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('125', '104', ',104,125,', '2', '蚌埠市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('126', '125', ',104,125,126,', '3', '龙子湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('127', '125', ',104,125,127,', '3', '蚌山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('128', '125', ',104,125,128,', '3', '禹会区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('129', '125', ',104,125,129,', '3', '淮上区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('130', '125', ',104,125,130,', '3', '怀远县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('131', '125', ',104,125,131,', '3', '五河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('132', '125', ',104,125,132,', '3', '固镇县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('133', '104', ',104,133,', '2', '亳州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('134', '133', ',104,133,134,', '3', '谯城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('135', '133', ',104,133,135,', '3', '涡阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('136', '133', ',104,133,136,', '3', '蒙城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('137', '133', ',104,133,137,', '3', '利辛县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('138', '104', ',104,138,', '2', '巢湖市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('139', '138', ',104,138,139,', '3', '居巢区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('140', '138', ',104,138,140,', '3', '庐江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('141', '138', ',104,138,141,', '3', '无为县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('142', '138', ',104,138,142,', '3', '含山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('143', '138', ',104,138,143,', '3', '和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('144', '104', ',104,144,', '2', '池州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('145', '144', ',104,144,145,', '3', '贵池区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('146', '144', ',104,144,146,', '3', '东至县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('147', '144', ',104,144,147,', '3', '石台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('148', '144', ',104,144,148,', '3', '青阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('149', '104', ',104,149,', '2', '滁州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('150', '149', ',104,149,150,', '3', '琅琊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('151', '149', ',104,149,151,', '3', '南谯区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('152', '149', ',104,149,152,', '3', '来安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('153', '149', ',104,149,153,', '3', '全椒县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('154', '149', ',104,149,154,', '3', '定远县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('155', '149', ',104,149,155,', '3', '凤阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('156', '149', ',104,149,156,', '3', '天长市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('157', '149', ',104,149,157,', '3', '明光市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('158', '104', ',104,158,', '2', '阜阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('159', '158', ',104,158,159,', '3', '颍州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('160', '158', ',104,158,160,', '3', '颍东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('161', '158', ',104,158,161,', '3', '颍泉区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('162', '158', ',104,158,162,', '3', '临泉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('163', '158', ',104,158,163,', '3', '太和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('164', '158', ',104,158,164,', '3', '阜南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('165', '158', ',104,158,165,', '3', '颍上县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('166', '158', ',104,158,166,', '3', '界首市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('167', '104', ',104,167,', '2', '淮北市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('168', '167', ',104,167,168,', '3', '杜集区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('169', '167', ',104,167,169,', '3', '相山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('170', '167', ',104,167,170,', '3', '烈山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('171', '167', ',104,167,171,', '3', '濉溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('172', '104', ',104,172,', '2', '淮南市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('173', '172', ',104,172,173,', '3', '大通区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('174', '172', ',104,172,174,', '3', '田家庵区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('175', '172', ',104,172,175,', '3', '谢家集区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('176', '172', ',104,172,176,', '3', '八公山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('177', '172', ',104,172,177,', '3', '潘集区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('178', '172', ',104,172,178,', '3', '凤台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('179', '104', ',104,179,', '2', '黄山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('180', '179', ',104,179,180,', '3', '屯溪区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('181', '179', ',104,179,181,', '3', '黄山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('182', '179', ',104,179,182,', '3', '徽州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('183', '179', ',104,179,183,', '3', '歙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('184', '179', ',104,179,184,', '3', '休宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('185', '179', ',104,179,185,', '3', '黟县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('186', '179', ',104,179,186,', '3', '祁门县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('187', '104', ',104,187,', '2', '六安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('188', '187', ',104,187,188,', '3', '金安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('189', '187', ',104,187,189,', '3', '裕安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('190', '187', ',104,187,190,', '3', '寿县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('191', '187', ',104,187,191,', '3', '霍邱县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('192', '187', ',104,187,192,', '3', '舒城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('193', '187', ',104,187,193,', '3', '金寨县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('194', '187', ',104,187,194,', '3', '霍山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('195', '104', ',104,195,', '2', '马鞍山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('196', '195', ',104,195,196,', '3', '金家庄区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('197', '195', ',104,195,197,', '3', '花山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('198', '195', ',104,195,198,', '3', '雨山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('199', '195', ',104,195,199,', '3', '当涂县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('200', '104', ',104,200,', '2', '宿州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('201', '200', ',104,200,201,', '3', '墉桥区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('202', '200', ',104,200,202,', '3', '砀山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('203', '200', ',104,200,203,', '3', '萧县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('204', '200', ',104,200,204,', '3', '灵璧县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('205', '200', ',104,200,205,', '3', '泗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('206', '104', ',104,206,', '2', '铜陵市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('207', '206', ',104,206,207,', '3', '铜官山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('208', '206', ',104,206,208,', '3', '狮子山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('209', '206', ',104,206,209,', '3', '郊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('210', '206', ',104,206,210,', '3', '铜陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('211', '104', ',104,211,', '2', '芜湖市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('212', '211', ',104,211,212,', '3', '镜湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('213', '211', ',104,211,213,', '3', '马塘区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('214', '211', ',104,211,214,', '3', '新芜区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('215', '211', ',104,211,215,', '3', '鸠江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('216', '211', ',104,211,216,', '3', '芜湖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('217', '211', ',104,211,217,', '3', '繁昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('218', '211', ',104,211,218,', '3', '南陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('219', '104', ',104,219,', '2', '宣城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('220', '219', ',104,219,220,', '3', '宣州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('221', '219', ',104,219,221,', '3', '郎溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('222', '219', ',104,219,222,', '3', '广德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('223', '219', ',104,219,223,', '3', '泾县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('224', '219', ',104,219,224,', '3', '绩溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('225', '219', ',104,219,225,', '3', '旌德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('226', '219', ',104,219,226,', '3', '宁国市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('227', null, ',227,', '1', '福建', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('228', '227', ',227,228,', '2', '福州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('229', '228', ',227,228,229,', '3', '鼓楼区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('230', '228', ',227,228,230,', '3', '台江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('231', '228', ',227,228,231,', '3', '仓山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('232', '228', ',227,228,232,', '3', '马尾区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('233', '228', ',227,228,233,', '3', '晋安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('234', '228', ',227,228,234,', '3', '闽侯县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('235', '228', ',227,228,235,', '3', '连江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('236', '228', ',227,228,236,', '3', '罗源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('237', '228', ',227,228,237,', '3', '闽清县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('238', '228', ',227,228,238,', '3', '永泰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('239', '228', ',227,228,239,', '3', '平潭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('240', '228', ',227,228,240,', '3', '福清市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('241', '228', ',227,228,241,', '3', '长乐市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('242', '227', ',227,242,', '2', '龙岩市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('243', '242', ',227,242,243,', '3', '新罗区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('244', '242', ',227,242,244,', '3', '长汀县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('245', '242', ',227,242,245,', '3', '永定县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('246', '242', ',227,242,246,', '3', '上杭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('247', '242', ',227,242,247,', '3', '武平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('248', '242', ',227,242,248,', '3', '连城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('249', '242', ',227,242,249,', '3', '漳平市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('250', '227', ',227,250,', '2', '南平市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('251', '250', ',227,250,251,', '3', '延平区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('252', '250', ',227,250,252,', '3', '顺昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('253', '250', ',227,250,253,', '3', '浦城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('254', '250', ',227,250,254,', '3', '光泽县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('255', '250', ',227,250,255,', '3', '松溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('256', '250', ',227,250,256,', '3', '政和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('257', '250', ',227,250,257,', '3', '邵武市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('258', '250', ',227,250,258,', '3', '武夷山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('259', '250', ',227,250,259,', '3', '建瓯市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('260', '250', ',227,250,260,', '3', '建阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('261', '227', ',227,261,', '2', '宁德市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('262', '261', ',227,261,262,', '3', '蕉城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('263', '261', ',227,261,263,', '3', '霞浦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('264', '261', ',227,261,264,', '3', '古田县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('265', '261', ',227,261,265,', '3', '屏南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('266', '261', ',227,261,266,', '3', '寿宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('267', '261', ',227,261,267,', '3', '周宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('268', '261', ',227,261,268,', '3', '柘荣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('269', '261', ',227,261,269,', '3', '福安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('270', '261', ',227,261,270,', '3', '福鼎市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('271', '227', ',227,271,', '2', '莆田市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('272', '271', ',227,271,272,', '3', '城厢区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('273', '271', ',227,271,273,', '3', '涵江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('274', '271', ',227,271,274,', '3', '荔城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('275', '271', ',227,271,275,', '3', '秀屿区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('276', '271', ',227,271,276,', '3', '仙游县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('277', '227', ',227,277,', '2', '泉州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('278', '277', ',227,277,278,', '3', '鲤城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('279', '277', ',227,277,279,', '3', '丰泽区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('280', '277', ',227,277,280,', '3', '洛江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('281', '277', ',227,277,281,', '3', '泉港区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('282', '277', ',227,277,282,', '3', '惠安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('283', '277', ',227,277,283,', '3', '安溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('284', '277', ',227,277,284,', '3', '永春县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('285', '277', ',227,277,285,', '3', '德化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('286', '277', ',227,277,286,', '3', '金门县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('287', '277', ',227,277,287,', '3', '石狮市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('288', '277', ',227,277,288,', '3', '晋江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('289', '277', ',227,277,289,', '3', '南安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('290', '227', ',227,290,', '2', '三明市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('291', '290', ',227,290,291,', '3', '梅列区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('292', '290', ',227,290,292,', '3', '三元区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('293', '290', ',227,290,293,', '3', '明溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('294', '290', ',227,290,294,', '3', '清流县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('295', '290', ',227,290,295,', '3', '宁化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('296', '290', ',227,290,296,', '3', '大田县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('297', '290', ',227,290,297,', '3', '尤溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('298', '290', ',227,290,298,', '3', '沙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('299', '290', ',227,290,299,', '3', '将乐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('300', '290', ',227,290,300,', '3', '泰宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('301', '290', ',227,290,301,', '3', '建宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('302', '290', ',227,290,302,', '3', '永安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('303', '227', ',227,303,', '2', '厦门市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('304', '303', ',227,303,304,', '3', '思明区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('305', '303', ',227,303,305,', '3', '海沧区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('306', '303', ',227,303,306,', '3', '湖里区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('307', '303', ',227,303,307,', '3', '集美区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('308', '303', ',227,303,308,', '3', '同安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('309', '303', ',227,303,309,', '3', '翔安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('310', '227', ',227,310,', '2', '漳州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('311', '310', ',227,310,311,', '3', '芗城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('312', '310', ',227,310,312,', '3', '龙文区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('313', '310', ',227,310,313,', '3', '云霄县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('314', '310', ',227,310,314,', '3', '漳浦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('315', '310', ',227,310,315,', '3', '诏安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('316', '310', ',227,310,316,', '3', '长泰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('317', '310', ',227,310,317,', '3', '东山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('318', '310', ',227,310,318,', '3', '南靖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('319', '310', ',227,310,319,', '3', '平和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('320', '310', ',227,310,320,', '3', '华安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('321', '310', ',227,310,321,', '3', '龙海市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('322', null, ',322,', '1', '甘肃', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('323', '322', ',322,323,', '2', '兰州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('324', '323', ',322,323,324,', '3', '城关区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('325', '323', ',322,323,325,', '3', '七里河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('326', '323', ',322,323,326,', '3', '西固区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('327', '323', ',322,323,327,', '3', '安宁区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('328', '323', ',322,323,328,', '3', '红古区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('329', '323', ',322,323,329,', '3', '永登县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('330', '323', ',322,323,330,', '3', '皋兰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('331', '323', ',322,323,331,', '3', '榆中县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('332', '322', ',322,332,', '2', '白银市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('333', '332', ',322,332,333,', '3', '白银区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('334', '332', ',322,332,334,', '3', '平川区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('335', '332', ',322,332,335,', '3', '靖远县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('336', '332', ',322,332,336,', '3', '会宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('337', '332', ',322,332,337,', '3', '景泰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('338', '322', ',322,338,', '2', '定西市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('339', '338', ',322,338,339,', '3', '安定区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('340', '338', ',322,338,340,', '3', '通渭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('341', '338', ',322,338,341,', '3', '陇西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('342', '338', ',322,338,342,', '3', '渭源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('343', '338', ',322,338,343,', '3', '临洮县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('344', '338', ',322,338,344,', '3', '漳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('345', '338', ',322,338,345,', '3', '岷县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('346', '322', ',322,346,', '2', '甘南藏族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('347', '346', ',322,346,347,', '3', '合作市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('348', '346', ',322,346,348,', '3', '临潭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('349', '346', ',322,346,349,', '3', '卓尼县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('350', '346', ',322,346,350,', '3', '舟曲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('351', '346', ',322,346,351,', '3', '迭部县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('352', '346', ',322,346,352,', '3', '玛曲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('353', '346', ',322,346,353,', '3', '碌曲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('354', '346', ',322,346,354,', '3', '夏河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('355', '322', ',322,355,', '2', '嘉峪关市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('356', '322', ',322,356,', '2', '金昌市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('357', '356', ',322,356,357,', '3', '金川区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('358', '356', ',322,356,358,', '3', '永昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('359', '322', ',322,359,', '2', '酒泉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('360', '359', ',322,359,360,', '3', '肃州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('361', '359', ',322,359,361,', '3', '金塔县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('362', '359', ',322,359,362,', '3', '安西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('363', '359', ',322,359,363,', '3', '肃北蒙古族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('364', '359', ',322,359,364,', '3', '阿克塞哈萨克族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('365', '359', ',322,359,365,', '3', '玉门市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('366', '359', ',322,359,366,', '3', '敦煌市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('367', '322', ',322,367,', '2', '临夏回族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('368', '367', ',322,367,368,', '3', '临夏市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('369', '367', ',322,367,369,', '3', '临夏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('370', '367', ',322,367,370,', '3', '康乐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('371', '367', ',322,367,371,', '3', '永靖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('372', '367', ',322,367,372,', '3', '广河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('373', '367', ',322,367,373,', '3', '和政县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('374', '367', ',322,367,374,', '3', '东乡族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('375', '367', ',322,367,375,', '3', '积石山保安族东乡族撒拉族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('376', '322', ',322,376,', '2', '陇南市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('377', '376', ',322,376,377,', '3', '武都区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('378', '376', ',322,376,378,', '3', '成县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('379', '376', ',322,376,379,', '3', '文县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('380', '376', ',322,376,380,', '3', '宕昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('381', '376', ',322,376,381,', '3', '康县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('382', '376', ',322,376,382,', '3', '西和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('383', '376', ',322,376,383,', '3', '礼县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('384', '376', ',322,376,384,', '3', '徽县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('385', '376', ',322,376,385,', '3', '两当县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('386', '322', ',322,386,', '2', '平凉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('387', '386', ',322,386,387,', '3', '崆峒区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('388', '386', ',322,386,388,', '3', '泾川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('389', '386', ',322,386,389,', '3', '灵台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('390', '386', ',322,386,390,', '3', '崇信县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('391', '386', ',322,386,391,', '3', '华亭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('392', '386', ',322,386,392,', '3', '庄浪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('393', '386', ',322,386,393,', '3', '静宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('394', '322', ',322,394,', '2', '庆阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('395', '394', ',322,394,395,', '3', '西峰区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('396', '394', ',322,394,396,', '3', '庆城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('397', '394', ',322,394,397,', '3', '环县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('398', '394', ',322,394,398,', '3', '华池县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('399', '394', ',322,394,399,', '3', '合水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('400', '394', ',322,394,400,', '3', '正宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('401', '394', ',322,394,401,', '3', '宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('402', '394', ',322,394,402,', '3', '镇原县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('403', '322', ',322,403,', '2', '天水市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('404', '403', ',322,403,404,', '3', '秦城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('405', '403', ',322,403,405,', '3', '北道区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('406', '403', ',322,403,406,', '3', '清水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('407', '403', ',322,403,407,', '3', '秦安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('408', '403', ',322,403,408,', '3', '甘谷县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('409', '403', ',322,403,409,', '3', '武山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('410', '403', ',322,403,410,', '3', '张家川回族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('411', '322', ',322,411,', '2', '武威市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('412', '411', ',322,411,412,', '3', '凉州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('413', '411', ',322,411,413,', '3', '民勤县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('414', '411', ',322,411,414,', '3', '古浪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('415', '411', ',322,411,415,', '3', '天祝藏族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('416', '322', ',322,416,', '2', '张掖市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('417', '416', ',322,416,417,', '3', '甘州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('418', '416', ',322,416,418,', '3', '肃南裕固族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('419', '416', ',322,416,419,', '3', '民乐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('420', '416', ',322,416,420,', '3', '临泽县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('421', '416', ',322,416,421,', '3', '高台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('422', '416', ',322,416,422,', '3', '山丹县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('423', null, ',423,', '1', '广东', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('424', '423', ',423,424,', '2', '广州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('425', '424', ',423,424,425,', '3', '东山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('426', '424', ',423,424,426,', '3', '荔湾区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('427', '424', ',423,424,427,', '3', '越秀区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('428', '424', ',423,424,428,', '3', '海珠区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('429', '424', ',423,424,429,', '3', '天河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('430', '424', ',423,424,430,', '3', '芳村区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('431', '424', ',423,424,431,', '3', '白云区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('432', '424', ',423,424,432,', '3', '黄埔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('433', '424', ',423,424,433,', '3', '番禺区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('434', '424', ',423,424,434,', '3', '花都区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('435', '424', ',423,424,435,', '3', '增城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('436', '424', ',423,424,436,', '3', '从化市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('437', '423', ',423,437,', '2', '潮州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('438', '437', ',423,437,438,', '3', '湘桥区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('439', '437', ',423,437,439,', '3', '潮安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('440', '437', ',423,437,440,', '3', '饶平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('441', '423', ',423,441,', '2', '东莞市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('442', '423', ',423,442,', '2', '佛山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('443', '442', ',423,442,443,', '3', '禅城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('444', '442', ',423,442,444,', '3', '南海区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('445', '442', ',423,442,445,', '3', '顺德区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('446', '442', ',423,442,446,', '3', '三水区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('447', '442', ',423,442,447,', '3', '高明区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('448', '423', ',423,448,', '2', '河源市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('449', '448', ',423,448,449,', '3', '源城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('450', '448', ',423,448,450,', '3', '紫金县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('451', '448', ',423,448,451,', '3', '龙川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('452', '448', ',423,448,452,', '3', '连平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('453', '448', ',423,448,453,', '3', '和平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('454', '448', ',423,448,454,', '3', '东源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('455', '423', ',423,455,', '2', '惠州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('456', '455', ',423,455,456,', '3', '惠城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('457', '455', ',423,455,457,', '3', '惠阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('458', '455', ',423,455,458,', '3', '博罗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('459', '455', ',423,455,459,', '3', '惠东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('460', '455', ',423,455,460,', '3', '龙门县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('461', '423', ',423,461,', '2', '江门市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('462', '461', ',423,461,462,', '3', '蓬江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('463', '461', ',423,461,463,', '3', '江海区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('464', '461', ',423,461,464,', '3', '新会区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('465', '461', ',423,461,465,', '3', '台山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('466', '461', ',423,461,466,', '3', '开平市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('467', '461', ',423,461,467,', '3', '鹤山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('468', '461', ',423,461,468,', '3', '恩平市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('469', '423', ',423,469,', '2', '揭阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('470', '469', ',423,469,470,', '3', '榕城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('471', '469', ',423,469,471,', '3', '揭东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('472', '469', ',423,469,472,', '3', '揭西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('473', '469', ',423,469,473,', '3', '惠来县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('474', '469', ',423,469,474,', '3', '普宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('475', '423', ',423,475,', '2', '茂名市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('476', '475', ',423,475,476,', '3', '茂南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('477', '475', ',423,475,477,', '3', '茂港区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('478', '475', ',423,475,478,', '3', '电白县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('479', '475', ',423,475,479,', '3', '高州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('480', '475', ',423,475,480,', '3', '化州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('481', '475', ',423,475,481,', '3', '信宜市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('482', '483', ',423,483,482', '3', '梅江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('483', '423', ',423,483,', '2', '梅州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('484', '483', ',423,483,484,', '3', '梅县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('485', '483', ',423,483,485,', '3', '大埔县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('486', '483', ',423,483,486,', '3', '丰顺县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('487', '483', ',423,483,487,', '3', '五华县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('488', '483', ',423,483,488,', '3', '平远县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('489', '483', ',423,483,489,', '3', '蕉岭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('490', '483', ',423,483,490,', '3', '兴宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('491', '423', ',423,491,', '2', '清远市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('492', '491', ',423,491,492,', '3', '清城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('493', '491', ',423,491,493,', '3', '佛冈县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('494', '491', ',423,491,494,', '3', '阳山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('495', '491', ',423,491,495,', '3', '连山壮族瑶族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('496', '491', ',423,491,496,', '3', '连南瑶族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('497', '491', ',423,491,497,', '3', '清新县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('498', '491', ',423,491,498,', '3', '英德市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('499', '491', ',423,491,499,', '3', '连州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('500', '423', ',423,500,', '2', '汕头市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('501', '500', ',423,500,501,', '3', '龙湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('502', '500', ',423,500,502,', '3', '金平区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('503', '500', ',423,500,503,', '3', '濠江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('504', '500', ',423,500,504,', '3', '潮阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('505', '500', ',423,500,505,', '3', '潮南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('506', '500', ',423,500,506,', '3', '澄海区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('507', '500', ',423,500,507,', '3', '南澳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('508', '423', ',423,508,', '2', '汕尾市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('509', '508', ',423,508,509,', '3', '城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('510', '508', ',423,508,510,', '3', '海丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('511', '508', ',423,508,511,', '3', '陆河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('512', '508', ',423,508,512,', '3', '陆丰市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('513', '423', ',423,513,', '2', '韶关市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('514', '513', ',423,513,514,', '3', '武江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('515', '513', ',423,513,515,', '3', '浈江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('516', '513', ',423,513,516,', '3', '曲江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('517', '513', ',423,513,517,', '3', '始兴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('518', '513', ',423,513,518,', '3', '仁化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('519', '513', ',423,513,519,', '3', '翁源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('520', '513', ',423,513,520,', '3', '乳源瑶族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('521', '513', ',423,513,521,', '3', '新丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('522', '513', ',423,513,522,', '3', '乐昌市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('523', '513', ',423,513,523,', '3', '南雄市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('524', '423', ',423,524,', '2', '深圳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('525', '524', ',423,524,525,', '3', '罗湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('526', '524', ',423,524,526,', '3', '福田区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('527', '524', ',423,524,527,', '3', '南山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('528', '524', ',423,524,528,', '3', '宝安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('529', '524', ',423,524,529,', '3', '龙岗区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('530', '524', ',423,524,530,', '3', '盐田区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('531', '423', ',423,531,', '2', '阳江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('532', '531', ',423,531,532,', '3', '江城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('533', '531', ',423,531,533,', '3', '阳西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('534', '531', ',423,531,534,', '3', '阳东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('535', '531', ',423,531,535,', '3', '阳春市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('536', '423', ',423,536,', '2', '云浮市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('537', '536', ',423,536,537,', '3', '云城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('538', '536', ',423,536,538,', '3', '新兴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('539', '536', ',423,536,539,', '3', '郁南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('540', '536', ',423,536,540,', '3', '云安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('541', '536', ',423,536,541,', '3', '罗定市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('542', '423', ',423,542,', '2', '湛江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('543', '542', ',423,542,543,', '3', '赤坎区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('544', '542', ',423,542,544,', '3', '霞山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('545', '542', ',423,542,545,', '3', '坡头区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('546', '542', ',423,542,546,', '3', '麻章区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('547', '542', ',423,542,547,', '3', '遂溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('548', '542', ',423,542,548,', '3', '徐闻县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('549', '542', ',423,542,549,', '3', '廉江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('550', '542', ',423,542,550,', '3', '雷州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('551', '542', ',423,542,551,', '3', '吴川市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('552', '423', ',423,552,', '2', '肇庆市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('553', '552', ',423,552,553,', '3', '端州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('554', '552', ',423,552,554,', '3', '鼎湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('555', '552', ',423,552,555,', '3', '广宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('556', '552', ',423,552,556,', '3', '怀集县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('557', '552', ',423,552,557,', '3', '封开县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('558', '552', ',423,552,558,', '3', '德庆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('559', '552', ',423,552,559,', '3', '高要市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('560', '552', ',423,552,560,', '3', '四会市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('561', '423', ',423,561,', '2', '中山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('562', '423', ',423,562,', '2', '珠海市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('563', '562', ',423,562,563,', '3', '香洲区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('564', '562', ',423,562,564,', '3', '斗门区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('565', '562', ',423,562,565,', '3', '金湾区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('566', null, ',566,', '1', '广西', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('567', '566', ',566,567,', '2', '南宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('568', '567', ',566,567,568,', '3', '兴宁区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('569', '567', ',566,567,569,', '3', '青秀区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('570', '567', ',566,567,570,', '3', '江南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('571', '567', ',566,567,571,', '3', '西乡塘区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('572', '567', ',566,567,572,', '3', '良庆区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('573', '567', ',566,567,573,', '3', '邕宁区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('574', '567', ',566,567,574,', '3', '武鸣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('575', '567', ',566,567,575,', '3', '隆安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('576', '567', ',566,567,576,', '3', '马山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('577', '567', ',566,567,577,', '3', '上林县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('578', '567', ',566,567,578,', '3', '宾阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('579', '567', ',566,567,579,', '3', '横县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('580', '566', ',566,580,', '2', '百色市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('581', '580', ',566,580,581,', '3', '右江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('582', '580', ',566,580,582,', '3', '田阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('583', '580', ',566,580,583,', '3', '田东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('584', '580', ',566,580,584,', '3', '平果县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('585', '580', ',566,580,585,', '3', '德保县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('586', '580', ',566,580,586,', '3', '靖西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('587', '580', ',566,580,587,', '3', '那坡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('588', '580', ',566,580,588,', '3', '凌云县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('589', '580', ',566,580,589,', '3', '乐业县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('590', '580', ',566,580,590,', '3', '田林县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('591', '580', ',566,580,591,', '3', '西林县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('592', '580', ',566,580,592,', '3', '隆林各族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('593', '566', ',566,593,', '2', '北海市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('594', '593', ',566,593,594,', '3', '海城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('595', '593', ',566,593,595,', '3', '银海区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('596', '593', ',566,593,596,', '3', '铁山港区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('597', '593', ',566,593,597,', '3', '合浦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('598', '566', ',566,598,', '2', '崇左市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('599', '598', ',566,598,599,', '3', '江洲区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('600', '598', ',566,598,600,', '3', '扶绥县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('601', '598', ',566,598,601,', '3', '宁明县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('602', '598', ',566,598,602,', '3', '龙州县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('603', '598', ',566,598,603,', '3', '大新县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('604', '598', ',566,598,604,', '3', '天等县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('605', '598', ',566,598,605,', '3', '凭祥市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('606', '566', ',566,606,', '2', '防城港市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('607', '606', ',566,606,607,', '3', '港口区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('608', '606', ',566,606,608,', '3', '防城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('609', '606', ',566,606,609,', '3', '上思县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('610', '606', ',566,606,610,', '3', '东兴市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('611', '566', ',566,611,', '2', '贵港市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('612', '611', ',566,611,612,', '3', '港北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('613', '611', ',566,611,613,', '3', '港南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('614', '611', ',566,611,614,', '3', '覃塘区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('615', '611', ',566,611,615,', '3', '平南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('616', '611', ',566,611,616,', '3', '桂平市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('617', '566', ',566,617,', '2', '桂林市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('618', '617', ',566,617,618,', '3', '秀峰区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('619', '617', ',566,617,619,', '3', '叠彩区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('620', '617', ',566,617,620,', '3', '象山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('621', '617', ',566,617,621,', '3', '七星区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('622', '617', ',566,617,622,', '3', '雁山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('623', '617', ',566,617,623,', '3', '阳朔县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('624', '617', ',566,617,624,', '3', '临桂县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('625', '617', ',566,617,625,', '3', '灵川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('626', '617', ',566,617,626,', '3', '全州县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('627', '617', ',566,617,627,', '3', '兴安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('628', '617', ',566,617,628,', '3', '永福县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('629', '617', ',566,617,629,', '3', '灌阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('630', '617', ',566,617,630,', '3', '龙胜各族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('631', '617', ',566,617,631,', '3', '资源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('632', '617', ',566,617,632,', '3', '平乐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('633', '617', ',566,617,633,', '3', '荔蒲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('634', '617', ',566,617,634,', '3', '恭城瑶族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('635', '566', ',566,635,', '2', '河池市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('636', '635', ',566,635,636,', '3', '金城江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('637', '635', ',566,635,637,', '3', '南丹县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('638', '635', ',566,635,638,', '3', '天峨县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('639', '635', ',566,635,639,', '3', '凤山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('640', '635', ',566,635,640,', '3', '东兰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('641', '635', ',566,635,641,', '3', '罗城仫佬族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('642', '635', ',566,635,642,', '3', '环江毛南族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('643', '635', ',566,635,643,', '3', '巴马瑶族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('644', '635', ',566,635,644,', '3', '都安瑶族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('645', '635', ',566,635,645,', '3', '大化瑶族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('646', '635', ',566,635,646,', '3', '宜州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('647', '566', ',566,647,', '2', '贺州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('648', '647', ',566,647,648,', '3', '八步区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('649', '647', ',566,647,649,', '3', '昭平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('650', '647', ',566,647,650,', '3', '钟山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('651', '647', ',566,647,651,', '3', '富川瑶族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('652', '566', ',566,652,', '2', '来宾市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('653', '652', ',566,652,653,', '3', '兴宾区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('654', '652', ',566,652,654,', '3', '忻城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('655', '652', ',566,652,655,', '3', '象州县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('656', '652', ',566,652,656,', '3', '武宣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('657', '652', ',566,652,657,', '3', '金秀瑶族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('658', '652', ',566,652,658,', '3', '合山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('659', '566', ',566,659,', '2', '柳州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('660', '659', ',566,659,660,', '3', '城中区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('661', '659', ',566,659,661,', '3', '鱼峰区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('662', '659', ',566,659,662,', '3', '柳南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('663', '659', ',566,659,663,', '3', '柳北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('664', '659', ',566,659,664,', '3', '柳江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('665', '659', ',566,659,665,', '3', '柳城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('666', '659', ',566,659,666,', '3', '鹿寨县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('667', '659', ',566,659,667,', '3', '融安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('668', '659', ',566,659,668,', '3', '融水苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('669', '659', ',566,659,669,', '3', '三江侗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('670', '566', ',566,670,', '2', '钦州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('671', '670', ',566,670,671,', '3', '钦南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('672', '670', ',566,670,672,', '3', '钦北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('673', '670', ',566,670,673,', '3', '灵山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('674', '670', ',566,670,674,', '3', '浦北县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('675', '566', ',566,675,', '2', '梧州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('676', '675', ',566,675,676,', '3', '万秀区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('677', '675', ',566,675,677,', '3', '蝶山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('678', '675', ',566,675,678,', '3', '长洲区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('679', '675', ',566,675,679,', '3', '苍梧县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('680', '675', ',566,675,680,', '3', '藤县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('681', '675', ',566,675,681,', '3', '蒙山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('682', '675', ',566,675,682,', '3', '岑溪市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('683', '566', ',566,683,', '2', '玉林市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('684', '683', ',566,683,684,', '3', '玉州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('685', '683', ',566,683,685,', '3', '容县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('686', '683', ',566,683,686,', '3', '陆川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('687', '683', ',566,683,687,', '3', '博白县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('688', '683', ',566,683,688,', '3', '兴业县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('689', '683', ',566,683,689,', '3', '北流市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('690', null, ',690,', '1', '贵州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('691', '690', ',690,691,', '2', '贵阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('692', '691', ',690,691,692,', '3', '南明区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('693', '691', ',690,691,693,', '3', '云岩区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('694', '691', ',690,691,694,', '3', '花溪区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('695', '691', ',690,691,695,', '3', '乌当区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('696', '691', ',690,691,696,', '3', '白云区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('697', '691', ',690,691,697,', '3', '小河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('698', '691', ',690,691,698,', '3', '开阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('699', '691', ',690,691,699,', '3', '息烽县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('700', '691', ',690,691,700,', '3', '修文县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('701', '691', ',690,691,701,', '3', '清镇市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('702', '690', ',690,702,', '2', '安顺市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('703', '702', ',690,702,703,', '3', '西秀区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('704', '702', ',690,702,704,', '3', '平坝县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('705', '702', ',690,702,705,', '3', '普定县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('706', '702', ',690,702,706,', '3', '镇宁布依族苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('707', '702', ',690,702,707,', '3', '关岭布依族苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('708', '702', ',690,702,708,', '3', '紫云苗族布依族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('709', '690', ',690,709,', '2', '毕节地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('710', '709', ',690,709,710,', '3', '毕节市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('711', '709', ',690,709,711,', '3', '大方县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('712', '709', ',690,709,712,', '3', '黔西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('713', '709', ',690,709,713,', '3', '金沙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('714', '709', ',690,709,714,', '3', '织金县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('715', '709', ',690,709,715,', '3', '纳雍县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('716', '709', ',690,709,716,', '3', '威宁彝族回族苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('717', '709', ',690,709,717,', '3', '赫章县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('718', '690', ',690,718,', '2', '六盘水市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('719', '718', ',690,718,719,', '3', '钟山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('720', '718', ',690,718,720,', '3', '六枝特区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('721', '718', ',690,718,721,', '3', '水城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('722', '718', ',690,718,722,', '3', '盘县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('723', '690', ',690,723,', '2', '黔东南苗族侗族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('724', '723', ',690,723,724,', '3', '凯里市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('725', '723', ',690,723,725,', '3', '黄平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('726', '723', ',690,723,726,', '3', '施秉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('727', '723', ',690,723,727,', '3', '三穗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('728', '723', ',690,723,728,', '3', '镇远县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('729', '723', ',690,723,729,', '3', '岑巩县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('730', '723', ',690,723,730,', '3', '天柱县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('731', '723', ',690,723,731,', '3', '锦屏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('732', '723', ',690,723,732,', '3', '剑河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('733', '723', ',690,723,733,', '3', '台江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('734', '723', ',690,723,734,', '3', '黎平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('735', '723', ',690,723,735,', '3', '榕江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('736', '723', ',690,723,736,', '3', '从江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('737', '723', ',690,723,737,', '3', '雷山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('738', '723', ',690,723,738,', '3', '麻江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('739', '723', ',690,723,739,', '3', '丹寨县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('740', '690', ',690,740,', '2', '黔南布依族苗族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('741', '740', ',690,740,741,', '3', '都匀市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('742', '740', ',690,740,742,', '3', '福泉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('743', '740', ',690,740,743,', '3', '荔波县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('744', '740', ',690,740,744,', '3', '贵定县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('745', '740', ',690,740,745,', '3', '瓮安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('746', '740', ',690,740,746,', '3', '独山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('747', '740', ',690,740,747,', '3', '平塘县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('748', '740', ',690,740,748,', '3', '罗甸县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('749', '740', ',690,740,749,', '3', '长顺县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('750', '740', ',690,740,750,', '3', '龙里县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('751', '740', ',690,740,751,', '3', '惠水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('752', '740', ',690,740,752,', '3', '三都水族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('753', '690', ',690,753,', '2', '黔西南布依族苗族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('754', '753', ',690,753,754,', '3', '兴义市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('755', '753', ',690,753,755,', '3', '兴仁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('756', '753', ',690,753,756,', '3', '普安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('757', '753', ',690,753,757,', '3', '晴隆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('758', '753', ',690,753,758,', '3', '贞丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('759', '753', ',690,753,759,', '3', '望谟县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('760', '753', ',690,753,760,', '3', '册亨县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('761', '753', ',690,753,761,', '3', '安龙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('762', '690', ',690,762,', '2', '铜仁地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('763', '762', ',690,762,763,', '3', '铜仁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('764', '762', ',690,762,764,', '3', '江口县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('765', '762', ',690,762,765,', '3', '玉屏侗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('766', '762', ',690,762,766,', '3', '石阡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('767', '762', ',690,762,767,', '3', '思南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('768', '762', ',690,762,768,', '3', '印江土家族苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('769', '762', ',690,762,769,', '3', '德江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('770', '762', ',690,762,770,', '3', '沿河土家族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('771', '762', ',690,762,771,', '3', '松桃苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('772', '762', ',690,762,772,', '3', '万山特区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('773', '690', ',690,773,', '2', '遵义市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('774', '773', ',690,773,774,', '3', '红花岗区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('775', '773', ',690,773,775,', '3', '汇川区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('776', '773', ',690,773,776,', '3', '遵义县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('777', '773', ',690,773,777,', '3', '桐梓县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('778', '773', ',690,773,778,', '3', '绥阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('779', '773', ',690,773,779,', '3', '正安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('780', '773', ',690,773,780,', '3', '道真仡佬族苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('781', '773', ',690,773,781,', '3', '务川仡佬族苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('782', '773', ',690,773,782,', '3', '凤冈县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('783', '773', ',690,773,783,', '3', '湄潭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('784', '773', ',690,773,784,', '3', '余庆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('785', '773', ',690,773,785,', '3', '习水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('786', '773', ',690,773,786,', '3', '赤水市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('787', '773', ',690,773,787,', '3', '仁怀市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('788', null, ',788,', '1', '海南', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('789', '788', ',788,789,', '2', '海口市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('790', '789', ',788,789,790,', '3', '秀英区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('791', '789', ',788,789,791,', '3', '龙华区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('792', '789', ',788,789,792,', '3', '琼山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('793', '789', ',788,789,793,', '3', '美兰区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('794', '788', ',788,794,', '2', '白沙黎族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('795', '788', ',788,795,', '2', '保亭黎族苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('796', '788', ',788,796,', '2', '昌江黎族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('797', '788', ',788,797,', '2', '澄迈县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('798', '788', ',788,798,', '2', '儋州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('799', '788', ',788,799,', '2', '定安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('800', '788', ',788,800,', '2', '东方市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('801', '788', ',788,801,', '2', '乐东黎族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('802', '788', ',788,802,', '2', '临高县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('803', '788', ',788,803,', '2', '陵水黎族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('804', '788', ',788,804,', '2', '南沙群岛', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('805', '788', ',788,805,', '2', '琼海市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('806', '788', ',788,806,', '2', '琼中黎族苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('807', '788', ',788,807,', '2', '三亚市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('808', '788', ',788,808,', '2', '屯昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('809', '788', ',788,809,', '2', '万宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('810', '788', ',788,810,', '2', '文昌市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('811', '788', ',788,811,', '2', '五指山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('812', '788', ',788,812,', '2', '西沙群岛', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('813', '788', ',788,813,', '2', '中沙群岛的岛礁及其海域', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('814', null, ',814,', '1', '河北', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('815', '814', ',814,815,', '2', '石家庄市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('816', '815', ',814,815,816,', '3', '长安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('817', '815', ',814,815,817,', '3', '桥东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('818', '815', ',814,815,818,', '3', '桥西区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('819', '815', ',814,815,819,', '3', '新华区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('820', '815', ',814,815,820,', '3', '井陉矿区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('821', '815', ',814,815,821,', '3', '裕华区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('822', '815', ',814,815,822,', '3', '井陉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('823', '815', ',814,815,823,', '3', '正定县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('824', '815', ',814,815,824,', '3', '栾城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('825', '815', ',814,815,825,', '3', '行唐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('826', '815', ',814,815,826,', '3', '灵寿县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('827', '815', ',814,815,827,', '3', '高邑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('828', '815', ',814,815,828,', '3', '深泽县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('829', '815', ',814,815,829,', '3', '赞皇县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('830', '815', ',814,815,830,', '3', '无极县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('831', '815', ',814,815,831,', '3', '平山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('832', '815', ',814,815,832,', '3', '元氏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('833', '815', ',814,815,833,', '3', '赵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('834', '815', ',814,815,834,', '3', '辛集市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('835', '815', ',814,815,835,', '3', '藁城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('836', '815', ',814,815,836,', '3', '晋州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('837', '815', ',814,815,837,', '3', '新乐市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('838', '815', ',814,815,838,', '3', '鹿泉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('839', '814', ',814,839,', '2', '保定市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('840', '839', ',814,839,840,', '3', '新市区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('841', '839', ',814,839,841,', '3', '北市区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('842', '839', ',814,839,842,', '3', '南市区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('843', '839', ',814,839,843,', '3', '满城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('844', '839', ',814,839,844,', '3', '清苑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('845', '839', ',814,839,845,', '3', '涞水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('846', '839', ',814,839,846,', '3', '阜平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('847', '839', ',814,839,847,', '3', '徐水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('848', '839', ',814,839,848,', '3', '定兴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('849', '839', ',814,839,849,', '3', '唐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('850', '839', ',814,839,850,', '3', '高阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('851', '839', ',814,839,851,', '3', '容城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('852', '839', ',814,839,852,', '3', '涞源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('853', '839', ',814,839,853,', '3', '望都县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('854', '839', ',814,839,854,', '3', '安新县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('855', '839', ',814,839,855,', '3', '易县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('856', '839', ',814,839,856,', '3', '曲阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('857', '839', ',814,839,857,', '3', '蠡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('858', '839', ',814,839,858,', '3', '顺平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('859', '839', ',814,839,859,', '3', '博野县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('860', '839', ',814,839,860,', '3', '雄县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('861', '839', ',814,839,861,', '3', '涿州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('862', '839', ',814,839,862,', '3', '定州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('863', '839', ',814,839,863,', '3', '安国市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('864', '839', ',814,839,864,', '3', '高碑店市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('865', '814', ',814,865,', '2', '沧州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('866', '865', ',814,865,866,', '3', '新华区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('867', '865', ',814,865,867,', '3', '运河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('868', '865', ',814,865,868,', '3', '沧县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('869', '865', ',814,865,869,', '3', '青县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('870', '865', ',814,865,870,', '3', '东光县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('871', '865', ',814,865,871,', '3', '海兴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('872', '865', ',814,865,872,', '3', '盐山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('873', '865', ',814,865,873,', '3', '肃宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('874', '865', ',814,865,874,', '3', '南皮县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('875', '865', ',814,865,875,', '3', '吴桥县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('876', '865', ',814,865,876,', '3', '献县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('877', '865', ',814,865,877,', '3', '孟村回族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('878', '865', ',814,865,878,', '3', '泊头市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('879', '865', ',814,865,879,', '3', '任丘市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('880', '865', ',814,865,880,', '3', '黄骅市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('881', '865', ',814,865,881,', '3', '河间市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('882', '814', ',814,882,', '2', '承德市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('883', '882', ',814,882,883,', '3', '双桥区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('884', '882', ',814,882,884,', '3', '双滦区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('885', '882', ',814,882,885,', '3', '鹰手营子矿区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('886', '882', ',814,882,886,', '3', '承德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('887', '882', ',814,882,887,', '3', '兴隆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('888', '882', ',814,882,888,', '3', '平泉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('889', '882', ',814,882,889,', '3', '滦平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('890', '882', ',814,882,890,', '3', '隆化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('891', '882', ',814,882,891,', '3', '丰宁满族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('892', '882', ',814,882,892,', '3', '宽城满族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('893', '882', ',814,882,893,', '3', '围场满族蒙古族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('894', '814', ',814,894,', '2', '邯郸市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('895', '894', ',814,894,895,', '3', '邯山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('896', '894', ',814,894,896,', '3', '丛台区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('897', '894', ',814,894,897,', '3', '复兴区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('898', '894', ',814,894,898,', '3', '峰峰矿区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('899', '894', ',814,894,899,', '3', '邯郸县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('900', '894', ',814,894,900,', '3', '临漳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('901', '894', ',814,894,901,', '3', '成安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('902', '894', ',814,894,902,', '3', '大名县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('903', '894', ',814,894,903,', '3', '涉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('904', '894', ',814,894,904,', '3', '磁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('905', '894', ',814,894,905,', '3', '肥乡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('906', '894', ',814,894,906,', '3', '永年县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('907', '894', ',814,894,907,', '3', '邱县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('908', '894', ',814,894,908,', '3', '鸡泽县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('909', '894', ',814,894,909,', '3', '广平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('910', '894', ',814,894,910,', '3', '馆陶县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('911', '894', ',814,894,911,', '3', '魏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('912', '894', ',814,894,912,', '3', '曲周县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('913', '894', ',814,894,913,', '3', '武安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('914', '814', ',814,914,', '2', '衡水市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('915', '914', ',814,914,915,', '3', '桃城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('916', '914', ',814,914,916,', '3', '枣强县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('917', '914', ',814,914,917,', '3', '武邑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('918', '914', ',814,914,918,', '3', '武强县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('919', '914', ',814,914,919,', '3', '饶阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('920', '914', ',814,914,920,', '3', '安平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('921', '914', ',814,914,921,', '3', '故城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('922', '914', ',814,914,922,', '3', '景县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('923', '914', ',814,914,923,', '3', '阜城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('924', '914', ',814,914,924,', '3', '冀州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('925', '914', ',814,914,925,', '3', '深州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('926', '814', ',814,926,', '2', '廊坊市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('927', '926', ',814,926,927,', '3', '安次区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('928', '926', ',814,926,928,', '3', '广阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('929', '926', ',814,926,929,', '3', '固安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('930', '926', ',814,926,930,', '3', '永清县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('931', '926', ',814,926,931,', '3', '香河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('932', '926', ',814,926,932,', '3', '大城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('933', '926', ',814,926,933,', '3', '文安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('934', '926', ',814,926,934,', '3', '大厂回族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('935', '926', ',814,926,935,', '3', '霸州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('936', '926', ',814,926,936,', '3', '三河市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('937', '814', ',814,937,', '2', '秦皇岛市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('938', '937', ',814,937,938,', '3', '海港区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('939', '937', ',814,937,939,', '3', '山海关区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('940', '937', ',814,937,940,', '3', '北戴河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('941', '937', ',814,937,941,', '3', '青龙满族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('942', '937', ',814,937,942,', '3', '昌黎县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('943', '937', ',814,937,943,', '3', '抚宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('944', '937', ',814,937,944,', '3', '卢龙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('945', '814', ',814,945,', '2', '唐山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('946', '945', ',814,945,946,', '3', '路南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('947', '945', ',814,945,947,', '3', '路北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('948', '945', ',814,945,948,', '3', '古冶区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('949', '945', ',814,945,949,', '3', '开平区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('950', '945', ',814,945,950,', '3', '丰南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('951', '945', ',814,945,951,', '3', '丰润区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('952', '945', ',814,945,952,', '3', '滦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('953', '945', ',814,945,953,', '3', '滦南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('954', '945', ',814,945,954,', '3', '乐亭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('955', '945', ',814,945,955,', '3', '迁西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('956', '945', ',814,945,956,', '3', '玉田县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('957', '945', ',814,945,957,', '3', '唐海县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('958', '945', ',814,945,958,', '3', '遵化市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('959', '945', ',814,945,959,', '3', '迁安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('960', '814', ',814,960,', '2', '邢台市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('961', '960', ',814,960,961,', '3', '桥东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('962', '960', ',814,960,962,', '3', '桥西区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('963', '960', ',814,960,963,', '3', '邢台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('964', '960', ',814,960,964,', '3', '临城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('965', '960', ',814,960,965,', '3', '内丘县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('966', '960', ',814,960,966,', '3', '柏乡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('967', '960', ',814,960,967,', '3', '隆尧县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('968', '960', ',814,960,968,', '3', '任县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('969', '960', ',814,960,969,', '3', '南和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('970', '960', ',814,960,970,', '3', '宁晋县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('971', '960', ',814,960,971,', '3', '巨鹿县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('972', '960', ',814,960,972,', '3', '新河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('973', '960', ',814,960,973,', '3', '广宗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('974', '960', ',814,960,974,', '3', '平乡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('975', '960', ',814,960,975,', '3', '威县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('976', '960', ',814,960,976,', '3', '清河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('977', '960', ',814,960,977,', '3', '临西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('978', '960', ',814,960,978,', '3', '南宫市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('979', '960', ',814,960,979,', '3', '沙河市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('980', '814', ',814,980,', '2', '张家口市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('981', '980', ',814,980,981,', '3', '桥东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('982', '980', ',814,980,982,', '3', '桥西区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('983', '980', ',814,980,983,', '3', '宣化区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('984', '980', ',814,980,984,', '3', '下花园区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('985', '980', ',814,980,985,', '3', '宣化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('986', '980', ',814,980,986,', '3', '张北县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('987', '980', ',814,980,987,', '3', '康保县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('988', '980', ',814,980,988,', '3', '沽源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('989', '980', ',814,980,989,', '3', '尚义县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('990', '980', ',814,980,990,', '3', '蔚县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('991', '980', ',814,980,991,', '3', '阳原县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('992', '980', ',814,980,992,', '3', '怀安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('993', '980', ',814,980,993,', '3', '万全县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('994', '980', ',814,980,994,', '3', '怀来县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('995', '980', ',814,980,995,', '3', '涿鹿县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('996', '980', ',814,980,996,', '3', '赤城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('997', '980', ',814,980,997,', '3', '崇礼县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('998', null, ',998,', '1', '河南', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('999', '998', ',998,999,', '2', '郑州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1000', '999', ',998,999,1000,', '3', '中原区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1001', '999', ',998,999,1001,', '3', '二七区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1002', '999', ',998,999,1002,', '3', '管城回族区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1003', '999', ',998,999,1003,', '3', '金水区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1004', '999', ',998,999,1004,', '3', '上街区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1005', '999', ',998,999,1005,', '3', '邙山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1006', '999', ',998,999,1006,', '3', '中牟县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1007', '999', ',998,999,1007,', '3', '巩义市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1008', '999', ',998,999,1008,', '3', '荥阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1009', '999', ',998,999,1009,', '3', '新密市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1010', '999', ',998,999,1010,', '3', '新郑市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1011', '999', ',998,999,1011,', '3', '登封市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1012', '998', ',998,1012,', '2', '安阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1013', '1012', ',998,1012,1013,', '3', '文峰区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1014', '1012', ',998,1012,1014,', '3', '北关区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1015', '1012', ',998,1012,1015,', '3', '殷都区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1016', '1012', ',998,1012,1016,', '3', '龙安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1017', '1012', ',998,1012,1017,', '3', '安阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1018', '1012', ',998,1012,1018,', '3', '汤阴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1019', '1012', ',998,1012,1019,', '3', '滑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1020', '1012', ',998,1012,1020,', '3', '内黄县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1021', '1012', ',998,1012,1021,', '3', '林州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1022', '998', ',998,1022,', '2', '鹤壁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1023', '1022', ',998,1022,1023,', '3', '鹤山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1024', '1022', ',998,1022,1024,', '3', '山城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1025', '1022', ',998,1022,1025,', '3', '淇滨区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1026', '1022', ',998,1022,1026,', '3', '浚县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1027', '1022', ',998,1022,1027,', '3', '淇县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1028', '998', ',998,1028,', '2', '济源市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1029', '998', ',998,1029,', '2', '焦作市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1030', '1029', ',998,1029,1030,', '3', '解放区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1031', '1029', ',998,1029,1031,', '3', '中站区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1032', '1029', ',998,1029,1032,', '3', '马村区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1033', '1029', ',998,1029,1033,', '3', '山阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1034', '1029', ',998,1029,1034,', '3', '修武县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1035', '1029', ',998,1029,1035,', '3', '博爱县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1036', '1029', ',998,1029,1036,', '3', '武陟县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1037', '1029', ',998,1029,1037,', '3', '温县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1038', '1029', ',998,1029,1038,', '3', '济源市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1039', '1029', ',998,1029,1039,', '3', '沁阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1040', '1029', ',998,1029,1040,', '3', '孟州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1041', '998', ',998,1041,', '2', '开封市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1042', '1041', ',998,1041,1042,', '3', '龙亭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1043', '1041', ',998,1041,1043,', '3', '顺河回族区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1044', '1041', ',998,1041,1044,', '3', '鼓楼区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1045', '1041', ',998,1041,1045,', '3', '南关区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1046', '1041', ',998,1041,1046,', '3', '郊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1047', '1041', ',998,1041,1047,', '3', '杞县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1048', '1041', ',998,1041,1048,', '3', '通许县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1049', '1041', ',998,1041,1049,', '3', '尉氏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1050', '1041', ',998,1041,1050,', '3', '开封县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1051', '1041', ',998,1041,1051,', '3', '兰考县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1052', '998', ',998,1052,', '2', '洛阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1053', '1052', ',998,1052,1053,', '3', '老城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1054', '1052', ',998,1052,1054,', '3', '西工区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1055', '1052', ',998,1052,1055,', '3', '廛河回族区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1056', '1052', ',998,1052,1056,', '3', '涧西区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1057', '1052', ',998,1052,1057,', '3', '吉利区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1058', '1052', ',998,1052,1058,', '3', '洛龙区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1059', '1052', ',998,1052,1059,', '3', '孟津县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1060', '1052', ',998,1052,1060,', '3', '新安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1061', '1052', ',998,1052,1061,', '3', '栾川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1062', '1052', ',998,1052,1062,', '3', '嵩县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1063', '1052', ',998,1052,1063,', '3', '汝阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1064', '1052', ',998,1052,1064,', '3', '宜阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1065', '1052', ',998,1052,1065,', '3', '洛宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1066', '1052', ',998,1052,1066,', '3', '伊川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1067', '1052', ',998,1052,1067,', '3', '偃师市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1068', '998', ',998,1068,', '2', '漯河市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1069', '1068', ',998,1068,1069,', '3', '源汇区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1070', '1068', ',998,1068,1070,', '3', '郾城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1071', '1068', ',998,1068,1071,', '3', '召陵区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1072', '1068', ',998,1068,1072,', '3', '舞阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1073', '1068', ',998,1068,1073,', '3', '临颍县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1074', '998', ',998,1074,', '2', '南阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1075', '1074', ',998,1074,1075,', '3', '宛城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1076', '1074', ',998,1074,1076,', '3', '卧龙区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1077', '1074', ',998,1074,1077,', '3', '南召县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1078', '1074', ',998,1074,1078,', '3', '方城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1079', '1074', ',998,1074,1079,', '3', '西峡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1080', '1074', ',998,1074,1080,', '3', '镇平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1081', '1074', ',998,1074,1081,', '3', '内乡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1082', '1074', ',998,1074,1082,', '3', '淅川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1083', '1074', ',998,1074,1083,', '3', '社旗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1084', '1074', ',998,1074,1084,', '3', '唐河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1085', '1074', ',998,1074,1085,', '3', '新野县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1086', '1074', ',998,1074,1086,', '3', '桐柏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1087', '1074', ',998,1074,1087,', '3', '邓州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1088', '998', ',998,1088,', '2', '平顶山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1089', '1088', ',998,1088,1089,', '3', '新华区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1090', '1088', ',998,1088,1090,', '3', '卫东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1091', '1088', ',998,1088,1091,', '3', '石龙区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1092', '1088', ',998,1088,1092,', '3', '湛河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1093', '1088', ',998,1088,1093,', '3', '宝丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1094', '1088', ',998,1088,1094,', '3', '叶县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1095', '1088', ',998,1088,1095,', '3', '鲁山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1096', '1088', ',998,1088,1096,', '3', '郏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1097', '1088', ',998,1088,1097,', '3', '舞钢市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1098', '1088', ',998,1088,1098,', '3', '汝州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1099', '998', ',998,1099,', '2', '濮阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1100', '1099', ',998,1099,1100,', '3', '华龙区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1101', '1099', ',998,1099,1101,', '3', '清丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1102', '1099', ',998,1099,1102,', '3', '南乐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1103', '1099', ',998,1099,1103,', '3', '范县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1104', '1099', ',998,1099,1104,', '3', '台前县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1105', '1099', ',998,1099,1105,', '3', '濮阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1106', '998', ',998,1106,', '2', '三门峡市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1107', '1106', ',998,1106,1107,', '3', '湖滨区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1108', '1106', ',998,1106,1108,', '3', '渑池县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1109', '1106', ',998,1106,1109,', '3', '陕县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1110', '1106', ',998,1106,1110,', '3', '卢氏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1111', '1106', ',998,1106,1111,', '3', '义马市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1112', '1106', ',998,1106,1112,', '3', '灵宝市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1113', '998', ',998,1113,', '2', '商丘市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1114', '1113', ',998,1113,1114,', '3', '梁园区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1115', '1113', ',998,1113,1115,', '3', '睢阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1116', '1113', ',998,1113,1116,', '3', '民权县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1117', '1113', ',998,1113,1117,', '3', '睢县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1118', '1113', ',998,1113,1118,', '3', '宁陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1119', '1113', ',998,1113,1119,', '3', '柘城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1120', '1113', ',998,1113,1120,', '3', '虞城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1121', '1113', ',998,1113,1121,', '3', '夏邑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1122', '1113', ',998,1113,1122,', '3', '永城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1123', '998', ',998,1123,', '2', '新乡市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1124', '1123', ',998,1123,1124,', '3', '红旗区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1125', '1123', ',998,1123,1125,', '3', '卫滨区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1126', '1123', ',998,1123,1126,', '3', '凤泉区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1127', '1123', ',998,1123,1127,', '3', '牧野区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1128', '1123', ',998,1123,1128,', '3', '新乡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1129', '1123', ',998,1123,1129,', '3', '获嘉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1130', '1123', ',998,1123,1130,', '3', '原阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1131', '1123', ',998,1123,1131,', '3', '延津县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1132', '1123', ',998,1123,1132,', '3', '封丘县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1133', '1123', ',998,1123,1133,', '3', '长垣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1134', '1123', ',998,1123,1134,', '3', '卫辉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1135', '1123', ',998,1123,1135,', '3', '辉县市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1136', '998', ',998,1136,', '2', '信阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1137', '1136', ',998,1136,1137,', '3', '师河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1138', '1136', ',998,1136,1138,', '3', '平桥区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1139', '1136', ',998,1136,1139,', '3', '罗山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1140', '1136', ',998,1136,1140,', '3', '光山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1141', '1136', ',998,1136,1141,', '3', '新县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1142', '1136', ',998,1136,1142,', '3', '商城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1143', '1136', ',998,1136,1143,', '3', '固始县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1144', '1136', ',998,1136,1144,', '3', '潢川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1145', '1136', ',998,1136,1145,', '3', '淮滨县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1146', '1136', ',998,1136,1146,', '3', '息县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1147', '998', ',998,1147,', '2', '许昌市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1148', '1147', ',998,1147,1148,', '3', '魏都区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1149', '1147', ',998,1147,1149,', '3', '许昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1150', '1147', ',998,1147,1150,', '3', '鄢陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1151', '1147', ',998,1147,1151,', '3', '襄城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1152', '1147', ',998,1147,1152,', '3', '禹州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1153', '1147', ',998,1147,1153,', '3', '长葛市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1154', '998', ',998,1154,', '2', '周口市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1155', '1154', ',998,1154,1155,', '3', '川汇区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1156', '1154', ',998,1154,1156,', '3', '扶沟县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1157', '1154', ',998,1154,1157,', '3', '西华县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1158', '1154', ',998,1154,1158,', '3', '商水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1159', '1154', ',998,1154,1159,', '3', '沈丘县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1160', '1154', ',998,1154,1160,', '3', '郸城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1161', '1154', ',998,1154,1161,', '3', '淮阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1162', '1154', ',998,1154,1162,', '3', '太康县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1163', '1154', ',998,1154,1163,', '3', '鹿邑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1164', '1154', ',998,1154,1164,', '3', '项城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1165', '998', ',998,1165,', '2', '驻马店市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1166', '1165', ',998,1165,1166,', '3', '驿城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1167', '1165', ',998,1165,1167,', '3', '西平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1168', '1165', ',998,1165,1168,', '3', '上蔡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1169', '1165', ',998,1165,1169,', '3', '平舆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1170', '1165', ',998,1165,1170,', '3', '正阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1171', '1165', ',998,1165,1171,', '3', '确山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1172', '1165', ',998,1165,1172,', '3', '泌阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1173', '1165', ',998,1165,1173,', '3', '汝南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1174', '1165', ',998,1165,1174,', '3', '遂平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1175', '1165', ',998,1165,1175,', '3', '新蔡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1176', null, ',1176,', '1', '黑龙江', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1177', '1176', ',1176,1177,', '2', '哈尔滨市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1178', '1177', ',1176,1177,1178,', '3', '道里区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1179', '1177', ',1176,1177,1179,', '3', '南岗区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1180', '1177', ',1176,1177,1180,', '3', '道外区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1181', '1177', ',1176,1177,1181,', '3', '香坊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1182', '1177', ',1176,1177,1182,', '3', '动力区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1183', '1177', ',1176,1177,1183,', '3', '平房区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1184', '1177', ',1176,1177,1184,', '3', '松北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1185', '1177', ',1176,1177,1185,', '3', '呼兰区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1186', '1177', ',1176,1177,1186,', '3', '依兰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1187', '1177', ',1176,1177,1187,', '3', '方正县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1188', '1177', ',1176,1177,1188,', '3', '宾县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1189', '1177', ',1176,1177,1189,', '3', '巴彦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1190', '1177', ',1176,1177,1190,', '3', '木兰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1191', '1177', ',1176,1177,1191,', '3', '通河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1192', '1177', ',1176,1177,1192,', '3', '延寿县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1193', '1177', ',1176,1177,1193,', '3', '阿城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1194', '1177', ',1176,1177,1194,', '3', '双城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1195', '1177', ',1176,1177,1195,', '3', '尚志市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1196', '1177', ',1176,1177,1196,', '3', '五常市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1197', '1176', ',1176,1197,', '2', '大庆市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1198', '1197', ',1176,1197,1198,', '3', '萨尔图区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1199', '1197', ',1176,1197,1199,', '3', '龙凤区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1200', '1197', ',1176,1197,1200,', '3', '让胡路区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1201', '1197', ',1176,1197,1201,', '3', '红岗区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1202', '1197', ',1176,1197,1202,', '3', '大同区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1203', '1197', ',1176,1197,1203,', '3', '肇州县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1204', '1197', ',1176,1197,1204,', '3', '肇源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1205', '1197', ',1176,1197,1205,', '3', '林甸县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1206', '1197', ',1176,1197,1206,', '3', '杜尔伯特蒙古族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1207', '1176', ',1176,1207,', '2', '大兴安岭地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1208', '1207', ',1176,1207,1208,', '3', '呼玛县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1209', '1207', ',1176,1207,1209,', '3', '塔河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1210', '1207', ',1176,1207,1210,', '3', '漠河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1211', '1176', ',1176,1211,', '2', '鹤岗市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1212', '1211', ',1176,1211,1212,', '3', '向阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1213', '1211', ',1176,1211,1213,', '3', '工农区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1214', '1211', ',1176,1211,1214,', '3', '南山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1215', '1211', ',1176,1211,1215,', '3', '兴安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1216', '1211', ',1176,1211,1216,', '3', '东山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1217', '1211', ',1176,1211,1217,', '3', '兴山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1218', '1211', ',1176,1211,1218,', '3', '萝北县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1219', '1211', ',1176,1211,1219,', '3', '绥滨县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1220', '1176', ',1176,1220,', '2', '黑河市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1221', '1220', ',1176,1220,1221,', '3', '爱辉区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1222', '1220', ',1176,1220,1222,', '3', '嫩江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1223', '1220', ',1176,1220,1223,', '3', '逊克县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1224', '1220', ',1176,1220,1224,', '3', '孙吴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1225', '1220', ',1176,1220,1225,', '3', '北安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1226', '1220', ',1176,1220,1226,', '3', '五大连池市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1227', '1176', ',1176,1227,', '2', '鸡西市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1228', '1227', ',1176,1227,1228,', '3', '鸡冠区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1229', '1227', ',1176,1227,1229,', '3', '恒山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1230', '1227', ',1176,1227,1230,', '3', '滴道区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1231', '1227', ',1176,1227,1231,', '3', '梨树区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1232', '1227', ',1176,1227,1232,', '3', '城子河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1233', '1227', ',1176,1227,1233,', '3', '麻山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1234', '1227', ',1176,1227,1234,', '3', '鸡东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1235', '1227', ',1176,1227,1235,', '3', '虎林市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1236', '1227', ',1176,1227,1236,', '3', '密山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1237', '1176', ',1176,1237,', '2', '佳木斯市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1238', '1237', ',1176,1237,1238,', '3', '永红区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1239', '1237', ',1176,1237,1239,', '3', '向阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1240', '1237', ',1176,1237,1240,', '3', '前进区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1241', '1237', ',1176,1237,1241,', '3', '东风区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1242', '1237', ',1176,1237,1242,', '3', '郊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1243', '1237', ',1176,1237,1243,', '3', '桦南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1244', '1237', ',1176,1237,1244,', '3', '桦川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1245', '1237', ',1176,1237,1245,', '3', '汤原县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1246', '1237', ',1176,1237,1246,', '3', '抚远县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1247', '1237', ',1176,1237,1247,', '3', '同江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1248', '1237', ',1176,1237,1248,', '3', '富锦市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1249', '1176', ',1176,1249,', '2', '牡丹江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1250', '1249', ',1176,1249,1250,', '3', '东安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1251', '1249', ',1176,1249,1251,', '3', '阳明区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1252', '1249', ',1176,1249,1252,', '3', '爱民区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1253', '1249', ',1176,1249,1253,', '3', '西安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1254', '1249', ',1176,1249,1254,', '3', '东宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1255', '1249', ',1176,1249,1255,', '3', '林口县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1256', '1249', ',1176,1249,1256,', '3', '绥芬河市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1257', '1249', ',1176,1249,1257,', '3', '海林市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1258', '1249', ',1176,1249,1258,', '3', '宁安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1259', '1249', ',1176,1249,1259,', '3', '穆棱市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1260', '1176', ',1176,1260,', '2', '七台河市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1261', '1260', ',1176,1260,1261,', '3', '新兴区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1262', '1260', ',1176,1260,1262,', '3', '桃山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1263', '1260', ',1176,1260,1263,', '3', '茄子河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1264', '1260', ',1176,1260,1264,', '3', '勃利县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1265', '1176', ',1176,1265,', '2', '齐齐哈尔市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1266', '1265', ',1176,1265,1266,', '3', '龙沙区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1267', '1265', ',1176,1265,1267,', '3', '建华区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1268', '1265', ',1176,1265,1268,', '3', '铁锋区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1269', '1265', ',1176,1265,1269,', '3', '昂昂溪区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1270', '1265', ',1176,1265,1270,', '3', '富拉尔基区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1271', '1265', ',1176,1265,1271,', '3', '碾子山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1272', '1265', ',1176,1265,1272,', '3', '梅里斯达斡尔族区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1273', '1265', ',1176,1265,1273,', '3', '龙江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1274', '1265', ',1176,1265,1274,', '3', '依安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1275', '1265', ',1176,1265,1275,', '3', '泰来县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1276', '1265', ',1176,1265,1276,', '3', '甘南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1277', '1265', ',1176,1265,1277,', '3', '富裕县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1278', '1265', ',1176,1265,1278,', '3', '克山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1279', '1265', ',1176,1265,1279,', '3', '克东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1280', '1265', ',1176,1265,1280,', '3', '拜泉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1281', '1265', ',1176,1265,1281,', '3', '讷河市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1282', '1176', ',1176,1282,', '2', '双鸭山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1283', '1282', ',1176,1282,1283,', '3', '尖山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1284', '1282', ',1176,1282,1284,', '3', '岭东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1285', '1282', ',1176,1282,1285,', '3', '四方台区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1286', '1282', ',1176,1282,1286,', '3', '宝山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1287', '1282', ',1176,1282,1287,', '3', '集贤县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1288', '1282', ',1176,1282,1288,', '3', '友谊县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1289', '1282', ',1176,1282,1289,', '3', '宝清县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1290', '1282', ',1176,1282,1290,', '3', '饶河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1291', '1176', ',1176,1291,', '2', '绥化市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1292', '1291', ',1176,1291,1292,', '3', '北林区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1293', '1291', ',1176,1291,1293,', '3', '望奎县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1294', '1291', ',1176,1291,1294,', '3', '兰西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1295', '1291', ',1176,1291,1295,', '3', '青冈县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1296', '1291', ',1176,1291,1296,', '3', '庆安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1297', '1291', ',1176,1291,1297,', '3', '明水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1298', '1291', ',1176,1291,1298,', '3', '绥棱县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1299', '1291', ',1176,1291,1299,', '3', '安达市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1300', '1291', ',1176,1291,1300,', '3', '肇东市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1301', '1291', ',1176,1291,1301,', '3', '海伦市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1302', '1176', ',1176,1302,', '2', '伊春市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1303', '1302', ',1176,1302,1303,', '3', '伊春区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1304', '1302', ',1176,1302,1304,', '3', '南岔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1305', '1302', ',1176,1302,1305,', '3', '友好区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1306', '1302', ',1176,1302,1306,', '3', '西林区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1307', '1302', ',1176,1302,1307,', '3', '翠峦区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1308', '1302', ',1176,1302,1308,', '3', '新青区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1309', '1302', ',1176,1302,1309,', '3', '美溪区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1310', '1302', ',1176,1302,1310,', '3', '金山屯区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1311', '1302', ',1176,1302,1311,', '3', '五营区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1312', '1302', ',1176,1302,1312,', '3', '乌马河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1313', '1302', ',1176,1302,1313,', '3', '汤旺河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1314', '1302', ',1176,1302,1314,', '3', '带岭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1315', '1302', ',1176,1302,1315,', '3', '乌伊岭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1316', '1302', ',1176,1302,1316,', '3', '红星区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1317', '1302', ',1176,1302,1317,', '3', '上甘岭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1318', '1302', ',1176,1302,1318,', '3', '嘉荫县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1319', '1302', ',1176,1302,1319,', '3', '铁力市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1320', null, ',1320,', '1', '湖北', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1321', '1320', ',1320,1321,', '2', '武汉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1322', '1321', ',1320,1321,1322,', '3', '江岸区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1323', '1321', ',1320,1321,1323,', '3', '江汉区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1324', '1321', ',1320,1321,1324,', '3', '乔口区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1325', '1321', ',1320,1321,1325,', '3', '汉阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1326', '1321', ',1320,1321,1326,', '3', '武昌区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1327', '1321', ',1320,1321,1327,', '3', '青山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1328', '1321', ',1320,1321,1328,', '3', '洪山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1329', '1321', ',1320,1321,1329,', '3', '东西湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1330', '1321', ',1320,1321,1330,', '3', '汉南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1331', '1321', ',1320,1321,1331,', '3', '蔡甸区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1332', '1321', ',1320,1321,1332,', '3', '江夏区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1333', '1321', ',1320,1321,1333,', '3', '黄陂区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1334', '1321', ',1320,1321,1334,', '3', '新洲区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1335', '1320', ',1320,1335,', '2', '鄂州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1336', '1335', ',1320,1335,1336,', '3', '梁子湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1337', '1335', ',1320,1335,1337,', '3', '华容区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1338', '1335', ',1320,1335,1338,', '3', '鄂城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1339', '1320', ',1320,1339,', '2', '恩施土家族苗族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1340', '1339', ',1320,1339,1340,', '3', '恩施市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1341', '1339', ',1320,1339,1341,', '3', '利川市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1342', '1339', ',1320,1339,1342,', '3', '建始县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1343', '1339', ',1320,1339,1343,', '3', '巴东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1344', '1339', ',1320,1339,1344,', '3', '宣恩县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1345', '1339', ',1320,1339,1345,', '3', '咸丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1346', '1339', ',1320,1339,1346,', '3', '来凤县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1347', '1339', ',1320,1339,1347,', '3', '鹤峰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1348', '1320', ',1320,1348,', '2', '黄冈市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1349', '1348', ',1320,1348,1349,', '3', '黄州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1350', '1348', ',1320,1348,1350,', '3', '团风县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1351', '1348', ',1320,1348,1351,', '3', '红安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1352', '1348', ',1320,1348,1352,', '3', '罗田县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1353', '1348', ',1320,1348,1353,', '3', '英山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1354', '1348', ',1320,1348,1354,', '3', '浠水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1355', '1348', ',1320,1348,1355,', '3', '蕲春县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1356', '1348', ',1320,1348,1356,', '3', '黄梅县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1357', '1348', ',1320,1348,1357,', '3', '麻城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1358', '1348', ',1320,1348,1358,', '3', '武穴市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1359', '1320', ',1320,1359,', '2', '黄石市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1360', '1359', ',1320,1359,1360,', '3', '黄石港区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1361', '1359', ',1320,1359,1361,', '3', '西塞山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1362', '1359', ',1320,1359,1362,', '3', '下陆区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1363', '1359', ',1320,1359,1363,', '3', '铁山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1364', '1359', ',1320,1359,1364,', '3', '阳新县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1365', '1359', ',1320,1359,1365,', '3', '大冶市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1366', '1320', ',1320,1366,', '2', '荆门市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1367', '1366', ',1320,1366,1367,', '3', '东宝区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1368', '1366', ',1320,1366,1368,', '3', '掇刀区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1369', '1366', ',1320,1366,1369,', '3', '京山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1370', '1366', ',1320,1366,1370,', '3', '沙洋县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1371', '1366', ',1320,1366,1371,', '3', '钟祥市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1372', '1320', ',1320,1372,', '2', '荆州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1373', '1372', ',1320,1372,1373,', '3', '沙市区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1374', '1372', ',1320,1372,1374,', '3', '荆州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1375', '1372', ',1320,1372,1375,', '3', '公安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1376', '1372', ',1320,1372,1376,', '3', '监利县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1377', '1372', ',1320,1372,1377,', '3', '江陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1378', '1372', ',1320,1372,1378,', '3', '石首市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1379', '1372', ',1320,1372,1379,', '3', '洪湖市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1380', '1372', ',1320,1372,1380,', '3', '松滋市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1381', '1320', ',1320,1381,', '2', '潜江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1382', '1320', ',1320,1382,', '2', '神农架林区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1383', '1320', ',1320,1383,', '2', '十堰市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1384', '1383', ',1320,1383,1384,', '3', '茅箭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1385', '1383', ',1320,1383,1385,', '3', '张湾区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1386', '1383', ',1320,1383,1386,', '3', '郧县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1387', '1383', ',1320,1383,1387,', '3', '郧西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1388', '1383', ',1320,1383,1388,', '3', '竹山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1389', '1383', ',1320,1383,1389,', '3', '竹溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1390', '1383', ',1320,1383,1390,', '3', '房县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1391', '1383', ',1320,1383,1391,', '3', '丹江口市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1392', '1320', ',1320,1392,', '2', '随州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1393', '1392', ',1320,1392,1393,', '3', '曾都区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1394', '1392', ',1320,1392,1394,', '3', '广水市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1395', '1320', ',1320,1395,', '2', '天门市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1396', '1320', ',1320,1396,', '2', '仙桃市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1397', '1320', ',1320,1397,', '2', '咸宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1398', '1397', ',1320,1397,1398,', '3', '咸安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1399', '1397', ',1320,1397,1399,', '3', '嘉鱼县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1400', '1397', ',1320,1397,1400,', '3', '通城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1401', '1397', ',1320,1397,1401,', '3', '崇阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1402', '1397', ',1320,1397,1402,', '3', '通山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1403', '1397', ',1320,1397,1403,', '3', '赤壁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1404', '1320', ',1320,1404,', '2', '襄樊市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1405', '1404', ',1320,1404,1405,', '3', '襄城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1406', '1404', ',1320,1404,1406,', '3', '樊城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1407', '1404', ',1320,1404,1407,', '3', '襄阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1408', '1404', ',1320,1404,1408,', '3', '南漳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1409', '1404', ',1320,1404,1409,', '3', '谷城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1410', '1404', ',1320,1404,1410,', '3', '保康县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1411', '1404', ',1320,1404,1411,', '3', '老河口市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1412', '1404', ',1320,1404,1412,', '3', '枣阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1413', '1404', ',1320,1404,1413,', '3', '宜城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1414', '1320', ',1320,1414,', '2', '孝感市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1415', '1414', ',1320,1414,1415,', '3', '孝南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1416', '1414', ',1320,1414,1416,', '3', '孝昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1417', '1414', ',1320,1414,1417,', '3', '大悟县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1418', '1414', ',1320,1414,1418,', '3', '云梦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1419', '1414', ',1320,1414,1419,', '3', '应城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1420', '1414', ',1320,1414,1420,', '3', '安陆市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1421', '1414', ',1320,1414,1421,', '3', '汉川市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1422', '1320', ',1320,1422,', '2', '宜昌市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1423', '1422', ',1320,1422,1423,', '3', '西陵区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1424', '1422', ',1320,1422,1424,', '3', '伍家岗区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1425', '1422', ',1320,1422,1425,', '3', '点军区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1426', '1422', ',1320,1422,1426,', '3', '猇亭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1427', '1422', ',1320,1422,1427,', '3', '夷陵区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1428', '1422', ',1320,1422,1428,', '3', '远安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1429', '1422', ',1320,1422,1429,', '3', '兴山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1430', '1422', ',1320,1422,1430,', '3', '秭归县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1431', '1422', ',1320,1422,1431,', '3', '长阳土家族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1432', '1422', ',1320,1422,1432,', '3', '五峰土家族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1433', '1422', ',1320,1422,1433,', '3', '宜都市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1434', '1422', ',1320,1422,1434,', '3', '当阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1435', '1422', ',1320,1422,1435,', '3', '枝江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1436', null, ',1436,', '1', '湖南', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1437', '1436', ',1436,1437,', '2', '长沙市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1438', '1437', ',1436,1437,1438,', '3', '芙蓉区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1439', '1437', ',1436,1437,1439,', '3', '天心区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1440', '1437', ',1436,1437,1440,', '3', '岳麓区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1441', '1437', ',1436,1437,1441,', '3', '开福区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1442', '1437', ',1436,1437,1442,', '3', '雨花区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1443', '1437', ',1436,1437,1443,', '3', '长沙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1444', '1437', ',1436,1437,1444,', '3', '望城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1445', '1437', ',1436,1437,1445,', '3', '宁乡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1446', '1437', ',1436,1437,1446,', '3', '浏阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1447', '1436', ',1436,1447,', '2', '常德市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1448', '1447', ',1436,1447,1448,', '3', '武陵区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1449', '1447', ',1436,1447,1449,', '3', '鼎城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1450', '1447', ',1436,1447,1450,', '3', '安乡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1451', '1447', ',1436,1447,1451,', '3', '汉寿县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1452', '1447', ',1436,1447,1452,', '3', '澧县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1453', '1447', ',1436,1447,1453,', '3', '临澧县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1454', '1447', ',1436,1447,1454,', '3', '桃源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1455', '1447', ',1436,1447,1455,', '3', '石门县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1456', '1447', ',1436,1447,1456,', '3', '津市市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1457', '1436', ',1436,1457,', '2', '郴州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1458', '1457', ',1436,1457,1458,', '3', '北湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1459', '1457', ',1436,1457,1459,', '3', '苏仙区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1460', '1457', ',1436,1457,1460,', '3', '桂阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1461', '1457', ',1436,1457,1461,', '3', '宜章县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1462', '1457', ',1436,1457,1462,', '3', '永兴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1463', '1457', ',1436,1457,1463,', '3', '嘉禾县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1464', '1457', ',1436,1457,1464,', '3', '临武县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1465', '1457', ',1436,1457,1465,', '3', '汝城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1466', '1457', ',1436,1457,1466,', '3', '桂东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1467', '1457', ',1436,1457,1467,', '3', '安仁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1468', '1457', ',1436,1457,1468,', '3', '资兴市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1469', '1436', ',1436,1469,', '2', '衡阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1470', '1469', ',1436,1469,1470,', '3', '珠晖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1471', '1469', ',1436,1469,1471,', '3', '雁峰区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1472', '1469', ',1436,1469,1472,', '3', '石鼓区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1473', '1469', ',1436,1469,1473,', '3', '蒸湘区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1474', '1469', ',1436,1469,1474,', '3', '南岳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1475', '1469', ',1436,1469,1475,', '3', '衡阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1476', '1469', ',1436,1469,1476,', '3', '衡南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1477', '1469', ',1436,1469,1477,', '3', '衡山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1478', '1469', ',1436,1469,1478,', '3', '衡东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1479', '1469', ',1436,1469,1479,', '3', '祁东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1480', '1469', ',1436,1469,1480,', '3', '耒阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1481', '1469', ',1436,1469,1481,', '3', '常宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1482', '1436', ',1436,1482,', '2', '怀化市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1483', '1482', ',1436,1482,1483,', '3', '鹤城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1484', '1482', ',1436,1482,1484,', '3', '中方县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1485', '1482', ',1436,1482,1485,', '3', '沅陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1486', '1482', ',1436,1482,1486,', '3', '辰溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1487', '1482', ',1436,1482,1487,', '3', '溆浦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1488', '1482', ',1436,1482,1488,', '3', '会同县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1489', '1482', ',1436,1482,1489,', '3', '麻阳苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1490', '1482', ',1436,1482,1490,', '3', '新晃侗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1491', '1482', ',1436,1482,1491,', '3', '芷江侗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1492', '1482', ',1436,1482,1492,', '3', '靖州苗族侗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1493', '1482', ',1436,1482,1493,', '3', '通道侗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1494', '1482', ',1436,1482,1494,', '3', '洪江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1495', '1436', ',1436,1495,', '2', '娄底市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1496', '1495', ',1436,1495,1496,', '3', '娄星区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1497', '1495', ',1436,1495,1497,', '3', '双峰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1498', '1495', ',1436,1495,1498,', '3', '新化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1499', '1495', ',1436,1495,1499,', '3', '冷水江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1500', '1495', ',1436,1495,1500,', '3', '涟源市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1501', '1436', ',1436,1501,', '2', '邵阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1502', '1501', ',1436,1501,1502,', '3', '双清区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1503', '1501', ',1436,1501,1503,', '3', '大祥区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1504', '1501', ',1436,1501,1504,', '3', '北塔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1505', '1501', ',1436,1501,1505,', '3', '邵东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1506', '1501', ',1436,1501,1506,', '3', '新邵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1507', '1501', ',1436,1501,1507,', '3', '邵阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1508', '1501', ',1436,1501,1508,', '3', '隆回县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1509', '1501', ',1436,1501,1509,', '3', '洞口县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1510', '1501', ',1436,1501,1510,', '3', '绥宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1511', '1501', ',1436,1501,1511,', '3', '新宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1512', '1501', ',1436,1501,1512,', '3', '城步苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1513', '1501', ',1436,1501,1513,', '3', '武冈市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1514', '1436', ',1436,1514,', '2', '湘潭市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1515', '1514', ',1436,1514,1515,', '3', '雨湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1516', '1514', ',1436,1514,1516,', '3', '岳塘区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1517', '1514', ',1436,1514,1517,', '3', '湘潭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1518', '1514', ',1436,1514,1518,', '3', '湘乡市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1519', '1514', ',1436,1514,1519,', '3', '韶山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1520', '1436', ',1436,1520,', '2', '湘西土家族苗族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1521', '1520', ',1436,1520,1521,', '3', '吉首市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1522', '1520', ',1436,1520,1522,', '3', '泸溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1523', '1520', ',1436,1520,1523,', '3', '凤凰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1524', '1520', ',1436,1520,1524,', '3', '花垣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1525', '1520', ',1436,1520,1525,', '3', '保靖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1526', '1520', ',1436,1520,1526,', '3', '古丈县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1527', '1520', ',1436,1520,1527,', '3', '永顺县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1528', '1520', ',1436,1520,1528,', '3', '龙山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1529', '1436', ',1436,1529,', '2', '益阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1530', '1529', ',1436,1529,1530,', '3', '资阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1531', '1529', ',1436,1529,1531,', '3', '赫山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1532', '1529', ',1436,1529,1532,', '3', '南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1533', '1529', ',1436,1529,1533,', '3', '桃江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1534', '1529', ',1436,1529,1534,', '3', '安化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1535', '1529', ',1436,1529,1535,', '3', '沅江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1536', '1436', ',1436,1536,', '2', '永州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1537', '1536', ',1436,1536,1537,', '3', '芝山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1538', '1536', ',1436,1536,1538,', '3', '冷水滩区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1539', '1536', ',1436,1536,1539,', '3', '祁阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1540', '1536', ',1436,1536,1540,', '3', '东安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1541', '1536', ',1436,1536,1541,', '3', '双牌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1542', '1536', ',1436,1536,1542,', '3', '道县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1543', '1536', ',1436,1536,1543,', '3', '江永县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1544', '1536', ',1436,1536,1544,', '3', '宁远县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1545', '1536', ',1436,1536,1545,', '3', '蓝山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1546', '1536', ',1436,1536,1546,', '3', '新田县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1547', '1536', ',1436,1536,1547,', '3', '江华瑶族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1548', '1436', ',1436,1548,', '2', '岳阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1549', '1548', ',1436,1548,1549,', '3', '岳阳楼区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1550', '1548', ',1436,1548,1550,', '3', '云溪区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1551', '1548', ',1436,1548,1551,', '3', '君山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1552', '1548', ',1436,1548,1552,', '3', '岳阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1553', '1548', ',1436,1548,1553,', '3', '华容县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1554', '1548', ',1436,1548,1554,', '3', '湘阴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1555', '1548', ',1436,1548,1555,', '3', '平江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1556', '1548', ',1436,1548,1556,', '3', '汨罗市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1557', '1548', ',1436,1548,1557,', '3', '临湘市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1558', '1436', ',1436,1558,', '2', '张家界市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1559', '1558', ',1436,1558,1559,', '3', '永定区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1560', '1558', ',1436,1558,1560,', '3', '武陵源区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1561', '1558', ',1436,1558,1561,', '3', '慈利县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1562', '1558', ',1436,1558,1562,', '3', '桑植县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1563', '1436', ',1436,1563,', '2', '株洲市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1564', '1563', ',1436,1563,1564,', '3', '荷塘区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1565', '1563', ',1436,1563,1565,', '3', '芦淞区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1566', '1563', ',1436,1563,1566,', '3', '石峰区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1567', '1563', ',1436,1563,1567,', '3', '天元区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1568', '1563', ',1436,1563,1568,', '3', '株洲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1569', '1563', ',1436,1563,1569,', '3', '攸县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1570', '1563', ',1436,1563,1570,', '3', '茶陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1571', '1563', ',1436,1563,1571,', '3', '炎陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1572', '1563', ',1436,1563,1572,', '3', '醴陵市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1573', null, ',1573,', '1', '吉林', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1574', '1573', ',1573,1574,', '2', '长春市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1575', '1574', ',1573,1574,1575,', '3', '南关区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1576', '1574', ',1573,1574,1576,', '3', '宽城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1577', '1574', ',1573,1574,1577,', '3', '朝阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1578', '1574', ',1573,1574,1578,', '3', '二道区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1579', '1574', ',1573,1574,1579,', '3', '绿园区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1580', '1574', ',1573,1574,1580,', '3', '双阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1581', '1574', ',1573,1574,1581,', '3', '农安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1582', '1574', ',1573,1574,1582,', '3', '九台市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1583', '1574', ',1573,1574,1583,', '3', '榆树市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1584', '1574', ',1573,1574,1584,', '3', '德惠市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1585', '1573', ',1573,1585,', '2', '白城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1586', '1585', ',1573,1585,1586,', '3', '洮北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1587', '1585', ',1573,1585,1587,', '3', '镇赉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1588', '1585', ',1573,1585,1588,', '3', '通榆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1589', '1585', ',1573,1585,1589,', '3', '洮南市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1590', '1585', ',1573,1585,1590,', '3', '大安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1591', '1573', ',1573,1591,', '2', '白山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1592', '1591', ',1573,1591,1592,', '3', '八道江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1593', '1591', ',1573,1591,1593,', '3', '抚松县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1594', '1591', ',1573,1591,1594,', '3', '靖宇县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1595', '1591', ',1573,1591,1595,', '3', '长白朝鲜族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1596', '1591', ',1573,1591,1596,', '3', '江源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1597', '1591', ',1573,1591,1597,', '3', '临江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1598', '1573', ',1573,1598,', '2', '吉林市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1599', '1598', ',1573,1598,1599,', '3', '昌邑区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1600', '1598', ',1573,1598,1600,', '3', '龙潭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1601', '1598', ',1573,1598,1601,', '3', '船营区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1602', '1598', ',1573,1598,1602,', '3', '丰满区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1603', '1598', ',1573,1598,1603,', '3', '永吉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1604', '1598', ',1573,1598,1604,', '3', '蛟河市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1605', '1598', ',1573,1598,1605,', '3', '桦甸市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1606', '1598', ',1573,1598,1606,', '3', '舒兰市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1607', '1598', ',1573,1598,1607,', '3', '磐石市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1608', '1573', ',1573,1608,', '2', '辽源市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1609', '1608', ',1573,1608,1609,', '3', '龙山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1610', '1608', ',1573,1608,1610,', '3', '西安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1611', '1608', ',1573,1608,1611,', '3', '东丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1612', '1608', ',1573,1608,1612,', '3', '东辽县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1613', '1573', ',1573,1613,', '2', '四平市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1614', '1613', ',1573,1613,1614,', '3', '铁西区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1615', '1613', ',1573,1613,1615,', '3', '铁东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1616', '1613', ',1573,1613,1616,', '3', '梨树县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1617', '1613', ',1573,1613,1617,', '3', '伊通满族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1618', '1613', ',1573,1613,1618,', '3', '公主岭市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1619', '1613', ',1573,1613,1619,', '3', '双辽市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1620', '1573', ',1573,1620,', '2', '松原市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1621', '1620', ',1573,1620,1621,', '3', '宁江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1622', '1620', ',1573,1620,1622,', '3', '前郭尔罗斯蒙古族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1623', '1620', ',1573,1620,1623,', '3', '长岭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1624', '1620', ',1573,1620,1624,', '3', '乾安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1625', '1620', ',1573,1620,1625,', '3', '扶余县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1626', '1573', ',1573,1626,', '2', '通化市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1627', '1626', ',1573,1626,1627,', '3', '东昌区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1628', '1626', ',1573,1626,1628,', '3', '二道江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1629', '1626', ',1573,1626,1629,', '3', '通化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1630', '1626', ',1573,1626,1630,', '3', '辉南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1631', '1626', ',1573,1626,1631,', '3', '柳河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1632', '1626', ',1573,1626,1632,', '3', '梅河口市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1633', '1626', ',1573,1626,1633,', '3', '集安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1634', '1573', ',1573,1634,', '2', '延边朝鲜族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1635', '1634', ',1573,1634,1635,', '3', '延吉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1636', '1634', ',1573,1634,1636,', '3', '图们市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1637', '1634', ',1573,1634,1637,', '3', '敦化市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1638', '1634', ',1573,1634,1638,', '3', '珲春市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1639', '1634', ',1573,1634,1639,', '3', '龙井市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1640', '1634', ',1573,1634,1640,', '3', '和龙市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1641', '1634', ',1573,1634,1641,', '3', '汪清县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1642', '1634', ',1573,1634,1642,', '3', '安图县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1643', null, ',1643,', '1', '江苏', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1644', '1643', ',1643,1644,', '2', '南京市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1645', '1644', ',1643,1644,1645,', '3', '玄武区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1646', '1644', ',1643,1644,1646,', '3', '白下区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1647', '1644', ',1643,1644,1647,', '3', '秦淮区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1648', '1644', ',1643,1644,1648,', '3', '建邺区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1649', '1644', ',1643,1644,1649,', '3', '鼓楼区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1650', '1644', ',1643,1644,1650,', '3', '下关区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1651', '1644', ',1643,1644,1651,', '3', '浦口区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1652', '1644', ',1643,1644,1652,', '3', '栖霞区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1653', '1644', ',1643,1644,1653,', '3', '雨花台区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1654', '1644', ',1643,1644,1654,', '3', '江宁区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1655', '1644', ',1643,1644,1655,', '3', '六合区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1656', '1644', ',1643,1644,1656,', '3', '溧水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1657', '1644', ',1643,1644,1657,', '3', '高淳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1658', '1643', ',1643,1658,', '2', '常州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1659', '1658', ',1643,1658,1659,', '3', '天宁区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1660', '1658', ',1643,1658,1660,', '3', '钟楼区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1661', '1658', ',1643,1658,1661,', '3', '戚墅堰区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1662', '1658', ',1643,1658,1662,', '3', '新北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1663', '1658', ',1643,1658,1663,', '3', '武进区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1664', '1658', ',1643,1658,1664,', '3', '溧阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1665', '1658', ',1643,1658,1665,', '3', '金坛市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1666', '1643', ',1643,1666,', '2', '淮安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1667', '1666', ',1643,1666,1667,', '3', '清河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1668', '1666', ',1643,1666,1668,', '3', '楚州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1669', '1666', ',1643,1666,1669,', '3', '淮阴区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1670', '1666', ',1643,1666,1670,', '3', '清浦区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1671', '1666', ',1643,1666,1671,', '3', '涟水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1672', '1666', ',1643,1666,1672,', '3', '洪泽县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1673', '1666', ',1643,1666,1673,', '3', '盱眙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1674', '1666', ',1643,1666,1674,', '3', '金湖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1675', '1643', ',1643,1675,', '2', '连云港市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1676', '1675', ',1643,1675,1676,', '3', '连云区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1677', '1675', ',1643,1675,1677,', '3', '新浦区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1678', '1675', ',1643,1675,1678,', '3', '海州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1679', '1675', ',1643,1675,1679,', '3', '赣榆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1680', '1675', ',1643,1675,1680,', '3', '东海县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1681', '1675', ',1643,1675,1681,', '3', '灌云县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1682', '1675', ',1643,1675,1682,', '3', '灌南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1683', '1643', ',1643,1683,', '2', '南通市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1684', '1683', ',1643,1683,1684,', '3', '崇川区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1685', '1683', ',1643,1683,1685,', '3', '港闸区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1686', '1683', ',1643,1683,1686,', '3', '海安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1687', '1683', ',1643,1683,1687,', '3', '如东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1688', '1683', ',1643,1683,1688,', '3', '启东市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1689', '1683', ',1643,1683,1689,', '3', '如皋市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1690', '1683', ',1643,1683,1690,', '3', '通州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1691', '1683', ',1643,1683,1691,', '3', '海门市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1692', '1643', ',1643,1692,', '2', '苏州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1693', '1692', ',1643,1692,1693,', '3', '沧浪区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1694', '1692', ',1643,1692,1694,', '3', '平江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1695', '1692', ',1643,1692,1695,', '3', '金阊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1696', '1692', ',1643,1692,1696,', '3', '虎丘区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1697', '1692', ',1643,1692,1697,', '3', '吴中区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1698', '1692', ',1643,1692,1698,', '3', '相城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1699', '1692', ',1643,1692,1699,', '3', '常熟市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1700', '1692', ',1643,1692,1700,', '3', '张家港市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1701', '1692', ',1643,1692,1701,', '3', '昆山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1702', '1692', ',1643,1692,1702,', '3', '吴江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1703', '1692', ',1643,1692,1703,', '3', '太仓市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1704', '1643', ',1643,1704,', '2', '宿迁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1705', '1704', ',1643,1704,1705,', '3', '宿城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1706', '1704', ',1643,1704,1706,', '3', '宿豫区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1707', '1704', ',1643,1704,1707,', '3', '沭阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1708', '1704', ',1643,1704,1708,', '3', '泗阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1709', '1704', ',1643,1704,1709,', '3', '泗洪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1710', '1643', ',1643,1710,', '2', '泰州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1711', '1710', ',1643,1710,1711,', '3', '海陵区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1712', '1710', ',1643,1710,1712,', '3', '高港区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1713', '1710', ',1643,1710,1713,', '3', '兴化市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1714', '1710', ',1643,1710,1714,', '3', '靖江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1715', '1710', ',1643,1710,1715,', '3', '泰兴市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1716', '1710', ',1643,1710,1716,', '3', '姜堰市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1717', '1643', ',1643,1717,', '2', '无锡市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1718', '1717', ',1643,1717,1718,', '3', '崇安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1719', '1717', ',1643,1717,1719,', '3', '南长区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1720', '1717', ',1643,1717,1720,', '3', '北塘区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1721', '1717', ',1643,1717,1721,', '3', '锡山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1722', '1717', ',1643,1717,1722,', '3', '惠山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1723', '1717', ',1643,1717,1723,', '3', '滨湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1724', '1717', ',1643,1717,1724,', '3', '江阴市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1725', '1717', ',1643,1717,1725,', '3', '宜兴市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1726', '1643', ',1643,1726,', '2', '徐州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1727', '1726', ',1643,1726,1727,', '3', '鼓楼区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1728', '1726', ',1643,1726,1728,', '3', '云龙区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1729', '1726', ',1643,1726,1729,', '3', '九里区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1730', '1726', ',1643,1726,1730,', '3', '贾汪区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1731', '1726', ',1643,1726,1731,', '3', '泉山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1732', '1726', ',1643,1726,1732,', '3', '丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1733', '1726', ',1643,1726,1733,', '3', '沛县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1734', '1726', ',1643,1726,1734,', '3', '铜山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1735', '1726', ',1643,1726,1735,', '3', '睢宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1736', '1726', ',1643,1726,1736,', '3', '新沂市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1737', '1726', ',1643,1726,1737,', '3', '邳州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1738', '1643', ',1643,1738,', '2', '盐城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1739', '1738', ',1643,1738,1739,', '3', '亭湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1740', '1738', ',1643,1738,1740,', '3', '盐都区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1741', '1738', ',1643,1738,1741,', '3', '响水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1742', '1738', ',1643,1738,1742,', '3', '滨海县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1743', '1738', ',1643,1738,1743,', '3', '阜宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1744', '1738', ',1643,1738,1744,', '3', '射阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1745', '1738', ',1643,1738,1745,', '3', '建湖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1746', '1738', ',1643,1738,1746,', '3', '东台市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1747', '1738', ',1643,1738,1747,', '3', '大丰市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1748', '1643', ',1643,1748,', '2', '扬州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1749', '1748', ',1643,1748,1749,', '3', '广陵区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1750', '1748', ',1643,1748,1750,', '3', '邗江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1751', '1748', ',1643,1748,1751,', '3', '郊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1752', '1748', ',1643,1748,1752,', '3', '宝应县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1753', '1748', ',1643,1748,1753,', '3', '仪征市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1754', '1748', ',1643,1748,1754,', '3', '高邮市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1755', '1748', ',1643,1748,1755,', '3', '江都市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1756', '1643', ',1643,1756,', '2', '镇江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1757', '1756', ',1643,1756,1757,', '3', '京口区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1758', '1756', ',1643,1756,1758,', '3', '润州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1759', '1756', ',1643,1756,1759,', '3', '丹徒区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1760', '1756', ',1643,1756,1760,', '3', '丹阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1761', '1756', ',1643,1756,1761,', '3', '扬中市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1762', '1756', ',1643,1756,1762,', '3', '句容市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1763', null, ',1763,', '1', '江西', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1764', '1763', ',1763,1764,', '2', '南昌市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1765', '1764', ',1763,1764,1765,', '3', '东湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1766', '1764', ',1763,1764,1766,', '3', '西湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1767', '1764', ',1763,1764,1767,', '3', '青云谱区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1768', '1764', ',1763,1764,1768,', '3', '湾里区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1769', '1764', ',1763,1764,1769,', '3', '青山湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1770', '1764', ',1763,1764,1770,', '3', '南昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1771', '1764', ',1763,1764,1771,', '3', '新建县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1772', '1764', ',1763,1764,1772,', '3', '安义县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1773', '1764', ',1763,1764,1773,', '3', '进贤县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1774', '1763', ',1763,1774,', '2', '抚州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1775', '1774', ',1763,1774,1775,', '3', '临川区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1776', '1774', ',1763,1774,1776,', '3', '南城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1777', '1774', ',1763,1774,1777,', '3', '黎川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1778', '1774', ',1763,1774,1778,', '3', '南丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1779', '1774', ',1763,1774,1779,', '3', '崇仁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1780', '1774', ',1763,1774,1780,', '3', '乐安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1781', '1774', ',1763,1774,1781,', '3', '宜黄县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1782', '1774', ',1763,1774,1782,', '3', '金溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1783', '1774', ',1763,1774,1783,', '3', '资溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1784', '1774', ',1763,1774,1784,', '3', '东乡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1785', '1774', ',1763,1774,1785,', '3', '广昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1786', '1763', ',1763,1786,', '2', '赣州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1787', '1786', ',1763,1786,1787,', '3', '章贡区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1788', '1786', ',1763,1786,1788,', '3', '赣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1789', '1786', ',1763,1786,1789,', '3', '信丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1790', '1786', ',1763,1786,1790,', '3', '大余县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1791', '1786', ',1763,1786,1791,', '3', '上犹县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1792', '1786', ',1763,1786,1792,', '3', '崇义县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1793', '1786', ',1763,1786,1793,', '3', '安远县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1794', '1786', ',1763,1786,1794,', '3', '龙南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1795', '1786', ',1763,1786,1795,', '3', '定南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1796', '1786', ',1763,1786,1796,', '3', '全南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1797', '1786', ',1763,1786,1797,', '3', '宁都县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1798', '1786', ',1763,1786,1798,', '3', '于都县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1799', '1786', ',1763,1786,1799,', '3', '兴国县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1800', '1786', ',1763,1786,1800,', '3', '会昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1801', '1786', ',1763,1786,1801,', '3', '寻乌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1802', '1786', ',1763,1786,1802,', '3', '石城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1803', '1786', ',1763,1786,1803,', '3', '瑞金市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1804', '1786', ',1763,1786,1804,', '3', '南康市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1805', '1763', ',1763,1805,', '2', '吉安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1806', '1805', ',1763,1805,1806,', '3', '吉州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1807', '1805', ',1763,1805,1807,', '3', '青原区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1808', '1805', ',1763,1805,1808,', '3', '吉安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1809', '1805', ',1763,1805,1809,', '3', '吉水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1810', '1805', ',1763,1805,1810,', '3', '峡江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1811', '1805', ',1763,1805,1811,', '3', '新干县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1812', '1805', ',1763,1805,1812,', '3', '永丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1813', '1805', ',1763,1805,1813,', '3', '泰和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1814', '1805', ',1763,1805,1814,', '3', '遂川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1815', '1805', ',1763,1805,1815,', '3', '万安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1816', '1805', ',1763,1805,1816,', '3', '安福县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1817', '1805', ',1763,1805,1817,', '3', '永新县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1818', '1805', ',1763,1805,1818,', '3', '井冈山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1819', '1763', ',1763,1819,', '2', '景德镇市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1820', '1819', ',1763,1819,1820,', '3', '昌江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1821', '1819', ',1763,1819,1821,', '3', '珠山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1822', '1819', ',1763,1819,1822,', '3', '浮梁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1823', '1819', ',1763,1819,1823,', '3', '乐平市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1824', '1763', ',1763,1824,', '2', '九江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1825', '1824', ',1763,1824,1825,', '3', '庐山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1826', '1824', ',1763,1824,1826,', '3', '浔阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1827', '1824', ',1763,1824,1827,', '3', '九江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1828', '1824', ',1763,1824,1828,', '3', '武宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1829', '1824', ',1763,1824,1829,', '3', '修水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1830', '1824', ',1763,1824,1830,', '3', '永修县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1831', '1824', ',1763,1824,1831,', '3', '德安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1832', '1824', ',1763,1824,1832,', '3', '星子县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1833', '1824', ',1763,1824,1833,', '3', '都昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1834', '1824', ',1763,1824,1834,', '3', '湖口县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1835', '1824', ',1763,1824,1835,', '3', '彭泽县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1836', '1824', ',1763,1824,1836,', '3', '瑞昌市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1837', '1763', ',1763,1837,', '2', '萍乡市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1838', '1837', ',1763,1837,1838,', '3', '安源区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1839', '1837', ',1763,1837,1839,', '3', '湘东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1840', '1837', ',1763,1837,1840,', '3', '莲花县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1841', '1837', ',1763,1837,1841,', '3', '上栗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1842', '1837', ',1763,1837,1842,', '3', '芦溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1843', '1763', ',1763,1843,', '2', '上饶市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1844', '1843', ',1763,1843,1844,', '3', '信州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1845', '1843', ',1763,1843,1845,', '3', '上饶县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1846', '1843', ',1763,1843,1846,', '3', '广丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1847', '1843', ',1763,1843,1847,', '3', '玉山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1848', '1843', ',1763,1843,1848,', '3', '铅山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1849', '1843', ',1763,1843,1849,', '3', '横峰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1850', '1843', ',1763,1843,1850,', '3', '弋阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1851', '1843', ',1763,1843,1851,', '3', '余干县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1852', '1843', ',1763,1843,1852,', '3', '鄱阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1853', '1843', ',1763,1843,1853,', '3', '万年县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1854', '1843', ',1763,1843,1854,', '3', '婺源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1855', '1843', ',1763,1843,1855,', '3', '德兴市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1856', '1763', ',1763,1856,', '2', '新余市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1857', '1856', ',1763,1856,1857,', '3', '渝水区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1858', '1856', ',1763,1856,1858,', '3', '分宜县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1859', '1763', ',1763,1859,', '2', '宜春市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1860', '1859', ',1763,1859,1860,', '3', '袁州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1861', '1859', ',1763,1859,1861,', '3', '奉新县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1862', '1859', ',1763,1859,1862,', '3', '万载县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1863', '1859', ',1763,1859,1863,', '3', '上高县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1864', '1859', ',1763,1859,1864,', '3', '宜丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1865', '1859', ',1763,1859,1865,', '3', '靖安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1866', '1859', ',1763,1859,1866,', '3', '铜鼓县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1867', '1859', ',1763,1859,1867,', '3', '丰城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1868', '1859', ',1763,1859,1868,', '3', '樟树市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1869', '1859', ',1763,1859,1869,', '3', '高安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1870', '1763', ',1763,1870,', '2', '鹰潭市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1871', '1870', ',1763,1870,1871,', '3', '月湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1872', '1870', ',1763,1870,1872,', '3', '余江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1873', '1870', ',1763,1870,1873,', '3', '贵溪市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1874', null, ',1874,', '1', '辽宁', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1875', '1874', ',1874,1875,', '2', '沈阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1876', '1875', ',1874,1875,1876,', '3', '和平区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1877', '1875', ',1874,1875,1877,', '3', '沈河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1878', '1875', ',1874,1875,1878,', '3', '大东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1879', '1875', ',1874,1875,1879,', '3', '皇姑区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1880', '1875', ',1874,1875,1880,', '3', '铁西区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1881', '1875', ',1874,1875,1881,', '3', '苏家屯区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1882', '1875', ',1874,1875,1882,', '3', '东陵区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1883', '1875', ',1874,1875,1883,', '3', '新城子区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1884', '1875', ',1874,1875,1884,', '3', '于洪区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1885', '1875', ',1874,1875,1885,', '3', '辽中县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1886', '1875', ',1874,1875,1886,', '3', '康平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1887', '1875', ',1874,1875,1887,', '3', '法库县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1888', '1875', ',1874,1875,1888,', '3', '新民市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1889', '1874', ',1874,1889,', '2', '鞍山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1890', '1889', ',1874,1889,1890,', '3', '铁东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1891', '1889', ',1874,1889,1891,', '3', '铁西区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1892', '1889', ',1874,1889,1892,', '3', '立山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1893', '1889', ',1874,1889,1893,', '3', '千山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1894', '1889', ',1874,1889,1894,', '3', '台安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1895', '1889', ',1874,1889,1895,', '3', '岫岩满族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1896', '1889', ',1874,1889,1896,', '3', '海城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1897', '1874', ',1874,1897,', '2', '本溪市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1898', '1897', ',1874,1897,1898,', '3', '平山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1899', '1897', ',1874,1897,1899,', '3', '溪湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1900', '1897', ',1874,1897,1900,', '3', '明山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1901', '1897', ',1874,1897,1901,', '3', '南芬区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1902', '1897', ',1874,1897,1902,', '3', '本溪满族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1903', '1897', ',1874,1897,1903,', '3', '桓仁满族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1904', '1874', ',1874,1904,', '2', '朝阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1905', '1904', ',1874,1904,1905,', '3', '双塔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1906', '1904', ',1874,1904,1906,', '3', '龙城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1907', '1904', ',1874,1904,1907,', '3', '朝阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1908', '1904', ',1874,1904,1908,', '3', '建平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1909', '1904', ',1874,1904,1909,', '3', '喀喇沁左翼蒙古族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1910', '1904', ',1874,1904,1910,', '3', '北票市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1911', '1904', ',1874,1904,1911,', '3', '凌源市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1912', '1874', ',1874,1912,', '2', '大连市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1913', '1912', ',1874,1912,1913,', '3', '中山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1914', '1912', ',1874,1912,1914,', '3', '西岗区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1915', '1912', ',1874,1912,1915,', '3', '沙河口区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1916', '1912', ',1874,1912,1916,', '3', '甘井子区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1917', '1912', ',1874,1912,1917,', '3', '旅顺口区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1918', '1912', ',1874,1912,1918,', '3', '金州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1919', '1912', ',1874,1912,1919,', '3', '长海县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1920', '1912', ',1874,1912,1920,', '3', '瓦房店市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1921', '1912', ',1874,1912,1921,', '3', '普兰店市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1922', '1912', ',1874,1912,1922,', '3', '庄河市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1923', '1874', ',1874,1923,', '2', '丹东市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1924', '1923', ',1874,1923,1924,', '3', '元宝区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1925', '1923', ',1874,1923,1925,', '3', '振兴区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1926', '1923', ',1874,1923,1926,', '3', '振安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1927', '1923', ',1874,1923,1927,', '3', '宽甸满族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1928', '1923', ',1874,1923,1928,', '3', '东港市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1929', '1923', ',1874,1923,1929,', '3', '凤城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1930', '1874', ',1874,1930,', '2', '抚顺市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1931', '1930', ',1874,1930,1931,', '3', '新抚区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1932', '1930', ',1874,1930,1932,', '3', '东洲区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1933', '1930', ',1874,1930,1933,', '3', '望花区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1934', '1930', ',1874,1930,1934,', '3', '顺城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1935', '1930', ',1874,1930,1935,', '3', '抚顺县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1936', '1930', ',1874,1930,1936,', '3', '新宾满族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1937', '1930', ',1874,1930,1937,', '3', '清原满族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1938', '1874', ',1874,1938,', '2', '阜新市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1939', '1938', ',1874,1938,1939,', '3', '海州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1940', '1938', ',1874,1938,1940,', '3', '新邱区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1941', '1938', ',1874,1938,1941,', '3', '太平区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1942', '1938', ',1874,1938,1942,', '3', '清河门区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1943', '1938', ',1874,1938,1943,', '3', '细河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1944', '1938', ',1874,1938,1944,', '3', '阜新蒙古族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1945', '1938', ',1874,1938,1945,', '3', '彰武县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1946', '1874', ',1874,1946,', '2', '葫芦岛市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1947', '1946', ',1874,1946,1947,', '3', '连山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1948', '1946', ',1874,1946,1948,', '3', '龙港区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1949', '1946', ',1874,1946,1949,', '3', '南票区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1950', '1946', ',1874,1946,1950,', '3', '绥中县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1951', '1946', ',1874,1946,1951,', '3', '建昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1952', '1946', ',1874,1946,1952,', '3', '兴城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1953', '1874', ',1874,1953,', '2', '锦州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1954', '1953', ',1874,1953,1954,', '3', '古塔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1955', '1953', ',1874,1953,1955,', '3', '凌河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1956', '1953', ',1874,1953,1956,', '3', '太和区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1957', '1953', ',1874,1953,1957,', '3', '黑山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1958', '1953', ',1874,1953,1958,', '3', '义县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1959', '1953', ',1874,1953,1959,', '3', '凌海市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1960', '1953', ',1874,1953,1960,', '3', '北宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1961', '1874', ',1874,1961,', '2', '辽阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1962', '1961', ',1874,1961,1962,', '3', '白塔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1963', '1961', ',1874,1961,1963,', '3', '文圣区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1964', '1961', ',1874,1961,1964,', '3', '宏伟区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1965', '1961', ',1874,1961,1965,', '3', '弓长岭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1966', '1961', ',1874,1961,1966,', '3', '太子河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1967', '1961', ',1874,1961,1967,', '3', '辽阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1968', '1961', ',1874,1961,1968,', '3', '灯塔市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1969', '1874', ',1874,1969,', '2', '盘锦市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1970', '1969', ',1874,1969,1970,', '3', '双台子区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1971', '1969', ',1874,1969,1971,', '3', '兴隆台区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1972', '1969', ',1874,1969,1972,', '3', '大洼县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1973', '1969', ',1874,1969,1973,', '3', '盘山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1974', '1874', ',1874,1974,', '2', '铁岭市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1975', '1974', ',1874,1974,1975,', '3', '银州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1976', '1974', ',1874,1974,1976,', '3', '清河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1977', '1974', ',1874,1974,1977,', '3', '铁岭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1978', '1974', ',1874,1974,1978,', '3', '西丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1979', '1974', ',1874,1974,1979,', '3', '昌图县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1980', '1974', ',1874,1974,1980,', '3', '调兵山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1981', '1974', ',1874,1974,1981,', '3', '开原市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1982', '1874', ',1874,1982,', '2', '营口市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1983', '1982', ',1874,1982,1983,', '3', '站前区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1984', '1982', ',1874,1982,1984,', '3', '西市区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1985', '1982', ',1874,1982,1985,', '3', '鲅鱼圈区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1986', '1982', ',1874,1982,1986,', '3', '老边区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1987', '1982', ',1874,1982,1987,', '3', '盖州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1988', '1982', ',1874,1982,1988,', '3', '大石桥市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1989', null, ',1989,', '1', '内蒙古', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1990', '1989', ',1989,1990,', '2', '呼和浩特市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1991', '1990', ',1989,1990,1991,', '3', '新城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1992', '1990', ',1989,1990,1992,', '3', '回民区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1993', '1990', ',1989,1990,1993,', '3', '玉泉区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1994', '1990', ',1989,1990,1994,', '3', '赛罕区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1995', '1990', ',1989,1990,1995,', '3', '土默特左旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1996', '1990', ',1989,1990,1996,', '3', '托克托县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1997', '1990', ',1989,1990,1997,', '3', '和林格尔县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1998', '1990', ',1989,1990,1998,', '3', '清水河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('1999', '1990', ',1989,1990,1999,', '3', '武川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2000', '1989', ',1989,2000,', '2', '阿拉善盟', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2001', '2000', ',1989,2000,2001,', '3', '阿拉善左旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2002', '2000', ',1989,2000,2002,', '3', '阿拉善右旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2003', '2000', ',1989,2000,2003,', '3', '额济纳旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2004', '1989', ',1989,2004,', '2', '巴彦淖尔市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2005', '2004', ',1989,2004,2005,', '3', '临河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2006', '2004', ',1989,2004,2006,', '3', '五原县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2007', '2004', ',1989,2004,2007,', '3', '磴口县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2008', '2004', ',1989,2004,2008,', '3', '乌拉特前旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2009', '2004', ',1989,2004,2009,', '3', '乌拉特中旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2010', '2004', ',1989,2004,2010,', '3', '乌拉特后旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2011', '2004', ',1989,2004,2011,', '3', '杭锦后旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2012', '1989', ',1989,2012,', '2', '包头市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2013', '2012', ',1989,2012,2013,', '3', '东河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2014', '2012', ',1989,2012,2014,', '3', '昆都仑区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2015', '2012', ',1989,2012,2015,', '3', '青山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2016', '2012', ',1989,2012,2016,', '3', '石拐区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2017', '2012', ',1989,2012,2017,', '3', '白云矿区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2018', '2012', ',1989,2012,2018,', '3', '九原区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2019', '2012', ',1989,2012,2019,', '3', '土默特右旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2020', '2012', ',1989,2012,2020,', '3', '固阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2021', '2012', ',1989,2012,2021,', '3', '达尔罕茂明安联合旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2022', '1989', ',1989,2022,', '2', '赤峰市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2023', '2022', ',1989,2022,2023,', '3', '红山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2024', '2022', ',1989,2022,2024,', '3', '元宝山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2025', '2022', ',1989,2022,2025,', '3', '松山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2026', '2022', ',1989,2022,2026,', '3', '阿鲁科尔沁旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2027', '2022', ',1989,2022,2027,', '3', '巴林左旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2028', '2022', ',1989,2022,2028,', '3', '巴林右旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2029', '2022', ',1989,2022,2029,', '3', '林西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2030', '2022', ',1989,2022,2030,', '3', '克什克腾旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2031', '2022', ',1989,2022,2031,', '3', '翁牛特旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2032', '2022', ',1989,2022,2032,', '3', '喀喇沁旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2033', '2022', ',1989,2022,2033,', '3', '宁城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2034', '2022', ',1989,2022,2034,', '3', '敖汉旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2035', '1989', ',1989,2035,', '2', '鄂尔多斯市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2036', '2035', ',1989,2035,2036,', '3', '东胜区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2037', '2035', ',1989,2035,2037,', '3', '达拉特旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2038', '2035', ',1989,2035,2038,', '3', '准格尔旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2039', '2035', ',1989,2035,2039,', '3', '鄂托克前旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2040', '2035', ',1989,2035,2040,', '3', '鄂托克旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2041', '2035', ',1989,2035,2041,', '3', '杭锦旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2042', '2035', ',1989,2035,2042,', '3', '乌审旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2043', '2035', ',1989,2035,2043,', '3', '伊金霍洛旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2044', '1989', ',1989,2044,', '2', '呼伦贝尔市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2045', '2044', ',1989,2044,2045,', '3', '海拉尔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2046', '2044', ',1989,2044,2046,', '3', '阿荣旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2047', '2044', ',1989,2044,2047,', '3', '莫力达瓦达斡尔族自治旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2048', '2044', ',1989,2044,2048,', '3', '鄂伦春自治旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2049', '2044', ',1989,2044,2049,', '3', '鄂温克族自治旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2050', '2044', ',1989,2044,2050,', '3', '陈巴尔虎旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2051', '2044', ',1989,2044,2051,', '3', '新巴尔虎左旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2052', '2044', ',1989,2044,2052,', '3', '新巴尔虎右旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2053', '2044', ',1989,2044,2053,', '3', '满洲里市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2054', '2044', ',1989,2044,2054,', '3', '牙克石市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2055', '2044', ',1989,2044,2055,', '3', '扎兰屯市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2056', '2044', ',1989,2044,2056,', '3', '额尔古纳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2057', '2044', ',1989,2044,2057,', '3', '根河市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2058', '1989', ',1989,2058,', '2', '通辽市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2059', '2058', ',1989,2058,2059,', '3', '科尔沁区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2060', '2058', ',1989,2058,2060,', '3', '科尔沁左翼中旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2061', '2058', ',1989,2058,2061,', '3', '科尔沁左翼后旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2062', '2058', ',1989,2058,2062,', '3', '开鲁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2063', '2058', ',1989,2058,2063,', '3', '库伦旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2064', '2058', ',1989,2058,2064,', '3', '奈曼旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2065', '2058', ',1989,2058,2065,', '3', '扎鲁特旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2066', '2058', ',1989,2058,2066,', '3', '霍林郭勒市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2067', '1989', ',1989,2067,', '2', '乌海市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2068', '2067', ',1989,2067,2068,', '3', '海勃湾区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2069', '2067', ',1989,2067,2069,', '3', '海南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2070', '2067', ',1989,2067,2070,', '3', '乌达区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2071', '1989', ',1989,2071,', '2', '乌兰察布市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2072', '2071', ',1989,2071,2072,', '3', '集宁区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2073', '2071', ',1989,2071,2073,', '3', '卓资县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2074', '2071', ',1989,2071,2074,', '3', '化德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2075', '2071', ',1989,2071,2075,', '3', '商都县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2076', '2071', ',1989,2071,2076,', '3', '兴和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2077', '2071', ',1989,2071,2077,', '3', '凉城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2078', '2071', ',1989,2071,2078,', '3', '察哈尔右翼前旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2079', '2071', ',1989,2071,2079,', '3', '察哈尔右翼中旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2080', '2071', ',1989,2071,2080,', '3', '察哈尔右翼后旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2081', '2071', ',1989,2071,2081,', '3', '四子王旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2082', '2071', ',1989,2071,2082,', '3', '丰镇市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2083', '1989', ',1989,2083,', '2', '锡林郭勒盟', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2084', '2083', ',1989,2083,2084,', '3', '二连浩特市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2085', '2083', ',1989,2083,2085,', '3', '锡林浩特市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2086', '2083', ',1989,2083,2086,', '3', '阿巴嘎旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2087', '2083', ',1989,2083,2087,', '3', '苏尼特左旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2088', '2083', ',1989,2083,2088,', '3', '苏尼特右旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2089', '2083', ',1989,2083,2089,', '3', '东乌珠穆沁旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2090', '2083', ',1989,2083,2090,', '3', '西乌珠穆沁旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2091', '2083', ',1989,2083,2091,', '3', '太仆寺旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2092', '2083', ',1989,2083,2092,', '3', '镶黄旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2093', '2083', ',1989,2083,2093,', '3', '正镶白旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2094', '2083', ',1989,2083,2094,', '3', '正蓝旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2095', '2083', ',1989,2083,2095,', '3', '多伦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2096', '1989', ',1989,2096,', '2', '兴安盟', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2097', '2096', ',1989,2096,2097,', '3', '乌兰浩特市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2098', '2096', ',1989,2096,2098,', '3', '阿尔山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2099', '2096', ',1989,2096,2099,', '3', '科尔沁右翼前旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2100', '2096', ',1989,2096,2100,', '3', '科尔沁右翼中旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2101', '2096', ',1989,2096,2101,', '3', '扎赉特旗', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2102', '2096', ',1989,2096,2102,', '3', '突泉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2103', null, ',2103,', '1', '宁夏', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2104', '2103', ',2103,2104,', '2', '银川市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2105', '2104', ',2103,2104,2105,', '3', '兴庆区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2106', '2104', ',2103,2104,2106,', '3', '西夏区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2107', '2104', ',2103,2104,2107,', '3', '金凤区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2108', '2104', ',2103,2104,2108,', '3', '永宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2109', '2104', ',2103,2104,2109,', '3', '贺兰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2110', '2104', ',2103,2104,2110,', '3', '灵武市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2111', '2103', ',2103,2111,', '2', '固原市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2112', '2111', ',2103,2111,2112,', '3', '原州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2113', '2111', ',2103,2111,2113,', '3', '西吉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2114', '2111', ',2103,2111,2114,', '3', '隆德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2115', '2111', ',2103,2111,2115,', '3', '泾源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2116', '2111', ',2103,2111,2116,', '3', '彭阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2117', '2103', ',2103,2117,', '2', '石嘴山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2118', '2117', ',2103,2117,2118,', '3', '大武口区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2119', '2117', ',2103,2117,2119,', '3', '惠农区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2120', '2117', ',2103,2117,2120,', '3', '平罗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2121', '2103', ',2103,2121,', '2', '吴忠市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2122', '2121', ',2103,2121,2122,', '3', '利通区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2123', '2121', ',2103,2121,2123,', '3', '盐池县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2124', '2121', ',2103,2121,2124,', '3', '同心县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2125', '2121', ',2103,2121,2125,', '3', '青铜峡市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2126', '2103', ',2103,2126,', '2', '中卫市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2127', '2126', ',2103,2126,2127,', '3', '沙坡头区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2128', '2126', ',2103,2126,2128,', '3', '中宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2129', '2126', ',2103,2126,2129,', '3', '海原县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2130', null, ',2130,', '1', '青海', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2131', '2130', ',2130,2131,', '2', '西宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2132', '2131', ',2130,2131,2132,', '3', '城东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2133', '2131', ',2130,2131,2133,', '3', '城中区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2134', '2131', ',2130,2131,2134,', '3', '城西区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2135', '2131', ',2130,2131,2135,', '3', '城北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2136', '2131', ',2130,2131,2136,', '3', '大通回族土族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2137', '2131', ',2130,2131,2137,', '3', '湟中县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2138', '2131', ',2130,2131,2138,', '3', '湟源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2139', '2130', ',2130,2139,', '2', '果洛藏族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2140', '2139', ',2130,2139,2140,', '3', '玛沁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2141', '2139', ',2130,2139,2141,', '3', '班玛县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2142', '2139', ',2130,2139,2142,', '3', '甘德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2143', '2139', ',2130,2139,2143,', '3', '达日县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2144', '2139', ',2130,2139,2144,', '3', '久治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2145', '2139', ',2130,2139,2145,', '3', '玛多县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2146', '2130', ',2130,2146,', '2', '海北藏族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2147', '2146', ',2130,2146,2147,', '3', '门源回族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2148', '2146', ',2130,2146,2148,', '3', '祁连县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2149', '2146', ',2130,2146,2149,', '3', '海晏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2150', '2146', ',2130,2146,2150,', '3', '刚察县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2151', '2130', ',2130,2151,', '2', '海东地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2152', '2151', ',2130,2151,2152,', '3', '平安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2153', '2151', ',2130,2151,2153,', '3', '民和回族土族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2154', '2151', ',2130,2151,2154,', '3', '乐都县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2155', '2151', ',2130,2151,2155,', '3', '互助土族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2156', '2151', ',2130,2151,2156,', '3', '化隆回族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2157', '2151', ',2130,2151,2157,', '3', '循化撒拉族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2158', '2130', ',2130,2158,', '2', '海南藏族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2159', '2158', ',2130,2158,2159,', '3', '共和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2160', '2158', ',2130,2158,2160,', '3', '同德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2161', '2158', ',2130,2158,2161,', '3', '贵德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2162', '2158', ',2130,2158,2162,', '3', '兴海县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2163', '2158', ',2130,2158,2163,', '3', '贵南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2164', '2130', ',2130,2164,', '2', '海西蒙古族藏族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2165', '2164', ',2130,2164,2165,', '3', '格尔木市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2166', '2164', ',2130,2164,2166,', '3', '德令哈市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2167', '2164', ',2130,2164,2167,', '3', '乌兰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2168', '2164', ',2130,2164,2168,', '3', '都兰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2169', '2164', ',2130,2164,2169,', '3', '天峻县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2170', '2130', ',2130,2170,', '2', '黄南藏族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2171', '2170', ',2130,2170,2171,', '3', '同仁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2172', '2170', ',2130,2170,2172,', '3', '尖扎县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2173', '2170', ',2130,2170,2173,', '3', '泽库县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2174', '2170', ',2130,2170,2174,', '3', '河南蒙古族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2175', '2130', ',2130,2175,', '2', '玉树藏族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2176', '2175', ',2130,2175,2176,', '3', '玉树县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2177', '2175', ',2130,2175,2177,', '3', '杂多县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2178', '2175', ',2130,2175,2178,', '3', '称多县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2179', '2175', ',2130,2175,2179,', '3', '治多县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2180', '2175', ',2130,2175,2180,', '3', '囊谦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2181', '2175', ',2130,2175,2181,', '3', '曲麻莱县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2182', null, ',2182,', '1', '山东', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2183', '2182', ',2182,2183,', '2', '济南市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2184', '2183', ',2182,2183,2184,', '3', '历下区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2185', '2183', ',2182,2183,2185,', '3', '市中区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2186', '2183', ',2182,2183,2186,', '3', '槐荫区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2187', '2183', ',2182,2183,2187,', '3', '天桥区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2188', '2183', ',2182,2183,2188,', '3', '历城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2189', '2183', ',2182,2183,2189,', '3', '长清区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2190', '2183', ',2182,2183,2190,', '3', '平阴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2191', '2183', ',2182,2183,2191,', '3', '济阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2192', '2183', ',2182,2183,2192,', '3', '商河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2193', '2183', ',2182,2183,2193,', '3', '章丘市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2194', '2182', ',2182,2194,', '2', '滨州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2195', '2194', ',2182,2194,2195,', '3', '滨城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2196', '2194', ',2182,2194,2196,', '3', '惠民县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2197', '2194', ',2182,2194,2197,', '3', '阳信县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2198', '2194', ',2182,2194,2198,', '3', '无棣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2199', '2194', ',2182,2194,2199,', '3', '沾化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2200', '2194', ',2182,2194,2200,', '3', '博兴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2201', '2194', ',2182,2194,2201,', '3', '邹平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2202', '2182', ',2182,2202,', '2', '德州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2203', '2202', ',2182,2202,2203,', '3', '德城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2204', '2202', ',2182,2202,2204,', '3', '陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2205', '2202', ',2182,2202,2205,', '3', '宁津县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2206', '2202', ',2182,2202,2206,', '3', '庆云县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2207', '2202', ',2182,2202,2207,', '3', '临邑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2208', '2202', ',2182,2202,2208,', '3', '齐河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2209', '2202', ',2182,2202,2209,', '3', '平原县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2210', '2202', ',2182,2202,2210,', '3', '夏津县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2211', '2202', ',2182,2202,2211,', '3', '武城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2212', '2202', ',2182,2202,2212,', '3', '乐陵市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2213', '2202', ',2182,2202,2213,', '3', '禹城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2214', '2182', ',2182,2214,', '2', '东营市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2215', '2214', ',2182,2214,2215,', '3', '东营区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2216', '2214', ',2182,2214,2216,', '3', '河口区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2217', '2214', ',2182,2214,2217,', '3', '垦利县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2218', '2214', ',2182,2214,2218,', '3', '利津县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2219', '2214', ',2182,2214,2219,', '3', '广饶县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2220', '2182', ',2182,2220,', '2', '菏泽市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2221', '2220', ',2182,2220,2221,', '3', '牡丹区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2222', '2220', ',2182,2220,2222,', '3', '曹县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2223', '2220', ',2182,2220,2223,', '3', '单县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2224', '2220', ',2182,2220,2224,', '3', '成武县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2225', '2220', ',2182,2220,2225,', '3', '巨野县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2226', '2220', ',2182,2220,2226,', '3', '郓城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2227', '2220', ',2182,2220,2227,', '3', '鄄城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2228', '2220', ',2182,2220,2228,', '3', '定陶县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2229', '2220', ',2182,2220,2229,', '3', '东明县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2230', '2182', ',2182,2230,', '2', '济宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2231', '2230', ',2182,2230,2231,', '3', '市中区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2232', '2230', ',2182,2230,2232,', '3', '任城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2233', '2230', ',2182,2230,2233,', '3', '微山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2234', '2230', ',2182,2230,2234,', '3', '鱼台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2235', '2230', ',2182,2230,2235,', '3', '金乡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2236', '2230', ',2182,2230,2236,', '3', '嘉祥县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2237', '2230', ',2182,2230,2237,', '3', '汶上县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2238', '2230', ',2182,2230,2238,', '3', '泗水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2239', '2230', ',2182,2230,2239,', '3', '梁山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2240', '2230', ',2182,2230,2240,', '3', '曲阜市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2241', '2230', ',2182,2230,2241,', '3', '兖州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2242', '2230', ',2182,2230,2242,', '3', '邹城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2243', '2182', ',2182,2243,', '2', '莱芜市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2244', '2243', ',2182,2243,2244,', '3', '莱城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2245', '2243', ',2182,2243,2245,', '3', '钢城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2246', '2182', ',2182,2246,', '2', '聊城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2247', '2246', ',2182,2246,2247,', '3', '东昌府区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2248', '2246', ',2182,2246,2248,', '3', '阳谷县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2249', '2246', ',2182,2246,2249,', '3', '莘县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2250', '2246', ',2182,2246,2250,', '3', '茌平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2251', '2246', ',2182,2246,2251,', '3', '东阿县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2252', '2246', ',2182,2246,2252,', '3', '冠县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2253', '2246', ',2182,2246,2253,', '3', '高唐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2254', '2246', ',2182,2246,2254,', '3', '临清市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2255', '2182', ',2182,2255,', '2', '临沂市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2256', '2255', ',2182,2255,2256,', '3', '兰山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2257', '2255', ',2182,2255,2257,', '3', '罗庄区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2258', '2255', ',2182,2255,2258,', '3', '河东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2259', '2255', ',2182,2255,2259,', '3', '沂南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2260', '2255', ',2182,2255,2260,', '3', '郯城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2261', '2255', ',2182,2255,2261,', '3', '沂水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2262', '2255', ',2182,2255,2262,', '3', '苍山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2263', '2255', ',2182,2255,2263,', '3', '费县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2264', '2255', ',2182,2255,2264,', '3', '平邑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2265', '2255', ',2182,2255,2265,', '3', '莒南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2266', '2255', ',2182,2255,2266,', '3', '蒙阴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2267', '2255', ',2182,2255,2267,', '3', '临沭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2268', '2182', ',2182,2268,', '2', '青岛市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2269', '2268', ',2182,2268,2269,', '3', '市南区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2270', '2268', ',2182,2268,2270,', '3', '市北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2271', '2268', ',2182,2268,2271,', '3', '四方区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2272', '2268', ',2182,2268,2272,', '3', '黄岛区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2273', '2268', ',2182,2268,2273,', '3', '崂山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2274', '2268', ',2182,2268,2274,', '3', '李沧区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2275', '2268', ',2182,2268,2275,', '3', '城阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2276', '2268', ',2182,2268,2276,', '3', '胶州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2277', '2268', ',2182,2268,2277,', '3', '即墨市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2278', '2268', ',2182,2268,2278,', '3', '平度市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2279', '2268', ',2182,2268,2279,', '3', '胶南市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2280', '2268', ',2182,2268,2280,', '3', '莱西市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2281', '2182', ',2182,2281,', '2', '日照市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2282', '2281', ',2182,2281,2282,', '3', '东港区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2283', '2281', ',2182,2281,2283,', '3', '岚山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2284', '2281', ',2182,2281,2284,', '3', '五莲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2285', '2281', ',2182,2281,2285,', '3', '莒县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2286', '2182', ',2182,2286,', '2', '泰安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2287', '2286', ',2182,2286,2287,', '3', '泰山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2288', '2286', ',2182,2286,2288,', '3', '岱岳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2289', '2286', ',2182,2286,2289,', '3', '宁阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2290', '2286', ',2182,2286,2290,', '3', '东平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2291', '2286', ',2182,2286,2291,', '3', '新泰市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2292', '2286', ',2182,2286,2292,', '3', '肥城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2293', '2182', ',2182,2293,', '2', '威海市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2294', '2293', ',2182,2293,2294,', '3', '环翠区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2295', '2293', ',2182,2293,2295,', '3', '文登市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2296', '2293', ',2182,2293,2296,', '3', '荣成市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2297', '2293', ',2182,2293,2297,', '3', '乳山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2298', '2182', ',2182,2298,', '2', '潍坊市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2299', '2298', ',2182,2298,2299,', '3', '潍城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2300', '2298', ',2182,2298,2300,', '3', '寒亭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2301', '2298', ',2182,2298,2301,', '3', '坊子区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2302', '2298', ',2182,2298,2302,', '3', '奎文区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2303', '2298', ',2182,2298,2303,', '3', '临朐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2304', '2298', ',2182,2298,2304,', '3', '昌乐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2305', '2298', ',2182,2298,2305,', '3', '青州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2306', '2298', ',2182,2298,2306,', '3', '诸城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2307', '2298', ',2182,2298,2307,', '3', '寿光市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2308', '2298', ',2182,2298,2308,', '3', '安丘市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2309', '2298', ',2182,2298,2309,', '3', '高密市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2310', '2298', ',2182,2298,2310,', '3', '昌邑市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2311', '2182', ',2182,2311,', '2', '烟台市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2312', '2311', ',2182,2311,2312,', '3', '芝罘区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2313', '2311', ',2182,2311,2313,', '3', '福山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2314', '2311', ',2182,2311,2314,', '3', '牟平区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2315', '2311', ',2182,2311,2315,', '3', '莱山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2316', '2311', ',2182,2311,2316,', '3', '长岛县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2317', '2311', ',2182,2311,2317,', '3', '龙口市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2318', '2311', ',2182,2311,2318,', '3', '莱阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2319', '2311', ',2182,2311,2319,', '3', '莱州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2320', '2311', ',2182,2311,2320,', '3', '蓬莱市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2321', '2311', ',2182,2311,2321,', '3', '招远市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2322', '2311', ',2182,2311,2322,', '3', '栖霞市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2323', '2311', ',2182,2311,2323,', '3', '海阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2324', '2182', ',2182,2324,', '2', '枣庄市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2325', '2324', ',2182,2324,2325,', '3', '市中区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2326', '2324', ',2182,2324,2326,', '3', '薛城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2327', '2324', ',2182,2324,2327,', '3', '峄城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2328', '2324', ',2182,2324,2328,', '3', '台儿庄区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2329', '2324', ',2182,2324,2329,', '3', '山亭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2330', '2324', ',2182,2324,2330,', '3', '滕州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2331', '2182', ',2182,2331,', '2', '淄博市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2332', '2331', ',2182,2331,2332,', '3', '淄川区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2333', '2331', ',2182,2331,2333,', '3', '张店区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2334', '2331', ',2182,2331,2334,', '3', '博山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2335', '2331', ',2182,2331,2335,', '3', '临淄区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2336', '2331', ',2182,2331,2336,', '3', '周村区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2337', '2331', ',2182,2331,2337,', '3', '桓台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2338', '2331', ',2182,2331,2338,', '3', '高青县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2339', '2331', ',2182,2331,2339,', '3', '沂源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2340', null, ',2340,', '1', '山西', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2341', '2340', ',2340,2341,', '2', '太原市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2342', '2341', ',2340,2341,2342,', '3', '小店区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2343', '2341', ',2340,2341,2343,', '3', '迎泽区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2344', '2341', ',2340,2341,2344,', '3', '杏花岭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2345', '2341', ',2340,2341,2345,', '3', '尖草坪区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2346', '2341', ',2340,2341,2346,', '3', '万柏林区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2347', '2341', ',2340,2341,2347,', '3', '晋源区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2348', '2341', ',2340,2341,2348,', '3', '清徐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2349', '2341', ',2340,2341,2349,', '3', '阳曲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2350', '2341', ',2340,2341,2350,', '3', '娄烦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2351', '2341', ',2340,2341,2351,', '3', '古交市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2352', '2340', ',2340,2352,', '2', '长治市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2353', '2352', ',2340,2352,2353,', '3', '城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2354', '2352', ',2340,2352,2354,', '3', '郊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2355', '2352', ',2340,2352,2355,', '3', '长治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2356', '2352', ',2340,2352,2356,', '3', '襄垣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2357', '2352', ',2340,2352,2357,', '3', '屯留县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2358', '2352', ',2340,2352,2358,', '3', '平顺县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2359', '2352', ',2340,2352,2359,', '3', '黎城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2360', '2352', ',2340,2352,2360,', '3', '壶关县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2361', '2352', ',2340,2352,2361,', '3', '长子县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2362', '2352', ',2340,2352,2362,', '3', '武乡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2363', '2352', ',2340,2352,2363,', '3', '沁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2364', '2352', ',2340,2352,2364,', '3', '沁源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2365', '2352', ',2340,2352,2365,', '3', '潞城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2366', '2340', ',2340,2366,', '2', '大同市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2367', '2366', ',2340,2366,2367,', '3', '城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2368', '2366', ',2340,2366,2368,', '3', '矿区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2369', '2366', ',2340,2366,2369,', '3', '南郊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2370', '2366', ',2340,2366,2370,', '3', '新荣区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2371', '2366', ',2340,2366,2371,', '3', '阳高县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2372', '2366', ',2340,2366,2372,', '3', '天镇县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2373', '2366', ',2340,2366,2373,', '3', '广灵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2374', '2366', ',2340,2366,2374,', '3', '灵丘县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2375', '2366', ',2340,2366,2375,', '3', '浑源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2376', '2366', ',2340,2366,2376,', '3', '左云县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2377', '2366', ',2340,2366,2377,', '3', '大同县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2378', '2340', ',2340,2378,', '2', '晋城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2379', '2378', ',2340,2378,2379,', '3', '城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2380', '2378', ',2340,2378,2380,', '3', '沁水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2381', '2378', ',2340,2378,2381,', '3', '阳城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2382', '2378', ',2340,2378,2382,', '3', '陵川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2383', '2378', ',2340,2378,2383,', '3', '泽州县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2384', '2378', ',2340,2378,2384,', '3', '高平市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2385', '2340', ',2340,2385,', '2', '晋中市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2386', '2385', ',2340,2385,2386,', '3', '榆次区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2387', '2385', ',2340,2385,2387,', '3', '榆社县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2388', '2385', ',2340,2385,2388,', '3', '左权县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2389', '2385', ',2340,2385,2389,', '3', '和顺县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2390', '2385', ',2340,2385,2390,', '3', '昔阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2391', '2385', ',2340,2385,2391,', '3', '寿阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2392', '2385', ',2340,2385,2392,', '3', '太谷县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2393', '2385', ',2340,2385,2393,', '3', '祁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2394', '2385', ',2340,2385,2394,', '3', '平遥县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2395', '2385', ',2340,2385,2395,', '3', '灵石县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2396', '2385', ',2340,2385,2396,', '3', '介休市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2397', '2340', ',2340,2397,', '2', '临汾市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2398', '2397', ',2340,2397,2398,', '3', '尧都区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2399', '2397', ',2340,2397,2399,', '3', '曲沃县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2400', '2397', ',2340,2397,2400,', '3', '翼城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2401', '2397', ',2340,2397,2401,', '3', '襄汾县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2402', '2397', ',2340,2397,2402,', '3', '洪洞县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2403', '2397', ',2340,2397,2403,', '3', '古县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2404', '2397', ',2340,2397,2404,', '3', '安泽县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2405', '2397', ',2340,2397,2405,', '3', '浮山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2406', '2397', ',2340,2397,2406,', '3', '吉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2407', '2397', ',2340,2397,2407,', '3', '乡宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2408', '2397', ',2340,2397,2408,', '3', '大宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2409', '2397', ',2340,2397,2409,', '3', '隰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2410', '2397', ',2340,2397,2410,', '3', '永和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2411', '2397', ',2340,2397,2411,', '3', '蒲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2412', '2397', ',2340,2397,2412,', '3', '汾西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2413', '2397', ',2340,2397,2413,', '3', '侯马市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2414', '2397', ',2340,2397,2414,', '3', '霍州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2415', '2340', ',2340,2415,', '2', '吕梁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2416', '2415', ',2340,2415,2416,', '3', '离石区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2417', '2415', ',2340,2415,2417,', '3', '文水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2418', '2415', ',2340,2415,2418,', '3', '交城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2419', '2415', ',2340,2415,2419,', '3', '兴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2420', '2415', ',2340,2415,2420,', '3', '临县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2421', '2415', ',2340,2415,2421,', '3', '柳林县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2422', '2415', ',2340,2415,2422,', '3', '石楼县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2423', '2415', ',2340,2415,2423,', '3', '岚县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2424', '2415', ',2340,2415,2424,', '3', '方山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2425', '2415', ',2340,2415,2425,', '3', '中阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2426', '2415', ',2340,2415,2426,', '3', '交口县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2427', '2415', ',2340,2415,2427,', '3', '孝义市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2428', '2415', ',2340,2415,2428,', '3', '汾阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2429', '2340', ',2340,2429,', '2', '朔州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2430', '2429', ',2340,2429,2430,', '3', '朔城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2431', '2429', ',2340,2429,2431,', '3', '平鲁区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2432', '2429', ',2340,2429,2432,', '3', '山阴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2433', '2429', ',2340,2429,2433,', '3', '应县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2434', '2429', ',2340,2429,2434,', '3', '右玉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2435', '2429', ',2340,2429,2435,', '3', '怀仁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2436', '2340', ',2340,2436,', '2', '忻州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2437', '2436', ',2340,2436,2437,', '3', '忻府区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2438', '2436', ',2340,2436,2438,', '3', '定襄县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2439', '2436', ',2340,2436,2439,', '3', '五台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2440', '2436', ',2340,2436,2440,', '3', '代县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2441', '2436', ',2340,2436,2441,', '3', '繁峙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2442', '2436', ',2340,2436,2442,', '3', '宁武县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2443', '2436', ',2340,2436,2443,', '3', '静乐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2444', '2436', ',2340,2436,2444,', '3', '神池县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2445', '2436', ',2340,2436,2445,', '3', '五寨县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2446', '2436', ',2340,2436,2446,', '3', '岢岚县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2447', '2436', ',2340,2436,2447,', '3', '河曲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2448', '2436', ',2340,2436,2448,', '3', '保德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2449', '2436', ',2340,2436,2449,', '3', '偏关县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2450', '2436', ',2340,2436,2450,', '3', '原平市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2451', '2340', ',2340,2451,', '2', '阳泉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2452', '2451', ',2340,2451,2452,', '3', '城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2453', '2451', ',2340,2451,2453,', '3', '矿区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2454', '2451', ',2340,2451,2454,', '3', '郊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2455', '2451', ',2340,2451,2455,', '3', '平定县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2456', '2451', ',2340,2451,2456,', '3', '盂县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2457', '2340', ',2340,2457,', '2', '运城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2458', '2457', ',2340,2457,2458,', '3', '盐湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2459', '2457', ',2340,2457,2459,', '3', '临猗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2460', '2457', ',2340,2457,2460,', '3', '万荣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2461', '2457', ',2340,2457,2461,', '3', '闻喜县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2462', '2457', ',2340,2457,2462,', '3', '稷山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2463', '2457', ',2340,2457,2463,', '3', '新绛县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2464', '2457', ',2340,2457,2464,', '3', '绛县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2465', '2457', ',2340,2457,2465,', '3', '垣曲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2466', '2457', ',2340,2457,2466,', '3', '夏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2467', '2457', ',2340,2457,2467,', '3', '平陆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2468', '2457', ',2340,2457,2468,', '3', '芮城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2469', '2457', ',2340,2457,2469,', '3', '永济市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2470', '2457', ',2340,2457,2470,', '3', '河津市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2471', null, ',2471,', '1', '陕西', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2472', '2471', ',2471,2472,', '2', '西安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2473', '2472', ',2471,2472,2473,', '3', '新城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2474', '2472', ',2471,2472,2474,', '3', '碑林区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2475', '2472', ',2471,2472,2475,', '3', '莲湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2476', '2472', ',2471,2472,2476,', '3', '灞桥区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2477', '2472', ',2471,2472,2477,', '3', '未央区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2478', '2472', ',2471,2472,2478,', '3', '雁塔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2479', '2472', ',2471,2472,2479,', '3', '阎良区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2480', '2472', ',2471,2472,2480,', '3', '临潼区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2481', '2472', ',2471,2472,2481,', '3', '长安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2482', '2472', ',2471,2472,2482,', '3', '蓝田县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2483', '2472', ',2471,2472,2483,', '3', '周至县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2484', '2472', ',2471,2472,2484,', '3', '户县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2485', '2472', ',2471,2472,2485,', '3', '高陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2486', '2471', ',2471,2486,', '2', '安康市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2487', '2486', ',2471,2486,2487,', '3', '汉滨区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2488', '2486', ',2471,2486,2488,', '3', '汉阴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2489', '2486', ',2471,2486,2489,', '3', '石泉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2490', '2486', ',2471,2486,2490,', '3', '宁陕县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2491', '2486', ',2471,2486,2491,', '3', '紫阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2492', '2486', ',2471,2486,2492,', '3', '岚皋县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2493', '2486', ',2471,2486,2493,', '3', '平利县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2494', '2486', ',2471,2486,2494,', '3', '镇坪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2495', '2486', ',2471,2486,2495,', '3', '旬阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2496', '2486', ',2471,2486,2496,', '3', '白河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2497', '2471', ',2471,2497,', '2', '宝鸡市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2498', '2497', ',2471,2497,2498,', '3', '渭滨区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2499', '2497', ',2471,2497,2499,', '3', '金台区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2500', '2497', ',2471,2497,2500,', '3', '陈仓区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2501', '2497', ',2471,2497,2501,', '3', '凤翔县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2502', '2497', ',2471,2497,2502,', '3', '岐山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2503', '2497', ',2471,2497,2503,', '3', '扶风县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2504', '2497', ',2471,2497,2504,', '3', '眉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2505', '2497', ',2471,2497,2505,', '3', '陇县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2506', '2497', ',2471,2497,2506,', '3', '千阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2507', '2497', ',2471,2497,2507,', '3', '麟游县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2508', '2497', ',2471,2497,2508,', '3', '凤县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2509', '2497', ',2471,2497,2509,', '3', '太白县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2510', '2471', ',2471,2510,', '2', '汉中市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2511', '2510', ',2471,2510,2511,', '3', '汉台区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2512', '2510', ',2471,2510,2512,', '3', '南郑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2513', '2510', ',2471,2510,2513,', '3', '城固县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2514', '2510', ',2471,2510,2514,', '3', '洋县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2515', '2510', ',2471,2510,2515,', '3', '西乡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2516', '2510', ',2471,2510,2516,', '3', '勉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2517', '2510', ',2471,2510,2517,', '3', '宁强县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2518', '2510', ',2471,2510,2518,', '3', '略阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2519', '2510', ',2471,2510,2519,', '3', '镇巴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2520', '2510', ',2471,2510,2520,', '3', '留坝县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2521', '2510', ',2471,2510,2521,', '3', '佛坪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2522', '2471', ',2471,2522,', '2', '商洛市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2523', '2522', ',2471,2522,2523,', '3', '商州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2524', '2522', ',2471,2522,2524,', '3', '洛南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2525', '2522', ',2471,2522,2525,', '3', '丹凤县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2526', '2522', ',2471,2522,2526,', '3', '商南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2527', '2522', ',2471,2522,2527,', '3', '山阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2528', '2522', ',2471,2522,2528,', '3', '镇安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2529', '2522', ',2471,2522,2529,', '3', '柞水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2530', '2471', ',2471,2530,', '2', '铜川市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2531', '2530', ',2471,2530,2531,', '3', '王益区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2532', '2530', ',2471,2530,2532,', '3', '印台区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2533', '2530', ',2471,2530,2533,', '3', '耀州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2534', '2530', ',2471,2530,2534,', '3', '宜君县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2535', '2471', ',2471,2535,', '2', '渭南市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2536', '2535', ',2471,2535,2536,', '3', '临渭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2537', '2535', ',2471,2535,2537,', '3', '华县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2538', '2535', ',2471,2535,2538,', '3', '潼关县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2539', '2535', ',2471,2535,2539,', '3', '大荔县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2540', '2535', ',2471,2535,2540,', '3', '合阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2541', '2535', ',2471,2535,2541,', '3', '澄城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2542', '2535', ',2471,2535,2542,', '3', '蒲城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2543', '2535', ',2471,2535,2543,', '3', '白水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2544', '2535', ',2471,2535,2544,', '3', '富平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2545', '2535', ',2471,2535,2545,', '3', '韩城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2546', '2535', ',2471,2535,2546,', '3', '华阴市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2547', '2471', ',2471,2547,', '2', '咸阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2548', '2547', ',2471,2547,2548,', '3', '秦都区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2549', '2547', ',2471,2547,2549,', '3', '杨凌区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2550', '2547', ',2471,2547,2550,', '3', '渭城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2551', '2547', ',2471,2547,2551,', '3', '三原县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2552', '2547', ',2471,2547,2552,', '3', '泾阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2553', '2547', ',2471,2547,2553,', '3', '乾县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2554', '2547', ',2471,2547,2554,', '3', '礼泉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2555', '2547', ',2471,2547,2555,', '3', '永寿县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2556', '2547', ',2471,2547,2556,', '3', '彬县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2557', '2547', ',2471,2547,2557,', '3', '长武县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2558', '2547', ',2471,2547,2558,', '3', '旬邑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2559', '2547', ',2471,2547,2559,', '3', '淳化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2560', '2547', ',2471,2547,2560,', '3', '武功县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2561', '2547', ',2471,2547,2561,', '3', '兴平市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2562', '2471', ',2471,2562,', '2', '延安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2563', '2562', ',2471,2562,2563,', '3', '宝塔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2564', '2562', ',2471,2562,2564,', '3', '延长县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2565', '2562', ',2471,2562,2565,', '3', '延川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2566', '2562', ',2471,2562,2566,', '3', '子长县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2567', '2562', ',2471,2562,2567,', '3', '安塞县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2568', '2562', ',2471,2562,2568,', '3', '志丹县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2569', '2562', ',2471,2562,2569,', '3', '吴旗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2570', '2562', ',2471,2562,2570,', '3', '甘泉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2571', '2562', ',2471,2562,2571,', '3', '富县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2572', '2562', ',2471,2562,2572,', '3', '洛川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2573', '2562', ',2471,2562,2573,', '3', '宜川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2574', '2562', ',2471,2562,2574,', '3', '黄龙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2575', '2562', ',2471,2562,2575,', '3', '黄陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2576', '2471', ',2471,2576,', '2', '榆林市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2577', '2576', ',2471,2576,2577,', '3', '榆阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2578', '2576', ',2471,2576,2578,', '3', '神木县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2579', '2576', ',2471,2576,2579,', '3', '府谷县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2580', '2576', ',2471,2576,2580,', '3', '横山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2581', '2576', ',2471,2576,2581,', '3', '靖边县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2582', '2576', ',2471,2576,2582,', '3', '定边县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2583', '2576', ',2471,2576,2583,', '3', '绥德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2584', '2576', ',2471,2576,2584,', '3', '米脂县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2585', '2576', ',2471,2576,2585,', '3', '佳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2586', '2576', ',2471,2576,2586,', '3', '吴堡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2587', '2576', ',2471,2576,2587,', '3', '清涧县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2588', '2576', ',2471,2576,2588,', '3', '子洲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2589', null, ',2589,', '1', '四川', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2590', '2589', ',2589,2590,', '2', '成都市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2591', '2590', ',2589,2590,2591,', '3', '锦江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2592', '2590', ',2589,2590,2592,', '3', '青羊区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2593', '2590', ',2589,2590,2593,', '3', '金牛区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2594', '2590', ',2589,2590,2594,', '3', '武侯区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2595', '2590', ',2589,2590,2595,', '3', '成华区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2596', '2590', ',2589,2590,2596,', '3', '龙泉驿区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2597', '2590', ',2589,2590,2597,', '3', '青白江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2598', '2590', ',2589,2590,2598,', '3', '新都区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2599', '2590', ',2589,2590,2599,', '3', '温江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2600', '2590', ',2589,2590,2600,', '3', '金堂县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2601', '2590', ',2589,2590,2601,', '3', '双流县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2602', '2590', ',2589,2590,2602,', '3', '郫县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2603', '2590', ',2589,2590,2603,', '3', '大邑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2604', '2590', ',2589,2590,2604,', '3', '蒲江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2605', '2590', ',2589,2590,2605,', '3', '新津县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2606', '2590', ',2589,2590,2606,', '3', '都江堰市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2607', '2590', ',2589,2590,2607,', '3', '彭州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2608', '2590', ',2589,2590,2608,', '3', '邛崃市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2609', '2590', ',2589,2590,2609,', '3', '崇州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2610', '2589', ',2589,2610,', '2', '阿坝藏族羌族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2611', '2610', ',2589,2610,2611,', '3', '汶川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2612', '2610', ',2589,2610,2612,', '3', '理县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2613', '2610', ',2589,2610,2613,', '3', '茂县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2614', '2610', ',2589,2610,2614,', '3', '松潘县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2615', '2610', ',2589,2610,2615,', '3', '九寨沟县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2616', '2610', ',2589,2610,2616,', '3', '金川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2617', '2610', ',2589,2610,2617,', '3', '小金县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2618', '2610', ',2589,2610,2618,', '3', '黑水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2619', '2610', ',2589,2610,2619,', '3', '马尔康县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2620', '2610', ',2589,2610,2620,', '3', '壤塘县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2621', '2610', ',2589,2610,2621,', '3', '阿坝县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2622', '2610', ',2589,2610,2622,', '3', '若尔盖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2623', '2610', ',2589,2610,2623,', '3', '红原县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2624', '2589', ',2589,2624,', '2', '巴中市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2625', '2624', ',2589,2624,2625,', '3', '巴州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2626', '2624', ',2589,2624,2626,', '3', '通江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2627', '2624', ',2589,2624,2627,', '3', '南江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2628', '2624', ',2589,2624,2628,', '3', '平昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2629', '2589', ',2589,2629,', '2', '达州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2630', '2629', ',2589,2629,2630,', '3', '通川区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2631', '2629', ',2589,2629,2631,', '3', '达县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2632', '2629', ',2589,2629,2632,', '3', '宣汉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2633', '2629', ',2589,2629,2633,', '3', '开江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2634', '2629', ',2589,2629,2634,', '3', '大竹县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2635', '2629', ',2589,2629,2635,', '3', '渠县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2636', '2629', ',2589,2629,2636,', '3', '万源市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2637', '2589', ',2589,2637,', '2', '德阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2638', '2637', ',2589,2637,2638,', '3', '旌阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2639', '2637', ',2589,2637,2639,', '3', '中江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2640', '2637', ',2589,2637,2640,', '3', '罗江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2641', '2637', ',2589,2637,2641,', '3', '广汉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2642', '2637', ',2589,2637,2642,', '3', '什邡市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2643', '2637', ',2589,2637,2643,', '3', '绵竹市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2644', '2589', ',2589,2644,', '2', '甘孜藏族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2645', '2644', ',2589,2644,2645,', '3', '康定县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2646', '2644', ',2589,2644,2646,', '3', '泸定县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2647', '2644', ',2589,2644,2647,', '3', '丹巴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2648', '2644', ',2589,2644,2648,', '3', '九龙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2649', '2644', ',2589,2644,2649,', '3', '雅江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2650', '2644', ',2589,2644,2650,', '3', '道孚县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2651', '2644', ',2589,2644,2651,', '3', '炉霍县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2652', '2644', ',2589,2644,2652,', '3', '甘孜县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2653', '2644', ',2589,2644,2653,', '3', '新龙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2654', '2644', ',2589,2644,2654,', '3', '德格县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2655', '2644', ',2589,2644,2655,', '3', '白玉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2656', '2644', ',2589,2644,2656,', '3', '石渠县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2657', '2644', ',2589,2644,2657,', '3', '色达县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2658', '2644', ',2589,2644,2658,', '3', '理塘县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2659', '2644', ',2589,2644,2659,', '3', '巴塘县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2660', '2644', ',2589,2644,2660,', '3', '乡城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2661', '2644', ',2589,2644,2661,', '3', '稻城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2662', '2644', ',2589,2644,2662,', '3', '得荣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2663', '2589', ',2589,2663,', '2', '广安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2664', '2663', ',2589,2663,2664,', '3', '广安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2665', '2663', ',2589,2663,2665,', '3', '岳池县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2666', '2663', ',2589,2663,2666,', '3', '武胜县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2667', '2663', ',2589,2663,2667,', '3', '邻水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2668', '2663', ',2589,2663,2668,', '3', '华莹市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2669', '2589', ',2589,2669,', '2', '广元市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2670', '2669', ',2589,2669,2670,', '3', '市中区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2671', '2669', ',2589,2669,2671,', '3', '元坝区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2672', '2669', ',2589,2669,2672,', '3', '朝天区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2673', '2669', ',2589,2669,2673,', '3', '旺苍县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2674', '2669', ',2589,2669,2674,', '3', '青川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2675', '2669', ',2589,2669,2675,', '3', '剑阁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2676', '2669', ',2589,2669,2676,', '3', '苍溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2677', '2589', ',2589,2677,', '2', '乐山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2678', '2677', ',2589,2677,2678,', '3', '市中区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2679', '2677', ',2589,2677,2679,', '3', '沙湾区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2680', '2677', ',2589,2677,2680,', '3', '五通桥区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2681', '2677', ',2589,2677,2681,', '3', '金口河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2682', '2677', ',2589,2677,2682,', '3', '犍为县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2683', '2677', ',2589,2677,2683,', '3', '井研县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2684', '2677', ',2589,2677,2684,', '3', '夹江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2685', '2677', ',2589,2677,2685,', '3', '沐川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2686', '2677', ',2589,2677,2686,', '3', '峨边彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2687', '2677', ',2589,2677,2687,', '3', '马边彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2688', '2677', ',2589,2677,2688,', '3', '峨眉山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2689', '2589', ',2589,2689,', '2', '凉山彝族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2690', '2689', ',2589,2689,2690,', '3', '西昌市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2691', '2689', ',2589,2689,2691,', '3', '木里藏族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2692', '2689', ',2589,2689,2692,', '3', '盐源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2693', '2689', ',2589,2689,2693,', '3', '德昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2694', '2689', ',2589,2689,2694,', '3', '会理县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2695', '2689', ',2589,2689,2695,', '3', '会东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2696', '2689', ',2589,2689,2696,', '3', '宁南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2697', '2689', ',2589,2689,2697,', '3', '普格县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2698', '2689', ',2589,2689,2698,', '3', '布拖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2699', '2689', ',2589,2689,2699,', '3', '金阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2700', '2689', ',2589,2689,2700,', '3', '昭觉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2701', '2689', ',2589,2689,2701,', '3', '喜德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2702', '2689', ',2589,2689,2702,', '3', '冕宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2703', '2689', ',2589,2689,2703,', '3', '越西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2704', '2689', ',2589,2689,2704,', '3', '甘洛县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2705', '2689', ',2589,2689,2705,', '3', '美姑县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2706', '2689', ',2589,2689,2706,', '3', '雷波县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2707', '2589', ',2589,2707,', '2', '泸州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2708', '2707', ',2589,2707,2708,', '3', '江阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2709', '2707', ',2589,2707,2709,', '3', '纳溪区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2710', '2707', ',2589,2707,2710,', '3', '龙马潭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2711', '2707', ',2589,2707,2711,', '3', '泸县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2712', '2707', ',2589,2707,2712,', '3', '合江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2713', '2707', ',2589,2707,2713,', '3', '叙永县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2714', '2707', ',2589,2707,2714,', '3', '古蔺县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2715', '2589', ',2589,2715,', '2', '眉山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2716', '2715', ',2589,2715,2716,', '3', '东坡区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2717', '2715', ',2589,2715,2717,', '3', '仁寿县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2718', '2715', ',2589,2715,2718,', '3', '彭山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2719', '2715', ',2589,2715,2719,', '3', '洪雅县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2720', '2715', ',2589,2715,2720,', '3', '丹棱县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2721', '2715', ',2589,2715,2721,', '3', '青神县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2722', '2589', ',2589,2722,', '2', '绵阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2723', '2722', ',2589,2722,2723,', '3', '涪城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2724', '2722', ',2589,2722,2724,', '3', '游仙区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2725', '2722', ',2589,2722,2725,', '3', '三台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2726', '2722', ',2589,2722,2726,', '3', '盐亭县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2727', '2722', ',2589,2722,2727,', '3', '安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2728', '2722', ',2589,2722,2728,', '3', '梓潼县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2729', '2722', ',2589,2722,2729,', '3', '北川羌族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2730', '2722', ',2589,2722,2730,', '3', '平武县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2731', '2722', ',2589,2722,2731,', '3', '江油市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2732', '2589', ',2589,2732,', '2', '内江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2733', '2732', ',2589,2732,2733,', '3', '市中区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2734', '2732', ',2589,2732,2734,', '3', '东兴区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2735', '2732', ',2589,2732,2735,', '3', '威远县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2736', '2732', ',2589,2732,2736,', '3', '资中县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2737', '2732', ',2589,2732,2737,', '3', '隆昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2738', '2589', ',2589,2738,', '2', '南充市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2739', '2738', ',2589,2738,2739,', '3', '顺庆区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2740', '2738', ',2589,2738,2740,', '3', '高坪区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2741', '2738', ',2589,2738,2741,', '3', '嘉陵区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2742', '2738', ',2589,2738,2742,', '3', '南部县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2743', '2738', ',2589,2738,2743,', '3', '营山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2744', '2738', ',2589,2738,2744,', '3', '蓬安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2745', '2738', ',2589,2738,2745,', '3', '仪陇县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2746', '2738', ',2589,2738,2746,', '3', '西充县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2747', '2738', ',2589,2738,2747,', '3', '阆中市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2748', '2589', ',2589,2748,', '2', '攀枝花市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2749', '2748', ',2589,2748,2749,', '3', '东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2750', '2748', ',2589,2748,2750,', '3', '西区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2751', '2748', ',2589,2748,2751,', '3', '仁和区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2752', '2748', ',2589,2748,2752,', '3', '米易县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2753', '2748', ',2589,2748,2753,', '3', '盐边县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2754', '2589', ',2589,2754,', '2', '遂宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2755', '2754', ',2589,2754,2755,', '3', '船山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2756', '2754', ',2589,2754,2756,', '3', '安居区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2757', '2754', ',2589,2754,2757,', '3', '蓬溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2758', '2754', ',2589,2754,2758,', '3', '射洪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2759', '2754', ',2589,2754,2759,', '3', '大英县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2760', '2589', ',2589,2760,', '2', '雅安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2761', '2760', ',2589,2760,2761,', '3', '雨城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2762', '2760', ',2589,2760,2762,', '3', '名山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2763', '2760', ',2589,2760,2763,', '3', '荥经县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2764', '2760', ',2589,2760,2764,', '3', '汉源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2765', '2760', ',2589,2760,2765,', '3', '石棉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2766', '2760', ',2589,2760,2766,', '3', '天全县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2767', '2760', ',2589,2760,2767,', '3', '芦山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2768', '2760', ',2589,2760,2768,', '3', '宝兴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2769', '2589', ',2589,2769,', '2', '宜宾市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2770', '2769', ',2589,2769,2770,', '3', '翠屏区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2771', '2769', ',2589,2769,2771,', '3', '宜宾县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2772', '2769', ',2589,2769,2772,', '3', '南溪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2773', '2769', ',2589,2769,2773,', '3', '江安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2774', '2769', ',2589,2769,2774,', '3', '长宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2775', '2769', ',2589,2769,2775,', '3', '高县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2776', '2769', ',2589,2769,2776,', '3', '珙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2777', '2769', ',2589,2769,2777,', '3', '筠连县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2778', '2769', ',2589,2769,2778,', '3', '兴文县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2779', '2769', ',2589,2769,2779,', '3', '屏山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2780', '2589', ',2589,2780,', '2', '资阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2781', '2780', ',2589,2780,2781,', '3', '雁江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2782', '2780', ',2589,2780,2782,', '3', '安岳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2783', '2780', ',2589,2780,2783,', '3', '乐至县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2784', '2780', ',2589,2780,2784,', '3', '简阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2785', '2589', ',2589,2785,', '2', '自贡市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2786', '2785', ',2589,2785,2786,', '3', '自流井区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2787', '2785', ',2589,2785,2787,', '3', '贡井区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2788', '2785', ',2589,2785,2788,', '3', '大安区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2789', '2785', ',2589,2785,2789,', '3', '沿滩区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2790', '2785', ',2589,2785,2790,', '3', '荣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2791', '2785', ',2589,2785,2791,', '3', '富顺县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2792', null, ',2792,', '1', '西藏', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2793', '2792', ',2792,2793,', '2', '拉萨市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2794', '2793', ',2792,2793,2794,', '3', '城关区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2795', '2793', ',2792,2793,2795,', '3', '林周县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2796', '2793', ',2792,2793,2796,', '3', '当雄县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2797', '2793', ',2792,2793,2797,', '3', '尼木县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2798', '2793', ',2792,2793,2798,', '3', '曲水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2799', '2793', ',2792,2793,2799,', '3', '堆龙德庆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2800', '2793', ',2792,2793,2800,', '3', '达孜县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2801', '2793', ',2792,2793,2801,', '3', '墨竹工卡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2802', '2792', ',2792,2802,', '2', '阿里地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2803', '2802', ',2792,2802,2803,', '3', '普兰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2804', '2802', ',2792,2802,2804,', '3', '札达县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2805', '2802', ',2792,2802,2805,', '3', '噶尔县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2806', '2802', ',2792,2802,2806,', '3', '日土县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2807', '2802', ',2792,2802,2807,', '3', '革吉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2808', '2802', ',2792,2802,2808,', '3', '改则县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2809', '2802', ',2792,2802,2809,', '3', '措勤县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2810', '2792', ',2792,2810,', '2', '昌都地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2811', '2810', ',2792,2810,2811,', '3', '昌都县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2812', '2810', ',2792,2810,2812,', '3', '江达县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2813', '2810', ',2792,2810,2813,', '3', '贡觉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2814', '2810', ',2792,2810,2814,', '3', '类乌齐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2815', '2810', ',2792,2810,2815,', '3', '丁青县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2816', '2810', ',2792,2810,2816,', '3', '察雅县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2817', '2810', ',2792,2810,2817,', '3', '八宿县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2818', '2810', ',2792,2810,2818,', '3', '左贡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2819', '2810', ',2792,2810,2819,', '3', '芒康县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2820', '2810', ',2792,2810,2820,', '3', '洛隆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2821', '2810', ',2792,2810,2821,', '3', '边坝县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2822', '2792', ',2792,2822,', '2', '林芝地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2823', '2822', ',2792,2822,2823,', '3', '林芝县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2824', '2822', ',2792,2822,2824,', '3', '工布江达县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2825', '2822', ',2792,2822,2825,', '3', '米林县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2826', '2822', ',2792,2822,2826,', '3', '墨脱县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2827', '2822', ',2792,2822,2827,', '3', '波密县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2828', '2822', ',2792,2822,2828,', '3', '察隅县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2829', '2822', ',2792,2822,2829,', '3', '朗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2830', '2792', ',2792,2830,', '2', '那曲地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2831', '2830', ',2792,2830,2831,', '3', '那曲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2832', '2830', ',2792,2830,2832,', '3', '嘉黎县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2833', '2830', ',2792,2830,2833,', '3', '比如县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2834', '2830', ',2792,2830,2834,', '3', '聂荣县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2835', '2830', ',2792,2830,2835,', '3', '安多县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2836', '2830', ',2792,2830,2836,', '3', '申扎县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2837', '2830', ',2792,2830,2837,', '3', '索县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2838', '2830', ',2792,2830,2838,', '3', '班戈县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2839', '2830', ',2792,2830,2839,', '3', '巴青县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2840', '2830', ',2792,2830,2840,', '3', '尼玛县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2841', '2792', ',2792,2841,', '2', '日喀则地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2842', '2841', ',2792,2841,2842,', '3', '日喀则市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2843', '2841', ',2792,2841,2843,', '3', '南木林县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2844', '2841', ',2792,2841,2844,', '3', '江孜县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2845', '2841', ',2792,2841,2845,', '3', '定日县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2846', '2841', ',2792,2841,2846,', '3', '萨迦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2847', '2841', ',2792,2841,2847,', '3', '拉孜县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2848', '2841', ',2792,2841,2848,', '3', '昂仁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2849', '2841', ',2792,2841,2849,', '3', '谢通门县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2850', '2841', ',2792,2841,2850,', '3', '白朗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2851', '2841', ',2792,2841,2851,', '3', '仁布县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2852', '2841', ',2792,2841,2852,', '3', '康马县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2853', '2841', ',2792,2841,2853,', '3', '定结县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2854', '2841', ',2792,2841,2854,', '3', '仲巴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2855', '2841', ',2792,2841,2855,', '3', '亚东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2856', '2841', ',2792,2841,2856,', '3', '吉隆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2857', '2841', ',2792,2841,2857,', '3', '聂拉木县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2858', '2841', ',2792,2841,2858,', '3', '萨嘎县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2859', '2841', ',2792,2841,2859,', '3', '岗巴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2860', '2792', ',2792,2860,', '2', '山南地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2861', '2860', ',2792,2860,2861,', '3', '乃东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2862', '2860', ',2792,2860,2862,', '3', '扎囊县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2863', '2860', ',2792,2860,2863,', '3', '贡嘎县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2864', '2860', ',2792,2860,2864,', '3', '桑日县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2865', '2860', ',2792,2860,2865,', '3', '琼结县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2866', '2860', ',2792,2860,2866,', '3', '曲松县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2867', '2860', ',2792,2860,2867,', '3', '措美县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2868', '2860', ',2792,2860,2868,', '3', '洛扎县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2869', '2860', ',2792,2860,2869,', '3', '加查县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2870', '2860', ',2792,2860,2870,', '3', '隆子县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2871', '2860', ',2792,2860,2871,', '3', '错那县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2872', '2860', ',2792,2860,2872,', '3', '浪卡子县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2873', null, ',2873,', '1', '新疆', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2874', '2873', ',2873,2874,', '2', '乌鲁木齐市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2875', '2874', ',2873,2874,2875,', '3', '天山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2876', '2874', ',2873,2874,2876,', '3', '沙依巴克区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2877', '2874', ',2873,2874,2877,', '3', '新市区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2878', '2874', ',2873,2874,2878,', '3', '水磨沟区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2879', '2874', ',2873,2874,2879,', '3', '头屯河区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2880', '2874', ',2873,2874,2880,', '3', '达坂城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2881', '2874', ',2873,2874,2881,', '3', '东山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2882', '2874', ',2873,2874,2882,', '3', '乌鲁木齐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2883', '2873', ',2873,2883,', '2', '阿克苏地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2884', '2883', ',2873,2883,2884,', '3', '阿克苏市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2885', '2883', ',2873,2883,2885,', '3', '温宿县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2886', '2883', ',2873,2883,2886,', '3', '库车县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2887', '2883', ',2873,2883,2887,', '3', '沙雅县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2888', '2883', ',2873,2883,2888,', '3', '新和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2889', '2883', ',2873,2883,2889,', '3', '拜城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2890', '2883', ',2873,2883,2890,', '3', '乌什县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2891', '2883', ',2873,2883,2891,', '3', '阿瓦提县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2892', '2883', ',2873,2883,2892,', '3', '柯坪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2893', '2873', ',2873,2893,', '2', '阿拉尔市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2894', '2873', ',2873,2894,', '2', '阿勒泰地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2895', '2894', ',2873,2894,2895,', '3', '阿勒泰市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2896', '2894', ',2873,2894,2896,', '3', '布尔津县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2897', '2894', ',2873,2894,2897,', '3', '富蕴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2898', '2894', ',2873,2894,2898,', '3', '福海县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2899', '2894', ',2873,2894,2899,', '3', '哈巴河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2900', '2894', ',2873,2894,2900,', '3', '青河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2901', '2894', ',2873,2894,2901,', '3', '吉木乃县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2902', '2873', ',2873,2902,', '2', '巴音郭楞蒙古自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2903', '2902', ',2873,2902,2903,', '3', '库尔勒市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2904', '2902', ',2873,2902,2904,', '3', '轮台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2905', '2902', ',2873,2902,2905,', '3', '尉犁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2906', '2902', ',2873,2902,2906,', '3', '若羌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2907', '2902', ',2873,2902,2907,', '3', '且末县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2908', '2902', ',2873,2902,2908,', '3', '焉耆回族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2909', '2902', ',2873,2902,2909,', '3', '和静县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2910', '2902', ',2873,2902,2910,', '3', '和硕县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2911', '2902', ',2873,2902,2911,', '3', '博湖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2912', '2873', ',2873,2912,', '2', '博尔塔拉蒙古自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2913', '2912', ',2873,2912,2913,', '3', '博乐市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2914', '2912', ',2873,2912,2914,', '3', '精河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2915', '2912', ',2873,2912,2915,', '3', '温泉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2916', '2873', ',2873,2916,', '2', '昌吉回族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2917', '2916', ',2873,2916,2917,', '3', '昌吉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2918', '2916', ',2873,2916,2918,', '3', '阜康市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2919', '2916', ',2873,2916,2919,', '3', '米泉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2920', '2916', ',2873,2916,2920,', '3', '呼图壁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2921', '2916', ',2873,2916,2921,', '3', '玛纳斯县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2922', '2916', ',2873,2916,2922,', '3', '奇台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2923', '2916', ',2873,2916,2923,', '3', '吉木萨尔县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2924', '2916', ',2873,2916,2924,', '3', '木垒哈萨克自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2925', '2873', ',2873,2925,', '2', '哈密地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2926', '2925', ',2873,2925,2926,', '3', '哈密市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2927', '2925', ',2873,2925,2927,', '3', '巴里坤哈萨克自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2928', '2925', ',2873,2925,2928,', '3', '伊吾县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2929', '2873', ',2873,2929,', '2', '和田地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2930', '2929', ',2873,2929,2930,', '3', '和田市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2931', '2929', ',2873,2929,2931,', '3', '和田县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2932', '2929', ',2873,2929,2932,', '3', '墨玉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2933', '2929', ',2873,2929,2933,', '3', '皮山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2934', '2929', ',2873,2929,2934,', '3', '洛浦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2935', '2929', ',2873,2929,2935,', '3', '策勒县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2936', '2929', ',2873,2929,2936,', '3', '于田县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2937', '2929', ',2873,2929,2937,', '3', '民丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2938', '2873', ',2873,2938,', '2', '喀什地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2939', '2938', ',2873,2938,2939,', '3', '喀什市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2940', '2938', ',2873,2938,2940,', '3', '疏附县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2941', '2938', ',2873,2938,2941,', '3', '疏勒县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2942', '2938', ',2873,2938,2942,', '3', '英吉沙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2943', '2938', ',2873,2938,2943,', '3', '泽普县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2944', '2938', ',2873,2938,2944,', '3', '莎车县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2945', '2938', ',2873,2938,2945,', '3', '叶城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2946', '2938', ',2873,2938,2946,', '3', '麦盖提县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2947', '2938', ',2873,2938,2947,', '3', '岳普湖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2948', '2938', ',2873,2938,2948,', '3', '伽师县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2949', '2938', ',2873,2938,2949,', '3', '巴楚县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2950', '2938', ',2873,2938,2950,', '3', '塔什库尔干塔吉克自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2951', '2873', ',2873,2951,', '2', '克拉玛依市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2952', '2951', ',2873,2951,2952,', '3', '独山子区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2953', '2951', ',2873,2951,2953,', '3', '克拉玛依区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2954', '2951', ',2873,2951,2954,', '3', '白碱滩区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2955', '2951', ',2873,2951,2955,', '3', '乌尔禾区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2956', '2873', ',2873,2956,', '2', '克孜勒苏柯尔克孜自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2957', '2956', ',2873,2956,2957,', '3', '阿图什市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2958', '2956', ',2873,2956,2958,', '3', '阿克陶县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2959', '2956', ',2873,2956,2959,', '3', '阿合奇县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2960', '2956', ',2873,2956,2960,', '3', '乌恰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2961', '2873', ',2873,2961,', '2', '石河子市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2962', '2873', ',2873,2962,', '2', '塔城地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2963', '2962', ',2873,2962,2963,', '3', '塔城市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2964', '2962', ',2873,2962,2964,', '3', '乌苏市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2965', '2962', ',2873,2962,2965,', '3', '额敏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2966', '2962', ',2873,2962,2966,', '3', '沙湾县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2967', '2962', ',2873,2962,2967,', '3', '托里县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2968', '2962', ',2873,2962,2968,', '3', '裕民县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2969', '2962', ',2873,2962,2969,', '3', '和布克赛尔蒙古自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2970', '2873', ',2873,2970,', '2', '图木舒克市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2971', '2873', ',2873,2971,', '2', '吐鲁番地区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2972', '2971', ',2873,2971,2972,', '3', '吐鲁番市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2973', '2971', ',2873,2971,2973,', '3', '鄯善县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2974', '2971', ',2873,2971,2974,', '3', '托克逊县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2975', '2873', ',2873,2975,', '2', '五家渠市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2976', '2873', ',2873,2976,', '2', '伊犁哈萨克自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2977', '2976', ',2873,2976,2977,', '3', '伊宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2978', '2976', ',2873,2976,2978,', '3', '奎屯市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2979', '2976', ',2873,2976,2979,', '3', '伊宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2980', '2976', ',2873,2976,2980,', '3', '察布查尔锡伯自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2981', '2976', ',2873,2976,2981,', '3', '霍城县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2982', '2976', ',2873,2976,2982,', '3', '巩留县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2983', '2976', ',2873,2976,2983,', '3', '新源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2984', '2976', ',2873,2976,2984,', '3', '昭苏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2985', '2976', ',2873,2976,2985,', '3', '特克斯县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2986', '2976', ',2873,2976,2986,', '3', '尼勒克县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2987', null, ',2987,', '1', '云南', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2988', '2987', ',2987,2988,', '2', '昆明市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2989', '2988', ',2987,2988,2989,', '3', '五华区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2990', '2988', ',2987,2988,2990,', '3', '盘龙区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2991', '2988', ',2987,2988,2991,', '3', '官渡区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2992', '2988', ',2987,2988,2992,', '3', '西山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2993', '2988', ',2987,2988,2993,', '3', '东川区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2994', '2988', ',2987,2988,2994,', '3', '呈贡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2995', '2988', ',2987,2988,2995,', '3', '晋宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2996', '2988', ',2987,2988,2996,', '3', '富民县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2997', '2988', ',2987,2988,2997,', '3', '宜良县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2998', '2988', ',2987,2988,2998,', '3', '石林彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('2999', '2988', ',2987,2988,2999,', '3', '嵩明县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3000', '2988', ',2987,2988,3000,', '3', '禄劝彝族苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3001', '2988', ',2987,2988,3001,', '3', '寻甸回族彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3002', '2988', ',2987,2988,3002,', '3', '安宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3003', '2987', ',2987,3003,', '2', '保山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3004', '3003', ',2987,3003,3004,', '3', '隆阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3005', '3003', ',2987,3003,3005,', '3', '施甸县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3006', '3003', ',2987,3003,3006,', '3', '腾冲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3007', '3003', ',2987,3003,3007,', '3', '龙陵县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3008', '3003', ',2987,3003,3008,', '3', '昌宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3009', '2987', ',2987,3009,', '2', '楚雄彝族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3010', '3009', ',2987,3009,3010,', '3', '楚雄市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3011', '3009', ',2987,3009,3011,', '3', '双柏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3012', '3009', ',2987,3009,3012,', '3', '牟定县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3013', '3009', ',2987,3009,3013,', '3', '南华县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3014', '3009', ',2987,3009,3014,', '3', '姚安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3015', '3009', ',2987,3009,3015,', '3', '大姚县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3016', '3009', ',2987,3009,3016,', '3', '永仁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3017', '3009', ',2987,3009,3017,', '3', '元谋县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3018', '3009', ',2987,3009,3018,', '3', '武定县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3019', '3009', ',2987,3009,3019,', '3', '禄丰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3020', '2987', ',2987,3020,', '2', '大理白族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3021', '3020', ',2987,3020,3021,', '3', '大理市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3022', '3020', ',2987,3020,3022,', '3', '漾濞彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3023', '3020', ',2987,3020,3023,', '3', '祥云县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3024', '3020', ',2987,3020,3024,', '3', '宾川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3025', '3020', ',2987,3020,3025,', '3', '弥渡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3026', '3020', ',2987,3020,3026,', '3', '南涧彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3027', '3020', ',2987,3020,3027,', '3', '巍山彝族回族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3028', '3020', ',2987,3020,3028,', '3', '永平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3029', '3020', ',2987,3020,3029,', '3', '云龙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3030', '3020', ',2987,3020,3030,', '3', '洱源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3031', '3020', ',2987,3020,3031,', '3', '剑川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3032', '3020', ',2987,3020,3032,', '3', '鹤庆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3033', '2987', ',2987,3033,', '2', '德宏傣族景颇族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3034', '3033', ',2987,3033,3034,', '3', '瑞丽市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3035', '3033', ',2987,3033,3035,', '3', '潞西市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3036', '3033', ',2987,3033,3036,', '3', '梁河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3037', '3033', ',2987,3033,3037,', '3', '盈江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3038', '3033', ',2987,3033,3038,', '3', '陇川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3039', '2987', ',2987,3039,', '2', '迪庆藏族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3040', '3039', ',2987,3039,3040,', '3', '香格里拉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3041', '3039', ',2987,3039,3041,', '3', '德钦县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3042', '3039', ',2987,3039,3042,', '3', '维西傈僳族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3043', '2987', ',2987,3043,', '2', '红河哈尼族彝族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3044', '3043', ',2987,3043,3044,', '3', '个旧市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3045', '3043', ',2987,3043,3045,', '3', '开远市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3046', '3043', ',2987,3043,3046,', '3', '蒙自县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3047', '3043', ',2987,3043,3047,', '3', '屏边苗族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3048', '3043', ',2987,3043,3048,', '3', '建水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3049', '3043', ',2987,3043,3049,', '3', '石屏县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3050', '3043', ',2987,3043,3050,', '3', '弥勒县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3051', '3043', ',2987,3043,3051,', '3', '泸西县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3052', '3043', ',2987,3043,3052,', '3', '元阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3053', '3043', ',2987,3043,3053,', '3', '红河县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3054', '3043', ',2987,3043,3054,', '3', '金平苗族瑶族傣族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3055', '3043', ',2987,3043,3055,', '3', '绿春县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3056', '3043', ',2987,3043,3056,', '3', '河口瑶族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3057', '2987', ',2987,3057,', '2', '丽江市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3058', '3057', ',2987,3057,3058,', '3', '古城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3059', '3057', ',2987,3057,3059,', '3', '玉龙纳西族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3060', '3057', ',2987,3057,3060,', '3', '永胜县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3061', '3057', ',2987,3057,3061,', '3', '华坪县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3062', '3057', ',2987,3057,3062,', '3', '宁蒗彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3063', '2987', ',2987,3063,', '2', '临沧市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3064', '3063', ',2987,3063,3064,', '3', '临翔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3065', '3063', ',2987,3063,3065,', '3', '凤庆县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3066', '3063', ',2987,3063,3066,', '3', '云县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3067', '3063', ',2987,3063,3067,', '3', '永德县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3068', '3063', ',2987,3063,3068,', '3', '镇康县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3069', '3063', ',2987,3063,3069,', '3', '双江拉祜族佤族布朗族傣族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3070', '3063', ',2987,3063,3070,', '3', '耿马傣族佤族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3071', '3063', ',2987,3063,3071,', '3', '沧源佤族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3072', '2987', ',2987,3072,', '2', '怒江傈僳族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3073', '3072', ',2987,3072,3073,', '3', '泸水县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3074', '3072', ',2987,3072,3074,', '3', '福贡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3075', '3072', ',2987,3072,3075,', '3', '贡山独龙族怒族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3076', '3072', ',2987,3072,3076,', '3', '兰坪白族普米族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3077', '2987', ',2987,3077,', '2', '曲靖市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3078', '3077', ',2987,3077,3078,', '3', '麒麟区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3079', '3077', ',2987,3077,3079,', '3', '马龙县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3080', '3077', ',2987,3077,3080,', '3', '陆良县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3081', '3077', ',2987,3077,3081,', '3', '师宗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3082', '3077', ',2987,3077,3082,', '3', '罗平县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3083', '3077', ',2987,3077,3083,', '3', '富源县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3084', '3077', ',2987,3077,3084,', '3', '会泽县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3085', '3077', ',2987,3077,3085,', '3', '沾益县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3086', '3077', ',2987,3077,3086,', '3', '宣威市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3087', '2987', ',2987,3087,', '2', '思茅市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3088', '3087', ',2987,3087,3088,', '3', '翠云区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3089', '3087', ',2987,3087,3089,', '3', '普洱哈尼族彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3090', '3087', ',2987,3087,3090,', '3', '墨江哈尼族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3091', '3087', ',2987,3087,3091,', '3', '景东彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3092', '3087', ',2987,3087,3092,', '3', '景谷傣族彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3093', '3087', ',2987,3087,3093,', '3', '镇沅彝族哈尼族拉祜族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3094', '3087', ',2987,3087,3094,', '3', '江城哈尼族彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3095', '3087', ',2987,3087,3095,', '3', '孟连傣族拉祜族佤族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3096', '3087', ',2987,3087,3096,', '3', '澜沧拉祜族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3097', '3087', ',2987,3087,3097,', '3', '西盟佤族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3098', '2987', ',2987,3098,', '2', '文山壮族苗族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3099', '3098', ',2987,3098,3099,', '3', '文山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3100', '3098', ',2987,3098,3100,', '3', '砚山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3101', '3098', ',2987,3098,3101,', '3', '西畴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3102', '3098', ',2987,3098,3102,', '3', '麻栗坡县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3103', '3098', ',2987,3098,3103,', '3', '马关县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3104', '3098', ',2987,3098,3104,', '3', '丘北县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3105', '3098', ',2987,3098,3105,', '3', '广南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3106', '3098', ',2987,3098,3106,', '3', '富宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3107', '2987', ',2987,3107,', '2', '西双版纳傣族自治州', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3108', '3107', ',2987,3107,3108,', '3', '景洪市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3109', '3107', ',2987,3107,3109,', '3', '勐海县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3110', '3107', ',2987,3107,3110,', '3', '勐腊县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3111', '2987', ',2987,3111,', '2', '玉溪市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3112', '3111', ',2987,3111,3112,', '3', '红塔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3113', '3111', ',2987,3111,3113,', '3', '江川县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3114', '3111', ',2987,3111,3114,', '3', '澄江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3115', '3111', ',2987,3111,3115,', '3', '通海县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3116', '3111', ',2987,3111,3116,', '3', '华宁县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3117', '3111', ',2987,3111,3117,', '3', '易门县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3118', '3111', ',2987,3111,3118,', '3', '峨山彝族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3119', '3111', ',2987,3111,3119,', '3', '新平彝族傣族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3120', '3111', ',2987,3111,3120,', '3', '元江哈尼族彝族傣族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3121', '2987', ',2987,3121,', '2', '昭通市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3122', '3121', ',2987,3121,3122,', '3', '昭阳区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3123', '3121', ',2987,3121,3123,', '3', '鲁甸县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3124', '3121', ',2987,3121,3124,', '3', '巧家县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3125', '3121', ',2987,3121,3125,', '3', '盐津县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3126', '3121', ',2987,3121,3126,', '3', '大关县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3127', '3121', ',2987,3121,3127,', '3', '永善县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3128', '3121', ',2987,3121,3128,', '3', '绥江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3129', '3121', ',2987,3121,3129,', '3', '镇雄县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3130', '3121', ',2987,3121,3130,', '3', '彝良县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3131', '3121', ',2987,3121,3131,', '3', '威信县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3132', '3121', ',2987,3121,3132,', '3', '水富县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3133', null, ',3133,', '1', '浙江', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3134', '3133', ',3133,3134,', '2', '杭州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3135', '3134', ',3133,3134,3135,', '3', '上城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3136', '3134', ',3133,3134,3136,', '3', '下城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3137', '3134', ',3133,3134,3137,', '3', '江干区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3138', '3134', ',3133,3134,3138,', '3', '拱墅区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3139', '3134', ',3133,3134,3139,', '3', '西湖区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3140', '3134', ',3133,3134,3140,', '3', '滨江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3141', '3134', ',3133,3134,3141,', '3', '萧山区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3142', '3134', ',3133,3134,3142,', '3', '余杭区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3143', '3134', ',3133,3134,3143,', '3', '桐庐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3144', '3134', ',3133,3134,3144,', '3', '淳安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3145', '3134', ',3133,3134,3145,', '3', '建德市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3146', '3134', ',3133,3134,3146,', '3', '富阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3147', '3134', ',3133,3134,3147,', '3', '临安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3148', '3133', ',3133,3148,', '2', '湖州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3149', '3148', ',3133,3148,3149,', '3', '吴兴区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3150', '3148', ',3133,3148,3150,', '3', '南浔区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3151', '3148', ',3133,3148,3151,', '3', '德清县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3152', '3148', ',3133,3148,3152,', '3', '长兴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3153', '3148', ',3133,3148,3153,', '3', '安吉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3154', '3133', ',3133,3154,', '2', '嘉兴市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3155', '3154', ',3133,3154,3155,', '3', '秀城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3156', '3154', ',3133,3154,3156,', '3', '秀洲区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3157', '3154', ',3133,3154,3157,', '3', '嘉善县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3158', '3154', ',3133,3154,3158,', '3', '海盐县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3159', '3154', ',3133,3154,3159,', '3', '海宁市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3160', '3154', ',3133,3154,3160,', '3', '平湖市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3161', '3154', ',3133,3154,3161,', '3', '桐乡市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3162', '3133', ',3133,3162,', '2', '金华市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3163', '3162', ',3133,3162,3163,', '3', '婺城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3164', '3162', ',3133,3162,3164,', '3', '金东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3165', '3162', ',3133,3162,3165,', '3', '武义县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3166', '3162', ',3133,3162,3166,', '3', '浦江县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3167', '3162', ',3133,3162,3167,', '3', '磐安县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3168', '3162', ',3133,3162,3168,', '3', '兰溪市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3169', '3162', ',3133,3162,3169,', '3', '义乌市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3170', '3162', ',3133,3162,3170,', '3', '东阳市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3171', '3162', ',3133,3162,3171,', '3', '永康市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3172', '3133', ',3133,3172,', '2', '丽水市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3173', '3172', ',3133,3172,3173,', '3', '莲都区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3174', '3172', ',3133,3172,3174,', '3', '青田县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3175', '3172', ',3133,3172,3175,', '3', '缙云县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3176', '3172', ',3133,3172,3176,', '3', '遂昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3177', '3172', ',3133,3172,3177,', '3', '松阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3178', '3172', ',3133,3172,3178,', '3', '云和县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3179', '3172', ',3133,3172,3179,', '3', '庆元县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3180', '3172', ',3133,3172,3180,', '3', '景宁畲族自治县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3181', '3172', ',3133,3172,3181,', '3', '龙泉市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3182', '3133', ',3133,3182,', '2', '宁波市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3183', '3182', ',3133,3182,3183,', '3', '海曙区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3184', '3182', ',3133,3182,3184,', '3', '江东区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3185', '3182', ',3133,3182,3185,', '3', '江北区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3186', '3182', ',3133,3182,3186,', '3', '北仑区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3187', '3182', ',3133,3182,3187,', '3', '镇海区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3188', '3182', ',3133,3182,3188,', '3', '鄞州区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3189', '3182', ',3133,3182,3189,', '3', '象山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3190', '3182', ',3133,3182,3190,', '3', '宁海县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3191', '3182', ',3133,3182,3191,', '3', '余姚市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3192', '3182', ',3133,3182,3192,', '3', '慈溪市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3193', '3182', ',3133,3182,3193,', '3', '奉化市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3194', '3133', ',3133,3194,', '2', '衢州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3195', '3194', ',3133,3194,3195,', '3', '柯城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3196', '3194', ',3133,3194,3196,', '3', '衢江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3197', '3194', ',3133,3194,3197,', '3', '常山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3198', '3194', ',3133,3194,3198,', '3', '开化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3199', '3194', ',3133,3194,3199,', '3', '龙游县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3200', '3194', ',3133,3194,3200,', '3', '江山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3201', '3133', ',3133,3201,', '2', '绍兴市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3202', '3201', ',3133,3201,3202,', '3', '越城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3203', '3201', ',3133,3201,3203,', '3', '绍兴县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3204', '3201', ',3133,3201,3204,', '3', '新昌县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3205', '3201', ',3133,3201,3205,', '3', '诸暨市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3206', '3201', ',3133,3201,3206,', '3', '上虞市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3207', '3201', ',3133,3201,3207,', '3', '嵊州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3208', '3133', ',3133,3208,', '2', '台州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3209', '3208', ',3133,3208,3209,', '3', '椒江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3210', '3208', ',3133,3208,3210,', '3', '黄岩区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3211', '3208', ',3133,3208,3211,', '3', '路桥区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3212', '3208', ',3133,3208,3212,', '3', '玉环县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3213', '3208', ',3133,3208,3213,', '3', '三门县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3214', '3208', ',3133,3208,3214,', '3', '天台县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3215', '3208', ',3133,3208,3215,', '3', '仙居县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3216', '3208', ',3133,3208,3216,', '3', '温岭市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3217', '3208', ',3133,3208,3217,', '3', '临海市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3218', '3133', ',3133,3218,', '2', '温州市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3219', '3218', ',3133,3218,3219,', '3', '鹿城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3220', '3218', ',3133,3218,3220,', '3', '龙湾区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3221', '3218', ',3133,3218,3221,', '3', '瓯海区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3222', '3218', ',3133,3218,3222,', '3', '洞头县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3223', '3218', ',3133,3218,3223,', '3', '永嘉县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3224', '3218', ',3133,3218,3224,', '3', '平阳县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3225', '3218', ',3133,3218,3225,', '3', '苍南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3226', '3218', ',3133,3218,3226,', '3', '文成县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3227', '3218', ',3133,3218,3227,', '3', '泰顺县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3228', '3218', ',3133,3218,3228,', '3', '瑞安市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3229', '3218', ',3133,3218,3229,', '3', '乐清市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3230', '3133', ',3133,3230,', '2', '舟山市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3231', '3230', ',3133,3230,3231,', '3', '定海区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3232', '3230', ',3133,3230,3232,', '3', '普陀区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3233', '3230', ',3133,3230,3233,', '3', '岱山县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3234', '3230', ',3133,3230,3234,', '3', '嵊泗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3235', null, ',3235,', '1', '香港', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3236', '3235', ',3235,3236,', '2', '九龙', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3237', '3235', ',3235,3237,', '2', '香港岛', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3238', '3235', ',3235,3238,', '2', '新界', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3239', null, ',3239,', '1', '澳门', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3240', '3239', ',3239,3240,', '2', '澳门半岛', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3241', '3239', ',3239,3241,', '2', '离岛', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3242', null, ',3242,', '1', '台湾', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3243', '3242', ',3242,3243,', '2', '台北市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3244', '3242', ',3242,3244,', '2', '高雄市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3245', '3242', ',3242,3245,', '2', '高雄县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3246', '3242', ',3242,3246,', '2', '花莲县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3247', '3242', ',3242,3247,', '2', '基隆市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3248', '3242', ',3242,3248,', '2', '嘉义市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3249', '3242', ',3242,3249,', '2', '嘉义县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3250', '3242', ',3242,3250,', '2', '金门县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3251', '3242', ',3242,3251,', '2', '苗栗县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3252', '3242', ',3242,3252,', '2', '南投县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3253', '3242', ',3242,3253,', '2', '澎湖县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3254', '3242', ',3242,3254,', '2', '屏东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3255', '3242', ',3242,3255,', '2', '台北县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3256', '3242', ',3242,3256,', '2', '台东县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3257', '3242', ',3242,3257,', '2', '台南市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3258', '3242', ',3242,3258,', '2', '台南县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3259', '3242', ',3242,3259,', '2', '台中市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3260', '3242', ',3242,3260,', '2', '台中县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3261', '3242', ',3242,3261,', '2', '桃园县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3262', '3242', ',3242,3262,', '2', '新竹市', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3263', '3242', ',3242,3263,', '2', '新竹县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3264', '3242', ',3242,3264,', '2', '宜兰县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3265', '3242', ',3242,3265,', '2', '云林县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3266', '3242', ',3242,3266,', '2', '彰化县', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3267', '441', ',423,441,3267,', '3', '中堂镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3268', '441', ',423,441,3268,', '3', '东坑镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3269', '441', ',423,441,3269,', '3', '道滘镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3270', '441', ',423,441,3270,', '3', '沙田镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3271', '441', ',423,441,3271,', '3', '高埗镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3272', '441', ',423,441,3272,', '3', '石龙镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3273', '441', ',423,441,3273,', '3', '石排镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3274', '441', ',423,441,3274,', '3', '企石镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3275', '441', ',423,441,3275,', '3', '石碣镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3276', '441', ',423,441,3276,', '3', '洪梅镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3277', '441', ',423,441,3277,', '3', '麻涌镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3278', '441', ',423,441,3278,', '3', '桥头镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3279', '441', ',423,441,3279,', '3', '望牛墩镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3280', '441', ',423,441,3280,', '3', '茶山镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3281', '441', ',423,441,3281,', '3', '谢岗镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3282', '441', ',423,441,3282,', '3', '松山湖', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3283', '441', ',423,441,3283,', '3', '莞城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3284', '441', ',423,441,3284,', '3', '南城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3285', '441', ',423,441,3285,', '3', '长安镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3286', '441', ',423,441,3286,', '3', '寮步镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3287', '441', ',423,441,3287,', '3', '大岭山镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3288', '441', ',423,441,3288,', '3', '常平镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3289', '441', ',423,441,3289,', '3', '厚街镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3290', '441', ',423,441,3290,', '3', '万江区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3291', '441', ',423,441,3291,', '3', '樟木头镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3292', '441', ',423,441,3292,', '3', '大朗镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3293', '441', ',423,441,3293,', '3', '塘厦镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3294', '441', ',423,441,3294,', '3', '凤岗镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3295', '441', ',423,441,3295,', '3', '清溪镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3296', '441', ',423,441,3296,', '3', '横沥镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3297', '441', ',423,441,3297,', '3', '东城区', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3298', '441', ',423,441,3298,', '3', '黄江镇', null, null, null, null);
+INSERT INTO `lied_regions` VALUES ('3299', '441', ',423,441,3299,', '3', '虎门镇', null, null, null, null);
+
+-- ----------------------------
+-- Table structure for `lied_regions_open`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_regions_open`;
+CREATE TABLE `lied_regions_open` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `region_id` int(16) unsigned NOT NULL COMMENT '开通城市regions表id',
+  `is_show` tinyint(1) unsigned DEFAULT '0' COMMENT '显示',
+  `sort_order` int(4) unsigned DEFAULT NULL COMMENT '排序',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='城市开通表';
+
+-- ----------------------------
+-- Records of lied_regions_open
+-- ----------------------------
+INSERT INTO `lied_regions_open` VALUES ('1', '424', '1', '99', '2019-05-21 17:23:04', '2019-05-22 09:43:38', null);
+INSERT INTO `lied_regions_open` VALUES ('2', '441', '1', '99', '2019-05-22 15:04:24', '2019-05-22 15:04:44', null);
+INSERT INTO `lied_regions_open` VALUES ('3', '448', '1', '99', '2019-05-22 15:04:38', '2019-05-22 15:04:49', null);
+INSERT INTO `lied_regions_open` VALUES ('4', '2', '1', '99', '2019-05-22 15:25:54', '2019-05-22 15:35:27', null);
+
+-- ----------------------------
+-- Table structure for `lied_users`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_users`;
+CREATE TABLE `lied_users` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) CHARACTER SET utf8 NOT NULL COMMENT '用户名',
+  `nick_name` varchar(64) CHARACTER SET utf8 DEFAULT '0' COMMENT '真实姓名',
+  `mobile` char(11) CHARACTER SET utf8 NOT NULL COMMENT '手机号码',
+  `email` varchar(255) CHARACTER SET utf8 DEFAULT '0' COMMENT '邮箱',
+  `email_verified_at` datetime DEFAULT '0000-00-00 00:00:00' COMMENT '邮箱验证时间',
+  `password` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '密码',
+  `remember_token` varchar(100) CHARACTER SET utf8 DEFAULT NULL COMMENT '记住我的token',
+  `register_ip` varchar(64) CHARACTER SET utf8 NOT NULL COMMENT '注册ip',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users-mobile` (`mobile`) USING BTREE,
+  UNIQUE KEY `users-email` (`email`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of lied_users
+-- ----------------------------
+INSERT INTO `lied_users` VALUES ('1', 'kuns', null, '13888888887', null, null, '$2y$10$A4HsERXTzl.ZB0lxx9AOp.tqSrEJ5bTVEzCuwLLMORiWpdha1ehyy', null, '127.0.0.1', '2019-01-09 11:58:16', '2019-01-09 11:58:16', null);
+
+-- ----------------------------
+-- Table structure for `lied_users_collect`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_users_collect`;
+CREATE TABLE `lied_users_collect` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(16) unsigned NOT NULL COMMENT '用户id',
+  `type` tinyint(1) unsigned NOT NULL COMMENT '收藏类型 0-商品 1-文章 2-商家',
+  `id_value` int(16) unsigned NOT NULL COMMENT '所属类型的id',
+  `is_attention` tinyint(1) unsigned DEFAULT '0' COMMENT '是否关注该收藏品0-现未关注 1-已关注',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户收藏表';
+
+-- ----------------------------
+-- Records of lied_users_collect
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_users_comment`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_users_comment`;
+CREATE TABLE `lied_users_comment` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `pid` int(16) unsigned NOT NULL COMMENT '评论的父节点',
+  `type` tinyint(3) unsigned NOT NULL COMMENT '类型 0-产品 1-文章',
+  `id_value` int(16) unsigned NOT NULL COMMENT '所属类型表的id',
+  `user_id` int(16) unsigned NOT NULL COMMENT '用户id',
+  `content` text NOT NULL COMMENT '评论内容',
+  `rank` tinyint(1) unsigned NOT NULL COMMENT '评论的星星数 1~5星',
+  `is_show` tinyint(1) unsigned NOT NULL COMMENT '是否显示',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户评论表';
+
+-- ----------------------------
+-- Records of lied_users_comment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_users_coupon`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_users_coupon`;
+CREATE TABLE `lied_users_coupon` (
+  `id` int(16) unsigned NOT NULL,
+  `coupon_id_value` int(16) unsigned NOT NULL COMMENT '对应type字段指定表的id',
+  `type` tinyint(1) unsigned NOT NULL COMMENT '领取类型1-限领表coupons_limit,2-线下优惠券表coupons_offline',
+  `user_id` int(16) unsigned NOT NULL COMMENT '用户id',
+  `use_time` datetime DEFAULT '0000-00-00 00:00:00' COMMENT '使用时间',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户优惠券表';
+
+-- ----------------------------
+-- Records of lied_users_coupon
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_users_oauth`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_users_oauth`;
+CREATE TABLE `lied_users_oauth` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(16) unsigned DEFAULT '0',
+  `unionid` varchar(128) DEFAULT '0' COMMENT '多公众号下联合id',
+  `openid` varchar(128) NOT NULL COMMENT '唯一授权id',
+  `sex` tinyint(1) unsigned DEFAULT '0' COMMENT '性别1-男 2-女',
+  `name` varchar(64) DEFAULT '0' COMMENT '姓名',
+  `thumb` int(16) unsigned DEFAULT '0' COMMENT '图片id',
+  `type` tinyint(1) unsigned NOT NULL COMMENT '授权类型1-wechat',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lied_users_oauth
+-- ----------------------------
