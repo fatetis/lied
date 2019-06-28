@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-class CouponsDiscount extends BaseModel
+class CouponsBatch extends BaseModel
 {
-    protected $table = 'coupons_discount';
+    protected $table = 'coupons_batch';
     protected $primaryKey = 'id';
     protected $guarded  = ['id'];
 

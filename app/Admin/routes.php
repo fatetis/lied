@@ -53,6 +53,7 @@ Route::group([
     $router->resource('artical', 'Artical\ArticalController');
 
 //    优惠券路由
+    $router->resource('coupon/batch', 'Coupon\CouponBatchController');
     $router->resource('coupon', 'Coupon\CouponController');
 
 });

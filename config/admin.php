@@ -242,7 +242,6 @@ return [
     |
     */
     'layout' => ['sidebar-mini'],
-//    , 'sidebar-collapse'
     /*
     |--------------------------------------------------------------------------
     | Login page background image

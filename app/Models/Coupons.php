@@ -6,7 +6,7 @@ class Coupons extends BaseModel
 {
     protected $table = 'coupons';
     protected $primaryKey = 'id';
-    protected $softCascade = ['couponsDiscount','couponsPrice'];//级联软删除
+    protected $softCascade = ['reldiscount','relprice','rellimit@restrict'];//级联软删除
 
     public function reldiscount()
     {
