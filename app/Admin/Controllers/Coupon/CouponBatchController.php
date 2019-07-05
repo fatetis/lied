@@ -2,7 +2,9 @@
 
 namespace App\Admin\Controllers\Coupon;
 
+use App\Models\Coupons;
 use App\Models\CouponsBatch;
+use App\Models\CouponsLimit;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -19,21 +21,30 @@ class CouponBatchController extends AdminController
 
     /**
      * Make a grid builder.
-     *
      * @return Grid
      */
     protected function grid()
     {
         $grid = new Grid(new CouponsBatch);
 
+        $grid->actions(function ($actions) {
+            $actions->disableView();
+            $route = route('downLoadExcel',1);
+            $actions->prepend('<a href="'.$route.'"><i class="fa fa-download"></i></a>');
+        });
+
         $grid->column('id', __('Id'));
-        $grid->column('name', __('Name'));
-        $grid->column('num', __('Num'));
-        $grid->column('coupon_limit_id', __('Coupon limit id'));
-        $grid->column('created_id', __('Created id'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
-        $grid->column('deleted_at', __('Deleted at'));
+        $grid->column('name', __('名称'))->editable();
+        $grid->column('relcoupon.name', __('优惠券名称'));
+        $grid->column('coupon_limit_id', __('限领信息(商家名称-产品名称)'))->display(function ($id){
+            $couponsLimit = CouponsLimit::with('relbrand')->with('relproduct')->find($id);
+            if ($couponsLimit) {
+                return $couponsLimit->relbrand['name'].'-'.$couponsLimit->relproduct['name'];
+            }
+        })->limit(146);
+        $grid->column('num', __('数量'))->editable();
+        $grid->column('created_at', __('创建时间'));
+        $grid->column('updated_at', __('更新时间'));
 
         return $grid;
     }
@@ -69,10 +80,24 @@ class CouponBatchController extends AdminController
     {
         $form = new Form(new CouponsBatch);
 
-        $form->text('name', __('Name'));
-        $form->number('num', __('Num'));
-        $form->number('coupon_limit_id', __('Coupon limit id'));
-        $form->number('created_id', __('Created id'));
+        $form->text('name', '批次名称');
+        $form->number('num', '数量');
+
+        $form->select('coupon_id','优惠券名称')->options(function ($id) {
+            $coupons = Coupons::find($id);
+            if ($coupons) {
+                return [$coupons->id => $coupons->name];
+            }
+        })->ajax(route('selectCoupon'))->load('coupon_limit_id', route('loadCouponLimit'))->rules('required');
+
+        $form->select('coupon_limit_id','限领券名称')->options(function ($id) {
+            $couponsLimit = CouponsLimit::with('relbrand')->with('relproduct')->find($id);
+            if ($couponsLimit) {
+                return [$couponsLimit->id => $couponsLimit->relbrand['name'].'-'.$couponsLimit->relproduct['name']];
+            }
+        })->rules('required');
+
+        $form->hidden('created_id')->value(getAdminUserId());
 
         return $form;
     }

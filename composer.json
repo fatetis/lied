@@ -15,6 +15,7 @@
         "laravel/framework": "5.7.*",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
+        "maatwebsite/excel": "^3.1",
         "predis/predis": "^1.1",
         "socialiteproviders/weixin": "^4.0",
         "socialiteproviders/weixin-web": "^3.0"

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50723
 File Encoding         : 65001
 
-Date: 2019-06-22 10:37:59
+Date: 2019-07-05 16:31:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,7 +30,7 @@ CREATE TABLE `lied_admin_menu` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of lied_admin_menu
@@ -64,6 +64,7 @@ INSERT INTO `lied_admin_menu` VALUES ('28', '26', '29', '文章列表', 'fa-bars
 INSERT INTO `lied_admin_menu` VALUES ('29', '21', '23', '地域开通', 'fa-bars', 'region/open', null, '2019-05-21 15:50:21', '2019-06-17 10:10:11');
 INSERT INTO `lied_admin_menu` VALUES ('30', '0', '19', '优惠券管理', 'fa-bars', null, null, '2019-06-17 10:09:19', '2019-06-17 10:10:11');
 INSERT INTO `lied_admin_menu` VALUES ('31', '30', '20', '优惠券列表', 'fa-bars', 'coupon', null, '2019-06-17 10:09:57', '2019-06-17 10:10:11');
+INSERT INTO `lied_admin_menu` VALUES ('32', '30', '0', '线下券列表', 'fa-bars', 'coupon/batch', null, '2019-06-26 11:08:59', '2019-06-26 11:08:59');
 
 -- ----------------------------
 -- Table structure for `lied_admin_operation_log`
@@ -80,7 +81,7 @@ CREATE TABLE `lied_admin_operation_log` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lied_admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2536 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2870 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of lied_admin_operation_log
@@ -2620,6 +2621,340 @@ INSERT INTO `lied_admin_operation_log` VALUES ('2532', '1', 'admin/coupon/create
 INSERT INTO `lied_admin_operation_log` VALUES ('2533', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:23:16', '2019-06-20 15:23:16');
 INSERT INTO `lied_admin_operation_log` VALUES ('2534', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:26:41', '2019-06-20 15:26:41');
 INSERT INTO `lied_admin_operation_log` VALUES ('2535', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-20 15:39:07', '2019-06-20 15:39:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2536', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-22 11:28:14', '2019-06-22 11:28:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2537', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:28:33', '2019-06-22 11:28:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2538', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:28:37', '2019-06-22 11:28:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2539', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:28:38', '2019-06-22 11:28:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2540', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:28:40', '2019-06-22 11:28:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('2541', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:28:41', '2019-06-22 11:28:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2542', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:28:42', '2019-06-22 11:28:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2543', '1', 'admin/product/sku/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:28:43', '2019-06-22 11:28:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2544', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:28:44', '2019-06-22 11:28:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2545', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:28:46', '2019-06-22 11:28:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2546', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:28:47', '2019-06-22 11:28:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('2547', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:28:52', '2019-06-22 11:28:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2548', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:29:02', '2019-06-22 11:29:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2549', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:29:11', '2019-06-22 11:29:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2550', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:29:14', '2019-06-22 11:29:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2551', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:29:20', '2019-06-22 11:29:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('2552', '1', 'admin/region/open/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:29:24', '2019-06-22 11:29:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2553', '1', 'admin/region/open/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:29:27', '2019-06-22 11:29:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2554', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-22 11:29:38', '2019-06-22 11:29:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2555', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-25 10:22:19', '2019-06-25 10:22:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('2556', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-25 10:22:26', '2019-06-25 10:22:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2557', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"is_online\":\"off\",\"_token\":\"IFofBn43VsSMlnK1iRJyTtV8okBNaPy2U7eIhsCN\",\"_method\":\"PUT\"}', '2019-06-25 10:22:34', '2019-06-25 10:22:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2558', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"is_show\":\"off\",\"_token\":\"IFofBn43VsSMlnK1iRJyTtV8okBNaPy2U7eIhsCN\",\"_method\":\"PUT\"}', '2019-06-25 10:22:36', '2019-06-25 10:22:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2559', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-25 10:22:38', '2019-06-25 10:22:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2560', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"is_online\":\"on\",\"_token\":\"IFofBn43VsSMlnK1iRJyTtV8okBNaPy2U7eIhsCN\",\"_method\":\"PUT\"}', '2019-06-25 10:22:40', '2019-06-25 10:22:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('2561', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"is_show\":\"on\",\"_token\":\"IFofBn43VsSMlnK1iRJyTtV8okBNaPy2U7eIhsCN\",\"_method\":\"PUT\"}', '2019-06-25 10:22:43', '2019-06-25 10:22:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2562', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"name\":\"reveive_limit\",\"value\":\"10\",\"pk\":\"4\",\"_token\":\"IFofBn43VsSMlnK1iRJyTtV8okBNaPy2U7eIhsCN\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-06-25 10:22:50', '2019-06-25 10:22:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2563', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"name\":\"reveive_limit\",\"value\":\"1\",\"pk\":\"4\",\"_token\":\"IFofBn43VsSMlnK1iRJyTtV8okBNaPy2U7eIhsCN\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-06-25 10:22:56', '2019-06-25 10:22:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2564', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-25 10:22:57', '2019-06-25 10:22:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2565', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-25 10:23:03', '2019-06-25 10:23:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2566', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-26 10:08:28', '2019-06-26 10:08:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2567', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 10:08:33', '2019-06-26 10:08:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2568', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 10:08:39', '2019-06-26 10:08:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2569', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 10:09:01', '2019-06-26 10:09:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2570', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 10:10:59', '2019-06-26 10:10:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2571', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-06-26 10:11:04', '2019-06-26 10:11:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2572', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-06-26 10:11:05', '2019-06-26 10:11:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2573', '1', 'admin/coupon/4', 'PUT', '127.0.0.1', '{\"name\":\"\\u6d4b\\u8bd5\\u6d4b\\u8bd5\",\"reveive_limit\":\"1\",\"description\":null,\"use_start_time\":\"2019-06-17 00:00:00\",\"use_end_time\":\"2019-06-28 00:00:00\",\"receive_start_time\":\"2019-06-17 00:00:00\",\"receive_end_time\":\"2019-06-30 00:00:00\",\"is_online\":\"on\",\"is_show\":\"on\",\"sort_order\":\"99\",\"created_id\":\"1\",\"rellimit\":{\"new_1\":{\"brand_id\":\"1\",\"product_id\":\"14\",\"id\":null,\"_remove_\":\"0\"}},\"relprice\":{\"1\":{\"min_consume_price\":\"1.00\",\"price\":\"13.00\",\"stock_number\":\"1\",\"id\":\"1\",\"_remove_\":\"0\"}},\"reldiscount\":{\"1\":{\"discount\":\"60\",\"min_product_number\":\"2\",\"max_discount_price\":\"0.00\",\"stock_number\":\"1\",\"id\":\"1\",\"_remove_\":\"0\"}},\"_token\":\"FfnCS6JbzovyUK6xq3xQioNuvLMtOnmQxbvetDJF\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/coupon\"}', '2019-06-26 10:11:07', '2019-06-26 10:11:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2574', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-06-26 10:11:08', '2019-06-26 10:11:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2575', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 11:00:41', '2019-06-26 11:00:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2576', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 11:00:44', '2019-06-26 11:00:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2577', '1', 'admin/coupon/4', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"FfnCS6JbzovyUK6xq3xQioNuvLMtOnmQxbvetDJF\"}', '2019-06-26 11:00:47', '2019-06-26 11:00:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('2578', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 11:00:47', '2019-06-26 11:00:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('2579', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 11:01:08', '2019-06-26 11:01:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2580', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 11:01:10', '2019-06-26 11:01:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('2581', '1', 'admin/coupon/1', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"FfnCS6JbzovyUK6xq3xQioNuvLMtOnmQxbvetDJF\"}', '2019-06-26 11:01:14', '2019-06-26 11:01:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2582', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 11:01:14', '2019-06-26 11:01:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2583', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 11:08:07', '2019-06-26 11:08:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2584', '1', 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"30\",\"title\":\"\\u7ebf\\u4e0b\\u5238\\u5217\\u8868\",\"icon\":\"fa-bars\",\"uri\":\"coupon\\/batch\",\"roles\":[null],\"permission\":null,\"_token\":\"FfnCS6JbzovyUK6xq3xQioNuvLMtOnmQxbvetDJF\"}', '2019-06-26 11:08:59', '2019-06-26 11:08:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2585', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-06-26 11:08:59', '2019-06-26 11:08:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2586', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2019-06-26 11:09:41', '2019-06-26 11:09:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2587', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 11:09:44', '2019-06-26 11:09:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2588', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-06-26 13:56:37', '2019-06-26 13:56:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2589', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-26 13:56:41', '2019-06-26 13:56:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2590', '1', 'admin/brand', 'GET', '127.0.0.1', '[]', '2019-06-26 13:56:57', '2019-06-26 13:56:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2591', '1', 'admin/brand', 'GET', '127.0.0.1', '[]', '2019-06-26 13:57:09', '2019-06-26 13:57:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2592', '1', 'admin/brand', 'GET', '127.0.0.1', '[]', '2019-06-26 13:57:28', '2019-06-26 13:57:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2593', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-28 14:16:55', '2019-06-28 14:16:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('2594', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-28 14:18:24', '2019-06-28 14:18:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2595', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-28 14:18:26', '2019-06-28 14:18:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2596', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-28 15:25:53', '2019-06-28 15:25:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2597', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-06-28 17:33:21', '2019-06-28 17:33:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2598', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-28 17:33:24', '2019-06-28 17:33:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2599', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-28 17:33:29', '2019-06-28 17:33:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2600', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-28 17:33:37', '2019-06-28 17:33:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2601', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-28 17:33:39', '2019-06-28 17:33:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2602', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-28 17:33:41', '2019-06-28 17:33:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2603', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-06-28 17:33:48', '2019-06-28 17:33:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2604', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-07-01 09:21:54', '2019-07-01 09:21:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2605', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 09:40:05', '2019-07-01 09:40:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2606', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 09:40:08', '2019-07-01 09:40:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2607', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 09:40:14', '2019-07-01 09:40:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2608', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 10:35:41', '2019-07-01 10:35:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2609', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 10:35:43', '2019-07-01 10:35:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2610', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 10:35:46', '2019-07-01 10:35:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2611', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 10:36:30', '2019-07-01 10:36:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2612', '1', 'admin/coupon/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 10:36:34', '2019-07-01 10:36:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2613', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 10:38:11', '2019-07-01 10:38:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2614', '1', 'admin/coupon/1', 'PUT', '127.0.0.1', '{\"is_online\":\"off\",\"_token\":\"EASEnRHLVuKhNjv0mnxHEIGO9h2baJM9c2KabHA8\",\"_method\":\"PUT\"}', '2019-07-01 10:38:15', '2019-07-01 10:38:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('2615', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 10:38:22', '2019-07-01 10:38:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2616', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 10:38:24', '2019-07-01 10:38:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2617', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 10:38:26', '2019-07-01 10:38:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2618', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 10:38:27', '2019-07-01 10:38:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2619', '1', 'admin/coupon/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 10:38:38', '2019-07-01 10:38:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2620', '1', 'admin/api/brand', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 10:38:42', '2019-07-01 10:38:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2621', '1', 'admin/api/loadpro', 'GET', '127.0.0.1', '{\"q\":\"2\"}', '2019-07-01 10:38:43', '2019-07-01 10:38:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2622', '1', 'admin/coupon/1', 'PUT', '127.0.0.1', '{\"name\":\"\\u4eac\\u4e1c618\\u5927\\u4fc3\\u4f18\\u60e0\\u5238\",\"reveive_limit\":\"1\",\"description\":\"<p><\\/p><p>\\u6d4b\\u8bd5\\u6d4b\\u8bd5<\\/p>\",\"use_start_time\":\"2019-06-17 00:00:00\",\"use_end_time\":\"2020-06-18 00:00:00\",\"receive_start_time\":\"2019-06-17 00:00:00\",\"receive_end_time\":\"2020-06-18 00:00:00\",\"is_online\":\"off\",\"is_show\":\"on\",\"sort_order\":\"99\",\"created_id\":\"1\",\"rellimit\":{\"new_1\":{\"brand_id\":\"2\",\"product_id\":\"6\",\"id\":null,\"_remove_\":\"0\"}},\"_token\":\"EASEnRHLVuKhNjv0mnxHEIGO9h2baJM9c2KabHA8\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/coupon\"}', '2019-07-01 10:38:46', '2019-07-01 10:38:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2623', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-07-01 10:38:46', '2019-07-01 10:38:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2624', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 10:38:48', '2019-07-01 10:38:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2625', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 10:38:50', '2019-07-01 10:38:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2626', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 10:38:51', '2019-07-01 10:38:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2627', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 10:39:06', '2019-07-01 10:39:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('2628', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 10:39:26', '2019-07-01 10:39:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2629', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 10:39:30', '2019-07-01 10:39:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2630', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 10:39:31', '2019-07-01 10:39:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2631', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 10:42:22', '2019-07-01 10:42:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2632', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 10:42:27', '2019-07-01 10:42:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2633', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 10:42:28', '2019-07-01 10:42:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2634', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 10:44:03', '2019-07-01 10:44:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2635', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 10:44:07', '2019-07-01 10:44:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2636', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 10:44:08', '2019-07-01 10:44:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2637', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 10:46:26', '2019-07-01 10:46:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2638', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 10:46:30', '2019-07-01 10:46:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2639', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 10:46:31', '2019-07-01 10:46:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2640', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 10:47:08', '2019-07-01 10:47:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2641', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 10:47:11', '2019-07-01 10:47:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2642', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 10:47:12', '2019-07-01 10:47:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2643', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 11:32:19', '2019-07-01 11:32:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('2644', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 11:32:22', '2019-07-01 11:32:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2645', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 11:32:23', '2019-07-01 11:32:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('2646', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 11:32:39', '2019-07-01 11:32:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2647', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 11:32:42', '2019-07-01 11:32:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2648', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 11:32:43', '2019-07-01 11:32:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2649', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 11:33:03', '2019-07-01 11:33:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2650', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 11:33:06', '2019-07-01 11:33:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('2651', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 11:33:07', '2019-07-01 11:33:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2652', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 15:42:59', '2019-07-01 15:42:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2653', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 15:43:03', '2019-07-01 15:43:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2654', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 15:43:03', '2019-07-01 15:43:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2655', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 15:44:20', '2019-07-01 15:44:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('2656', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 15:44:25', '2019-07-01 15:44:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('2657', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 15:44:26', '2019-07-01 15:44:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2658', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 15:46:28', '2019-07-01 15:46:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2659', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 15:46:30', '2019-07-01 15:46:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2660', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 15:46:31', '2019-07-01 15:46:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2661', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 15:48:45', '2019-07-01 15:48:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2662', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 15:48:48', '2019-07-01 15:48:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2663', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 15:48:48', '2019-07-01 15:48:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2664', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 15:51:45', '2019-07-01 15:51:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2665', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 15:51:48', '2019-07-01 15:51:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2666', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 15:51:49', '2019-07-01 15:51:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2667', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 15:52:14', '2019-07-01 15:52:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2668', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 15:52:17', '2019-07-01 15:52:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2669', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 15:52:18', '2019-07-01 15:52:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('2670', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 15:53:48', '2019-07-01 15:53:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2671', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 15:53:52', '2019-07-01 15:53:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2672', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 15:53:53', '2019-07-01 15:53:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2673', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 15:53:57', '2019-07-01 15:53:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2674', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 15:54:04', '2019-07-01 15:54:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2675', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 15:54:04', '2019-07-01 15:54:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2676', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:01:23', '2019-07-01 16:01:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('2677', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:02:24', '2019-07-01 16:02:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2678', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:02:27', '2019-07-01 16:02:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('2679', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:02:28', '2019-07-01 16:02:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2680', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:02:49', '2019-07-01 16:02:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2681', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:02:52', '2019-07-01 16:02:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2682', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:02:53', '2019-07-01 16:02:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2683', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:03:58', '2019-07-01 16:03:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2684', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:04:01', '2019-07-01 16:04:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2685', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:04:01', '2019-07-01 16:04:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2686', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:04:21', '2019-07-01 16:04:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2687', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:04:24', '2019-07-01 16:04:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2688', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:04:24', '2019-07-01 16:04:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('2689', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:05:50', '2019-07-01 16:05:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2690', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:05:53', '2019-07-01 16:05:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2691', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:05:53', '2019-07-01 16:05:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2692', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:06:12', '2019-07-01 16:06:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('2693', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:06:15', '2019-07-01 16:06:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('2694', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:06:16', '2019-07-01 16:06:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('2695', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:10:39', '2019-07-01 16:10:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2696', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:10:42', '2019-07-01 16:10:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2697', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:10:43', '2019-07-01 16:10:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2698', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:11:03', '2019-07-01 16:11:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2699', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:11:06', '2019-07-01 16:11:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('2700', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:11:07', '2019-07-01 16:11:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2701', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:11:34', '2019-07-01 16:11:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2702', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:11:36', '2019-07-01 16:11:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2703', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:11:37', '2019-07-01 16:11:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2704', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:14:45', '2019-07-01 16:14:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2705', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:14:48', '2019-07-01 16:14:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2706', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:14:49', '2019-07-01 16:14:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('2707', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:15:08', '2019-07-01 16:15:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2708', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:15:11', '2019-07-01 16:15:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2709', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:15:11', '2019-07-01 16:15:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2710', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:17:28', '2019-07-01 16:17:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2711', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:17:31', '2019-07-01 16:17:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2712', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:17:31', '2019-07-01 16:17:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2713', '1', 'admin/coupon/batch', 'POST', '127.0.0.1', '{\"name\":\"\\u6279\\u6b211\",\"num\":\"20\",\"coupon_id\":\"1\",\"coupon_limit_id\":\"2\",\"created_id\":\"1\",\"_token\":\"SuD4mF5c8xAYvyahvKxIW8nxtDzQifsH8pk6ofZF\"}', '2019-07-01 16:47:29', '2019-07-01 16:47:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2714', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 16:47:30', '2019-07-01 16:47:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2715', '1', 'admin/coupon/batch/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 16:48:57', '2019-07-01 16:48:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2716', '1', 'admin/coupon/batch/1/edit', 'GET', '127.0.0.1', '[]', '2019-07-01 16:50:50', '2019-07-01 16:50:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2717', '1', 'admin/coupon/batch/1/edit', 'GET', '127.0.0.1', '[]', '2019-07-01 16:50:51', '2019-07-01 16:50:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2718', '1', 'admin/coupon/batch/1/edit', 'GET', '127.0.0.1', '[]', '2019-07-01 16:51:01', '2019-07-01 16:51:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2719', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:51:06', '2019-07-01 16:51:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('2720', '1', 'admin/coupon/batch/1/edit', 'GET', '127.0.0.1', '[]', '2019-07-01 16:52:48', '2019-07-01 16:52:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2721', '1', 'admin/coupon/batch/1/edit', 'GET', '127.0.0.1', '[]', '2019-07-01 16:52:50', '2019-07-01 16:52:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2722', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:52:59', '2019-07-01 16:52:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('2723', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 16:53:01', '2019-07-01 16:53:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2724', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 16:53:03', '2019-07-01 16:53:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2725', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:53:05', '2019-07-01 16:53:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2726', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:53:06', '2019-07-01 16:53:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('2727', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:53:42', '2019-07-01 16:53:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2728', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:53:45', '2019-07-01 16:53:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('2729', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:53:46', '2019-07-01 16:53:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2730', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 16:53:57', '2019-07-01 16:53:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2731', '1', 'admin/api/coupon', 'GET', '127.0.0.1', '{\"q\":null}', '2019-07-01 16:54:00', '2019-07-01 16:54:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2732', '1', 'admin/api/loadcoupon/limit', 'GET', '127.0.0.1', '{\"q\":\"1\"}', '2019-07-01 16:54:00', '2019-07-01 16:54:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2733', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-07-01 17:00:44', '2019-07-01 17:00:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2734', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 17:00:46', '2019-07-01 17:00:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2735', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '[]', '2019-07-01 17:08:05', '2019-07-01 17:08:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2736', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 17:08:07', '2019-07-01 17:08:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2737', '1', 'admin/coupon/batch/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 17:08:09', '2019-07-01 17:08:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2738', '1', 'admin/coupon/batch/1/edit', 'GET', '127.0.0.1', '[]', '2019-07-01 17:18:08', '2019-07-01 17:18:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2739', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-01 17:18:10', '2019-07-01 17:18:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('2740', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:18:21', '2019-07-01 17:18:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2741', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:19:18', '2019-07-01 17:19:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('2742', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:21:23', '2019-07-01 17:21:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('2743', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:21:43', '2019-07-01 17:21:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2744', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:22:11', '2019-07-01 17:22:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2745', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:23:25', '2019-07-01 17:23:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('2746', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:25:17', '2019-07-01 17:25:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2747', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:25:31', '2019-07-01 17:25:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2748', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:25:38', '2019-07-01 17:25:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('2749', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:25:39', '2019-07-01 17:25:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2750', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:25:46', '2019-07-01 17:25:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('2751', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:25:56', '2019-07-01 17:25:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2752', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:26:03', '2019-07-01 17:26:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2753', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:26:08', '2019-07-01 17:26:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2754', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:26:13', '2019-07-01 17:26:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('2755', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:26:18', '2019-07-01 17:26:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('2756', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:26:25', '2019-07-01 17:26:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('2757', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:26:31', '2019-07-01 17:26:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2758', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:26:35', '2019-07-01 17:26:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('2759', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:26:44', '2019-07-01 17:26:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2760', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:27:07', '2019-07-01 17:27:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2761', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:28:44', '2019-07-01 17:28:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('2762', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-01 17:29:17', '2019-07-01 17:29:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2763', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-07-02 09:39:52', '2019-07-02 09:39:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2764', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-02 09:39:58', '2019-07-02 09:39:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2765', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-02 09:40:02', '2019-07-02 09:40:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2766', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-02 09:40:33', '2019-07-02 09:40:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2767', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-02 09:40:52', '2019-07-02 09:40:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2768', '1', 'admin/coupon/batch/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-02 09:41:02', '2019-07-02 09:41:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2769', '1', 'admin/coupon/batch/1', 'PUT', '127.0.0.1', '{\"name\":\"\\u6279\\u6b211\",\"num\":\"21\",\"coupon_id\":\"1\",\"coupon_limit_id\":\"2\",\"created_id\":\"1\",\"_token\":\"D6wGtvWnh8Wz6BMFVMXf9EoTb7gLjt5dLKXjPS2e\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/coupon\\/batch\"}', '2019-07-02 09:41:05', '2019-07-02 09:41:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2770', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-02 09:41:05', '2019-07-02 09:41:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2771', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-02 09:41:23', '2019-07-02 09:41:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('2772', '1', 'admin/coupon/batch/1', 'PUT', '127.0.0.1', '{\"name\":\"num\",\"value\":\"22\",\"pk\":\"1\",\"_token\":\"D6wGtvWnh8Wz6BMFVMXf9EoTb7gLjt5dLKXjPS2e\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-07-02 09:41:29', '2019-07-02 09:41:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2773', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-02 09:41:50', '2019-07-02 09:41:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2774', '1', 'admin/coupon/batch/1', 'PUT', '127.0.0.1', '{\"name\":\"name\",\"value\":\"\\u6279\\u6b21\",\"pk\":\"1\",\"_token\":\"D6wGtvWnh8Wz6BMFVMXf9EoTb7gLjt5dLKXjPS2e\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-07-02 09:41:54', '2019-07-02 09:41:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2775', '1', 'admin/coupon/batch/1', 'PUT', '127.0.0.1', '{\"name\":\"name\",\"value\":\"\\u6279\\u6b211\",\"pk\":\"1\",\"_token\":\"D6wGtvWnh8Wz6BMFVMXf9EoTb7gLjt5dLKXjPS2e\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2019-07-02 09:42:00', '2019-07-02 09:42:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2776', '1', 'admin/coupon/batch/1/edit', 'GET', '127.0.0.1', '[]', '2019-07-02 14:50:00', '2019-07-02 14:50:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('2777', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-02 14:50:03', '2019-07-02 14:50:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2778', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_export_\":\"all\"}', '2019-07-02 15:09:01', '2019-07-02 15:09:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2779', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_export_\":\"all\"}', '2019-07-02 15:09:22', '2019-07-02 15:09:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('2780', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_export_\":\"all\"}', '2019-07-02 15:09:51', '2019-07-02 15:09:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2781', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_export_\":\"all\"}', '2019-07-02 15:10:33', '2019-07-02 15:10:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('2782', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_export_\":\"all\"}', '2019-07-02 15:10:47', '2019-07-02 15:10:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('2783', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_export_\":\"all\"}', '2019-07-02 15:11:03', '2019-07-02 15:11:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('2784', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_export_\":\"all\"}', '2019-07-02 15:11:16', '2019-07-02 15:11:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('2785', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_export_\":\"all\"}', '2019-07-02 15:12:53', '2019-07-02 15:12:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2786', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_export_\":\"all\"}', '2019-07-02 15:13:07', '2019-07-02 15:13:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2787', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-02 15:14:02', '2019-07-02 15:14:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2788', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-07-03 08:43:05', '2019-07-03 08:43:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2789', '1', 'admin/coupon', 'GET', '127.0.0.1', '[]', '2019-07-03 13:46:52', '2019-07-03 13:46:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2790', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-03 13:47:21', '2019-07-03 13:47:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2791', '1', 'admin/coupon/batch/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-03 13:47:29', '2019-07-03 13:47:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2792', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-03 13:47:36', '2019-07-03 13:47:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('2793', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-07-05 10:47:17', '2019-07-05 10:47:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2794', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-05 11:19:09', '2019-07-05 11:19:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2795', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-05 11:49:31', '2019-07-05 11:49:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2796', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-05 11:49:57', '2019-07-05 11:49:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2797', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-05 11:52:09', '2019-07-05 11:52:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2798', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-05 12:04:17', '2019-07-05 12:04:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2799', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-05 12:05:07', '2019-07-05 12:05:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('2800', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-05 12:05:30', '2019-07-05 12:05:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2801', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-05 12:08:02', '2019-07-05 12:08:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2802', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-05 12:08:29', '2019-07-05 12:08:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2803', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-05 12:08:31', '2019-07-05 12:08:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('2804', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:13:08', '2019-07-05 12:13:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('2805', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:13:26', '2019-07-05 12:13:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('2806', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:13:29', '2019-07-05 12:13:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2807', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:13:47', '2019-07-05 12:13:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('2808', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:16:09', '2019-07-05 12:16:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('2809', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:16:10', '2019-07-05 12:16:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('2810', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:16:11', '2019-07-05 12:16:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('2811', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:18:53', '2019-07-05 12:18:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2812', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:18:54', '2019-07-05 12:18:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2813', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:18:54', '2019-07-05 12:18:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2814', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:19:43', '2019-07-05 12:19:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('2815', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:21:14', '2019-07-05 12:21:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('2816', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:22:48', '2019-07-05 12:22:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2817', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:22:50', '2019-07-05 12:22:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2818', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:22:51', '2019-07-05 12:22:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2819', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:22:51', '2019-07-05 12:22:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2820', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:22:52', '2019-07-05 12:22:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2821', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:22:52', '2019-07-05 12:22:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2822', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:22:53', '2019-07-05 12:22:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2823', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:22:53', '2019-07-05 12:22:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2824', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:22:53', '2019-07-05 12:22:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2825', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:22:53', '2019-07-05 12:22:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2826', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:22:54', '2019-07-05 12:22:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2827', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 12:23:02', '2019-07-05 12:23:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('2828', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-07-05 14:11:53', '2019-07-05 14:11:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2829', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-05 14:11:57', '2019-07-05 14:11:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2830', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-05 14:12:01', '2019-07-05 14:12:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('2831', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-05 14:12:05', '2019-07-05 14:12:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('2832', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-05 14:12:06', '2019-07-05 14:12:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('2833', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-05 14:13:54', '2019-07-05 14:13:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2834', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-05 14:13:56', '2019-07-05 14:13:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2835', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '[]', '2019-07-05 14:13:56', '2019-07-05 14:13:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2836', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-07-05 14:14:29', '2019-07-05 14:14:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2837', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:14:52', '2019-07-05 14:14:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2838', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:15:17', '2019-07-05 14:15:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('2839', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:21:55', '2019-07-05 14:21:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('2840', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:21:57', '2019-07-05 14:21:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2841', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:26:48', '2019-07-05 14:26:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('2842', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:26:50', '2019-07-05 14:26:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('2843', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:26:51', '2019-07-05 14:26:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2844', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:26:58', '2019-07-05 14:26:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2845', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:27:04', '2019-07-05 14:27:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('2846', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:27:21', '2019-07-05 14:27:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2847', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:28', '2019-07-05 14:28:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('2848', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:29', '2019-07-05 14:28:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('2849', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:30', '2019-07-05 14:28:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('2850', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:39', '2019-07-05 14:28:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2851', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:51', '2019-07-05 14:28:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('2852', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:52', '2019-07-05 14:28:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('2853', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:53', '2019-07-05 14:28:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('2854', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:54', '2019-07-05 14:28:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2855', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:54', '2019-07-05 14:28:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('2856', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:55', '2019-07-05 14:28:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('2857', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:56', '2019-07-05 14:28:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('2858', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:57', '2019-07-05 14:28:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('2859', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:28:58', '2019-07-05 14:28:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('2860', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:30:39', '2019-07-05 14:30:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('2861', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:34:40', '2019-07-05 14:34:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('2862', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:34:40', '2019-07-05 14:34:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('2863', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:34:41', '2019-07-05 14:34:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('2864', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:34:42', '2019-07-05 14:34:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('2865', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:35:21', '2019-07-05 14:35:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('2866', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:35:23', '2019-07-05 14:35:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('2867', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:37:34', '2019-07-05 14:37:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('2868', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:37:37', '2019-07-05 14:37:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('2869', '1', 'admin/download/excel/1', 'GET', '127.0.0.1', '[]', '2019-07-05 14:39:46', '2019-07-05 14:39:46');
 
 -- ----------------------------
 -- Table structure for `lied_admin_permissions`
@@ -2960,8 +3295,8 @@ CREATE TABLE `lied_coupons` (
 -- ----------------------------
 -- Records of lied_coupons
 -- ----------------------------
-INSERT INTO `lied_coupons` VALUES ('1', '京东618大促优惠券', '1', '2019-06-17 00:00:00', '2020-06-18 00:00:00', '2019-06-17 00:00:00', '2020-06-18 00:00:00', '0', '&lt;p&gt;&lt;/p&gt;&lt;p&gt;测试测试&lt;/p&gt;', '1', '1', '99', '1', '2019-06-17 15:33:49', '2019-06-20 14:08:56', null);
-INSERT INTO `lied_coupons` VALUES ('4', '测试测试', '1', '2019-06-17 00:00:00', '2019-06-28 00:00:00', '2019-06-17 00:00:00', '2019-06-30 00:00:00', '179', null, '1', '1', '99', '1', '2019-06-17 15:52:07', '2019-06-20 14:20:09', null);
+INSERT INTO `lied_coupons` VALUES ('1', '京东618大促优惠券', '1', '2019-06-17 00:00:00', '2020-06-18 00:00:00', '2019-06-17 00:00:00', '2020-06-18 00:00:00', '0', '&lt;p&gt;&lt;/p&gt;&lt;p&gt;测试测试&lt;/p&gt;', '0', '1', '99', '1', '2019-06-17 15:33:49', '2019-07-01 10:38:16', null);
+INSERT INTO `lied_coupons` VALUES ('4', '测试测试', '1', '2019-06-17 00:00:00', '2019-06-28 00:00:00', '2019-06-17 00:00:00', '2019-06-30 00:00:00', '179', null, '1', '1', '99', '1', '2019-06-17 15:52:07', '2019-06-25 10:22:56', null);
 
 -- ----------------------------
 -- Table structure for `lied_coupons_batch`
@@ -2971,6 +3306,7 @@ CREATE TABLE `lied_coupons_batch` (
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL COMMENT '批次名称',
   `num` int(4) unsigned NOT NULL COMMENT '生成数量',
+  `coupon_id` int(16) unsigned NOT NULL COMMENT '优惠券id',
   `coupon_limit_id` int(16) unsigned NOT NULL COMMENT '优惠券限领表id',
   `created_id` int(16) unsigned NOT NULL COMMENT '创建者id',
   `created_at` datetime DEFAULT NULL,
@@ -2978,12 +3314,15 @@ CREATE TABLE `lied_coupons_batch` (
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `coupons_batch-coupon_limit_id` (`coupon_limit_id`),
+  KEY `coupons_batch-coupon_id` (`coupon_id`),
+  CONSTRAINT `coupons_batch-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `coupons_batch-coupon_limit_id` FOREIGN KEY (`coupon_limit_id`) REFERENCES `lied_coupons_limit` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='优惠券线下券生成批次设置表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='优惠券线下券生成批次设置表';
 
 -- ----------------------------
 -- Records of lied_coupons_batch
 -- ----------------------------
+INSERT INTO `lied_coupons_batch` VALUES ('1', '批次1', '22', '1', '2', '1', '2019-07-01 16:47:30', '2019-07-02 09:42:00', null);
 
 -- ----------------------------
 -- Table structure for `lied_coupons_discount`
@@ -3024,11 +3363,13 @@ CREATE TABLE `lied_coupons_limit` (
   PRIMARY KEY (`id`),
   KEY `coupons_limit-coupon_id` (`coupon_id`),
   CONSTRAINT `coupons_limit-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='优惠券限领表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='优惠券限领表';
 
 -- ----------------------------
 -- Records of lied_coupons_limit
 -- ----------------------------
+INSERT INTO `lied_coupons_limit` VALUES ('1', '4', '1', '14', '2019-06-26 10:11:07', '2019-06-26 10:11:07', null);
+INSERT INTO `lied_coupons_limit` VALUES ('2', '1', '2', '6', '2019-07-01 10:38:46', '2019-07-01 10:38:46', null);
 
 -- ----------------------------
 -- Table structure for `lied_coupons_offline`
@@ -6809,14 +7150,16 @@ CREATE TABLE `lied_users_comment` (
 DROP TABLE IF EXISTS `lied_users_coupon`;
 CREATE TABLE `lied_users_coupon` (
   `id` int(16) unsigned NOT NULL,
-  `coupon_id_value` int(16) unsigned NOT NULL COMMENT '对应type字段指定表的id',
-  `type` tinyint(1) unsigned NOT NULL COMMENT '领取类型1-限领表coupons_limit,2-线下优惠券表coupons_offline',
+  `coupon_id` int(16) unsigned NOT NULL COMMENT '优惠券id',
+  `coupon_limit_id` int(16) unsigned NOT NULL COMMENT '优惠券限领取表id',
   `user_id` int(16) unsigned NOT NULL COMMENT '用户id',
   `use_time` datetime DEFAULT '0000-00-00 00:00:00' COMMENT '使用时间',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `users_coupon-coupon_id` (`coupon_id`),
+  CONSTRAINT `users_coupon-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户优惠券表';
 
 -- ----------------------------

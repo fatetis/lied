@@ -15,6 +15,8 @@ Route::group([
     $router->group(['prefix' => 'api'], function ($router) {
         $router->get('brand', 'ApiController@brand')->name('selectBrand');
         $router->get('product', 'ApiController@product')->name('selectProduct');
+        $router->get('coupon', 'ApiController@coupon')->name('selectCoupon');
+        $router->get('loadcoupon/limit', 'ApiController@loadCouponLimit')->name('loadCouponLimit');
         $router->get('loadpro', 'ApiController@loadpro')->name('loadPro');
         $router->get('product/category', 'ApiController@productCategory');
 //      单选城市三级联动
@@ -25,6 +27,8 @@ Route::group([
         $router->get('region/city', 'ApiController@regionsCity');
 
     });
+
+    $router->get('download/excel/{id}', 'DownLoadExcelController@outside')->name('downLoadExcel');
 
 //    产品路由
     $router->resource('product/category', 'Product\ProductCategoryController');//产品分类

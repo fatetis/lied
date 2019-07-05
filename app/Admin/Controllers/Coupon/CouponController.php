@@ -107,7 +107,7 @@ class CouponController extends AdminController
             $form->wangeditor('description', '描述');
             $form->datetimeRange('use_start_time','use_end_time','使用时间')->rules('required');
             $form->datetimeRange('receive_start_time','receive_end_time','领取时间')->rules('required');
-            $form->switch('is_online', '线上')->rules('required');
+            $form->switch('is_online', '线上');
             $form->switch('is_show', '显示');
             $form->number('sort_order', '排序')->value(99);
             $form->hidden('created_id')->value(getAdminUserId());
