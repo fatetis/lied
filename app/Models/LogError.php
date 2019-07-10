@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
-class CouponsPrice extends BaseModel
+
+class LogError extends BaseModel
 {
-    protected $table = 'coupons_price';
+    protected $table = 'log_error';
     protected $primaryKey = 'id';
+
     protected $guarded  = ['id'];
+
 }

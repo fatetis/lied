@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers\Coupon;
 
+use App\Admin\Extensions\Actions\CouponBatchAction;
 use App\Models\Coupons;
 use App\Models\CouponsBatch;
 use App\Models\CouponsLimit;
@@ -26,15 +27,17 @@ class CouponBatchController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new CouponsBatch);
-
+        $grid->model()->orderBy('updated_at', 'desc');
+        $grid->model()->orderBy('id', 'desc');
         $grid->actions(function ($actions) {
             $actions->disableView();
-            $route = route('downLoadExcel',1);
-            $actions->prepend('<a href="'.$route.'"><i class="fa fa-download"></i></a>');
+            $url = route('downLoadExcel',['type' => 1,'id' => $actions->getKey()]);
+            $actions->prepend("<a class='fa fa-download' href='".$url."' target='_blank'></a>");
+//            $actions->prepend(new CouponBatchAction($actions->getKey()));
         });
 
         $grid->column('id', __('Id'));
-        $grid->column('name', __('名称'))->editable();
+        $grid->column('name', __('名称'));
         $grid->column('relcoupon.name', __('优惠券名称'));
         $grid->column('coupon_limit_id', __('限领信息(商家名称-产品名称)'))->display(function ($id){
             $couponsLimit = CouponsLimit::with('relbrand')->with('relproduct')->find($id);

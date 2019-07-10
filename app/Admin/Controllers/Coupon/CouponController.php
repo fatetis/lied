@@ -30,6 +30,7 @@ class CouponController extends AdminController
     {
         $grid = new Grid(new Coupons);
         $grid->model()->orderBy('updated_at', 'desc');
+        $grid->model()->orderBy('id', 'desc');
         $grid->column('id', __('Id'));
         $grid->column('name', '名称')->modal('券的类型', function ($model) {
             $couponsDiscountData = $model->reldiscount()

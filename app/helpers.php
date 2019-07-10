@@ -6,6 +6,7 @@
  * Time: 16:17
  */
 
+use App\Models\LogError;
 use Encore\Admin\Facades\Admin;
 
 if (!function_exists('curlLink')) {
@@ -170,10 +171,10 @@ if (!function_exists('upDecimal')) {
 
     function upDecimal($num, $qty = 2, $type = 1)
     {
-        $num2 =  explode('.', $num);
+        $num2 = explode('.', $num);
         $dcmnum = $num2[1] ?? 0;
         $subnum = 0;
-        if($dcmnum > 0){
+        if ($dcmnum > 0) {
             $subnum = bcsub(strlen($dcmnum), $qty, 10);//两数相减
         }
         $powint = bcpow(10, $qty);//指数提升
@@ -181,10 +182,10 @@ if (!function_exists('upDecimal')) {
         $numArr = explode('.', $num);
         $num = $numArr[0];
         $dcm = $numArr[1] ?? 0;
-        if($dcm > 0){
-            if($type == 1 && $num > 0){
+        if ($dcm > 0) {
+            if ($type == 1 && $num > 0) {
                 $num = $num + 1;
-            }elseif($type == 2 && $num < 0){
+            } elseif ($type == 2 && $num < 0) {
                 $num = $num - 1;
             }
         }
@@ -201,8 +202,46 @@ if (!function_exists('getAdminUserId')) {
 }
 
 if (!function_exists('urlStandard')) {
-    function urlStandard($val){
-        return 'images/'.$val.'/'.date('Ymd',time());
+    function urlStandard($val)
+    {
+        return 'images/' . $val . '/' . date('Ymd', time());
+    }
+}
+
+if (!function_exists('elog')) {
+    function elog($input)
+    {
+        $elog = new LogError();
+        $elog->input = $input;
+        if (!empty($_SERVER["REQUEST_URI"])) {
+            $elog->path = $_SERVER["REQUEST_URI"];
+            $elog->method = $_SERVER["REQUEST_METHOD"];
+            $elog->ip = $_SERVER["REMOTE_ADDR"];
+        }
+        $elog->save();
+        return $elog;
+    }
+}
+
+if (!function_exists('getARandLetter')) {
+    function getARandLetter($number = 1, $prefix = '')
+    {
+        if ($number == 0)
+            return FALSE; //去除0
+        $number = $number < 0 ? - $number : $number; //如果小于零取正值
+        $letterArr = array ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 1, 2, 3, 4, 5, 6, 7, 8, 9, 0);
+        $returnStr = $prefix;
+        for($i= 0; $i < $number; $i ++) {
+            $returnStr .= $letterArr [rand ( 0, 57 )];
+        }
+        return $returnStr;
+    }
+}
+
+if (!function_exists('r')) {
+    function r($code)
+    {
+        return '错误代码：'.$code;
     }
 }
 

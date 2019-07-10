@@ -28,7 +28,7 @@ Route::group([
 
     });
 
-    $router->get('download/excel/{id}', 'DownLoadExcelController@outside')->name('downLoadExcel');
+    $router->get('download/excel', 'DownLoadExcelController@outside')->name('downLoadExcel');
 
 //    产品路由
     $router->resource('product/category', 'Product\ProductCategoryController');//产品分类
@@ -57,6 +57,7 @@ Route::group([
     $router->resource('artical', 'Artical\ArticalController');
 
 //    优惠券路由
+    $router->resource('coupon/offline', 'Coupon\CouponOfflineController');
     $router->resource('coupon/batch', 'Coupon\CouponBatchController');
     $router->resource('coupon', 'Coupon\CouponController');
 

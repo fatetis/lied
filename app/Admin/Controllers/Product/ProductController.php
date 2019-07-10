@@ -85,6 +85,7 @@ class ProductController extends Controller
     {
         $grid = new Grid(new Product);
         $grid->model()->orderBy('updated_at', 'desc');
+        $grid->model()->orderBy('id', 'desc');
         $grid->id('产品id');
         $grid->name('产品名称')->modal('产品属性', function ($model) {
             $comments = $model->sku()
