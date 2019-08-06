@@ -18,8 +18,10 @@
  *
  */
 
+use App\Admin\Extensions\Form\ProductSku;
 use App\Admin\Extensions\WangEditor;
 use Encore\Admin\Form;
 
 Encore\Admin\Form::forget(['map','editor']);
 Form::extend('wangeditor', WangEditor::class);
+Form::extend('prosku', ProductSku::class);

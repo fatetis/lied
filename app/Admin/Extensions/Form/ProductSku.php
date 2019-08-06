@@ -1,0 +1,39 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Windows7
+ * Date: 2019/7/22 0022
+ * Time: 17:10
+ */
+
+namespace App\Admin\Extensions\Form;
+
+use App\Services\ProductAttrService;
+use Encore\Admin\Form\Field;
+
+class ProductSku extends Field
+{
+    protected $view = 'admin.form.prosku';
+    protected $variables = [];
+
+    protected static $css = [
+        '/vendor/wangEditor-3.1.1/release/wangEditor.min.css',
+    ];
+
+    protected static $js = [
+        '/vendor/wangEditor-3.1.1/release/wangEditor.min.js',
+    ];
+
+    public function render()
+    {
+        $name = $this->formatName($this->column);
+        $attrData = ProductAttrService::get([],['created_at' => 'desc']);
+        $this->variables = ['attrData' => $attrData];
+
+        $this->script = <<<EOT
+
+
+EOT;
+        return parent::render();
+    }
+}

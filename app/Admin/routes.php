@@ -25,17 +25,23 @@ Route::group([
 
         $router->get('adv/position', 'ApiController@advPosition');
         $router->get('region/city', 'ApiController@regionsCity');
-
+        $router->group(['namespace' => 'Api'], function ($router) {
+            $router->post('attr/get', 'ProductController@getAttrData')->name('proAttrGetApi');//获取规格名称
+            $router->post('attr/create', 'ProductController@createAttrData')->name('proAttrCreateApi');//创建规格名称
+        });
     });
 
     $router->get('download/excel', 'DownLoadExcelController@outside')->name('downLoadExcel');
 
 //    产品路由
-    $router->resource('product/category', 'Product\ProductCategoryController');//产品分类
-    $router->resource('product/sku/category', 'Product\ProductSkuCategoryController');//产品属性分类
-    $router->resource('product/seckill', 'Product\ProductSeckillController');//产品秒杀
-    $router->resource('product/order', 'Order\OrderController');//订单
-    $router->resource('product', 'Product\ProductController');//产品
+
+    $router->group(['prefix' => 'product', 'namespace' => 'Product'], function ($router) {
+        $router->resource('category', 'ProductCategoryController');//产品分类
+        $router->resource('sku/category', 'ProductSkuCategoryController');//产品属性分类
+        $router->resource('seckill', 'ProductSeckillController');//产品秒杀
+//        $router->resource('order', 'Order\OrderController');//订单
+        $router->resource('/', 'ProductController');//产品
+    });
 
 //    品牌路由
     $router->resource('brand/category', 'Brand\BrandCategoryController');
@@ -60,5 +66,7 @@ Route::group([
     $router->resource('coupon/offline', 'Coupon\CouponOfflineController');
     $router->resource('coupon/batch', 'Coupon\CouponBatchController');
     $router->resource('coupon', 'Coupon\CouponController');
+
+
 
 });

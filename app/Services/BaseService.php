@@ -14,7 +14,8 @@ abstract class BaseService{
      * @param $id array|string
      * @return mixed
      */
-    private function findOrFail($id){
+    private function findOrFail($id)
+    {
         return $this->table::findOrFail($id);
     }
     /**
@@ -22,7 +23,8 @@ abstract class BaseService{
      * @param $id array|string
      * @return mixed
      */
-    private function find($id){
+    private function find($id)
+    {
         return $this->table::find($id);
     }
 
@@ -31,7 +33,8 @@ abstract class BaseService{
      * @param $id array|string
      * @return mixed
      */
-    private function firstOrFail($id){
+    private function firstOrFail($id)
+    {
         return $this->table::firstOrFail($id);
     }
 
@@ -40,7 +43,8 @@ abstract class BaseService{
      * @param $where array
      * @return mixed
      */
-    private function first($where){
+    private function first($where)
+    {
         return $this->table::where($where)->first();
     }
 
@@ -49,7 +53,8 @@ abstract class BaseService{
      * @param $parameter array
      * @return mixed
      */
-    private function create($parameter){
+    private function create($parameter)
+    {
         return $this->table::create($parameter);
     }
 
@@ -59,7 +64,8 @@ abstract class BaseService{
      * @param $parameter array
      * @return mixed
      */
-    private function firstOrCreate($where,$parameter){
+    private function firstOrCreate($where,$parameter)
+    {
         return $this->table::firstOrCreate($where,$parameter);
     }
 
@@ -69,7 +75,8 @@ abstract class BaseService{
      * @param $parameter array
      * @return mixed
      */
-    private function updateOrCreate($where,$parameter){
+    private function updateOrCreate($where,$parameter)
+    {
         return $this->table::updateOrCreate($where,$parameter);
     }
 
@@ -79,7 +86,8 @@ abstract class BaseService{
      * @param $isAudit bool 可选是否加审核条件判断
      * @return bool
      */
-    private function checkModelDataById($id,$isAudit = false){
+    private function checkModelDataById($id,$isAudit = false)
+    {
         $where['is_show'] = 1;
         if($isAudit){
             $where['is_audit'] = 1;
@@ -93,6 +101,26 @@ abstract class BaseService{
             return $result ? $result : false;
         }
 
+    }
+
+    private function get($where=[], $orderBy = [], $groupBy = [], $select = '')
+    {
+        $sql = $this->table::query();
+        if(!empty($where))
+            $sql->where($where);
+        if(!empty($orderBy)){
+            collect($orderBy)->filter(function($value,$key) use ($sql){
+                $sql->orderBy($key,$value);
+            });
+        }
+        if(!empty($groupBy)){
+            collect($groupBy)->filter(function($value,$key) use ($sql){
+                $sql->groupBy($key,$value);
+            });
+        }
+        if(!empty($select))
+            $sql->select($select);
+        return $sql->get();
     }
 
     /**
