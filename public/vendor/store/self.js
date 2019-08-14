@@ -1,11 +1,26 @@
 $(function () {
-
     const selectObj = {'opacity':1, 'display':'block'};//选择框div样式show
     //添加规格值事件
     $(document).on('click', '.self-sku-add', function () {
-        let skuHtmlObj = $('.prehtml .self_sku_item');
-        let skuHtml = skuHtmlObj.clone();
-        $(this).before(skuHtml)
+        let that = $(this);
+        let pid = that.parents('.self_sku_additem').find('.antd-pro-pages-goods-widget-styles-sku_group_title .ant-select-search__field').next().val();//获取父级pid的value值
+        let prevVal = that.prev().find('.ant-select-search__field').next().val();//input框value值
+        let skuHtml = $('.prehtml .self_sku_item').clone();//模板库克隆
+        let prevObjId = that.prev().find('.ant-select').data('select-obj');
+        if(pid == ''){
+            alert('请先添加规格名');
+            return false;
+        }
+        if(prevVal == ''){
+            alert('请先选择上一个规格值');
+            return false;
+        }
+        //当有多个规格值时，使用上一个规格值的data-select-obj属性赋值给新增的
+        // if(prevObjId != undefined){
+        //     skuHtml.find('.ant-select').attr('data-select-obj',prevObjId).addClass(prevObjId);
+        // }
+        skuHtml.find('.ant-select-search__field').attr('data-child',1)
+        that.before(skuHtml)
     })
 
     //删除规格值事件
@@ -23,7 +38,7 @@ $(function () {
         }
         $(this).parent().before(skuAddHtml);
         // $('.self_sku_container .self_sku_picture').eq(0).remove();
-        if(addHtmlObj.length > 5){
+        if(addHtmlObj.length > 4){
             $(this).attr({'disabled': ''})
         }
     })
@@ -38,7 +53,6 @@ $(function () {
 
     //选择框下拉事件
     $(document).on('click', '.ant-select', function () {
-
         let selectHtmlObj = $('.prehtml .self_select_html');//模板文件外层class
         let selectHtml = selectHtmlObj.clone();
         let key = randKey();
@@ -49,13 +63,35 @@ $(function () {
         let thatWidth = that.width(); //本身宽度
         let thatObjData = that.data('select-obj'); //获取data-select-obj属性值
         let thatInline = that.find('.ant-select-search--inline'); //该选择框下的inline元素
-        let thatInlineInput = thatInline.find('.ant-select-search__field'); //该选择框下的inline元素
+        let thatInlineInput = thatInline.find('.ant-select-search__field'); //该选择框下的input元素
+        let sku = false; // 父级元素还是子元素，true为父级 false为子级
         if(thatInlineInput.val() == ''){
             thatInline.css('display','block').prev().css({'display':'block', 'opacity':'0.4'}) //改变状态显示
         }else{
             thatInline.css('display','block').prev().css({'display':'none', 'opacity':'0.4'}) //改变状态显示
         }
+        if(thatInlineInput.data('child') != 1){
+            //父级元素值改变，子元素select框移除
+            let childObj = that.parents('.self_sku_additem').find('.self_sku .ant-select');
+            sku = true;
+            if(childObj.length > 0){
+                for(let i = 0; i < childObj.length;  i++){
+                    let childObjId = childObj.eq(i).data('select-obj');
+                    if(childObjId != undefined){
+                        $('#'+childObjId).remove();
+                    }
+                }
+                that.parents('.self_sku_additem').find('.self_sku .self_sku_item').remove();
+            }
 
+            let liobject = selectHtml.find('li');
+            checkLiStatus(liobject, thatInlineInput, sku, true)
+        }else{
+            checkLiStatus(thatObjData, thatInlineInput)
+        }
+
+
+        //检测该元素是否存在option选项
         if(thatObjData != undefined){
             selectShow(thatObjData,top,thatHeight,left,thatWidth)
             return false;
@@ -63,11 +99,64 @@ $(function () {
 
         that.attr('data-select-obj',key).addClass(key);
         selectHtml.attr('id',key)
+        //子选择框重新获取li数据
+        if(thatInlineInput.data('child') == 1){
+            let pid = thatInlineInput.parents('.self_sku_additem').find('.antd-pro-pages-goods-widget-styles-sku_group_title .ant-select-search__field').next().val();//获取父级pid的value值
+            let ulObj = selectHtml.find('.ant-select-dropdown-menu') //ul选择器
+            let liObj  = ulObj.find('li');
+            liObj.remove();
+            $.post(thatInlineInput.data('url'),
+                {pid:pid},
+                function (d) {
+                    let data = JSON.parse(d.data)
+                    // 获取所有的规格value值
+                    let attrValueObj = $('.self_sku_container .self_attr_value');
+                    let attrValueArray = [];
+                    for(let i = 0; i < attrValueObj.length;  i++){
+                        let attrValue = attrValueObj.eq(i).val();
+                        if(attrValue != ''){
+                            attrValueArray[i] = attrValue;
+                        }
+                    }
+                    if(data.length <= 0){
+                        ulObj.append(`<li role="option" class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled self-nothingAttrValue"><span style="color: rgba(0,0,0,.65)">暂无规格值</span></li>`);
+                    }else{
+                        createOptionByLiArray(ulObj,data,attrValueArray)
+                    }
+                })
+        }
+        // console.log(selectHtml.find('.ant-select-dropdown-menu li').length)
         $(document.body).append(selectHtml);
         selectShow(key,top,thatHeight,left,thatWidth)
 
-
     })
+
+    let checkLiStatus = (thatObjData,thatInlineInput,sku = true, object = false) => {
+        //改变li状态：不可选、选中、可选start
+        let attrValueObj = sku ? $('.self_sku_container .self_attr') : $('.self_sku_container .self_attr_value');
+        let attrValueArray = [];
+        let liObj = object ? thatObjData : $('#'+thatObjData).find('li');
+        for(let i = 0; i < attrValueObj.length;  i++){
+            let attrValue = attrValueObj.eq(i).val();
+            if(attrValue != ''){
+                attrValueArray[i] = attrValue;
+            }
+        }
+        if(attrValueArray.length > 0){
+            liObj.each(function () {
+                let liKey = $(this).data('key');
+                if(attrValueArray.indexOf(String(liKey)) >= 0 ){
+                    $(this).removeClass('ant-select-dropdown-menu-item-active').addClass('ant-select-dropdown-menu-item-disabled')
+                }else{
+                    $(this).removeClass('ant-select-dropdown-menu-item-disabled')
+                }
+                if(liKey == thatInlineInput.next().val()){
+                    $(this).removeClass('ant-select-dropdown-menu-item-disabled').addClass('ant-select-dropdown-menu-item-active')
+                }
+            })
+        }
+        //改变li状态：不可选、选中、可选end
+    }
 
     //除option元素外，点击其他元素触发点击事件
     $('div.wrapper *').not('.self_select_html').click(function () {
@@ -100,10 +189,10 @@ $(function () {
                 .css(selectObj)
                 .next()
                 .css('display','none')
-                .find('input[type=hidden]') //隐藏框obj
-                .val(key)
-                .prev()
-                .val('');
+                .find('.ant-select-search__field')
+                .val('')
+                .next()//隐藏框obj
+                .val(key);
         }
     })
 
@@ -119,46 +208,59 @@ $(function () {
         let that = $(this);
         let val = that.val();
         let url = that.data('url');
+        let createUrl = that.data('create-url');
         let prevObj = that.parents('.ant-select-search--inline').prev();
         let liId = that.parents('.ant-select').data('select-obj');
         let ulObj = $('#'+liId).find('.ant-select-dropdown-menu');//选择框ul元素
         let liObj = ulObj.find('li');//选择框li元素
         let createObj = $('.self-createProAttr');//生成的obj元素
         let obj = $('#'+liId).find('.ant-select-dropdown')
+        let data = {key:val};
+        let child = 0;
+        let pid = 0;
         if(val == ''){
-            prevObj.css({'display':'block', 'opacity':1});
+            prevObj.css(selectObj);
             liObj.css('display', 'block');
             if(createObj.length > 0){
                 createObj.remove()
             }
             return false;
         }
+        if(that.data('child') == 1){
+            data.pid = that.parents('.self_sku_additem').find('.antd-pro-pages-goods-widget-styles-sku_group_title .ant-select-search__field').next().val();//获取父级pid的value值
+            pid = data.pid;
+            child = 1;
+        }
         prevObj.css('display','none');
         $.post(url,
-            {key:val},
+            data,
             function(d){
                 let data = JSON.parse(d.data)
                 liObj.css('display', 'none');
                 if(data.length <= 0){
                     createObj.remove();
-                    ulObj.append('<div role="option" class="ant-select-dropdown-menu-item self-createProAttr"><span style="color: #00a7d0">点击创建</span>:&nbsp&nbsp<i>'+val+'</i></div>');
+                    ulObj.append(`<div role="option" class="ant-select-dropdown-menu-item self-createProAttr self-createProAttr-click" data-create-url="${createUrl}" data-child="${child}" data-pid="${pid}"><span style="color: #00a7d0">点击创建</span>:&nbsp&nbsp<i>${val}</i></div>`);
                 }else{
                     createOptionByLiArray(ulObj,data)
                 }
             })
     }
 
-    //input框改变一秒后触发函数
+    //input框改变500ms后触发函数
     $(document).on('input', '.ant-select-search--inline .ant-select-search__field', debounce(optionChangeFuc, 500))
 
     //点击创建按钮触发点击事件
-    $(document).on('click', '.self-createProAttr', function () {
+    $(document).on('click', '.self-createProAttr-click', function () {
         let that = $(this);
         let text = that.find('i').text();
-        let url = $('.createProAttrUrl').val()
+        let url = that.data('create-url');
         let ulObj = that.parents('.ant-select-dropdown-menu');//选择框ul元素
+        let data = {key:text};
+        if(that.data('child') == 1){
+            data.pid = that.data('pid');
+        }
         $.post(url,
-            {key:text},
+            data,
             function (d) {
                 let data = JSON.parse(d.data)
                 createOptionByLiObject(ulObj,data)
@@ -186,12 +288,17 @@ $(function () {
     }
 
     //插入数据到选择框option里--data为元素
-    let createOptionByLiArray = (ulObj,data) => {
+    let createOptionByLiArray = (ulObj,data,dataed = []) => {
+        let unclickClassName = '';
         data.forEach((item, index) => {
-            if($(`.self-optionid-${item['id']}`).length <= 0){
-                ulObj.prepend(`<li role="option" class="ant-select-dropdown-menu-item self-optionid-${item['id']}" data-key="${item['id']}">${item['name']}</li>`)
+            if(ulObj.find(`.self-optionid-${item['id']}`).length <= 0){
+                //改变li为不可选状态
+                if(dataed.length > 0 && dataed.indexOf(String(item['id'])) >= 0){
+                    unclickClassName = 'ant-select-dropdown-menu-item-disabled';
+                }
+                ulObj.prepend(`<li role="option" class="ant-select-dropdown-menu-item self-optionid-${item['id']} ${unclickClassName}" data-key="${item['id']}">${item['name']}</li>`)
             }else{
-                $(`.self-optionid-${item['id']}`).css('display','block')
+                ulObj.find(`.self-optionid-${item['id']}`).css('display','block')
             }
         })
     }
@@ -199,12 +306,13 @@ $(function () {
     //插入数据到选择框option里--data为对象
     let createOptionByLiObject = (ulObj,data) => {
         $('.self-createProAttr').remove();
+        $('.self-nothingAttrValue').remove();
         for(var item in data){
-                if($(`.self-optionid-${data['id']}`).length <= 0){
-                    ulObj.prepend(`<li role="option" class="ant-select-dropdown-menu-item self-optionid-${data['id']}" data-key="${data['id']}">${data['name']}</li>`)
-                }else{
-                    $(`.self-optionid-${data['id']}`).css('display','block')
-                }
+            if($(`.self-optionid-${data['id']}`).length <= 0){
+                ulObj.prepend(`<li role="option" class="ant-select-dropdown-menu-item self-optionid-${data['id']}" data-key="${data['id']}">${data['name']}</li>`)
+            }else{
+                $(`.self-optionid-${data['id']}`).css('display','block')
+            }
         }
     }
 

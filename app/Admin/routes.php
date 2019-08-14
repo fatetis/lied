@@ -28,6 +28,8 @@ Route::group([
         $router->group(['namespace' => 'Api'], function ($router) {
             $router->post('attr/get', 'ProductController@getAttrData')->name('proAttrGetApi');//获取规格名称
             $router->post('attr/create', 'ProductController@createAttrData')->name('proAttrCreateApi');//创建规格名称
+            $router->post('attr/value/get', 'ProductController@getAttrValueData')->name('proAttrValueGetApi');//获取规格名称
+            $router->post('attr/value/create', 'ProductController@createAttrValueData')->name('proAttrValueCreateApi');//创建规格名称
         });
     });
 

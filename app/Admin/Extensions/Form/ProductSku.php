@@ -27,7 +27,7 @@ class ProductSku extends Field
     public function render()
     {
         $name = $this->formatName($this->column);
-        $attrData = ProductAttrService::get([],['created_at' => 'desc']);
+        $attrData = ProductAttrService::get([],['created_at' => 'desc'],[],['id','name']);
         $this->variables = ['attrData' => $attrData];
 
         $this->script = <<<EOT

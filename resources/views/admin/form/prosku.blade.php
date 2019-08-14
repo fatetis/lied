@@ -6,28 +6,30 @@
 {{--li被选中状态：ant-select-dropdown-menu-item-active--}}
 {{--li不可选状态：ant-select-dropdown-menu-item-disabled--}}
 
+
 {{--url存放框--}}
-<input class="createProAttrUrl" type="hidden" value="{{ route('proAttrCreateApi', ['_token'=>csrf_token()]) }}">
 <div class="prehtml" style="display: none">
     {{--商品规格值clone模板--}}
-    <div class="mr-10 mb-10 antd-pro-pages-goods-widget-styles-sku_values_item ant-select">
-        <div class="ant-select ant-select-enabled self_random_key" style="width: 150px;">
+    <div class="mr-10 mb-10 antd-pro-pages-goods-widget-styles-sku_values_item self_sku_item">
+        <div class="ant-select ant-select-enabled self_random_key " style="width: 150px;">
             <div class="ant-select-selection
                                     ant-select-selection--single" role="combobox" aria-autocomplete="list"
                  aria-haspopup="true"
                  aria-controls="ddecfc9c-c099-4627-bba2-3b4384958ce7"
                  aria-expanded="false"
                  tabindex="0">
-                <div class="ant-select-selection__rendered">
-                    <div class="ant-select-selection-selected-value" title="红"
+                <div class="ant-select-selection__rendered ">
+                    <div class="ant-select-selection-selected-value" title=""
                          style="display: block; opacity: 1;">
-                        红
+
                     </div>
                     <div class="ant-select-search ant-select-search--inline"
                          style="display: none;">
                         <div class="ant-select-search__field__wrap">
-                            <input autocomplete="off" class="ant-select-search__field"
+                            {{--data-url：查找url；data-create-url：创建url--}}
+                            <input autocomplete="off" class="ant-select-search__field" data-url="{{ route('proAttrValueGetApi', ['_token'=>csrf_token()]) }}" data-create-url="{{ route('proAttrValueCreateApi', ['_token'=>csrf_token()]) }}"
                                    value="">
+                            <input class="self_attr_value" type="hidden" name="attr_value[]" value="">
                             <span class="ant-select-search__field__mirror">
                                                         &nbsp;
                                                     </span>
@@ -67,6 +69,7 @@
                 </svg>
             </i>
         </a>
+
     </div>
     {{--select选择框--}}
     <div style="position: absolute; top: 0px; left: 0px; width: 100%;" class="self_select_html">
@@ -77,7 +80,7 @@
                         class="ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
                         tabindex="0">
                         @foreach($attrData as $key => $value)
-                            <li role="option" class="ant-select-dropdown-menu-item self-optionid-0" data-key="{{ $value->key }}">
+                            <li role="option" class="ant-select-dropdown-menu-item" data-key="{{ $value->id }}">
                                 {{ $value->name }}
                             </li>
                         @endforeach
@@ -86,7 +89,6 @@
             </div>
         </div>
     </div>
-
     {{--商品规格模板--}}
     <div class="self_sku_additem">
         <div class="antd-pro-pages-goods-widget-styles-sku_group_title">
@@ -110,8 +112,8 @@
                             </div>
                             <div class="ant-select-search ant-select-search--inline" style="display: none;">
                                 <div class="ant-select-search__field__wrap">
-                                    <input data-url="{{ route('proAttrGetApi', ['_token'=>csrf_token()]) }}" autocomplete="off" class="ant-select-search__field" value="">
-                                    <input type="hidden" name="attr[]" value="">
+                                    <input data-url="{{ route('proAttrGetApi', ['_token'=>csrf_token()]) }}" data-create-url="{{ route('proAttrCreateApi', ['_token'=>csrf_token()]) }}" autocomplete="off" class="ant-select-search__field" value="">
+                                    <input  class="self_attr" type="hidden" name="attr[]" value="">
                                     <span class="ant-select-search__field__mirror">
                                         &nbsp;
                                     </span>
@@ -183,6 +185,23 @@
                                     添加规格值
                                 </span>
                 </button>
+            </div>
+        </div>
+    </div>
+    {{--图片插件模板--}}
+    <div class="mt-10">
+        <div class="f-c antd-pro-pages-goods-widget-styles-sku_image">
+            <div class="antd-pro-pages-goods-widget-styles-arrow"></div>
+            <div style="border: 1px solid rgb(217, 217, 217);">
+                <a class="add-image-view" style="width: 100px; height: 100px;">
+        <span>
+          <i aria-label="图标: plus-circle" class="anticon anticon-plus-circle">
+            <svg viewBox="64 64 896 896" class="" data-icon="plus-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"></path>
+              <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>
+            </svg>
+          </i>添加图片</span>
+                </a>
             </div>
         </div>
     </div>
@@ -812,7 +831,7 @@
 										</div>
 										<label class="ant-checkbox-wrapper">
 											<span class="ant-checkbox">
-												<input type="checkbox" class="ant-checkbox-input" value="">
+												<input type="checkbox" name="self_add_image" class="ant-checkbox-input" value="">
 												<span class="ant-checkbox-inner">
 												</span>
 											</span>

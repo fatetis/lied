@@ -12,6 +12,6 @@ class ProductAttr extends BaseModel
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'sort'];
 
 }
