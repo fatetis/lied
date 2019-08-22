@@ -18,10 +18,6 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        'SocialiteProviders\Manager\SocialiteWasCalled' => [
-            'SocialiteProviders\Weixin\WeixinExtendSocialite@handle',
-            'SocialiteProviders\WeixinWeb\WeixinWebExtendSocialite@handle',
-        ],
     ];
 
     /**
