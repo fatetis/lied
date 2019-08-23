@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50723
 File Encoding         : 65001
 
-Date: 2019-08-06 17:21:10
+Date: 2019-08-23 13:39:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -82,7 +82,7 @@ CREATE TABLE `lied_admin_operation_log` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lied_admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3831 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4194 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of lied_admin_operation_log
@@ -3917,6 +3917,369 @@ INSERT INTO `lied_admin_operation_log` VALUES ('3827', '1', 'admin/api/attr/crea
 INSERT INTO `lied_admin_operation_log` VALUES ('3828', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-06 17:15:21', '2019-08-06 17:15:21');
 INSERT INTO `lied_admin_operation_log` VALUES ('3829', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"s\",\"_token\":\"QfUn0IeUkslUfg2bp8uAVPpeW1nXGZ9Waal3f8S6\"}', '2019-08-06 17:15:26', '2019-08-06 17:15:26');
 INSERT INTO `lied_admin_operation_log` VALUES ('3830', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"s\",\"_token\":\"QfUn0IeUkslUfg2bp8uAVPpeW1nXGZ9Waal3f8S6\"}', '2019-08-06 17:15:27', '2019-08-06 17:15:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('3831', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-08-07 08:58:45', '2019-08-07 08:58:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('3832', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-08-07 09:09:10', '2019-08-07 09:09:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('3833', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-08-07 09:09:11', '2019-08-07 09:09:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('3834', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:12:28', '2019-08-07 09:12:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('3835', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:14:29', '2019-08-07 09:14:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('3836', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:14:54', '2019-08-07 09:14:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('3837', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:15:03', '2019-08-07 09:15:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('3838', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"qwe\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 09:36:42', '2019-08-07 09:36:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('3839', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"qwe\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 09:36:43', '2019-08-07 09:36:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('3840', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"qw\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 09:36:45', '2019-08-07 09:36:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('3841', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"q\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 09:36:46', '2019-08-07 09:36:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('3842', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:38:46', '2019-08-07 09:38:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('3843', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:39:04', '2019-08-07 09:39:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('3844', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:39:18', '2019-08-07 09:39:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('3845', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:39:29', '2019-08-07 09:39:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('3846', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:40:35', '2019-08-07 09:40:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('3847', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:43:27', '2019-08-07 09:43:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('3848', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"rt\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 09:43:39', '2019-08-07 09:43:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('3849', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:44:13', '2019-08-07 09:44:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('3850', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"sd\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 09:44:17', '2019-08-07 09:44:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('3851', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:46:10', '2019-08-07 09:46:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('3852', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 09:49:30', '2019-08-07 09:49:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('3853', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 10:01:01', '2019-08-07 10:01:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('3854', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 10:01:57', '2019-08-07 10:01:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('3855', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"as\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 10:02:04', '2019-08-07 10:02:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('3856', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 10:03:13', '2019-08-07 10:03:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('3857', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 10:05:38', '2019-08-07 10:05:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('3858', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 10:09:52', '2019-08-07 10:09:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('3859', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 11:07:57', '2019-08-07 11:07:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('3860', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 11:18:21', '2019-08-07 11:18:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('3861', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 11:19:41', '2019-08-07 11:19:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('3862', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 11:20:53', '2019-08-07 11:20:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('3863', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 11:33:56', '2019-08-07 11:33:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('3864', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 11:34:42', '2019-08-07 11:34:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('3865', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 11:35:04', '2019-08-07 11:35:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('3866', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 11:44:26', '2019-08-07 11:44:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('3867', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"sd\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 11:44:30', '2019-08-07 11:44:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('3868', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 11:44:43', '2019-08-07 11:44:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('3869', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"asd\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 11:44:46', '2019-08-07 11:44:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('3870', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 11:45:44', '2019-08-07 11:45:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('3871', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"as\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 11:45:47', '2019-08-07 11:45:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('3872', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"sad\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 13:44:41', '2019-08-07 13:44:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('3873', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"sad\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 13:44:42', '2019-08-07 13:44:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('3874', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 13:44:45', '2019-08-07 13:44:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('3875', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"sd\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 13:44:51', '2019-08-07 13:44:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('3876', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"sdas\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 13:44:52', '2019-08-07 13:44:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('3877', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 13:54:58', '2019-08-07 13:54:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('3878', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 13:54:58', '2019-08-07 13:54:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('3879', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 13:57:38', '2019-08-07 13:57:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('3880', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 14:00:45', '2019-08-07 14:00:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('3881', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 14:01:33', '2019-08-07 14:01:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('3882', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 14:02:26', '2019-08-07 14:02:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('3883', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 14:38:28', '2019-08-07 14:38:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('3884', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"sad\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 14:39:11', '2019-08-07 14:39:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('3885', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"sad\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 14:39:12', '2019-08-07 14:39:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('3886', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"asd\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 14:39:33', '2019-08-07 14:39:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('3887', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 14:40:51', '2019-08-07 14:40:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('3888', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"asd\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 14:40:54', '2019-08-07 14:40:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('3889', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"as\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 14:40:57', '2019-08-07 14:40:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('3890', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"a\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 14:40:58', '2019-08-07 14:40:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('3891', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 14:59:33', '2019-08-07 14:59:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('3892', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"sd\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 15:00:46', '2019-08-07 15:00:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('3893', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 15:01:05', '2019-08-07 15:01:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('3894', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"sd\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 15:01:12', '2019-08-07 15:01:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('3895', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 15:03:22', '2019-08-07 15:03:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('3896', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"sd\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 15:03:25', '2019-08-07 15:03:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('3897', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-07 15:04:26', '2019-08-07 15:04:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('3898', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"sda\",\"_token\":\"jHyGRVTDImLNNp97DWfp2xbSpPRtasMbVbhiVvTz\"}', '2019-08-07 15:04:31', '2019-08-07 15:04:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('3899', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-08-13 08:46:38', '2019-08-13 08:46:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('3900', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-08-13 08:46:46', '2019-08-13 08:46:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('3901', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-08-13 08:46:49', '2019-08-13 08:46:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('3902', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:49:33', '2019-08-13 08:49:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('3903', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:50:12', '2019-08-13 08:50:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('3904', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:51:01', '2019-08-13 08:51:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('3905', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:51:14', '2019-08-13 08:51:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('3906', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:51:28', '2019-08-13 08:51:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('3907', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:52:01', '2019-08-13 08:52:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('3908', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:52:20', '2019-08-13 08:52:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('3909', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:52:36', '2019-08-13 08:52:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('3910', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:53:31', '2019-08-13 08:53:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('3911', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:54:05', '2019-08-13 08:54:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('3912', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:54:07', '2019-08-13 08:54:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('3913', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:54:09', '2019-08-13 08:54:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('3914', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:54:17', '2019-08-13 08:54:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('3915', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:54:29', '2019-08-13 08:54:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('3916', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 08:54:47', '2019-08-13 08:54:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('3917', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 09:29:40', '2019-08-13 09:29:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('3918', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 09:48:11', '2019-08-13 09:48:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('3919', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 09:49:16', '2019-08-13 09:49:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('3920', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 09:50:06', '2019-08-13 09:50:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('3921', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 09:53:24', '2019-08-13 09:53:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('3922', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 09:59:07', '2019-08-13 09:59:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('3923', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 09:59:22', '2019-08-13 09:59:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('3924', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 09:59:32', '2019-08-13 09:59:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('3925', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:00:46', '2019-08-13 10:00:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('3926', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:00:51', '2019-08-13 10:00:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('3927', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:01:42', '2019-08-13 10:01:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('3928', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":null,\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:01:46', '2019-08-13 10:01:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('3929', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:02:15', '2019-08-13 10:02:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('3930', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:02:20', '2019-08-13 10:02:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('3931', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:02:46', '2019-08-13 10:02:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('3932', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:06:41', '2019-08-13 10:06:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('3933', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:07:24', '2019-08-13 10:07:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('3934', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:09:31', '2019-08-13 10:09:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('3935', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:09:35', '2019-08-13 10:09:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('3936', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:09:44', '2019-08-13 10:09:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('3937', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:09:48', '2019-08-13 10:09:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('3938', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:13:38', '2019-08-13 10:13:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('3939', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:13:51', '2019-08-13 10:13:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('3940', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"\\u5851\\u6599\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:13:55', '2019-08-13 10:13:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('3941', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:15:37', '2019-08-13 10:15:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('3942', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"4\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:15:41', '2019-08-13 10:15:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('3943', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:18:11', '2019-08-13 10:18:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('3944', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"17\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:18:15', '2019-08-13 10:18:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('3945', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"as\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:18:20', '2019-08-13 10:18:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('3946', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"as\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:18:21', '2019-08-13 10:18:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('3947', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:18:43', '2019-08-13 10:18:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('3948', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:18:47', '2019-08-13 10:18:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('3949', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"asd\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:18:59', '2019-08-13 10:18:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('3950', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:25:15', '2019-08-13 10:25:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('3951', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:25:19', '2019-08-13 10:25:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('3952', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:25:45', '2019-08-13 10:25:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('3953', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:25:49', '2019-08-13 10:25:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('3954', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"as\",\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:25:51', '2019-08-13 10:25:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('3955', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:29:37', '2019-08-13 10:29:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('3956', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"4\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:29:42', '2019-08-13 10:29:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('3957', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"as\",\"pid\":\"4\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:29:45', '2019-08-13 10:29:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('3958', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 10:31:04', '2019-08-13 10:31:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('3959', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:31:08', '2019-08-13 10:31:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('3960', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"sd\",\"pid\":\"16\",\"_token\":\"gtk2OnmkNtMXNmNHzMKaMYgYHZJLfv8HkbgVhrjn\"}', '2019-08-13 10:31:10', '2019-08-13 10:31:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('3961', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 13:42:09', '2019-08-13 13:42:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('3962', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 13:57:22', '2019-08-13 13:57:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('3963', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 13:57:28', '2019-08-13 13:57:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('3964', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"s\",\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 13:57:30', '2019-08-13 13:57:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('3965', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"s\",\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 13:57:31', '2019-08-13 13:57:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('3966', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"xiao\",\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 13:57:36', '2019-08-13 13:57:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('3967', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"L\",\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 13:57:42', '2019-08-13 13:57:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('3968', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"Lma\",\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 13:57:44', '2019-08-13 13:57:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('3969', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"Lma\",\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 13:57:45', '2019-08-13 13:57:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('3970', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"L\\u7801\",\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 13:57:47', '2019-08-13 13:57:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('3971', '1', 'admin/api/attr/value/create', 'POST', '127.0.0.1', '{\"key\":\"L\\u7801\",\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 13:57:48', '2019-08-13 13:57:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('3972', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:03:15', '2019-08-13 14:03:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('3973', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:03:20', '2019-08-13 14:03:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('3974', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":null,\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:03:32', '2019-08-13 14:03:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('3975', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:13:18', '2019-08-13 14:13:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('3976', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:13:25', '2019-08-13 14:13:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('3977', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:14:05', '2019-08-13 14:14:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('3978', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:14:11', '2019-08-13 14:14:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('3979', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:14:33', '2019-08-13 14:14:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('3980', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"17\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:14:40', '2019-08-13 14:14:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('3981', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:15:11', '2019-08-13 14:15:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('3982', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"17\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:15:16', '2019-08-13 14:15:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('3983', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:15:25', '2019-08-13 14:15:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('3984', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:15:56', '2019-08-13 14:15:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('3985', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:30:53', '2019-08-13 14:30:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('3986', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:31:00', '2019-08-13 14:31:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('3987', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:31:14', '2019-08-13 14:31:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('3988', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:31:22', '2019-08-13 14:31:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('3989', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:31:23', '2019-08-13 14:31:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('3990', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:34:52', '2019-08-13 14:34:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('3991', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:35:42', '2019-08-13 14:35:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('3992', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:35:44', '2019-08-13 14:35:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('3993', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:36:44', '2019-08-13 14:36:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('3994', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:37:32', '2019-08-13 14:37:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('3995', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:37:33', '2019-08-13 14:37:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('3996', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:37:34', '2019-08-13 14:37:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('3997', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:37:36', '2019-08-13 14:37:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('3998', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:37:37', '2019-08-13 14:37:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('3999', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:37:38', '2019-08-13 14:37:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('4000', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:40:04', '2019-08-13 14:40:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('4001', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:40:08', '2019-08-13 14:40:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('4002', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 14:45:11', '2019-08-13 14:45:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('4003', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:45:18', '2019-08-13 14:45:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('4004', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"suliao\",\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:45:24', '2019-08-13 14:45:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('4005', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"suliao\",\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:45:27', '2019-08-13 14:45:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('4006', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"\\u5851\\u6599\",\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:45:28', '2019-08-13 14:45:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('4007', '1', 'admin/api/attr/value/create', 'POST', '127.0.0.1', '{\"key\":\"\\u5851\\u6599\",\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 14:45:29', '2019-08-13 14:45:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('4008', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 16:13:42', '2019-08-13 16:13:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('4009', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 16:13:46', '2019-08-13 16:13:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('4010', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 16:14:31', '2019-08-13 16:14:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('4011', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"4\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 16:14:36', '2019-08-13 16:14:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('4012', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"17\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 16:14:40', '2019-08-13 16:14:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('4013', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 16:14:43', '2019-08-13 16:14:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('4014', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 16:15:48', '2019-08-13 16:15:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('4015', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"4\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 16:15:53', '2019-08-13 16:15:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('4016', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 16:16:11', '2019-08-13 16:16:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('4017', '1', 'admin/api/attr/get', 'POST', '127.0.0.1', '{\"key\":\"sd\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 16:16:14', '2019-08-13 16:16:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('4018', '1', 'admin/api/attr/create', 'POST', '127.0.0.1', '{\"key\":\"sd\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 16:16:14', '2019-08-13 16:16:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('4019', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-13 16:16:31', '2019-08-13 16:16:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('4020', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"17\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 16:16:35', '2019-08-13 16:16:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('4021', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 16:16:41', '2019-08-13 16:16:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('4022', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"9rsZebTNNbn8vGOpgXuiekZGwaojjIGkeXdhwWpE\"}', '2019-08-13 16:16:48', '2019-08-13 16:16:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('4023', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-08-14 08:41:07', '2019-08-14 08:41:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('4024', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-08-14 08:42:18', '2019-08-14 08:42:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('4025', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-08-14 08:42:24', '2019-08-14 08:42:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('4026', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"17\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:26:12', '2019-08-14 10:26:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('4027', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:26:18', '2019-08-14 10:26:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('4028', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:26:38', '2019-08-14 10:26:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('4029', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:33:40', '2019-08-14 10:33:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('4030', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"4\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:33:46', '2019-08-14 10:33:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('4031', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:33:52', '2019-08-14 10:33:52');
+INSERT INTO `lied_admin_operation_log` VALUES ('4032', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"ds\",\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:34:10', '2019-08-14 10:34:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('4033', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"ds\",\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:34:11', '2019-08-14 10:34:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('4034', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:39:22', '2019-08-14 10:39:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('4035', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:39:36', '2019-08-14 10:39:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('4036', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:39:55', '2019-08-14 10:39:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('4037', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:40:09', '2019-08-14 10:40:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('4038', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:40:12', '2019-08-14 10:40:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('4039', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:44:03', '2019-08-14 10:44:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('4040', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:44:18', '2019-08-14 10:44:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('4041', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:44:23', '2019-08-14 10:44:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('4042', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:45:38', '2019-08-14 10:45:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('4043', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:46:15', '2019-08-14 10:46:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('4044', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"17\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:46:19', '2019-08-14 10:46:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('4045', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:46:23', '2019-08-14 10:46:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('4046', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:50:19', '2019-08-14 10:50:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('4047', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:50:23', '2019-08-14 10:50:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('4048', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:51:10', '2019-08-14 10:51:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('4049', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:51:14', '2019-08-14 10:51:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('4050', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:51:39', '2019-08-14 10:51:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('4051', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:51:44', '2019-08-14 10:51:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('4052', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:53:03', '2019-08-14 10:53:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('4053', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:53:08', '2019-08-14 10:53:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('4054', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 10:56:13', '2019-08-14 10:56:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('4055', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:56:17', '2019-08-14 10:56:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('4056', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 10:56:31', '2019-08-14 10:56:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('4057', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:05:39', '2019-08-14 11:05:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('4058', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:05:43', '2019-08-14 11:05:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('4059', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:08:00', '2019-08-14 11:08:00');
+INSERT INTO `lied_admin_operation_log` VALUES ('4060', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:08:04', '2019-08-14 11:08:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('4061', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:08:42', '2019-08-14 11:08:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('4062', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:08:47', '2019-08-14 11:08:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('4063', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:09:02', '2019-08-14 11:09:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('4064', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:09:07', '2019-08-14 11:09:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('4065', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:14:08', '2019-08-14 11:14:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('4066', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:14:13', '2019-08-14 11:14:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('4067', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:14:47', '2019-08-14 11:14:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('4068', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:14:51', '2019-08-14 11:14:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('4069', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:15:11', '2019-08-14 11:15:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('4070', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:15:15', '2019-08-14 11:15:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('4071', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:16:02', '2019-08-14 11:16:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('4072', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:16:06', '2019-08-14 11:16:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('4073', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:16:57', '2019-08-14 11:16:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('4074', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:17:01', '2019-08-14 11:17:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('4075', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:18:21', '2019-08-14 11:18:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('4076', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:18:24', '2019-08-14 11:18:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('4077', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:18:44', '2019-08-14 11:18:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('4078', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:18:48', '2019-08-14 11:18:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('4079', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:19:13', '2019-08-14 11:19:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('4080', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:19:17', '2019-08-14 11:19:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('4081', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:19:50', '2019-08-14 11:19:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('4082', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:19:53', '2019-08-14 11:19:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('4083', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:21:25', '2019-08-14 11:21:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('4084', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:21:29', '2019-08-14 11:21:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('4085', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:23:42', '2019-08-14 11:23:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('4086', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:23:45', '2019-08-14 11:23:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('4087', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:24:04', '2019-08-14 11:24:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('4088', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:24:08', '2019-08-14 11:24:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('4089', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:34:24', '2019-08-14 11:34:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('4090', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"17\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:34:27', '2019-08-14 11:34:27');
+INSERT INTO `lied_admin_operation_log` VALUES ('4091', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:34:30', '2019-08-14 11:34:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('4092', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:34:33', '2019-08-14 11:34:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('4093', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:35:10', '2019-08-14 11:35:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('4094', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:35:18', '2019-08-14 11:35:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('4095', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:35:21', '2019-08-14 11:35:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('4096', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:36:59', '2019-08-14 11:36:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('4097', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:37:02', '2019-08-14 11:37:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('4098', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:37:05', '2019-08-14 11:37:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('4099', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:37:18', '2019-08-14 11:37:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('4100', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:37:26', '2019-08-14 11:37:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('4101', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:37:31', '2019-08-14 11:37:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('4102', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:38:07', '2019-08-14 11:38:07');
+INSERT INTO `lied_admin_operation_log` VALUES ('4103', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:38:12', '2019-08-14 11:38:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('4104', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:38:14', '2019-08-14 11:38:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('4105', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:38:37', '2019-08-14 11:38:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('4106', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:40:21', '2019-08-14 11:40:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('4107', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:40:28', '2019-08-14 11:40:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('4108', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:41:39', '2019-08-14 11:41:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('4109', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:41:43', '2019-08-14 11:41:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('4110', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:41:49', '2019-08-14 11:41:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('4111', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:44:40', '2019-08-14 11:44:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('4112', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:44:45', '2019-08-14 11:44:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('4113', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:44:47', '2019-08-14 11:44:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('4114', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:45:18', '2019-08-14 11:45:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('4115', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:45:22', '2019-08-14 11:45:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('4116', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:45:25', '2019-08-14 11:45:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('4117', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:46:30', '2019-08-14 11:46:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('4118', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:46:34', '2019-08-14 11:46:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('4119', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:46:35', '2019-08-14 11:46:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('4120', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:48:37', '2019-08-14 11:48:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('4121', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:48:41', '2019-08-14 11:48:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('4122', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:48:44', '2019-08-14 11:48:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('4123', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:49:45', '2019-08-14 11:49:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('4124', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"4\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:49:50', '2019-08-14 11:49:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('4125', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:49:56', '2019-08-14 11:49:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('4126', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:54:15', '2019-08-14 11:54:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('4127', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:54:20', '2019-08-14 11:54:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('4128', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:54:23', '2019-08-14 11:54:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('4129', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 11:55:15', '2019-08-14 11:55:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('4130', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:55:20', '2019-08-14 11:55:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('4131', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"d5l2Y9og13na2b22PyMD7OF2N7pG9Hge4OuZevYn\"}', '2019-08-14 11:55:25', '2019-08-14 11:55:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('4132', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:00:40', '2019-08-14 14:00:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('4133', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:00:46', '2019-08-14 14:00:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('4134', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:00:50', '2019-08-14 14:00:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('4135', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"16\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:01:13', '2019-08-14 14:01:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('4136', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:02:18', '2019-08-14 14:02:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('4137', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:02:23', '2019-08-14 14:02:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('4138', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:02:25', '2019-08-14 14:02:25');
+INSERT INTO `lied_admin_operation_log` VALUES ('4139', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:09:38', '2019-08-14 14:09:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('4140', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:09:44', '2019-08-14 14:09:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('4141', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:15:06', '2019-08-14 14:15:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('4142', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:15:10', '2019-08-14 14:15:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('4143', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:15:12', '2019-08-14 14:15:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('4144', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:15:42', '2019-08-14 14:15:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('4145', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:15:46', '2019-08-14 14:15:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('4146', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:15:49', '2019-08-14 14:15:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('4147', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:16:13', '2019-08-14 14:16:13');
+INSERT INTO `lied_admin_operation_log` VALUES ('4148', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:16:17', '2019-08-14 14:16:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('4149', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:16:19', '2019-08-14 14:16:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('4150', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"M\",\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:16:46', '2019-08-14 14:16:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('4151', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"Mma\",\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:16:48', '2019-08-14 14:16:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('4152', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"M\\u7801\",\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:16:49', '2019-08-14 14:16:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('4153', '1', 'admin/api/attr/value/create', 'POST', '127.0.0.1', '{\"key\":\"M\\u7801\",\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:16:51', '2019-08-14 14:16:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('4154', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:17:02', '2019-08-14 14:17:02');
+INSERT INTO `lied_admin_operation_log` VALUES ('4155', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"S\",\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:17:14', '2019-08-14 14:17:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('4156', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"Sma\",\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:17:16', '2019-08-14 14:17:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('4157', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"S\\u7801\",\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:17:16', '2019-08-14 14:17:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('4158', '1', 'admin/api/attr/value/create', 'POST', '127.0.0.1', '{\"key\":\"S\\u7801\",\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:17:18', '2019-08-14 14:17:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('4159', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:17:22', '2019-08-14 14:17:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('4160', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:17:58', '2019-08-14 14:17:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('4161', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:18:03', '2019-08-14 14:18:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('4162', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:23:37', '2019-08-14 14:23:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('4163', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:23:41', '2019-08-14 14:23:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('4164', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:23:43', '2019-08-14 14:23:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('4165', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:25:34', '2019-08-14 14:25:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('4166', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:25:42', '2019-08-14 14:25:42');
+INSERT INTO `lied_admin_operation_log` VALUES ('4167', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:25:46', '2019-08-14 14:25:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('4168', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:25:49', '2019-08-14 14:25:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('4169', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:26:04', '2019-08-14 14:26:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('4170', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"4\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:26:09', '2019-08-14 14:26:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('4171', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:26:17', '2019-08-14 14:26:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('4172', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:26:20', '2019-08-14 14:26:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('4173', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:26:54', '2019-08-14 14:26:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('4174', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:27:57', '2019-08-14 14:27:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('4175', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:28:01', '2019-08-14 14:28:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('4176', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:28:04', '2019-08-14 14:28:04');
+INSERT INTO `lied_admin_operation_log` VALUES ('4177', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:29:26', '2019-08-14 14:29:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('4178', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:29:31', '2019-08-14 14:29:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('4179', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"3\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:29:33', '2019-08-14 14:29:33');
+INSERT INTO `lied_admin_operation_log` VALUES ('4180', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:31:09', '2019-08-14 14:31:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('4181', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:34:58', '2019-08-14 14:34:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('4182', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2019-08-14 14:37:17', '2019-08-14 14:37:17');
+INSERT INTO `lied_admin_operation_log` VALUES ('4183', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"pid\":\"4\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:37:43', '2019-08-14 14:37:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('4184', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"t\",\"pid\":\"4\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:37:53', '2019-08-14 14:37:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('4185', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"T\",\"pid\":\"4\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:37:54', '2019-08-14 14:37:54');
+INSERT INTO `lied_admin_operation_log` VALUES ('4186', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"T-shil\",\"pid\":\"4\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:37:56', '2019-08-14 14:37:56');
+INSERT INTO `lied_admin_operation_log` VALUES ('4187', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"T-shil\",\"pid\":\"4\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:37:57', '2019-08-14 14:37:57');
+INSERT INTO `lied_admin_operation_log` VALUES ('4188', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"T-shilt\",\"pid\":\"4\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:37:59', '2019-08-14 14:37:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('4189', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"T-shil\",\"pid\":\"4\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:38:10', '2019-08-14 14:38:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('4190', '1', 'admin/api/attr/value/get', 'POST', '127.0.0.1', '{\"key\":\"T-shi\",\"pid\":\"4\",\"_token\":\"z1ea8ET0v6nRxSY01LEz1DTMVUA51yhw0uiIw6ZV\"}', '2019-08-14 14:38:11', '2019-08-14 14:38:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('4191', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-08-15 09:57:32', '2019-08-15 09:57:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('4192', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-08-15 09:57:35', '2019-08-15 09:57:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('4193', '1', 'admin', 'GET', '127.0.0.1', '[]', '2019-08-16 08:46:57', '2019-08-16 08:46:57');
 
 -- ----------------------------
 -- Table structure for `lied_admin_permissions`
@@ -4658,6 +5021,7 @@ DROP TABLE IF EXISTS `lied_product_attr`;
 CREATE TABLE `lied_product_attr` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL COMMENT '规格名称',
+  `sort` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
@@ -4667,11 +5031,11 @@ CREATE TABLE `lied_product_attr` (
 -- ----------------------------
 -- Records of lied_product_attr
 -- ----------------------------
-INSERT INTO `lied_product_attr` VALUES ('2', '颜色', '2019-08-06 16:30:17', '2019-08-06 16:30:17', null);
-INSERT INTO `lied_product_attr` VALUES ('3', '尺寸', '2019-08-06 16:30:46', '2019-08-06 16:30:46', null);
-INSERT INTO `lied_product_attr` VALUES ('4', '款式', '2019-08-06 16:35:08', '2019-08-06 16:35:08', null);
-INSERT INTO `lied_product_attr` VALUES ('16', '材质', '2019-08-06 17:09:37', '2019-08-06 17:09:37', null);
-INSERT INTO `lied_product_attr` VALUES ('17', '尺码', '2019-08-06 17:13:49', '2019-08-06 17:13:49', null);
+INSERT INTO `lied_product_attr` VALUES ('2', '颜色', '0', '2019-08-06 16:30:17', '2019-08-06 16:30:17', null);
+INSERT INTO `lied_product_attr` VALUES ('3', '尺寸', '0', '2019-08-06 16:30:46', '2019-08-06 16:30:46', null);
+INSERT INTO `lied_product_attr` VALUES ('4', '款式', '0', '2019-08-06 16:35:08', '2019-08-06 16:35:08', null);
+INSERT INTO `lied_product_attr` VALUES ('16', '材质', '0', '2019-08-06 17:09:37', '2019-08-06 17:09:37', null);
+INSERT INTO `lied_product_attr` VALUES ('17', '尺码', '0', '2019-08-06 17:13:49', '2019-08-06 17:13:49', null);
 
 -- ----------------------------
 -- Table structure for `lied_product_attr_map`
@@ -4703,17 +5067,22 @@ CREATE TABLE `lied_product_attr_values` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `product_attr_id` int(11) unsigned NOT NULL COMMENT '产品规格表id',
   `name` varchar(64) NOT NULL COMMENT '规格名称',
+  `sort` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `product_attr_values-product_attr_id` (`product_attr_id`),
   CONSTRAINT `product_attr_values-product_attr_id` FOREIGN KEY (`product_attr_id`) REFERENCES `lied_product_attr` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品规格值表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='产品规格值表';
 
 -- ----------------------------
 -- Records of lied_product_attr_values
 -- ----------------------------
+INSERT INTO `lied_product_attr_values` VALUES ('1', '3', 'L码', '0', '2019-08-13 13:57:48', '2019-08-13 13:57:48', null);
+INSERT INTO `lied_product_attr_values` VALUES ('2', '16', '塑料', '0', '2019-08-13 14:45:30', '2019-08-13 14:45:30', null);
+INSERT INTO `lied_product_attr_values` VALUES ('3', '3', 'M码', '0', '2019-08-14 14:16:51', '2019-08-14 14:16:51', null);
+INSERT INTO `lied_product_attr_values` VALUES ('4', '3', 'S码', '0', '2019-08-14 14:17:18', '2019-08-14 14:17:18', null);
 
 -- ----------------------------
 -- Table structure for `lied_product_attr_value_map`
