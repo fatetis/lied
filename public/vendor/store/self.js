@@ -131,7 +131,7 @@ $(function () {
 
     })
 
-    let checkLiStatus = (thatObjData,thatInlineInput,sku = true, object = false) => {
+    let checkLiStatus = (thatObjData,thatInlineInput,sku = false, object = false) => {
         //改变li状态：不可选、选中、可选start
         let attrValueObj = sku ? $('.self_sku_container .self_attr') : $('.self_sku_container .self_attr_value');
         let attrValueArray = [];
