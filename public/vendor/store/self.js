@@ -328,6 +328,15 @@ $(function () {
             }, delay);
         };
     }
+    
+    $(document).on('click','.self_sku_picture',function () {
+        let picClone = $('.prehtml .self_pic_clone').clone();
+        let skuObj = $(this).parents('.self_sku_additem')
+        if($(this).parents('.self_sku_additem').find('.self_pic_clone').length > 0){
+            return false;
+        }
+        skuObj.find('.self_sku_item').append(picClone);
+    })
 
 
 })

@@ -189,7 +189,7 @@
         </div>
     </div>
     {{--图片插件模板--}}
-    <div class="mt-10">
+    <div class="mt-10 self_pic_clone">
         <div class="f-c antd-pro-pages-goods-widget-styles-sku_image">
             <div class="antd-pro-pages-goods-widget-styles-arrow"></div>
             <div style="border: 1px solid rgb(217, 217, 217);">
