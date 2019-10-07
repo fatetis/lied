@@ -136,7 +136,7 @@
                 </div>
                 <div class="f-c-c font-12 ml-10 self_sku_picture">
                     <label class="ant-checkbox-wrapper">
-                                    <span class="ant-checkbox">
+                                    <span class="ant-checkbox self_style_control">
                                         <input type="checkbox" class="ant-checkbox-input" value="">
                                         <span class="ant-checkbox-inner">
                                         </span>

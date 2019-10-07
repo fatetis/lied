@@ -6,7 +6,6 @@ $(function () {
         let pid = that.parents('.self_sku_additem').find('.antd-pro-pages-goods-widget-styles-sku_group_title .ant-select-search__field').next().val();//获取父级pid的value值
         let prevVal = that.prev().find('.ant-select-search__field').next().val();//input框value值
         let skuHtml = $('.prehtml .self_sku_item').clone();//模板库克隆
-        let prevObjId = that.prev().find('.ant-select').data('select-obj');
         if(pid == ''){
             alert('请先添加规格名');
             return false;
@@ -15,12 +14,21 @@ $(function () {
             alert('请先选择上一个规格值');
             return false;
         }
-        //当有多个规格值时，使用上一个规格值的data-select-obj属性赋值给新增的
-        // if(prevObjId != undefined){
-        //     skuHtml.find('.ant-select').attr('data-select-obj',prevObjId).addClass(prevObjId);
-        // }
+
         skuHtml.find('.ant-select-search__field').attr('data-child',1)
         that.before(skuHtml)
+
+        if($('.self_style_control').hasClass('ant-checkbox-checked')){
+            let picClone = $('.prehtml .self_pic_clone').clone();
+            let self_sku = $('.self_style_control').parents('.self_sku_additem').find('.self_sku_item');
+            // console.log(self_sku.length);
+            for(let i = 0; i < self_sku.length; i++){
+                if(self_sku.eq(i).find('.self_pic_clone').length <= 0){
+                    self_sku.eq(i).append(picClone);
+                }
+            }
+        }
+
     })
 
     //删除规格值事件
@@ -329,12 +337,20 @@ $(function () {
         };
     }
     
-    $(document).on('click','.self_sku_picture',function () {
+    $(document).on('click', '.self_sku_picture', function () {
         let picClone = $('.prehtml .self_pic_clone').clone();
-        let skuObj = $(this).parents('.self_sku_additem')
-        if($(this).parents('.self_sku_additem').find('.self_pic_clone').length > 0){
+        let skuObj = $(this).parents('.self_sku_additem');
+        let that = $(this);
+        let thatPic = that.find('.self_style_control');
+        if(thatPic.hasClass('ant-checkbox-checked')){
+            thatPic.removeClass('ant-checkbox-checked');
+            that.parents('.self_sku_additem').find('.self_pic_clone').remove();
             return false;
         }
+        if(that.parents('.self_sku_additem').find('.self_pic_clone').length > 0){
+            return false;
+        }
+        thatPic.addClass('ant-checkbox-checked'); //添加选中样式
         skuObj.find('.self_sku_item').append(picClone);
     })
 
