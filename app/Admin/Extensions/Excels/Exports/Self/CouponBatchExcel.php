@@ -37,7 +37,6 @@ class CouponBatchExcel implements FromCollection,WithHeadings
 
     public function collection()
     {
-
         $data = [];
         $arr = [];
         $result = CouponsBatch::where(['id' => $this->id])->first();

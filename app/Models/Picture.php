@@ -12,5 +12,5 @@ class Picture extends BaseModel
      *
      * @var array
      */
-    protected $fillable = ['link'];
+    protected $fillable = ['link', 'size', 'file_ext', 'file_name', 'is_show', 'type'];
 }

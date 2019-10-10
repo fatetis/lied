@@ -69,6 +69,7 @@ Route::group([
     $router->resource('coupon/batch', 'Coupon\CouponBatchController');
     $router->resource('coupon', 'Coupon\CouponController');
 
-
+//    上传路由
+    $router->post('upload/image', 'UploadController@index')->name('uploadImage');
 
 });

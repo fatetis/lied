@@ -5,7 +5,8 @@ namespace App\Services;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 
-class OrderService extends BaseService {
+class OrderService extends BaseService
+{
 
     protected $table = Order::class;
     const TEMPIDPREFIX      = 'P';//同一订单唯一标识前缀
