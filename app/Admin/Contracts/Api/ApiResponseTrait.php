@@ -6,11 +6,31 @@ use Symfony\Component\HttpFoundation\Response as FoundationResponse;
 
 trait ApiResponseTrait
 {
-
     /**
      * @var int
      */
     protected $statusCode = FoundationResponse::HTTP_OK;
+
+    protected $successStr = 'success';
+
+    protected $errorStr = 'error';
+
+
+    /**
+     * @return mixed
+     */
+    public function getSuccessStr()
+    {
+        return $this->successStr;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getErrorStr()
+    {
+        return $this->errorStr;
+    }
 
     /**
      * @return mixed
@@ -116,7 +136,7 @@ trait ApiResponseTrait
      * @param string $status
      * @return mixed
      */
-    public function success($data, $status = "success")
+    public function success($data, $status = 'success')
     {
 
         return $this->status($status, compact('data'));
@@ -130,4 +150,6 @@ trait ApiResponseTrait
     {
         return $this->failed($message, Foundationresponse::HTTP_NOT_FOUND);
     }
+
+
 }

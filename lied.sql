@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50723
 File Encoding         : 65001
 
-Date: 2019-10-10 13:48:06
+Date: 2019-10-11 16:27:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -83,7 +83,7 @@ CREATE TABLE `lied_admin_operation_log` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lied_admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4538 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4596 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of lied_admin_operation_log
@@ -4625,6 +4625,64 @@ INSERT INTO `lied_admin_operation_log` VALUES ('4534', '1', 'admin/brand/create'
 INSERT INTO `lied_admin_operation_log` VALUES ('4535', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmnpjru4p79199sc78npmva98.jpg\",\"_token\":\"svAfDdGzIcW4enbALBfDHsBpEjWNz0Xw1BgciZlT\"}', '2019-10-09 16:19:24', '2019-10-09 16:19:24');
 INSERT INTO `lied_admin_operation_log` VALUES ('4536', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-09 16:19:44', '2019-10-09 16:19:44');
 INSERT INTO `lied_admin_operation_log` VALUES ('4537', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmnpkiq014e0qjhef11h4bhg08.jpg\",\"_token\":\"svAfDdGzIcW4enbALBfDHsBpEjWNz0Xw1BgciZlT\"}', '2019-10-09 16:19:47', '2019-10-09 16:19:47');
+INSERT INTO `lied_admin_operation_log` VALUES ('4538', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-10-11 14:53:10', '2019-10-11 14:53:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('4539', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-10-11 14:53:18', '2019-10-11 14:53:18');
+INSERT INTO `lied_admin_operation_log` VALUES ('4540', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-10-11 14:53:21', '2019-10-11 14:53:21');
+INSERT INTO `lied_admin_operation_log` VALUES ('4541', '1', 'admin/brand/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2019-10-11 14:53:29', '2019-10-11 14:53:29');
+INSERT INTO `lied_admin_operation_log` VALUES ('4542', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmspgbqokae13801df4baj17b88.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 14:53:41', '2019-10-11 14:53:41');
+INSERT INTO `lied_admin_operation_log` VALUES ('4543', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmspnjlb1st28qa4jip066amd.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 14:57:39', '2019-10-11 14:57:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('4544', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmspomccg831ip2109fdobhm9i.JPG\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 14:58:14', '2019-10-11 14:58:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('4545', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsppf64pnp922k1ien1n5in.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 14:58:40', '2019-10-11 14:58:40');
+INSERT INTO `lied_admin_operation_log` VALUES ('4546', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmspqoj91fkk18up14kv16si1p8ss.JPG\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 14:59:22', '2019-10-11 14:59:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('4547', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmspv3o7f5hic49711if61ivt11.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:01:45', '2019-10-11 15:01:45');
+INSERT INTO `lied_admin_operation_log` VALUES ('4548', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsq3ats1a6d1ff31dl91upe4l716.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:04:03', '2019-10-11 15:04:03');
+INSERT INTO `lied_admin_operation_log` VALUES ('4549', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsq5bfh1clu1giotnb1bn51ame1b.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:05:09', '2019-10-11 15:05:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('4550', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 15:07:34', '2019-10-11 15:07:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('4551', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsq9tg71kj11l401qiefeertv8.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:07:39', '2019-10-11 15:07:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('4552', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsqanbe6g4e6m1q47p851ejhd.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:08:05', '2019-10-11 15:08:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('4553', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsqc3iijas155r1orifgie0i.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:08:50', '2019-10-11 15:08:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('4554', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsqcci7s6vh481kcfsmrtt6n.JPG\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:08:59', '2019-10-11 15:08:59');
+INSERT INTO `lied_admin_operation_log` VALUES ('4555', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 15:10:14', '2019-10-11 15:10:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('4556', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsqeqju9j5lc31org10uq16pk8.JPG\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:10:19', '2019-10-11 15:10:19');
+INSERT INTO `lied_admin_operation_log` VALUES ('4557', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsqf76712el3c713utd411dqkd.png\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:10:32', '2019-10-11 15:10:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('4558', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsr4ieltmdjellur1mc1h0qi.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:22:12', '2019-10-11 15:22:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('4559', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 15:44:10', '2019-10-11 15:44:10');
+INSERT INTO `lied_admin_operation_log` VALUES ('4560', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmssct4c9uskf12jm1ila1gus8.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:44:14', '2019-10-11 15:44:14');
+INSERT INTO `lied_admin_operation_log` VALUES ('4561', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsshr191d2j1e3a1np51rmv6ikd.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:46:55', '2019-10-11 15:46:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('4562', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmssieoc7elgbfkqf131n12koi.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:47:16', '2019-10-11 15:47:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('4563', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmssioo0196kabov2o4hhc62n.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:47:26', '2019-10-11 15:47:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('4564', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmst2d8j1utdvbc1p2j1lo41khis.JPG\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:55:58', '2019-10-11 15:55:58');
+INSERT INTO `lied_admin_operation_log` VALUES ('4565', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmst2u8p15fjo1tcrhvq2nn11.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:56:16', '2019-10-11 15:56:16');
+INSERT INTO `lied_admin_operation_log` VALUES ('4566', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmst5qmt1ro8ivc1odt1aob1ola16.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:57:50', '2019-10-11 15:57:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('4567', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmst72ij1oralt23lshol1brh1b.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:58:31', '2019-10-11 15:58:31');
+INSERT INTO `lied_admin_operation_log` VALUES ('4568', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmst7v851iasr5n1t0lhhl1kss1g.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:59:01', '2019-10-11 15:59:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('4569', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmst99jb18751ebq10su1q45mbb1l.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 15:59:44', '2019-10-11 15:59:44');
+INSERT INTO `lied_admin_operation_log` VALUES ('4570', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmstdti4jr7ruq1fou1f8dak81q.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 16:02:15', '2019-10-11 16:02:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('4571', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmste8221ctr4s8p27161oa6g1v.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 16:02:26', '2019-10-11 16:02:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('4572', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmstlg2b110513gb1dku1tt170924.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 16:06:24', '2019-10-11 16:06:24');
+INSERT INTO `lied_admin_operation_log` VALUES ('4573', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsu739d1fjre3iemdp6shhh29.png\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 16:16:01', '2019-10-11 16:16:01');
+INSERT INTO `lied_admin_operation_log` VALUES ('4574', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsu83kg1a9j1lmdqdq1il71q842e.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 16:16:34', '2019-10-11 16:16:34');
+INSERT INTO `lied_admin_operation_log` VALUES ('4575', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:16:37', '2019-10-11 16:16:37');
+INSERT INTO `lied_admin_operation_log` VALUES ('4576', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:16:38', '2019-10-11 16:16:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('4577', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:16:39', '2019-10-11 16:16:39');
+INSERT INTO `lied_admin_operation_log` VALUES ('4578', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsu8d6l1ie21ahbnf46dq1m8b8.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\"}', '2019-10-11 16:16:43', '2019-10-11 16:16:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('4579', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:17:26', '2019-10-11 16:17:26');
+INSERT INTO `lied_admin_operation_log` VALUES ('4580', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsua0bd10i4igp1tcs1a9r16918.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\",\"is_lock\":\"1\"}', '2019-10-11 16:17:36', '2019-10-11 16:17:36');
+INSERT INTO `lied_admin_operation_log` VALUES ('4581', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:17:48', '2019-10-11 16:17:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('4582', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:17:49', '2019-10-11 16:17:49');
+INSERT INTO `lied_admin_operation_log` VALUES ('4583', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsuagnjlma15ltcm31vqu1j408.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\",\"is_lock\":\"1\"}', '2019-10-11 16:17:53', '2019-10-11 16:17:53');
+INSERT INTO `lied_admin_operation_log` VALUES ('4584', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:18:05', '2019-10-11 16:18:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('4585', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsuavvrc3g16g14191don68k8.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\",\"is_lock\":\"1\"}', '2019-10-11 16:18:08', '2019-10-11 16:18:08');
+INSERT INTO `lied_admin_operation_log` VALUES ('4586', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:18:46', '2019-10-11 16:18:46');
+INSERT INTO `lied_admin_operation_log` VALUES ('4587', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsuc8ra7khue610n0968hfo8.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\",\"is_lock\":\"0\"}', '2019-10-11 16:18:50', '2019-10-11 16:18:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('4588', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:19:11', '2019-10-11 16:19:11');
+INSERT INTO `lied_admin_operation_log` VALUES ('4589', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsud18t6u1kghgjook714588.png\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\",\"is_lock\":\"0\"}', '2019-10-11 16:19:15', '2019-10-11 16:19:15');
+INSERT INTO `lied_admin_operation_log` VALUES ('4590', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsud97arfsgjlts01llksvnd.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\",\"is_lock\":\"0\"}', '2019-10-11 16:19:23', '2019-10-11 16:19:23');
+INSERT INTO `lied_admin_operation_log` VALUES ('4591', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:20:05', '2019-10-11 16:20:05');
+INSERT INTO `lied_admin_operation_log` VALUES ('4592', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsuemah1p7qmlq1ti113ae6o78.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\",\"is_lock\":\"0\"}', '2019-10-11 16:20:09', '2019-10-11 16:20:09');
+INSERT INTO `lied_admin_operation_log` VALUES ('4593', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:20:50', '2019-10-11 16:20:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('4594', '1', 'admin/brand/create', 'GET', '127.0.0.1', '[]', '2019-10-11 16:20:55', '2019-10-11 16:20:55');
+INSERT INTO `lied_admin_operation_log` VALUES ('4595', '1', 'admin/upload/image', 'POST', '127.0.0.1', '{\"name\":\"o_1dmsug7cmv6q1407roocg1ieu8.jpg\",\"_token\":\"S7Gzd6YBEGYGubqPtXu8e3nlteEdXOn54Igsy0Lp\",\"is_lock\":\"0\"}', '2019-10-11 16:21:00', '2019-10-11 16:21:00');
 
 -- ----------------------------
 -- Table structure for `lied_admin_permissions`
@@ -5125,19 +5183,11 @@ CREATE TABLE `lied_log_error` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='错误日志';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='错误日志';
 
 -- ----------------------------
 -- Records of lied_log_error
 -- ----------------------------
-INSERT INTO `lied_log_error` VALUES ('1', '找不到对应方法', '127.0.0.1', '/admin/download/excel/1?_pjax=%23pjax-container', 'GET', '2019-07-05 17:28:37', '2019-07-05 17:28:37');
-INSERT INTO `lied_log_error` VALUES ('2', '找不到对应方法参数为1', '127.0.0.1', '/admin/download/excel?id=1&type=1', 'GET', '2019-07-06 11:04:43', '2019-07-06 11:04:43');
-INSERT INTO `lied_log_error` VALUES ('3', '此线下券已达最大生成数量参数为1', '127.0.0.1', '/admin/download/excel?type=1&id=1', 'GET', '2019-07-10 11:00:23', '2019-07-10 11:00:23');
-INSERT INTO `lied_log_error` VALUES ('4', '此线下券已达最大生成数量参数为1', '127.0.0.1', '/admin/download/excel?type=1&id=1', 'GET', '2019-07-10 11:01:12', '2019-07-10 11:01:12');
-INSERT INTO `lied_log_error` VALUES ('5', '此线下券已达最大生成数量参数为1', '127.0.0.1', '/admin/download/excel?type=1&id=1', 'GET', '2019-07-10 11:02:11', '2019-07-10 11:02:11');
-INSERT INTO `lied_log_error` VALUES ('6', '此线下券已达最大生成数量参数为1', '127.0.0.1', '/admin/download/excel?type=1&id=1', 'GET', '2019-07-10 11:03:35', '2019-07-10 11:03:35');
-INSERT INTO `lied_log_error` VALUES ('7', '此线下券已达最大生成数量参数为1', '127.0.0.1', '/admin/download/excel?type=1&id=1', 'GET', '2019-07-10 11:04:57', '2019-07-10 11:04:57');
-INSERT INTO `lied_log_error` VALUES ('8', '此线下券已达最大生成数量参数为1', '127.0.0.1', '/admin/download/excel?type=1&id=1', 'GET', '2019-07-10 11:09:19', '2019-07-10 11:09:19');
 
 -- ----------------------------
 -- Table structure for `lied_migrations`
@@ -5232,99 +5282,63 @@ CREATE TABLE `lied_picture` (
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `type` tinyint(1) unsigned DEFAULT '1' COMMENT '媒体类型 1-图片 2-文件 3-多媒体',
   `link` varchar(255) DEFAULT '0',
-  `size` smallint(6) unsigned DEFAULT NULL COMMENT '文件大小 以kb为单位',
-  `file_ext` char(6) DEFAULT NULL COMMENT '文件后缀',
-  `file_name` varchar(64) DEFAULT NULL COMMENT '文件名称',
-  `is_show` tinyint(1) unsigned DEFAULT NULL COMMENT '显示',
+  `size` smallint(6) unsigned DEFAULT '0' COMMENT '文件大小 以kb为单位',
+  `file_ext` char(6) DEFAULT '0' COMMENT '文件后缀',
+  `file_name` varchar(128) DEFAULT '0' COMMENT '文件名称',
+  `is_lock` tinyint(1) unsigned DEFAULT '0' COMMENT '是否上锁 0-否 1-是',
+  `is_show` tinyint(1) unsigned DEFAULT '1' COMMENT '显示',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=183 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lied_picture
 -- ----------------------------
-INSERT INTO `lied_picture` VALUES ('62', '1', 'images/product-thumb/2019-01-09/3652f1ea80ec1e4a9d21ccee38d7d321.png', null, null, null, null, '2019-01-09 11:21:32', '2019-01-09 11:21:32', null);
-INSERT INTO `lied_picture` VALUES ('64', '1', 'images/product-thumb/2019-01-09/7717b27822adf6c8c8587ba31d67d2c9.jpg', null, null, null, null, '2019-01-09 11:21:32', '2019-02-21 14:58:16', '2019-02-21 14:58:16');
-INSERT INTO `lied_picture` VALUES ('65', '1', 'images/product-thumb/2019-01-09/7ff47eb938483b641eb0515633229452.png', null, null, null, null, '2019-01-09 11:21:32', '2019-02-21 14:58:39', '2019-02-21 14:58:39');
-INSERT INTO `lied_picture` VALUES ('66', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, null, '2019-01-09 11:21:32', '2019-01-09 11:21:32', null);
-INSERT INTO `lied_picture` VALUES ('67', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, null, '2019-01-09 15:19:59', '2019-01-09 15:19:59', null);
-INSERT INTO `lied_picture` VALUES ('71', '1', 'images/adv-thumb/2019-02-19/f4ca8373a3cc25fe1306b7cdd077af58.png', null, null, null, null, '2019-02-19 11:59:25', '2019-02-19 11:59:25', null);
-INSERT INTO `lied_picture` VALUES ('72', '1', 'images/artical_thumb/2018310f75949f56792080d303c1cef7.png', null, null, null, null, '2019-02-21 13:59:19', '2019-02-21 14:57:27', '2019-02-21 14:57:27');
-INSERT INTO `lied_picture` VALUES ('79', '1', 'images/product_picture/2019-02-21/0708b9591360e18962bac52d725fb08a.jpg', null, null, null, null, '2019-02-21 15:01:47', '2019-02-21 15:01:58', '2019-02-21 15:01:58');
-INSERT INTO `lied_picture` VALUES ('80', '1', 'images/product_picture/2019-02-21/997bbfb7cd63e0c5aa1e4cf79e5982e3.jpg', null, null, null, null, '2019-02-21 15:01:47', '2019-02-21 15:04:47', '2019-02-21 15:04:47');
-INSERT INTO `lied_picture` VALUES ('81', '1', 'images/product_picture/2019-02-21/9e52ad590aa0e4842c937306b0e867b7.png', null, null, null, null, '2019-02-21 15:01:48', '2019-02-21 15:02:00', '2019-02-21 15:02:00');
-INSERT INTO `lied_picture` VALUES ('82', '1', 'images/product_picture/2019-02-21/492aaaf569b570e5e1a238a7fdfb5bcc.jpg', null, null, null, null, '2019-02-21 15:07:06', '2019-02-21 15:08:00', '2019-02-21 15:08:00');
-INSERT INTO `lied_picture` VALUES ('83', '1', 'images/product_picture/2019-02-21/d60ca2a3f463ef5a86c36507aaf683c4.jpg', null, null, null, null, '2019-02-21 15:07:06', '2019-02-21 15:07:34', '2019-02-21 15:07:34');
-INSERT INTO `lied_picture` VALUES ('84', '1', 'images/product_picture/2019-02-21/35d467fc8af1e09c2ddd9c44a6c3bfa4.png', null, null, null, null, '2019-02-21 15:07:06', '2019-02-21 15:07:31', '2019-02-21 15:07:31');
-INSERT INTO `lied_picture` VALUES ('85', '1', 'images/product_picture/2019-02-21/35d1c6d1a7235e1f5148a3b0a3cdaf71.jpg', null, null, null, null, '2019-02-21 15:08:18', '2019-02-21 15:08:24', '2019-02-21 15:08:24');
-INSERT INTO `lied_picture` VALUES ('86', '1', 'images/product_picture/2019-02-21/fb762f025ff36da54661f257dec386b0.jpg', null, null, null, null, '2019-02-21 15:08:18', '2019-02-21 15:10:27', '2019-02-21 15:10:27');
-INSERT INTO `lied_picture` VALUES ('87', '1', 'images/product_picture/2019-02-21/bdfda9f7aab22611418d10e425724749.png', null, null, null, null, '2019-02-21 15:08:18', '2019-02-21 15:08:28', '2019-02-21 15:08:28');
-INSERT INTO `lied_picture` VALUES ('88', '1', 'images/product_picture/2019-02-21/78ee680eb2d7e77b1f1755ac0f3167cf.jpg', null, null, null, null, '2019-02-21 15:09:59', '2019-02-21 15:10:15', '2019-02-21 15:10:15');
-INSERT INTO `lied_picture` VALUES ('89', '1', 'images/product_picture/2019-02-21/38068d8dede1a509f220b7383aab406d.jpg', null, null, null, null, '2019-02-21 15:09:59', '2019-02-21 15:10:05', '2019-02-21 15:10:05');
-INSERT INTO `lied_picture` VALUES ('90', '1', 'images/product_picture/2019-02-21/3abd5705d4433bd5627da89049cc4d39.png', null, null, null, null, '2019-02-21 15:09:59', '2019-02-21 15:13:31', '2019-02-21 15:13:31');
-INSERT INTO `lied_picture` VALUES ('91', '1', 'images/product_picture/2019-02-21/9dab3295d052be1244f869f36e15e0e6.jpg', null, null, null, null, '2019-02-21 15:14:02', '2019-02-21 15:15:22', '2019-02-21 15:15:22');
-INSERT INTO `lied_picture` VALUES ('92', '1', 'images/product_picture/2019-02-21/f4f4eca924a8d9717c4be7b39ea44664.jpg', null, null, null, null, '2019-02-21 15:14:02', '2019-02-21 15:14:11', '2019-02-21 15:14:11');
-INSERT INTO `lied_picture` VALUES ('93', '1', 'images/product_picture/2019-02-21/98e1bc400d52f7005f1925f089861648.jpg', null, null, null, null, '2019-02-21 15:14:02', '2019-02-21 15:22:10', '2019-02-21 15:22:10');
-INSERT INTO `lied_picture` VALUES ('94', '1', 'images/product_picture/2019-02-21/3d96d959e95b43561cc840dfef13a445.png', null, null, null, null, '2019-02-21 15:14:02', '2019-02-21 15:14:02', null);
-INSERT INTO `lied_picture` VALUES ('95', '1', 'images/product_picture/2019-02-21/1d0506531926755dd63a10a8f2bbe904.jpg', null, null, null, null, '2019-02-21 15:22:24', '2019-02-21 15:22:24', null);
-INSERT INTO `lied_picture` VALUES ('96', '1', 'images/product_picture/2019-02-21/6ee663b15c22701db619d986e266e409.jpg', null, null, null, null, '2019-02-21 15:22:24', '2019-02-21 15:24:05', '2019-02-21 15:24:05');
-INSERT INTO `lied_picture` VALUES ('97', '1', 'images/product_picture/2019-02-21/aec6bcbdc5ab70947c8e49e2f9a18602.png', null, null, null, null, '2019-02-21 15:22:24', '2019-02-21 15:23:58', '2019-02-21 15:23:58');
-INSERT INTO `lied_picture` VALUES ('98', '1', 'images/product_picture/2019-02-21/14dd1348ab5c6f06bb5c858017d53b02.jpg', null, null, null, null, '2019-02-21 15:24:20', '2019-02-21 15:27:17', '2019-02-21 15:27:17');
-INSERT INTO `lied_picture` VALUES ('99', '1', 'images/product_picture/2019-02-21/339c9521387ef4fcda85594565eb3f48.jpg', null, null, null, null, '2019-02-21 15:24:20', '2019-02-21 15:24:28', '2019-02-21 15:24:28');
-INSERT INTO `lied_picture` VALUES ('100', '1', 'images/product_picture/2019-02-21/a865ff273e304aef8e974e9f41d9fb49.png', null, null, null, null, '2019-02-21 15:24:20', '2019-02-21 15:26:48', '2019-02-21 15:26:48');
-INSERT INTO `lied_picture` VALUES ('101', '1', 'images/product_picture/2019-02-21/7d5112686cec342fa82ddcde3a0d13ca.jpg', null, null, null, null, '2019-02-21 15:27:27', '2019-02-21 15:28:42', '2019-02-21 15:28:42');
-INSERT INTO `lied_picture` VALUES ('102', '1', 'images/product_picture/2019-02-21/b805bd250f896d8424d02a9f36c57e90.jpg', null, null, null, null, '2019-02-21 15:27:27', '2019-02-21 15:27:46', '2019-02-21 15:27:46');
-INSERT INTO `lied_picture` VALUES ('103', '1', 'images/product_picture/2019-02-21/e1d17511249c7de85fb3c7498384b00c.png', null, null, null, null, '2019-02-21 15:27:27', '2019-02-21 15:41:43', '2019-02-21 15:41:43');
-INSERT INTO `lied_picture` VALUES ('104', '1', 'images/product_picture/2019-02-21/1b7bb7bddbc03acfd6ade2d7b42ef1ad.jpg', null, null, null, null, '2019-02-21 15:28:59', '2019-02-21 15:29:32', '2019-02-21 15:29:32');
-INSERT INTO `lied_picture` VALUES ('105', '1', 'images/product_picture/2019-02-21/253e74651c7b6ce92d3090f1b5959f38.jpg', null, null, null, null, '2019-02-21 15:28:59', '2019-02-21 15:40:56', '2019-02-21 15:40:56');
-INSERT INTO `lied_picture` VALUES ('106', '1', 'images/product_picture/2019-02-21/f6721d1873ae0a3e1a46b40f8846f231.png', null, null, null, null, '2019-02-21 15:28:59', '2019-02-21 15:41:29', '2019-02-21 15:41:29');
-INSERT INTO `lied_picture` VALUES ('107', '1', 'images/product_picture/2019-02-21/09c5d17d53db03bf642ed6f67611d777.jpg', null, null, null, null, '2019-02-21 15:41:55', '2019-02-21 15:42:06', '2019-02-21 15:42:06');
-INSERT INTO `lied_picture` VALUES ('108', '1', 'images/product_picture/2019-02-21/ecfa755b310ea2b503c6f6b93e0183f1.jpg', null, null, null, null, '2019-02-21 15:41:55', '2019-02-21 15:42:01', '2019-02-21 15:42:01');
-INSERT INTO `lied_picture` VALUES ('109', '1', 'images/product_picture/2019-02-21/8a6c7fd1d0b8b80e9fc5a0df337e3ef5.jpg', null, null, null, null, '2019-02-21 15:41:55', '2019-02-21 15:42:14', '2019-02-21 15:42:14');
-INSERT INTO `lied_picture` VALUES ('110', '1', 'images/product_picture/2019-02-21/ac0ce22e18d5fda00066bef87e53ada6.png', null, null, null, null, '2019-02-21 15:41:55', '2019-02-21 15:42:10', '2019-02-21 15:42:10');
-INSERT INTO `lied_picture` VALUES ('111', '1', 'images/product_picture/2019-02-21/3f6928850b48674f787bc407bb4eeeed.jpg', null, null, null, null, '2019-02-21 15:42:24', '2019-02-21 15:42:24', null);
-INSERT INTO `lied_picture` VALUES ('112', '1', 'images/product_picture/2019-02-21/3d5b79be0d5252675037a4baa5e833c6.jpg', null, null, null, null, '2019-02-21 15:42:24', '2019-02-21 15:42:24', null);
-INSERT INTO `lied_picture` VALUES ('113', '1', 'images/product_picture/2019-02-21/cd84c1fdea14b3ee6d5c61e5a24109fb.png', null, null, null, null, '2019-02-21 15:42:24', '2019-02-21 15:42:24', null);
-INSERT INTO `lied_picture` VALUES ('145', '1', 'images/product_thumb/2019-03-18/a2a58e4958fa382321703e84ab8e0b7c.png', null, null, null, null, '2019-03-18 15:18:44', '2019-03-18 15:18:44', null);
-INSERT INTO `lied_picture` VALUES ('146', '1', 'images/product_picture/2019-03-18/ae44fcdcc6ca4b3ae3412a966cd8875c.jpg', null, null, null, null, '2019-03-18 15:18:44', '2019-03-18 15:20:02', '2019-03-18 15:20:02');
-INSERT INTO `lied_picture` VALUES ('147', '1', 'images/product_picture/2019-03-18/ea243608190b4b471f027cadacc0e8e9.jpg', null, null, null, null, '2019-03-18 15:18:44', '2019-03-18 15:19:58', '2019-03-18 15:19:58');
-INSERT INTO `lied_picture` VALUES ('148', '1', 'images/product_picture/2019-03-18/0d5a6931ad3323f3c26a7f366dd03182.png', null, null, null, null, '2019-03-18 15:18:44', '2019-03-18 15:19:59', '2019-03-18 15:19:59');
-INSERT INTO `lied_picture` VALUES ('149', '1', 'images/product_picture/2019-03-18/3afd563ccf982c03020734150f44cf94.jpg', null, null, null, null, '2019-03-18 15:20:09', '2019-03-18 16:21:27', '2019-03-18 16:21:27');
-INSERT INTO `lied_picture` VALUES ('150', '1', 'images/product_picture/2019-03-18/fb3c87ffad278b7c465e4537627ed79a.jpg', null, null, null, null, '2019-03-18 15:20:09', '2019-03-18 15:20:09', null);
-INSERT INTO `lied_picture` VALUES ('151', '1', 'images/product_picture/2019-03-18/a7697c72b5aef6e4c11259442f613d46.png', null, null, null, null, '2019-03-18 15:20:09', '2019-03-18 15:20:09', null);
-INSERT INTO `lied_picture` VALUES ('152', '1', 'images/product_attr_thumb/2019-03-18/66b0f992446fc254bac0ef02bf0f347e.jpg', null, null, null, null, '2019-03-18 15:20:09', '2019-03-18 15:20:09', null);
-INSERT INTO `lied_picture` VALUES ('153', '1', 'images/product_picture/2019-03-18/a31d65648ff36227ee3ea7393a3bf090.jpg', null, null, null, null, '2019-03-18 16:21:43', '2019-03-18 16:21:43', null);
-INSERT INTO `lied_picture` VALUES ('154', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, null, '2019-05-04 15:58:21', '2019-05-04 15:58:21', null);
-INSERT INTO `lied_picture` VALUES ('155', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, null, '2019-05-04 15:58:21', '2019-05-04 15:58:21', null);
-INSERT INTO `lied_picture` VALUES ('156', '1', 'images/product_attr_thumb/2019-03-18/66b0f992446fc254bac0ef02bf0f347e.jpg', null, null, null, null, '2019-05-07 13:47:12', '2019-05-07 13:47:12', null);
-INSERT INTO `lied_picture` VALUES ('157', '1', 'images/product_attr_thumb/2019-03-18/66b0f992446fc254bac0ef02bf0f347e.jpg', null, null, null, null, '2019-05-07 14:05:54', '2019-05-07 14:05:54', null);
-INSERT INTO `lied_picture` VALUES ('158', '1', 'images/brand_thumb/201905/a988e834e85861cb5bbc323b34c49f0a.jpg', null, null, null, null, '2019-05-07 14:11:27', '2019-05-07 14:11:27', null);
-INSERT INTO `lied_picture` VALUES ('159', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, null, '2019-05-07 14:38:37', '2019-05-07 14:38:37', null);
-INSERT INTO `lied_picture` VALUES ('160', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, null, '2019-05-07 14:38:38', '2019-05-07 14:38:38', null);
-INSERT INTO `lied_picture` VALUES ('161', '1', 'images/artical_thumb/201905/02b2e90015f5e6f6dec7514e685a76da.jpg', null, null, null, null, '2019-05-07 17:31:52', '2019-05-07 17:31:52', null);
-INSERT INTO `lied_picture` VALUES ('162', '1', 'images/product_thumb/20190617/00a592413e45cf60c542544ed4cf86df.png', null, null, null, null, '2019-06-17 15:41:39', '2019-06-17 15:41:39', null);
-INSERT INTO `lied_picture` VALUES ('163', '1', 'images/product_picture/20190617/46f52faeb7bf5a65e3d14826f4734b88.JPG', null, null, null, null, '2019-06-17 15:41:39', '2019-06-17 15:41:39', null);
-INSERT INTO `lied_picture` VALUES ('164', '1', 'images/product_picture/20190617/3bc76486d30ed0348d17e5656353f321.png', null, null, null, null, '2019-06-17 15:41:39', '2019-06-17 15:41:39', null);
-INSERT INTO `lied_picture` VALUES ('165', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, null, '2019-06-17 15:41:44', '2019-06-17 15:41:44', null);
-INSERT INTO `lied_picture` VALUES ('166', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, null, '2019-06-17 15:41:44', '2019-06-17 15:41:44', null);
-INSERT INTO `lied_picture` VALUES ('167', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, null, '2019-06-19 14:55:54', '2019-06-19 14:55:54', null);
-INSERT INTO `lied_picture` VALUES ('168', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, null, '2019-06-19 14:55:54', '2019-06-19 14:55:54', null);
-INSERT INTO `lied_picture` VALUES ('169', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, null, '2019-06-19 14:56:02', '2019-06-19 14:56:02', null);
-INSERT INTO `lied_picture` VALUES ('170', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, null, '2019-06-19 14:56:02', '2019-06-19 14:56:02', null);
-INSERT INTO `lied_picture` VALUES ('171', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, null, '2019-06-19 17:04:43', '2019-06-19 17:04:43', null);
-INSERT INTO `lied_picture` VALUES ('172', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, null, '2019-06-19 17:04:43', '2019-06-19 17:04:43', null);
-INSERT INTO `lied_picture` VALUES ('173', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, null, '2019-06-19 17:04:54', '2019-06-19 17:04:54', null);
-INSERT INTO `lied_picture` VALUES ('174', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, null, '2019-06-19 17:04:54', '2019-06-19 17:04:54', null);
-INSERT INTO `lied_picture` VALUES ('175', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, null, '2019-06-19 18:12:01', '2019-06-19 18:12:01', null);
-INSERT INTO `lied_picture` VALUES ('176', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, null, '2019-06-19 18:12:01', '2019-06-19 18:12:01', null);
-INSERT INTO `lied_picture` VALUES ('177', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, null, '2019-06-20 13:44:35', '2019-06-20 13:44:35', null);
-INSERT INTO `lied_picture` VALUES ('178', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, null, '2019-06-20 13:44:35', '2019-06-20 13:44:35', null);
-INSERT INTO `lied_picture` VALUES ('179', '1', 'images/coupon_thumb/20190620/8d32d1c829fd01f00b5aed0e5672bfb1.png', null, null, null, null, '2019-06-20 14:04:07', '2019-06-20 14:04:07', null);
-INSERT INTO `lied_picture` VALUES ('180', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, null, '2019-07-22 16:12:43', '2019-07-22 16:12:43', null);
-INSERT INTO `lied_picture` VALUES ('181', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, null, '2019-07-22 16:12:43', '2019-07-22 16:12:43', null);
-INSERT INTO `lied_picture` VALUES ('182', '1', 'images/coupon_thumb/20191009/2ed81264ce192d7b73d43dd6c4fb40c0.jpg', null, null, null, null, '2019-10-09 14:49:23', '2019-10-09 14:49:23', null);
+INSERT INTO `lied_picture` VALUES ('62', '1', 'images/product-thumb/2019-01-09/3652f1ea80ec1e4a9d21ccee38d7d321.png', null, null, null, '0', null, '2019-01-09 11:21:32', '2019-01-09 11:21:32', null);
+INSERT INTO `lied_picture` VALUES ('66', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, '0', null, '2019-01-09 11:21:32', '2019-01-09 11:21:32', null);
+INSERT INTO `lied_picture` VALUES ('67', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, '0', null, '2019-01-09 15:19:59', '2019-01-09 15:19:59', null);
+INSERT INTO `lied_picture` VALUES ('71', '1', 'images/adv-thumb/2019-02-19/f4ca8373a3cc25fe1306b7cdd077af58.png', null, null, null, '0', null, '2019-02-19 11:59:25', '2019-02-19 11:59:25', null);
+INSERT INTO `lied_picture` VALUES ('94', '1', 'images/product_picture/2019-02-21/3d96d959e95b43561cc840dfef13a445.png', null, null, null, '0', null, '2019-02-21 15:14:02', '2019-02-21 15:14:02', null);
+INSERT INTO `lied_picture` VALUES ('95', '1', 'images/product_picture/2019-02-21/1d0506531926755dd63a10a8f2bbe904.jpg', null, null, null, '0', null, '2019-02-21 15:22:24', '2019-02-21 15:22:24', null);
+INSERT INTO `lied_picture` VALUES ('111', '1', 'images/product_picture/2019-02-21/3f6928850b48674f787bc407bb4eeeed.jpg', null, null, null, '0', null, '2019-02-21 15:42:24', '2019-02-21 15:42:24', null);
+INSERT INTO `lied_picture` VALUES ('112', '1', 'images/product_picture/2019-02-21/3d5b79be0d5252675037a4baa5e833c6.jpg', null, null, null, '0', null, '2019-02-21 15:42:24', '2019-02-21 15:42:24', null);
+INSERT INTO `lied_picture` VALUES ('113', '1', 'images/product_picture/2019-02-21/cd84c1fdea14b3ee6d5c61e5a24109fb.png', null, null, null, '0', null, '2019-02-21 15:42:24', '2019-02-21 15:42:24', null);
+INSERT INTO `lied_picture` VALUES ('145', '1', 'images/product_thumb/2019-03-18/a2a58e4958fa382321703e84ab8e0b7c.png', null, null, null, '0', null, '2019-03-18 15:18:44', '2019-03-18 15:18:44', null);
+INSERT INTO `lied_picture` VALUES ('150', '1', 'images/product_picture/2019-03-18/fb3c87ffad278b7c465e4537627ed79a.jpg', null, null, null, '0', null, '2019-03-18 15:20:09', '2019-03-18 15:20:09', null);
+INSERT INTO `lied_picture` VALUES ('151', '1', 'images/product_picture/2019-03-18/a7697c72b5aef6e4c11259442f613d46.png', null, null, null, '0', null, '2019-03-18 15:20:09', '2019-03-18 15:20:09', null);
+INSERT INTO `lied_picture` VALUES ('152', '1', 'images/product_attr_thumb/2019-03-18/66b0f992446fc254bac0ef02bf0f347e.jpg', null, null, null, '0', null, '2019-03-18 15:20:09', '2019-03-18 15:20:09', null);
+INSERT INTO `lied_picture` VALUES ('153', '1', 'images/product_picture/2019-03-18/a31d65648ff36227ee3ea7393a3bf090.jpg', null, null, null, '0', null, '2019-03-18 16:21:43', '2019-03-18 16:21:43', null);
+INSERT INTO `lied_picture` VALUES ('154', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, '0', null, '2019-05-04 15:58:21', '2019-05-04 15:58:21', null);
+INSERT INTO `lied_picture` VALUES ('155', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, '0', null, '2019-05-04 15:58:21', '2019-05-04 15:58:21', null);
+INSERT INTO `lied_picture` VALUES ('156', '1', 'images/product_attr_thumb/2019-03-18/66b0f992446fc254bac0ef02bf0f347e.jpg', null, null, null, '0', null, '2019-05-07 13:47:12', '2019-05-07 13:47:12', null);
+INSERT INTO `lied_picture` VALUES ('157', '1', 'images/product_attr_thumb/2019-03-18/66b0f992446fc254bac0ef02bf0f347e.jpg', null, null, null, '0', null, '2019-05-07 14:05:54', '2019-05-07 14:05:54', null);
+INSERT INTO `lied_picture` VALUES ('158', '1', 'images/brand_thumb/201905/a988e834e85861cb5bbc323b34c49f0a.jpg', null, null, null, '0', null, '2019-05-07 14:11:27', '2019-05-07 14:11:27', null);
+INSERT INTO `lied_picture` VALUES ('159', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, '0', null, '2019-05-07 14:38:37', '2019-05-07 14:38:37', null);
+INSERT INTO `lied_picture` VALUES ('160', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, '0', null, '2019-05-07 14:38:38', '2019-05-07 14:38:38', null);
+INSERT INTO `lied_picture` VALUES ('161', '1', 'images/artical_thumb/201905/02b2e90015f5e6f6dec7514e685a76da.jpg', null, null, null, '0', null, '2019-05-07 17:31:52', '2019-05-07 17:31:52', null);
+INSERT INTO `lied_picture` VALUES ('162', '1', 'images/product_thumb/20190617/00a592413e45cf60c542544ed4cf86df.png', null, null, null, '0', null, '2019-06-17 15:41:39', '2019-06-17 15:41:39', null);
+INSERT INTO `lied_picture` VALUES ('163', '1', 'images/product_picture/20190617/46f52faeb7bf5a65e3d14826f4734b88.JPG', null, null, null, '0', null, '2019-06-17 15:41:39', '2019-06-17 15:41:39', null);
+INSERT INTO `lied_picture` VALUES ('164', '1', 'images/product_picture/20190617/3bc76486d30ed0348d17e5656353f321.png', null, null, null, '0', null, '2019-06-17 15:41:39', '2019-06-17 15:41:39', null);
+INSERT INTO `lied_picture` VALUES ('165', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, '0', null, '2019-06-17 15:41:44', '2019-06-17 15:41:44', null);
+INSERT INTO `lied_picture` VALUES ('166', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, '0', null, '2019-06-17 15:41:44', '2019-06-17 15:41:44', null);
+INSERT INTO `lied_picture` VALUES ('167', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, '0', null, '2019-06-19 14:55:54', '2019-06-19 14:55:54', null);
+INSERT INTO `lied_picture` VALUES ('168', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, '0', null, '2019-06-19 14:55:54', '2019-06-19 14:55:54', null);
+INSERT INTO `lied_picture` VALUES ('169', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, '0', null, '2019-06-19 14:56:02', '2019-06-19 14:56:02', null);
+INSERT INTO `lied_picture` VALUES ('170', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, '0', null, '2019-06-19 14:56:02', '2019-06-19 14:56:02', null);
+INSERT INTO `lied_picture` VALUES ('171', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, '0', null, '2019-06-19 17:04:43', '2019-06-19 17:04:43', null);
+INSERT INTO `lied_picture` VALUES ('172', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, '0', null, '2019-06-19 17:04:43', '2019-06-19 17:04:43', null);
+INSERT INTO `lied_picture` VALUES ('173', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, '0', null, '2019-06-19 17:04:54', '2019-06-19 17:04:54', null);
+INSERT INTO `lied_picture` VALUES ('174', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, '0', null, '2019-06-19 17:04:54', '2019-06-19 17:04:54', null);
+INSERT INTO `lied_picture` VALUES ('175', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, '0', null, '2019-06-19 18:12:01', '2019-06-19 18:12:01', null);
+INSERT INTO `lied_picture` VALUES ('176', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, '0', null, '2019-06-19 18:12:01', '2019-06-19 18:12:01', null);
+INSERT INTO `lied_picture` VALUES ('177', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, '0', null, '2019-06-20 13:44:35', '2019-06-20 13:44:35', null);
+INSERT INTO `lied_picture` VALUES ('178', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, '0', null, '2019-06-20 13:44:35', '2019-06-20 13:44:35', null);
+INSERT INTO `lied_picture` VALUES ('179', '1', 'images/coupon_thumb/20190620/8d32d1c829fd01f00b5aed0e5672bfb1.png', null, null, null, '0', null, '2019-06-20 14:04:07', '2019-06-20 14:04:07', null);
+INSERT INTO `lied_picture` VALUES ('180', '1', 'images/product-attr-thumb/2019-01-09/db5543f87b210079b9ddcb8e61256dc8.jpg', null, null, null, '0', null, '2019-07-22 16:12:43', '2019-07-22 16:12:43', null);
+INSERT INTO `lied_picture` VALUES ('181', '1', 'images/product-attr-thumb/2019-01-09/b1bb564b1b2aeae5dbefebd22978ccab.jpg', null, null, null, '0', null, '2019-07-22 16:12:43', '2019-07-22 16:12:43', null);
+INSERT INTO `lied_picture` VALUES ('182', '1', 'images/coupon_thumb/20191009/2ed81264ce192d7b73d43dd6c4fb40c0.jpg', null, null, null, '0', null, '2019-10-09 14:49:23', '2019-10-09 14:49:23', null);
 
 -- ----------------------------
 -- Table structure for `lied_product`

@@ -238,6 +238,9 @@ if (!function_exists('getARandLetter')) {
     }
 }
 
+/**
+ * 单函数  封装报错码
+ */
 if (!function_exists('r')) {
     function r($code)
     {
@@ -245,6 +248,15 @@ if (!function_exists('r')) {
     }
 }
 
+/**
+ * 封装json_encode函数
+ */
+if (!function_exists('je')) {
+    function je($data)
+    {
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_FORCE_OBJECT);
+    }
+}
 
 
 

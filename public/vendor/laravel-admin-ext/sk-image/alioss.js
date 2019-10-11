@@ -28,6 +28,7 @@
         var browse_button = $('#' + id + '_alioss_upload');
         var multi = Boolean(browse_button.attr('data-multi'));
         var upload_url = browse_button.attr('upload_url');
+        var is_lock = browse_button.attr('is_lock');
         var container = document.getElementById(id + '_container');
         if (multi) {
             // 多图可拖动
@@ -41,7 +42,7 @@
             flash_swf_url: '/vendor/laravel-admin-ext/sk-image/plupload/Moxie.swf',
             silverlight_xap_url: '/vendor/laravel-admin-ext/sk-image/plupload/Moxie.xap',
             multi_selection: multi,//false单选，true多选
-            multipart_params: {'_token': csrf_token, 'upload_url': upload_url},
+            multipart_params: {'_token': csrf_token, 'upload_url': upload_url, 'is_lock': is_lock === undefined ? 0 : is_lock},
             unique_names: true,
             //过滤
             filters: {
