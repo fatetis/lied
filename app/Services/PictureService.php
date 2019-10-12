@@ -18,12 +18,7 @@ class PictureService extends BaseService
      */
     public function getMediaLinkById($picId)
     {
-        try {
-            return parent::findOrFail($picId)['link'];
-        }catch (\Exception $exception){
-            elog('找不到图片链接,媒体id为'.$picId);
-            return '';
-        }
+        return parent::findOrFail($picId);
     }
 
     /**

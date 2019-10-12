@@ -124,16 +124,13 @@ class BrandController extends Controller
     {
         $form = new Form(new Brand);
 
-//        $form->text('name', '品牌名称');
-//        $form->select('category_id', '品牌分类')->options(BrandCategory::selectOptions());
-//        $form->image('thumb', '品牌logo')->move(urlStandard('brand_thumb'))->uniqueName()->removable();
-//        $form->text('site_url', '品牌网址');
-//        $form->textarea('description', '品牌描述');
-//        $form->number('sort_order', '排序')->value(99);
-//        $form->switch('is_show', '显示');
-        $form->skimage('is_show', '图片')->attribute('images');
-//            ->attribute('upload_url', 'upload');
-
+        $form->text('name', '品牌名称');
+        $form->select('category_id', '品牌分类')->options(BrandCategory::selectOptions());
+        $form->skimage('thumb', '品牌logo')->attribute('images')->attribute('upload_url', urlStandard('brand_thumb'));
+        $form->text('site_url', '品牌网址');
+        $form->textarea('description', '品牌描述');
+        $form->number('sort_order', '排序')->value(99);
+        $form->switch('is_show', '显示');
         return $form;
     }
 }

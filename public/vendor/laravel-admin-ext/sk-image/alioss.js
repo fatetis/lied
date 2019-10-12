@@ -63,7 +63,12 @@
                         $('#' + id + '_container').append('<div id="' + file.id + '" class="show_upload_pic_item"><div class="alioss_percent">0%</div></div>');
                     } else {
                         // 单图
-                        browse_button.parent().append('<div id="' + file.id + '"><div class="alioss_percent">0%</div></div>');
+                        let obj = $('#' + id + '_container');
+                        if(obj.find('.show_upload_pic_item').length > 0){
+                            obj.find('.show_upload_pic_item').remove();
+                        }
+                        obj.append('<div id="' + file.id + '" class="show_upload_pic_item"><div class="alioss_percent">0%</div></div>');
+                        // browse_button.parent().append('<div id="' + file.id + '"><div class="alioss_percent">0%</div></div>');
                     }
                     file_ext = get_suffix(file.name); //后缀名
                     filename_new = Date.parse(new Date()) / 1000 + '_' + random_string(10) + file_ext;
@@ -85,7 +90,6 @@
 
                     var result = eval("(" + info.response + ")");
                     if(true == result.uploaded){
-                        console.log(result)
                         var file_id = result.url;
                         var src = result.src;
                     }else {
@@ -105,13 +109,22 @@
                         ].join(''));
                     } else {
                         // 单图
-                        browse_button.attr('src', src+'?style=admin_form_sk-image');
-                        var operat_warp = browse_button.parents('.show_upload_pic_item').find('.operat_warp');
-                        var a_s = operat_warp.find('a');
-                        a_s.eq(0).attr('href', src);
-                        a_s.eq(1).attr('data-filename', file_id);
-                        operat_warp.show().find('input').val(file_id);
-                        $('#' + file.id).remove();
+                        // browse_button.attr('src', src+'?style=admin_form_sk-image');
+                        // var operat_warp = browse_button.parents('.show_upload_pic_item').find('.operat_warp');
+                        // var a_s = operat_warp.find('a');
+                        // a_s.eq(0).attr('href', src);
+                        // a_s.eq(1).attr('data-filename', file_id);
+                        // operat_warp.show().find('input').val(file_id);
+                        // $('#' + file.id).remove();
+                        $('#' + file.id).html([
+                            '<img src="' + src + '" style="margin-bottom: 3px;width: 80%;height: 80%">',
+                            '<div class="operat_warp" style="display: inline-block">',
+                            '<input type="hidden" name="' + id + '" value="' + file_id + '" />',
+                            '<a class="example-image-link" href="' + src + '" data-lightbox="example-set">预览</a> / ',
+                            '<a href="javascript:void(0);" onclick="alioss_del_file(this,1)" data-filename="' + file_id + '">删除</a>',
+                            '</div>'
+                        ].join(''));
+
                     }
                 },
                 UploadComplete: function (up, files) {

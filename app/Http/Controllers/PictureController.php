@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\PictureService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PictureController extends Controller
 {
@@ -24,7 +25,16 @@ class PictureController extends Controller
     public function getMediaLinkById(Request $request)
     {
         $id = $request->route('id');
-        return $this->pictureService->getMediaLinkById($id);
+        try {
+            $pictureInfo = $this->pictureService->getMediaLinkById($id);
+            if(!empty($pictureInfo->link) && Storage::exists($pictureInfo->link)){
+                return file_get_contents(Storage::url($pictureInfo->link));
+            }
+            throw new \Exception('图片链接为空');
+        }catch (\Exception $exception){
+            elog($exception->getMessage().'，媒体id为'.$id);
+            return '';
+        }
     }
 
     /**

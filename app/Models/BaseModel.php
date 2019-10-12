@@ -12,34 +12,6 @@ class BaseModel extends Model
 
 //    protected $dateFormat = 'U';
 
-    /**
-     * 获取单图上传的数据
-     * @param $value
-     * @return mixed
-     */
-    public function getThumbAttribute($value)
-    {
-        if(!empty($value)){
-            $result = Picture::find($value);
-            return $result['link'];
-        }
-    }
-
-    /**
-     * 设置单图上传的保存数据
-     * @param $value
-     * @return mixed
-     */
-    public function setThumbAttribute($value)
-    {
-        if(!empty($value)){
-            $result = Picture::create(['link' => $value]);
-            $this->attributes['thumb'] = $result->id;
-        }else{
-            Picture::destroy($this->original['thumb']);
-            $this->attributes['thumb'] = $value ?? 0;
-        }
-    }
 
     /**
      * 获取多图上传的数据
