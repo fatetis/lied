@@ -19,7 +19,6 @@ class UploadController extends Controller
      */
     public function index(Request $request, PictureController $pictureController)
     {
-        ini_set('display_errors', 1);
         $path = $request->input('upload_url', '');
         $is_lock = $request->input('is_lock', 0);
         try {

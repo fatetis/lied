@@ -27,6 +27,6 @@ use Encore\Admin\Form;
 Encore\Admin\Form::forget(['map','editor']);
 Form::extend('wangeditor', WangEditor::class);
 Form::extend('prosku', ProductSku::class);
-Admin::css('admin/lightbox/lightbox.min.css');//lightbox2 灯箱
-Admin::js('admin/lightbox/lightbox.min.js');//lightbox2 灯箱
+Admin::css('lightbox/lightbox/lightbox.min.css');//lightbox2 灯箱
+Admin::js('lightbox/lightbox/lightbox.min.js');//lightbox2 灯箱
 Form::extend('skimage', SkImage::class);//图片上锁插件
