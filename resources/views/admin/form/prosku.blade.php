@@ -198,7 +198,7 @@
         <div class="f-c antd-pro-pages-goods-widget-styles-sku_image">
             <div class="antd-pro-pages-goods-widget-styles-arrow"></div>
             <div style="border: 1px solid rgb(217, 217, 217);">
-                <a class="add-image-view" style="width: 100px; height: 100px;">
+                <a class=" add-image-view" style="width: 100px; height: 100px;">
         <span>
           <i aria-label="图标: plus-circle" class="anticon anticon-plus-circle">
             <svg viewBox="64 64 896 896" class="" data-icon="plus-circle" width="1em" height="1em" fill="currentColor"

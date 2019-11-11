@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Exceptions\SelfException;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PictureController;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class UploadController extends Controller
         try {
             $file_key = key($request->file());
             if (!$request->file($file_key)->isValid()) {
-                throw new \Exception('文件无效');
+                throw new SelfException('文件无效');
             }
             $file_extension = $request->$file_key->extension();
             $size = ceil($request->$file_key->getSize() / 1024); //转换为kb单位
@@ -42,7 +43,7 @@ class UploadController extends Controller
 
             $bool = Storage::put($savepath, file_get_contents($request->$file_key->getRealPath()));//上传
             if (!$bool) {
-                throw new \Exception('文件保存失败');
+                throw new SelfException('文件保存失败');
             }
             //skimage图片form组件
             $createData = [
@@ -56,7 +57,7 @@ class UploadController extends Controller
             $savepath = $pictureController->createMedia($createData);
             //约定处理接口
             if ($savepath->getstatusCode() !== $this->getStatusCode()) {
-                throw new \Exception($savepath->getstatusText());
+                throw new SelfException($savepath->getstatusText());
             }
             $data = $savepath->getData()->data->id;
             $src = Storage::url($savepath->getData()->data->link);
@@ -69,7 +70,7 @@ class UploadController extends Controller
                     "message" => ''
                 ]
             ];
-        } catch (\Exception $e) {
+        } catch (SelfException $e) {
             return [
                 "uploaded" => false,
                 "fileName" => '',

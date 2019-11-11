@@ -24,14 +24,11 @@ class SkImage extends Field
     protected $view = 'admin.form.skimage';
 
     protected static $css = [
-        'vendor/laravel-admin-ext/sk-image/skimage_style.css',
+
     ];
 
     protected static $js = [
-        'vendor/laravel-admin-ext/sk-image/Sortable.min.js',
-        'vendor/laravel-admin-ext/sk-image/plupload/plupload.full.min.js',
-//        'vendor/laravel-admin-ext/sk-image/plupload/i18n/zh_CN.js',
-        'vendor/laravel-admin-ext/sk-image/alioss.js',
+        
     ];
 
     public function render()

@@ -17,11 +17,9 @@ class ProductSku extends Field
     protected $variables = [];
 
     protected static $css = [
-        '/vendor/wangEditor-3.1.1/release/wangEditor.min.css',
     ];
 
     protected static $js = [
-        '/vendor/wangEditor-3.1.1/release/wangEditor.min.js',
     ];
 
     public function render()
