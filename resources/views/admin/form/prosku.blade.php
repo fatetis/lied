@@ -6,7 +6,168 @@
 {{--li被选中状态：ant-select-dropdown-menu-item-active--}}
 {{--li不可选状态：ant-select-dropdown-menu-item-disabled--}}
 
+<script src="{{ asset('vendor/laravel-admin-ext/sk-image/plupload/plupload.full.min.js') }}"
+        type="text/javascript"></script>
 
+<div style="float: unset;margin-top: 15px;position: relative;width: 104px"
+     class="ant-upload-list ant-upload-list-picture-card self_pic_clone" id="qqq_container">
+    <div class="antd-pro-pages-goods-widget-styles-arrow jiantou"></div>
+    <div class="ant-upload-list-item ant-upload-list-item-done">
+        <div class="self_upload" style="height: 100%; cursor: pointer;" id="browse">
+            <span class="ant-upload-list-item-actions" style="opacity: 1">
+                <i aria-label="图标: plus-circle" class="anticon anticon-plus-circle">
+                <svg viewBox="64 64 896 896" class="" data-icon="plus-circle" width="1em" height="1em"
+                     fill="currentColor"
+                     aria-hidden="true">
+                <path d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"></path>
+                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>
+                </svg>
+                </i>添加图片
+            </span>
+        </div>
+
+        <div class="self_uploading" style="height: 100%; display: none">
+            <span class="ant-upload-list-item-actions"
+                  style="opacity: 1; display: inline-block; width: 48px; height: 48px; text-align: center; line-height: 48px; font-size: 12px; border-radius: 50%; background-color: #1890ff; color: #ffffff">
+                0%
+            </span>
+        </div>
+
+        <div class="self_uploaded" style="display: none">
+            <div class="ant-upload-list-item-info">
+            <span>
+                <a target="_blank" rel="noopener noreferrer" class="ant-upload-list-item-thumbnail">
+                    <img/>
+                </a>
+            </span>
+            </div>
+            <span class="ant-upload-list-item-actions">
+                <a target="_blank" title="预览文件" rel="noopener noreferrer">
+                    <i aria-label="图标: eye-o" class="anticon anticon-eye-o">
+                        <svg viewBox="64 64 896 896" class="" data-icon="eye" width="1em" height="1em"
+                             fill="currentColor"
+                             aria-hidden="true">
+                        <path d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path>
+                        </svg>
+                    </i>
+                </a>
+                <i aria-label="图标: delete" title="删除文件" tabindex="-1" class="anticon anticon-delete">
+                    <svg viewbox="64 64 896 896" class="" data-icon="delete" width="1em" height="1em"
+                         fill="currentColor"
+                         aria-hidden="true">
+                    <path d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"></path>
+                    </svg>
+                </i>
+            </span>
+        </div>
+    </div>
+</div>
+
+<script>
+    let id = 'qqq_container';
+    let container = document.getElementById(id);
+    let _token = "{{ csrf_token() }}";
+    let upload_url = 'images/sku/20191118';
+    //实例化一个plupload上传对象
+    var uploader = new plupload.Uploader({
+        runtimes: 'html5,flash,silverlight,html4',
+        browse_button: 'browse', //触发文件选择对话框的按钮，为那个元素id
+        url: '/admin/upload/image', //服务器端的上传页面地址
+        flash_swf_url: '/vendor/laravel-admin-ext/sk-image/plupload/Moxie.swf', //swf文件，当需要使用swf方式进行上传时需要配置该参数
+        silverlight_xap_url: '/vendor/laravel-admin-ext/sk-image/plupload/Moxie.xap', //silverlight文件，当需要使用silverlight方式进行上传时需要配置该参数
+        unique_names: true,
+        container: container,
+        multi_selection: false,//false单选，true多选
+        multipart_params: {'_token': _token, 'upload_url': upload_url},
+        filters: {
+            max_file_size: '10mb',     //单文件最大size
+            mime_types: [
+                {title: "Image files", extensions: "jpg,jpeg,png"}
+            ]
+        },
+        init: {
+            FilesAdded: function (up, file) {
+                uploader.start();//选择文件后立即上传
+            },
+            BeforeUpload: function (up, file) {
+                $('#' + id).addClass(file.id).find('.anticon-delete').attr('data-id', file.id);
+            },
+            UploadProgress: function (up, file) {
+                let idObject = $('.' + file.id);
+                idObject.find('.self_upload').hide();
+                idObject.find('.self_uploading').show().find('span').text(file.percent + '%');
+            },
+            FileUploaded: function (up, file, info) {
+                let idObject = $('.' + file.id);
+                let mainObject = idObject.find('.self_uploaded');
+                if (200 != info.status) {
+                    toastr.error('抱歉！出错了1');
+                    return false;
+                }
+                var result = eval("(" + info.response + ")");
+                if (true == result.uploaded) {
+                    var file_id = result.url;
+                    var src = result.src;
+                } else {
+                    toastr.error('抱歉！出错了1' + result.msg);
+                    return false;
+                }
+                idObject.find('.self_uploading').hide();
+                mainObject.show();
+                // a标签href属性及img标签src属性替换url路径
+                mainObject.find('.ant-upload-list-item-info a').attr('href', src).find('img').attr({
+                    'src': src,
+                    'alt': '加载失败'
+                });
+                mainObject.find('.ant-upload-list-item-actions a').attr('href', src);
+                console.log(src + 'finish');
+            },
+            Error: function (up, err) {
+                toastr.error('ERROR');
+            }
+        }
+    });
+
+
+    $('.anticon-delete').on('click', function () {
+        let that = $(this);
+        let idObject = $('.' + that.data('id'));
+        idObject.find('.self_uploaded').hide();
+        idObject.find('.self_upload').show();
+    })
+    //在实例对象上调用init()方法进行初始化
+    uploader.init();
+
+</script>
+
+<style>
+    .jiantou {
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -7px;
+        left: 50%;
+        margin-left: -2.5px;
+        border-style: solid;
+        border-color: transparent;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #666;
+    }
+
+    .jiantou:after {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        top: 0;
+        margin-left: -10px;
+        border-color: transparent transparent #fff;
+        border-style: solid;
+        border-width: 0 10px 10px;
+        content: "";
+    }
+</style>
 {{--url存放框--}}
 <div class="prehtml" style="display: none">
     {{--商品规格值clone模板--}}
@@ -193,24 +354,69 @@
             </div>
         </div>
     </div>
-    {{--图片插件模板--}}
-    <div class="mt-10 self_pic_clone">
-        <div class="f-c antd-pro-pages-goods-widget-styles-sku_image">
-            <div class="antd-pro-pages-goods-widget-styles-arrow"></div>
-            <div style="border: 1px solid rgb(217, 217, 217);">
-                <a class=" add-image-view" style="width: 100px; height: 100px;">
-        <span>
-          <i aria-label="图标: plus-circle" class="anticon anticon-plus-circle">
-            <svg viewBox="64 64 896 896" class="" data-icon="plus-circle" width="1em" height="1em" fill="currentColor"
-                 aria-hidden="true">
-              <path d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"></path>
-              <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>
-            </svg>
-          </i>添加图片</span>
-                </a>
+    {{--图片插件模板-new--}}
+    <div style="float: unset;margin-top: 15px;position: relative;width: 104px"
+         class="ant-upload-list ant-upload-list-picture-card self_pic_clone">
+        <div class="antd-pro-pages-goods-widget-styles-arrow jiantou"></div>
+        <div class="ant-upload-list-item ant-upload-list-item-done">
+            <div class="ant-upload-list-item-info">
+            <span>
+                {{--<a target="_blank" rel="noopener noreferrer" class="ant-upload-list-item-thumbnail"--}}
+                {{--href="http://bkqwmall.oss-cn-shenzhen.aliyuncs.com/images/2019-11-09/768668a52e83d3cb62446bbccc306b58.jpg">--}}
+                {{--<img src="http://bkqwmall.oss-cn-shenzhen.aliyuncs.com/images/2019-11-09/768668a52e83d3cb62446bbccc306b58.jpg"--}}
+                {{--alt="">--}}
+                {{--</a>--}}
+                {{--<span class="ant-upload-list-item-name" title="768668a52e83d3cb62446bbccc306b58.jpg">768668a52e83d3cb62446bbccc306b58.jpg</span>--}}
+            </span>
             </div>
+            <span>
+                <i aria-label="图标: plus-circle" class="anticon anticon-plus-circle">
+                <svg viewBox="64 64 896 896" class="" data-icon="plus-circle" width="1em" height="1em"
+                     fill="currentColor"
+                     aria-hidden="true">
+                <path d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"></path>
+                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>
+                </svg>
+                </i>添加图片
+                </span>
+            {{--<span class="ant-upload-list-item-actions">--}}
+            {{--<a href="http://bkqwmall.oss-cn-shenzhen.aliyuncs.com/images/2019-11-09/768668a52e83d3cb62446bbccc306b58.jpg"--}}
+            {{--target="_blank" title="预览文件" rel="noopener noreferrer">--}}
+            {{--<i aria-label="图标: eye-o" class="anticon anticon-eye-o">--}}
+            {{--<svg viewBox="64 64 896 896" class="" data-icon="eye" width="1em" height="1em" fill="currentColor"--}}
+            {{--aria-hidden="true">--}}
+            {{--<path d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path>--}}
+            {{--</svg>--}}
+            {{--</i>--}}
+            {{--</a>--}}
+            {{--<i aria-label="图标: delete" title="删除文件" tabindex="-1" class="anticon anticon-delete">--}}
+            {{--<svg viewbox="64 64 896 896" class="" data-icon="delete" width="1em" height="1em" fill="currentColor"--}}
+            {{--aria-hidden="true">--}}
+            {{--<path d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"></path>--}}
+            {{--</svg>--}}
+            {{--</i>--}}
+            {{--</span>--}}
         </div>
     </div>
+
+    {{--图片插件模板-old--}}
+    {{--<div class="mt-10 self_pic_clone">--}}
+    {{--<div class="f-c antd-pro-pages-goods-widget-styles-sku_image">--}}
+    {{--<div class="antd-pro-pages-goods-widget-styles-arrow"></div>--}}
+    {{--<div style="border: 1px solid rgb(217, 217, 217);">--}}
+    {{--<a class=" add-image-view" style="width: 100px; height: 100px;">--}}
+    {{--<span>--}}
+    {{--<i aria-label="图标: plus-circle" class="anticon anticon-plus-circle">--}}
+    {{--<svg viewBox="64 64 896 896" class="" data-icon="plus-circle" width="1em" height="1em" fill="currentColor"--}}
+    {{--aria-hidden="true">--}}
+    {{--<path d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"></path>--}}
+    {{--<path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>--}}
+    {{--</svg>--}}
+    {{--</i>添加图片</span>--}}
+    {{--</a>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
 </div>
 <div class="form-group {!! !$errors->has($label) ?: 'has-error' !!}">
 
