@@ -338,10 +338,13 @@ $(function () {
     }
     
     $(document).on('click', '.self_sku_picture', function () {
+
         let picClone = $('.prehtml .self_pic_clone').clone();
         let skuObj = $(this).parents('.self_sku_additem');
         let that = $(this);
         let thatPic = that.find('.self_style_control');
+        let indexClone = $('.self_pic_clone').index()+1;
+        let picCloneId = 'sku_img_contain'+indexClone;
         if(thatPic.hasClass('ant-checkbox-checked')){
             thatPic.removeClass('ant-checkbox-checked');
             that.parents('.self_sku_additem').find('.self_pic_clone').remove();
@@ -352,7 +355,86 @@ $(function () {
         }
         thatPic.addClass('ant-checkbox-checked'); //添加选中样式
         skuObj.find('.self_sku_item').append(picClone);
+        skuObj.find('.self_sku_item .self_pic_clone').attr('id', picCloneId).find('.self_upload').attr('id', picCloneId+'_browse');
+        // alioss_upload(picCloneId);
     })
+    window.alioss_upload = init_upload;
+    // 图片上传
+    // let id = 'qqq_container';
+    function init_upload(idObj)
+    {
+        let container = document.getElementById(idObj);
+        let _token = $('input[name=_token]').val();
+        let date = $('input[name=_date]').val();
+        let upload_url = 'images/sku/'+date;
+        //实例化一个plupload上传对象
+        var uploader = new plupload.Uploader({
+            runtimes: 'html5,flash,silverlight,html4',
+            browse_button: $('#'+idObj+'_browse'), //触发文件选择对话框的按钮，为那个元素id
+            url: '/admin/upload/image', //服务器端的上传页面地址
+            flash_swf_url: '/vendor/laravel-admin-ext/sk-image/plupload/Moxie.swf', //swf文件，当需要使用swf方式进行上传时需要配置该参数
+            silverlight_xap_url: '/vendor/laravel-admin-ext/sk-image/plupload/Moxie.xap', //silverlight文件，当需要使用silverlight方式进行上传时需要配置该参数
+            unique_names: true,
+            container: container,
+            multi_selection: false,//false单选，true多选
+            multipart_params: {'_token': _token, 'upload_url': upload_url},
+            filters: {
+                max_file_size: '10mb',     //单文件最大size
+                mime_types: [
+                    {title: "Image files", extensions: "jpg,jpeg,png"}
+                ]
+            },
+            init: {
+                FilesAdded: function (up, file) {
+                    uploader.start();//选择文件后立即上传
+                },
+                BeforeUpload: function (up, file) {
+                    $('#' + id).addClass(file.id).find('.anticon-delete').attr('data-id', file.id);
+                },
+                UploadProgress: function (up, file) {
+                    let idObject = $('.' + file.id);
+                    idObject.find('.self_upload').hide();
+                    idObject.find('.self_uploading').show().find('span').text(file.percent + '%');
+                },
+                FileUploaded: function (up, file, info) {
+                    let idObject = $('.' + file.id);
+                    let mainObject = idObject.find('.self_uploaded');
+                    if (200 != info.status) {
+                        toastr.error('抱歉！出错了1');
+                        return false;
+                    }
+                    var result = eval("(" + info.response + ")");
+                    if (true == result.uploaded) {
+                        var file_id = result.url;
+                        var src = result.src;
+                    } else {
+                        toastr.error('抱歉！出错了1' + result.msg);
+                        return false;
+                    }
+                    idObject.find('.self_uploading').hide();
+                    mainObject.show();
+                    // a标签href属性及img标签src属性替换url路径
+                    mainObject.find('.ant-upload-list-item-info a').attr('href', src).find('img').attr({
+                        'src': src,
+                        'alt': '加载失败'
+                    });
+                    mainObject.find('.ant-upload-list-item-actions a').attr('href', src);
+                    console.log(src + 'finish');
+                },
+                Error: function (up, err) {
+                    toastr.error('ERROR');
+                }
+            }
+        });
+        //在实例对象上调用init()方法进行初始化
+        uploader.init();
+    }
 
-
+    $('.anticon-delete').on('click', function () {
+        let that = $(this);
+        let idObject = $('.' + that.data('id'));
+        idObject.find('.self_uploaded').hide();
+        idObject.find('.self_upload').show();
+    })
+    init_upload('123');
 })
