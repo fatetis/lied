@@ -35,7 +35,6 @@
     }
 </style>
 
-
 {{--url存放框--}}
 <div class="prehtml" style="display: none">
     {{--商品规格值clone模板--}}
@@ -224,10 +223,10 @@
     </div>
     {{--图片插件模板-new--}}
     <div style="float: unset;margin-top: 15px;position: relative;width: 104px"
-         class="ant-upload-list ant-upload-list-picture-card self_pic_clone" id="123">
+         class="ant-upload-list ant-upload-list-picture-card self_pic_clone">
         <div class="antd-pro-pages-goods-widget-styles-arrow jiantou"></div>
         <div class="ant-upload-list-item ant-upload-list-item-done">
-            <div class="self_upload" style="height: 100%; cursor: pointer;" id="123_browse">
+            <div class="self_upload" style="height: 100%; cursor: pointer;">
             <span class="ant-upload-list-item-actions" style="opacity: 1">
                 <i aria-label="图标: plus-circle" class="anticon anticon-plus-circle">
                 <svg viewBox="64 64 896 896" class="" data-icon="plus-circle" width="1em" height="1em"

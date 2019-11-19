@@ -7,11 +7,11 @@ $(function () {
         let prevVal = that.prev().find('.ant-select-search__field').next().val();//input框value值
         let skuHtml = $('.prehtml .self_sku_item').clone();//模板库克隆
         if(pid == ''){
-            alert('请先添加规格名');
+            toastr.error('请先添加规格名');
             return false;
         }
         if(prevVal == ''){
-            alert('请先选择上一个规格值');
+            toastr.error('请先选择上一个规格值');
             return false;
         }
 
@@ -28,6 +28,7 @@ $(function () {
                 }
             }
         }
+        assignmentUploadImg();
 
     })
 
@@ -343,8 +344,6 @@ $(function () {
         let skuObj = $(this).parents('.self_sku_additem');
         let that = $(this);
         let thatPic = that.find('.self_style_control');
-        let indexClone = $('.self_pic_clone').index()+1;
-        let picCloneId = 'sku_img_contain'+indexClone;
         if(thatPic.hasClass('ant-checkbox-checked')){
             thatPic.removeClass('ant-checkbox-checked');
             that.parents('.self_sku_additem').find('.self_pic_clone').remove();
@@ -355,12 +354,22 @@ $(function () {
         }
         thatPic.addClass('ant-checkbox-checked'); //添加选中样式
         skuObj.find('.self_sku_item').append(picClone);
-        skuObj.find('.self_sku_item .self_pic_clone').attr('id', picCloneId).find('.self_upload').attr('id', picCloneId+'_browse');
-        // alioss_upload(picCloneId);
+        assignmentUploadImg();
     })
-    window.alioss_upload = init_upload;
+
+    //给每个skuimg加上图片plupload事件
+    function assignmentUploadImg(){
+        let eachObj  = $('.self_sku_item .self_pic_clone');
+        for(let i = 0; i < eachObj.length; i++){
+            let idObj = eachObj.eq(i).attr('id')
+            if(idObj == undefined){
+                eachObj.eq(i).attr('id', i).find('.self_upload').attr('id', i+'_browse');
+                init_upload(i)
+            }
+        }
+    }
+
     // 图片上传
-    // let id = 'qqq_container';
     function init_upload(idObj)
     {
         let container = document.getElementById(idObj);
@@ -370,7 +379,7 @@ $(function () {
         //实例化一个plupload上传对象
         var uploader = new plupload.Uploader({
             runtimes: 'html5,flash,silverlight,html4',
-            browse_button: $('#'+idObj+'_browse'), //触发文件选择对话框的按钮，为那个元素id
+            browse_button: idObj+'_browse', //触发文件选择对话框的按钮，为那个元素id
             url: '/admin/upload/image', //服务器端的上传页面地址
             flash_swf_url: '/vendor/laravel-admin-ext/sk-image/plupload/Moxie.swf', //swf文件，当需要使用swf方式进行上传时需要配置该参数
             silverlight_xap_url: '/vendor/laravel-admin-ext/sk-image/plupload/Moxie.xap', //silverlight文件，当需要使用silverlight方式进行上传时需要配置该参数
@@ -389,7 +398,7 @@ $(function () {
                     uploader.start();//选择文件后立即上传
                 },
                 BeforeUpload: function (up, file) {
-                    $('#' + id).addClass(file.id).find('.anticon-delete').attr('data-id', file.id);
+                    $('#' + idObj).addClass(file.id).find('.anticon-delete').attr('data-id', file.id);
                 },
                 UploadProgress: function (up, file) {
                     let idObject = $('.' + file.id);
@@ -419,7 +428,6 @@ $(function () {
                         'alt': '加载失败'
                     });
                     mainObject.find('.ant-upload-list-item-actions a').attr('href', src);
-                    console.log(src + 'finish');
                 },
                 Error: function (up, err) {
                     toastr.error('ERROR');
@@ -436,5 +444,5 @@ $(function () {
         idObject.find('.self_uploaded').hide();
         idObject.find('.self_upload').show();
     })
-    init_upload('123');
+
 })
