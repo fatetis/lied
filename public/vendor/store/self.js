@@ -47,7 +47,7 @@ $(function () {
         }
         $(this).parent().before(skuAddHtml);
         // $('.self_sku_container .self_sku_picture').eq(0).remove();
-        if(addHtmlObj.length > 4){
+        if(addHtmlObj.length > 2){
             $(this).attr({'disabled': ''})
         }
     })
@@ -438,7 +438,8 @@ $(function () {
         uploader.init();
     }
 
-    $('.anticon-delete').on('click', function () {
+    // sku缩略图删除
+    $(document).on('click', '.anticon-delete', function () {
         let that = $(this);
         let idObject = $('.' + that.data('id'));
         idObject.find('.self_uploaded').hide();
