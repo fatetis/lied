@@ -275,11 +275,247 @@
             </div>
         </div>
     </div>
+    {{--sku规格明细--}}
+    <table class="self_sku_detail">
+        <tr class="ant-table-row ant-table-row-level-0">
+            {{--<td>--}}
+            {{--<div class="flex-view" style="align-items: center; justify-content: flex-start; flex-direction: row;">--}}
+            {{--<span>--}}
+            {{--蓝--}}
+            {{--</span>--}}
+            {{--</div>--}}
+            {{--</td>--}}
+            <td class="self_sku_detail_fixed_column">
+                <div class="ant-row ant-form-item">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                            <div class="ant-input-number"
+                                 style="width: 100px;">
+                                <div class="ant-input-number-handler-wrap">
+                                    <span unselectable="unselectable"
+                                          role="button"
+                                          aria-label="Increase Value"
+                                          aria-disabled="false"
+                                          class="ant-input-number-handler ant-input-number-handler-up ">
+                                        <i aria-label="图标: up"
+                                           class="anticon anticon-up ant-input-number-handler-up-inner">
+                                            <svg viewBox="64 64 896 896"
+                                                 class="" data-icon="up"
+                                                 width="1em" height="1em"
+                                                 fill="currentColor"
+                                                 aria-hidden="true">
+                                                <path
+                                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">
+                                                </path>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                    <span unselectable="unselectable"
+                                          role="button"
+                                          aria-label="Decrease Value"
+                                          aria-disabled="false"
+                                          class="ant-input-number-handler ant-input-number-handler-down ">
+                                        <i aria-label="图标: down"
+                                           class="anticon anticon-down ant-input-number-handler-down-inner">
+                                            <svg viewBox="64 64 896 896"
+                                                 class="" data-icon="down"
+                                                 width="1em" height="1em"
+                                                 fill="currentColor"
+                                                 aria-hidden="true">
+                                                <path
+                                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                </path>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                </div>
+                                <div class="ant-input-number-input-wrap"
+                                     role="spinbutton" aria-valuemin="0">
+                                    <input class="ant-input-number-input"
+                                           autocomplete="off" min="0"
+                                           step="1"
+                                           id="goods_skus[17][price]"
+                                           data-__meta="[object Object]"
+                                           data-__field="[object Object]"
+                                           value="">
+                                </div>
+                            </div>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="ant-row ant-form-item">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                            <div class="ant-input-number"
+                                 style="width: 100px;">
+                                <div class="ant-input-number-handler-wrap">
+                                    <span unselectable="unselectable"
+                                          role="button"
+                                          aria-label="Increase Value"
+                                          aria-disabled="false"
+                                          class="ant-input-number-handler ant-input-number-handler-up ">
+                                        <i aria-label="图标: up"
+                                           class="anticon anticon-up ant-input-number-handler-up-inner">
+                                            <svg viewBox="64 64 896 896"
+                                                 class="" data-icon="up"
+                                                 width="1em" height="1em"
+                                                 fill="currentColor"
+                                                 aria-hidden="true">
+                                                <path
+                                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">
+                                                </path>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                    <span unselectable="unselectable"
+                                          role="button"
+                                          aria-label="Decrease Value"
+                                          aria-disabled="false"
+                                          class="ant-input-number-handler ant-input-number-handler-down ">
+                                        <i aria-label="图标: down"
+                                           class="anticon anticon-down ant-input-number-handler-down-inner">
+                                            <svg viewBox="64 64 896 896"
+                                                 class="" data-icon="down"
+                                                 width="1em" height="1em"
+                                                 fill="currentColor"
+                                                 aria-hidden="true">
+                                                <path
+                                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                </path>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                </div>
+                                <div class="ant-input-number-input-wrap"
+                                     role="spinbutton" aria-valuemin="0">
+                                    <input class="ant-input-number-input"
+                                           autocomplete="off" min="0"
+                                           step="1"
+                                           id="goods_skus[17][stock_num]"
+                                           data-__meta="[object Object]"
+                                           data-__field="[object Object]"
+                                           value="">
+                                </div>
+                            </div>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="ant-row ant-form-item">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                            <span class="ant-input-affix-wrapper"
+                                  style="width: 150px;">
+                                <input type="text" id="goods_skus[17][code]"
+                                       data-__meta="[object Object]"
+                                       data-__field="[object Object]"
+                                       class="ant-input" value="">
+                                <span class="ant-input-suffix">
+                                </span>
+                            </span>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="ant-row ant-form-item">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                            <div class="ant-input-number"
+                                 style="width: 100px;">
+                                <div class="ant-input-number-handler-wrap">
+                                    <span unselectable="unselectable"
+                                          role="button"
+                                          aria-label="Increase Value"
+                                          aria-disabled="false"
+                                          class="ant-input-number-handler ant-input-number-handler-up ">
+                                        <i aria-label="图标: up"
+                                           class="anticon anticon-up ant-input-number-handler-up-inner">
+                                            <svg viewBox="64 64 896 896"
+                                                 class="" data-icon="up"
+                                                 width="1em" height="1em"
+                                                 fill="currentColor"
+                                                 aria-hidden="true">
+                                                <path
+                                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">
+                                                </path>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                    <span unselectable="unselectable"
+                                          role="button"
+                                          aria-label="Decrease Value"
+                                          aria-disabled="false"
+                                          class="ant-input-number-handler ant-input-number-handler-down ">
+                                        <i aria-label="图标: down"
+                                           class="anticon anticon-down ant-input-number-handler-down-inner">
+                                            <svg viewBox="64 64 896 896"
+                                                 class="" data-icon="down"
+                                                 width="1em" height="1em"
+                                                 fill="currentColor"
+                                                 aria-hidden="true">
+                                                <path
+                                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                </path>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                </div>
+                                <div class="ant-input-number-input-wrap"
+                                     role="spinbutton" aria-valuemin="0">
+                                    <input class="ant-input-number-input"
+                                           autocomplete="off" min="0"
+                                           step="1"
+                                           id="goods_skus[17][cost_price]"
+                                           data-__meta="[object Object]"
+                                           data-__field="[object Object]"
+                                           value="">
+                                </div>
+                            </div>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="self_sku_detail_td_last">
+                <span value="0" id="goods_skus[17][sold_num]"
+                data-__meta="[object Object]"
+                data-__field="[object Object]">
+                0
+                </span>
+                <span value="17" id="goods_skus[17][attr_key]"
+                data-__meta="[object Object]"
+                data-__field="[object Object]">
+                </span>
+                <span value="false" id="goods_skus[17][is_image]"
+                data-__meta="[object Object]"
+                data-__field="[object Object]">
+                </span>
+                <span value="0" id="goods_skus[17][media_id]"
+                data-__meta="[object Object]"
+                data-__field="[object Object]">
+                </span>
+            </td>
+        </tr>
+    </table>
+
 </div>
-{{--正文--}}
+
+{{--数据存放--}}
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" name="_date" value="{{ date('Ymd') }}">
 
+{{--正文--}}
 <div class="form-group {!! !$errors->has($label) ?: 'has-error' !!}">
 
     <label for="{{$id}}" class="col-sm-2 control-label">{{$label}}</label>
@@ -308,16 +544,12 @@
             </div>
         </div>
 
-        {{--<div id="{{$id}}" style="width: 100%; height: 100%;">--}}
-
-        {{--</div>--}}
-
         <input type="hidden" name="{{$name}}" value="{{ old($column, $value) }}"/>
 
     </div>
 
 </div>
-<div class="form-group {!! !$errors->has($label) ?: 'has-error' !!}">
+<div class="form-group {!! !$errors->has($label) ?: 'has-error' !!} self_sku_detail_container" style="display: none">
     <label class="col-sm-2 control-label">规格明细</label>
     <div class="{{$viewClass['field']}}">
         <div class="ant-col-22 ant-form-item-control-wrapper">
@@ -329,13 +561,13 @@
 								<div class="ant-table-content">
 									<div class="ant-table-body">
 										<table>
-											<thead class="ant-table-thead">
+											<thead class="ant-table-thead self_sku_detail_thead">
 												<tr>
-													<th class="th-sku">
-														<span>
-															颜色
-														</span>
-													</th>
+													{{--<th class="th-sku">--}}
+														{{--<span>--}}
+															{{--颜色--}}
+														{{--</span>--}}
+													{{--</th>--}}
 													<th class="th-price">
 														价格（元）
 													</th>
@@ -385,469 +617,238 @@
 													</th>
 												</tr>
 											</thead>
-											<tbody class="ant-table-tbody undefined">
-												<tr class="ant-table-row ant-table-row-level-0">
-													<td>
-														<div class="flex-view "
-                                                             style="align-items: center; justify-content: flex-start; flex-direction: row;">
-															<span>
-																红
-															</span>
-														</div>
-													</td>
-													<td>
-														<div class="ant-row ant-form-item">
-															<div class="ant-form-item-control-wrapper">
-																<div class="ant-form-item-control">
-																	<span class="ant-form-item-children">
-																		<div class="ant-input-number"
-                                                                             style="width: 100px;">
-																			<div class="ant-input-number-handler-wrap">
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Increase Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-up ">
-																					<i aria-label="图标: up"
-                                                                                       class="anticon anticon-up ant-input-number-handler-up-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="up"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Decrease Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-down ">
-																					<i aria-label="图标: down"
-                                                                                       class="anticon anticon-down ant-input-number-handler-down-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="down"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																			</div>
-																			<div class="ant-input-number-input-wrap"
-                                                                                 role="spinbutton" aria-valuemin="0">
-																				<input class="ant-input-number-input"
-                                                                                       autocomplete="off" min="0"
-                                                                                       step="1"
-                                                                                       id="goods_skus[16][price]"
-                                                                                       data-__meta="[object Object]"
-                                                                                       data-__field="[object Object]"
-                                                                                       value="">
-																			</div>
-																		</div>
-																	</span>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>
-														<div class="ant-row ant-form-item">
-															<div class="ant-form-item-control-wrapper">
-																<div class="ant-form-item-control">
-																	<span class="ant-form-item-children">
-																		<div class="ant-input-number"
-                                                                             style="width: 100px;">
-																			<div class="ant-input-number-handler-wrap">
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Increase Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-up ">
-																					<i aria-label="图标: up"
-                                                                                       class="anticon anticon-up ant-input-number-handler-up-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="up"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Decrease Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-down ">
-																					<i aria-label="图标: down"
-                                                                                       class="anticon anticon-down ant-input-number-handler-down-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="down"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																			</div>
-																			<div class="ant-input-number-input-wrap"
-                                                                                 role="spinbutton" aria-valuemin="0">
-																				<input class="ant-input-number-input"
-                                                                                       autocomplete="off" min="0"
-                                                                                       step="1"
-                                                                                       id="goods_skus[16][stock_num]"
-                                                                                       data-__meta="[object Object]"
-                                                                                       data-__field="[object Object]"
-                                                                                       value="">
-																			</div>
-																		</div>
-																	</span>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>
-														<div class="ant-row ant-form-item">
-															<div class="ant-form-item-control-wrapper">
-																<div class="ant-form-item-control">
-																	<span class="ant-form-item-children">
-																		<span class="ant-input-affix-wrapper"
-                                                                              style="width: 150px;">
-																			<input type="text" id="goods_skus[16][code]"
-                                                                                   data-__meta="[object Object]"
-                                                                                   data-__field="[object Object]"
-                                                                                   class="ant-input" value="">
-																			<span class="ant-input-suffix">
-																			</span>
-																		</span>
-																	</span>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>
-														<div class="ant-row ant-form-item">
-															<div class="ant-form-item-control-wrapper">
-																<div class="ant-form-item-control">
-																	<span class="ant-form-item-children">
-																		<div class="ant-input-number"
-                                                                             style="width: 100px;">
-																			<div class="ant-input-number-handler-wrap">
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Increase Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-up ">
-																					<i aria-label="图标: up"
-                                                                                       class="anticon anticon-up ant-input-number-handler-up-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="up"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Decrease Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-down ">
-																					<i aria-label="图标: down"
-                                                                                       class="anticon anticon-down ant-input-number-handler-down-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="down"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																			</div>
-																			<div class="ant-input-number-input-wrap"
-                                                                                 role="spinbutton" aria-valuemin="0">
-																				<input class="ant-input-number-input"
-                                                                                       autocomplete="off" min="0"
-                                                                                       step="1"
-                                                                                       id="goods_skus[16][cost_price]"
-                                                                                       data-__meta="[object Object]"
-                                                                                       data-__field="[object Object]"
-                                                                                       value="">
-																			</div>
-																		</div>
-																	</span>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>
-														<span value="0" id="goods_skus[16][sold_num]"
-                                                              data-__meta="[object Object]"
-                                                              data-__field="[object Object]">
-															0
-														</span>
-														<span value="16" id="goods_skus[16][attr_key]"
-                                                              data-__meta="[object Object]"
-                                                              data-__field="[object Object]">
-														</span>
-														<span value="false" id="goods_skus[16][is_image]"
-                                                              data-__meta="[object Object]"
-                                                              data-__field="[object Object]">
-														</span>
-														<span value="0" id="goods_skus[16][media_id]"
-                                                              data-__meta="[object Object]"
-                                                              data-__field="[object Object]">
-														</span>
-													</td>
-												</tr>
-												<tr class="ant-table-row ant-table-row-level-0">
-													<td>
-														<div class="flex-view "
-                                                             style="align-items: center; justify-content: flex-start; flex-direction: row;">
-															<span>
-																蓝
-															</span>
-														</div>
-													</td>
-													<td>
-														<div class="ant-row ant-form-item">
-															<div class="ant-form-item-control-wrapper">
-																<div class="ant-form-item-control">
-																	<span class="ant-form-item-children">
-																		<div class="ant-input-number"
-                                                                             style="width: 100px;">
-																			<div class="ant-input-number-handler-wrap">
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Increase Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-up ">
-																					<i aria-label="图标: up"
-                                                                                       class="anticon anticon-up ant-input-number-handler-up-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="up"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Decrease Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-down ">
-																					<i aria-label="图标: down"
-                                                                                       class="anticon anticon-down ant-input-number-handler-down-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="down"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																			</div>
-																			<div class="ant-input-number-input-wrap"
-                                                                                 role="spinbutton" aria-valuemin="0">
-																				<input class="ant-input-number-input"
-                                                                                       autocomplete="off" min="0"
-                                                                                       step="1"
-                                                                                       id="goods_skus[17][price]"
-                                                                                       data-__meta="[object Object]"
-                                                                                       data-__field="[object Object]"
-                                                                                       value="">
-																			</div>
-																		</div>
-																	</span>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>
-														<div class="ant-row ant-form-item">
-															<div class="ant-form-item-control-wrapper">
-																<div class="ant-form-item-control">
-																	<span class="ant-form-item-children">
-																		<div class="ant-input-number"
-                                                                             style="width: 100px;">
-																			<div class="ant-input-number-handler-wrap">
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Increase Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-up ">
-																					<i aria-label="图标: up"
-                                                                                       class="anticon anticon-up ant-input-number-handler-up-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="up"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Decrease Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-down ">
-																					<i aria-label="图标: down"
-                                                                                       class="anticon anticon-down ant-input-number-handler-down-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="down"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																			</div>
-																			<div class="ant-input-number-input-wrap"
-                                                                                 role="spinbutton" aria-valuemin="0">
-																				<input class="ant-input-number-input"
-                                                                                       autocomplete="off" min="0"
-                                                                                       step="1"
-                                                                                       id="goods_skus[17][stock_num]"
-                                                                                       data-__meta="[object Object]"
-                                                                                       data-__field="[object Object]"
-                                                                                       value="">
-																			</div>
-																		</div>
-																	</span>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>
-														<div class="ant-row ant-form-item">
-															<div class="ant-form-item-control-wrapper">
-																<div class="ant-form-item-control">
-																	<span class="ant-form-item-children">
-																		<span class="ant-input-affix-wrapper"
-                                                                              style="width: 150px;">
-																			<input type="text" id="goods_skus[17][code]"
-                                                                                   data-__meta="[object Object]"
-                                                                                   data-__field="[object Object]"
-                                                                                   class="ant-input" value="">
-																			<span class="ant-input-suffix">
-																			</span>
-																		</span>
-																	</span>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>
-														<div class="ant-row ant-form-item">
-															<div class="ant-form-item-control-wrapper">
-																<div class="ant-form-item-control">
-																	<span class="ant-form-item-children">
-																		<div class="ant-input-number"
-                                                                             style="width: 100px;">
-																			<div class="ant-input-number-handler-wrap">
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Increase Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-up ">
-																					<i aria-label="图标: up"
-                                                                                       class="anticon anticon-up ant-input-number-handler-up-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="up"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																				<span unselectable="unselectable"
-                                                                                      role="button"
-                                                                                      aria-label="Decrease Value"
-                                                                                      aria-disabled="false"
-                                                                                      class="ant-input-number-handler ant-input-number-handler-down ">
-																					<i aria-label="图标: down"
-                                                                                       class="anticon anticon-down ant-input-number-handler-down-inner">
-																						<svg viewBox="64 64 896 896"
-                                                                                             class="" data-icon="down"
-                                                                                             width="1em" height="1em"
-                                                                                             fill="currentColor"
-                                                                                             aria-hidden="true">
-																							<path
-                                                                                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
-																							</path>
-																						</svg>
-																					</i>
-																				</span>
-																			</div>
-																			<div class="ant-input-number-input-wrap"
-                                                                                 role="spinbutton" aria-valuemin="0">
-																				<input class="ant-input-number-input"
-                                                                                       autocomplete="off" min="0"
-                                                                                       step="1"
-                                                                                       id="goods_skus[17][cost_price]"
-                                                                                       data-__meta="[object Object]"
-                                                                                       data-__field="[object Object]"
-                                                                                       value="">
-																			</div>
-																		</div>
-																	</span>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>
-														<span value="0" id="goods_skus[17][sold_num]"
-                                                              data-__meta="[object Object]"
-                                                              data-__field="[object Object]">
-															0
-														</span>
-														<span value="17" id="goods_skus[17][attr_key]"
-                                                              data-__meta="[object Object]"
-                                                              data-__field="[object Object]">
-														</span>
-														<span value="false" id="goods_skus[17][is_image]"
-                                                              data-__meta="[object Object]"
-                                                              data-__field="[object Object]">
-														</span>
-														<span value="0" id="goods_skus[17][media_id]"
-                                                              data-__meta="[object Object]"
-                                                              data-__field="[object Object]">
-														</span>
-													</td>
-												</tr>
+											<tbody class="ant-table-tbody self_sku_detail_body">
+												{{--<tr class="ant-table-row ant-table-row-level-0">--}}
+													{{--<td>--}}
+														{{--<div class="flex-view "--}}
+                                                             {{--style="align-items: center; justify-content: flex-start; flex-direction: row;">--}}
+															{{--<span>--}}
+																{{--红--}}
+															{{--</span>--}}
+														{{--</div>--}}
+													{{--</td>--}}
+													{{--<td>--}}
+														{{--<div class="ant-row ant-form-item">--}}
+															{{--<div class="ant-form-item-control-wrapper">--}}
+																{{--<div class="ant-form-item-control">--}}
+																	{{--<span class="ant-form-item-children">--}}
+																		{{--<div class="ant-input-number"--}}
+                                                                             {{--style="width: 100px;">--}}
+																			{{--<div class="ant-input-number-handler-wrap">--}}
+																				{{--<span unselectable="unselectable"--}}
+                                                                                      {{--role="button"--}}
+                                                                                      {{--aria-label="Increase Value"--}}
+                                                                                      {{--aria-disabled="false"--}}
+                                                                                      {{--class="ant-input-number-handler ant-input-number-handler-up ">--}}
+																					{{--<i aria-label="图标: up"--}}
+                                                                                       {{--class="anticon anticon-up ant-input-number-handler-up-inner">--}}
+																						{{--<svg viewBox="64 64 896 896"--}}
+                                                                                             {{--class="" data-icon="up"--}}
+                                                                                             {{--width="1em" height="1em"--}}
+                                                                                             {{--fill="currentColor"--}}
+                                                                                             {{--aria-hidden="true">--}}
+																							{{--<path--}}
+                                                                                                    {{--d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">--}}
+																							{{--</path>--}}
+																						{{--</svg>--}}
+																					{{--</i>--}}
+																				{{--</span>--}}
+																				{{--<span unselectable="unselectable"--}}
+                                                                                      {{--role="button"--}}
+                                                                                      {{--aria-label="Decrease Value"--}}
+                                                                                      {{--aria-disabled="false"--}}
+                                                                                      {{--class="ant-input-number-handler ant-input-number-handler-down ">--}}
+																					{{--<i aria-label="图标: down"--}}
+                                                                                       {{--class="anticon anticon-down ant-input-number-handler-down-inner">--}}
+																						{{--<svg viewBox="64 64 896 896"--}}
+                                                                                             {{--class="" data-icon="down"--}}
+                                                                                             {{--width="1em" height="1em"--}}
+                                                                                             {{--fill="currentColor"--}}
+                                                                                             {{--aria-hidden="true">--}}
+																							{{--<path--}}
+                                                                                                    {{--d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">--}}
+																							{{--</path>--}}
+																						{{--</svg>--}}
+																					{{--</i>--}}
+																				{{--</span>--}}
+																			{{--</div>--}}
+																			{{--<div class="ant-input-number-input-wrap"--}}
+                                                                                 {{--role="spinbutton" aria-valuemin="0">--}}
+																				{{--<input class="ant-input-number-input"--}}
+                                                                                       {{--autocomplete="off" min="0"--}}
+                                                                                       {{--step="1"--}}
+                                                                                       {{--id="goods_skus[16][price]"--}}
+                                                                                       {{--data-__meta="[object Object]"--}}
+                                                                                       {{--data-__field="[object Object]"--}}
+                                                                                       {{--value="">--}}
+																			{{--</div>--}}
+																		{{--</div>--}}
+																	{{--</span>--}}
+																{{--</div>--}}
+															{{--</div>--}}
+														{{--</div>--}}
+													{{--</td>--}}
+													{{--<td>--}}
+														{{--<div class="ant-row ant-form-item">--}}
+															{{--<div class="ant-form-item-control-wrapper">--}}
+																{{--<div class="ant-form-item-control">--}}
+																	{{--<span class="ant-form-item-children">--}}
+																		{{--<div class="ant-input-number"--}}
+                                                                             {{--style="width: 100px;">--}}
+																			{{--<div class="ant-input-number-handler-wrap">--}}
+																				{{--<span unselectable="unselectable"--}}
+                                                                                      {{--role="button"--}}
+                                                                                      {{--aria-label="Increase Value"--}}
+                                                                                      {{--aria-disabled="false"--}}
+                                                                                      {{--class="ant-input-number-handler ant-input-number-handler-up ">--}}
+																					{{--<i aria-label="图标: up"--}}
+                                                                                       {{--class="anticon anticon-up ant-input-number-handler-up-inner">--}}
+																						{{--<svg viewBox="64 64 896 896"--}}
+                                                                                             {{--class="" data-icon="up"--}}
+                                                                                             {{--width="1em" height="1em"--}}
+                                                                                             {{--fill="currentColor"--}}
+                                                                                             {{--aria-hidden="true">--}}
+																							{{--<path--}}
+                                                                                                    {{--d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">--}}
+																							{{--</path>--}}
+																						{{--</svg>--}}
+																					{{--</i>--}}
+																				{{--</span>--}}
+																				{{--<span unselectable="unselectable"--}}
+                                                                                      {{--role="button"--}}
+                                                                                      {{--aria-label="Decrease Value"--}}
+                                                                                      {{--aria-disabled="false"--}}
+                                                                                      {{--class="ant-input-number-handler ant-input-number-handler-down ">--}}
+																					{{--<i aria-label="图标: down"--}}
+                                                                                       {{--class="anticon anticon-down ant-input-number-handler-down-inner">--}}
+																						{{--<svg viewBox="64 64 896 896"--}}
+                                                                                             {{--class="" data-icon="down"--}}
+                                                                                             {{--width="1em" height="1em"--}}
+                                                                                             {{--fill="currentColor"--}}
+                                                                                             {{--aria-hidden="true">--}}
+																							{{--<path--}}
+                                                                                                    {{--d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">--}}
+																							{{--</path>--}}
+																						{{--</svg>--}}
+																					{{--</i>--}}
+																				{{--</span>--}}
+																			{{--</div>--}}
+																			{{--<div class="ant-input-number-input-wrap"--}}
+                                                                                 {{--role="spinbutton" aria-valuemin="0">--}}
+																				{{--<input class="ant-input-number-input"--}}
+                                                                                       {{--autocomplete="off" min="0"--}}
+                                                                                       {{--step="1"--}}
+                                                                                       {{--id="goods_skus[16][stock_num]"--}}
+                                                                                       {{--data-__meta="[object Object]"--}}
+                                                                                       {{--data-__field="[object Object]"--}}
+                                                                                       {{--value="">--}}
+																			{{--</div>--}}
+																		{{--</div>--}}
+																	{{--</span>--}}
+																{{--</div>--}}
+															{{--</div>--}}
+														{{--</div>--}}
+													{{--</td>--}}
+													{{--<td>--}}
+														{{--<div class="ant-row ant-form-item">--}}
+															{{--<div class="ant-form-item-control-wrapper">--}}
+																{{--<div class="ant-form-item-control">--}}
+																	{{--<span class="ant-form-item-children">--}}
+																		{{--<span class="ant-input-affix-wrapper"--}}
+                                                                              {{--style="width: 150px;">--}}
+																			{{--<input type="text" id="goods_skus[16][code]"--}}
+                                                                                   {{--data-__meta="[object Object]"--}}
+                                                                                   {{--data-__field="[object Object]"--}}
+                                                                                   {{--class="ant-input" value="">--}}
+																			{{--<span class="ant-input-suffix">--}}
+																			{{--</span>--}}
+																		{{--</span>--}}
+																	{{--</span>--}}
+																{{--</div>--}}
+															{{--</div>--}}
+														{{--</div>--}}
+													{{--</td>--}}
+													{{--<td>--}}
+														{{--<div class="ant-row ant-form-item">--}}
+															{{--<div class="ant-form-item-control-wrapper">--}}
+																{{--<div class="ant-form-item-control">--}}
+																	{{--<span class="ant-form-item-children">--}}
+																		{{--<div class="ant-input-number"--}}
+                                                                             {{--style="width: 100px;">--}}
+																			{{--<div class="ant-input-number-handler-wrap">--}}
+																				{{--<span unselectable="unselectable"--}}
+                                                                                      {{--role="button"--}}
+                                                                                      {{--aria-label="Increase Value"--}}
+                                                                                      {{--aria-disabled="false"--}}
+                                                                                      {{--class="ant-input-number-handler ant-input-number-handler-up ">--}}
+																					{{--<i aria-label="图标: up"--}}
+                                                                                       {{--class="anticon anticon-up ant-input-number-handler-up-inner">--}}
+																						{{--<svg viewBox="64 64 896 896"--}}
+                                                                                             {{--class="" data-icon="up"--}}
+                                                                                             {{--width="1em" height="1em"--}}
+                                                                                             {{--fill="currentColor"--}}
+                                                                                             {{--aria-hidden="true">--}}
+																							{{--<path--}}
+                                                                                                    {{--d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">--}}
+																							{{--</path>--}}
+																						{{--</svg>--}}
+																					{{--</i>--}}
+																				{{--</span>--}}
+																				{{--<span unselectable="unselectable"--}}
+                                                                                      {{--role="button"--}}
+                                                                                      {{--aria-label="Decrease Value"--}}
+                                                                                      {{--aria-disabled="false"--}}
+                                                                                      {{--class="ant-input-number-handler ant-input-number-handler-down ">--}}
+																					{{--<i aria-label="图标: down"--}}
+                                                                                       {{--class="anticon anticon-down ant-input-number-handler-down-inner">--}}
+																						{{--<svg viewBox="64 64 896 896"--}}
+                                                                                             {{--class="" data-icon="down"--}}
+                                                                                             {{--width="1em" height="1em"--}}
+                                                                                             {{--fill="currentColor"--}}
+                                                                                             {{--aria-hidden="true">--}}
+																							{{--<path--}}
+                                                                                                    {{--d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">--}}
+																							{{--</path>--}}
+																						{{--</svg>--}}
+																					{{--</i>--}}
+																				{{--</span>--}}
+																			{{--</div>--}}
+																			{{--<div class="ant-input-number-input-wrap"--}}
+                                                                                 {{--role="spinbutton" aria-valuemin="0">--}}
+																				{{--<input class="ant-input-number-input"--}}
+                                                                                       {{--autocomplete="off" min="0"--}}
+                                                                                       {{--step="1"--}}
+                                                                                       {{--id="goods_skus[16][cost_price]"--}}
+                                                                                       {{--data-__meta="[object Object]"--}}
+                                                                                       {{--data-__field="[object Object]"--}}
+                                                                                       {{--value="">--}}
+																			{{--</div>--}}
+																		{{--</div>--}}
+																	{{--</span>--}}
+																{{--</div>--}}
+															{{--</div>--}}
+														{{--</div>--}}
+													{{--</td>--}}
+													{{--<td>--}}
+														{{--<span value="0" id="goods_skus[16][sold_num]"--}}
+                                                              {{--data-__meta="[object Object]"--}}
+                                                              {{--data-__field="[object Object]">--}}
+															{{--0--}}
+														{{--</span>--}}
+														{{--<span value="16" id="goods_skus[16][attr_key]"--}}
+                                                              {{--data-__meta="[object Object]"--}}
+                                                              {{--data-__field="[object Object]">--}}
+														{{--</span>--}}
+														{{--<span value="false" id="goods_skus[16][is_image]"--}}
+                                                              {{--data-__meta="[object Object]"--}}
+                                                              {{--data-__field="[object Object]">--}}
+														{{--</span>--}}
+														{{--<span value="0" id="goods_skus[16][media_id]"--}}
+                                                              {{--data-__meta="[object Object]"--}}
+                                                              {{--data-__field="[object Object]">--}}
+														{{--</span>--}}
+													{{--</td>--}}
+												{{--</tr>--}}
 											</tbody>
 										</table>
 									</div>
