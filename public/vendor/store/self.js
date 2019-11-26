@@ -45,6 +45,7 @@ $(function () {
         if(addHtmlObj.length > 1){
             skuAddHtml.find(".self_sku_picture").eq(0).remove();
         }
+        skuAddHtml.addClass('self_auto_sku_container');
         $(this).parent().before(skuAddHtml);
         // $('.self_sku_container .self_sku_picture').eq(0).remove();
         if(addHtmlObj.length > 2){
@@ -214,7 +215,7 @@ $(function () {
             return false;
         }
 
-        addSkuDetail(selectClass, parentSkuObj, val);
+        addSkuDetail();
     })
 
     $(document).on('blur', '.ant-select-search--inline .ant-select-search__field', function () {
@@ -459,27 +460,51 @@ $(function () {
     })
 
     // 将每个规格值都进行组合
-    function addSkuDetail(selectClass, skuObj, id){
-        let skuContainer = $('.'+selectClass );
-        let skuName = skuContainer.parents('.self_sku_additem').find('.ant-select-selection-selected-value').eq(0).text(); // 规格名名称
-        let skuId = skuContainer.parents('.self_sku_additem').find('.self_attr').val(); // 规格名ID
-        let skuChildName = skuObj.parent().parent().prev().text(); // 规格值名称
+    function addSkuDetail(){
         let skuDetailContainer = $('.self_sku_detail_container'); // 规格明细容器选择器object
         let skuDetailTheadTr = skuDetailContainer.find('.self_sku_detail_thead tr'); // 规格明细容器thead下的tr选择器object
         let skuDetailTbody = skuDetailContainer.find('.self_sku_detail_body'); // 规格明细容器thead下的tr选择器object
-        let skuDetailTbodyHtml = $('.prehtml .self_sku_detail tr').clone(); //克隆tbody tr模板
+        let skuDetailTbodyTr = skuDetailTbody.find('.self_sku_detail_tr'); //页面tbody tr元素选择器
         skuDetailContainer.css('display', 'block'); // 规格明细显示
 
-        //thead表头新增列元素
-        skuDetailTheadTr.find('.th-price').before('<th class="th-sku">'+skuName+'</th>');
+        let skuAutoObj =  $('.self_auto_sku_container');
+        let skuDeatailTheadStr = '';
+        let skuDetailTbodyStr = '';
 
-        // tbody tr模板内容更改
-        skuDetailTbodyHtml.find('.self_sku_detail_fixed_column').before('<td><div class="flex-view" style="align-items: center; justify-content: flex-start; flex-direction: row;"><span>'+skuChildName+'</span></div></td>');
+        //规格名循环
+        for (let i = 0; i < skuAutoObj.length; i++){
+            let skuName = skuAutoObj.eq(i).find('.ant-select-selection-selected-value').eq(0).text();
+            let skuId = skuAutoObj.eq(i).find('.self_attr').val();
+            let skuChildObj = skuAutoObj.eq(i).find('.self_sku_item');
+            skuDeatailTheadStr += '<th class="th-sku">'+skuName+'</th>';
+            //规格值循环
+            for (let j = 0; j < skuChildObj.length; j++){
+                let skuDetailTbodyHtml = $('.prehtml .self_sku_detail tr').clone(); //克隆tbody tr模板
+                let skuChildName = skuChildObj.eq(j).find('.ant-select-selection-selected-value').text();
+                let skuChildId = skuChildObj.eq(j).find('.self_attr_value').val();
 
-        let result = skuDetailTbody.find('.self_sku_detail_td_last').;
-        console.log(result);
+                // for (){
+                //
+                // }
 
-        skuDetailTbody.append(skuDetailTbodyHtml); // 从后插入模板
+                skuDetailTbodyHtml.find('.self_sku_detail_fixed_column').before('<td><div class="flex-view" style="align-items: center; justify-content: flex-start; flex-direction: row;"><span>'+skuChildName+'</span></div></td>');
+                // 销量
+                skuDetailTbodyHtml.find('.self_sku_detail_td_last span').eq(0).attr('id', 'goods_skus['+skuChildId+'][sold_num]');
+                // 规格id
+                skuDetailTbodyHtml.find('.self_sku_detail_td_last').append('<span value="'+skuChildId+'" id="goods_skus['+skuChildId+'][attr_key]"></span>');
+                //规格值id
+                skuDetailTbodyHtml.find('.self_sku_detail_td_last').append('<span value="'+skuChildId+'" id="goods_skus['+skuChildId+'][attr_val_key]"></span>');
+
+                skuDetailTbodyStr += skuDetailTbodyHtml.prop('outerHTML');
+
+            }
+
+        }
+
+        if(skuDetailTheadTr.find('.th-sku').length > 0) skuDetailTheadTr.find('.th-sku').remove();
+        if(skuDetailTbodyTr.length > 0) skuDetailTbodyTr.remove();
+        skuDetailTheadTr.find('.th-price').before(skuDeatailTheadStr);
+        skuDetailTbody.append(skuDetailTbodyStr);
 
     }
 
