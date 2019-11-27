@@ -79,6 +79,17 @@ class UploadController extends Controller
                     "message" => '上传出错！' . $e->getMessage()
                 ]
             ];
+        } catch (\Exception $exception) {
+            elog('图片上传报错,第' . $exception->getLine() . '行:' . $exception->getMessage());
+            return [
+                "uploaded" => false,
+                "fileName" => '',
+                "url" => '',
+                "error" => [
+                    "message" => '上传出错！' . $exception->getMessage()
+                ]
+            ];
         }
+
     }
 }

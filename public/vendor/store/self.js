@@ -487,6 +487,18 @@ $(function () {
                     return false;
                 }
 
+                // skuAutoObj.find('.self_sku_item .ant-select-selection-selected-value').each(function () {
+                //     let
+                //     let valId = $(this).parent().find('.self_attr_value').val();
+                //     let valtext = $(this).text();
+                //     if(skuChildId != valId){
+                //
+                //     }
+                //
+                // });
+
+
+
                 skuDetailTbodyHtml.find('.self_sku_detail_fixed_column').before('<td><div class="flex-view" style="align-items: center; justify-content: flex-start; flex-direction: row;"><span>' + skuChildName + '</span></div></td>');
                 // 销量
                 skuDetailTbodyHtml.find('.self_sku_detail_td_last span').eq(0).attr('id', 'goods_skus[' + skuChildId + '][sold_num]');
