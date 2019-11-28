@@ -470,54 +470,33 @@ $(function () {
         let skuAutoObj = $('.self_auto_sku_container');
         let skuDeatailTheadStr = '';
         let skuDetailTbodyStr = '';
+        let skuDetailJson = {};
 
         //规格名循环
         for (let i = 0; i < skuAutoObj.length; i++) {
             let skuName = skuAutoObj.eq(i).find('.ant-select-selection-selected-value').eq(0).text();
             let skuId = skuAutoObj.eq(i).find('.self_attr').val();
             let skuChildObj = skuAutoObj.eq(i).find('.self_sku_item');
-            skuDeatailTheadStr += '<th class="th-sku">' + skuName + '</th>';
             //规格值循环
+            let skuChildJson = {};
+            let skuChildInfoJson = {};
             for (let j = 0; j < skuChildObj.length; j++) {
                 let skuDetailTbodyHtml = $('.prehtml .self_sku_detail tr').clone(); //克隆tbody tr模板
                 let skuChildName = skuChildObj.eq(j).find('.ant-select-selection-selected-value').text();
                 let skuChildId = skuChildObj.eq(j).find('.self_attr_value').val();
                 if (skuChildId == '') {
-                    skuDetailContainer.css('display', 'none'); // 规格明细显示
                     return false;
                 }
-
-                // skuAutoObj.find('.self_sku_item .ant-select-selection-selected-value').each(function () {
-                //     let
-                //     let valId = $(this).parent().find('.self_attr_value').val();
-                //     let valtext = $(this).text();
-                //     if(skuChildId != valId){
-                //
-                //     }
-                //
-                // });
-
-
-
-                skuDetailTbodyHtml.find('.self_sku_detail_fixed_column').before('<td><div class="flex-view" style="align-items: center; justify-content: flex-start; flex-direction: row;"><span>' + skuChildName + '</span></div></td>');
-                // 销量
-                skuDetailTbodyHtml.find('.self_sku_detail_td_last span').eq(0).attr('id', 'goods_skus[' + skuChildId + '][sold_num]');
-                // 规格id
-                skuDetailTbodyHtml.find('.self_sku_detail_td_last').append('<span value="' + skuChildId + '" id="goods_skus[' + skuChildId + '][attr_key]"></span>');
-                //规格值id
-                skuDetailTbodyHtml.find('.self_sku_detail_td_last').append('<span value="' + skuChildId + '" id="goods_skus[' + skuChildId + '][attr_val_key]"></span>');
-
-                skuDetailTbodyStr += skuDetailTbodyHtml.prop('outerHTML');
+                skuChildInfoJson.name = skuChildName;
+                skuChildInfoJson.id = skuChildId;
+                console.log(skuChildId,skuChildInfoJson)
+                skuChildJson[skuChildId] = skuChildInfoJson;
 
             }
-
-
+            skuDetailJson[skuId] = skuChildJson;
+            console.log(skuDetailJson);
         }
 
-        // if(skuDetailTheadTr.find('.th-sku').length > 0) skuDetailTheadTr.find('.th-sku').remove();
-        // if(skuDetailTbodyTr.length > 0) skuDetailTbodyTr.remove();
-        skuDetailTheadTr.find('.th-price').before(skuDeatailTheadStr);
-        skuDetailTbody.append(skuDetailTbodyStr);
 
     }
 
