@@ -460,45 +460,70 @@ $(function () {
     })
 
     // 将每个规格值都进行组合
-    function addSkuDetail() {
+    const addSkuDetail = () => {
         let skuDetailContainer = $('.self_sku_detail_container'); // 规格明细容器选择器object
         let skuDetailTheadTr = skuDetailContainer.find('.self_sku_detail_thead tr'); // 规格明细容器thead下的tr选择器object
         let skuDetailTbody = skuDetailContainer.find('.self_sku_detail_body'); // 规格明细容器thead下的tr选择器object
         let skuDetailTbodyTr = skuDetailTbody.find('.self_sku_detail_tr'); //页面tbody tr元素选择器
         skuDetailContainer.css('display', 'block'); // 规格明细显示
 
-        let skuAutoObj = $('.self_auto_sku_container');
         let skuDeatailTheadStr = '';
         let skuDetailTbodyStr = '';
+        let skuDataJson = skuIdToChecked();
+        let skuDetailNameJson = skuDataJson.skuDetailNameJson;
+        let skuDetailChildNameJson = skuDataJson.skuDetailChildNameJson;
+        let skuCombine = permutation(skuDataJson.skuDetailJson);
+        console.log(aa);
+    };
+
+    // 统计skuDetail选中的元素id
+    const skuIdToChecked = () => {
+        let skuAutoObj = $('.self_auto_sku_container');
         let skuDetailJson = {};
+        let skuDetailNameJson = {};
+        let skuDetailChildNameJson = {};
 
         //规格名循环
         for (let i = 0; i < skuAutoObj.length; i++) {
             let skuName = skuAutoObj.eq(i).find('.ant-select-selection-selected-value').eq(0).text();
             let skuId = skuAutoObj.eq(i).find('.self_attr').val();
             let skuChildObj = skuAutoObj.eq(i).find('.self_sku_item');
+            skuDetailNameJson[skuId] = skuName;
             //规格值循环
-            let skuChildJson = {};
-            let skuChildInfoJson = {};
+            let skuChildJson = [];
             for (let j = 0; j < skuChildObj.length; j++) {
-                let skuDetailTbodyHtml = $('.prehtml .self_sku_detail tr').clone(); //克隆tbody tr模板
                 let skuChildName = skuChildObj.eq(j).find('.ant-select-selection-selected-value').text();
                 let skuChildId = skuChildObj.eq(j).find('.self_attr_value').val();
                 if (skuChildId == '') {
                     return false;
                 }
-                skuChildInfoJson.name = skuChildName;
-                skuChildInfoJson.id = skuChildId;
-                console.log(skuChildId,skuChildInfoJson)
-                skuChildJson[skuChildId] = skuChildInfoJson;
+                skuChildJson.push(skuChildId);
+                skuDetailChildNameJson[skuChildId] = skuChildName;
 
             }
             skuDetailJson[skuId] = skuChildJson;
-            console.log(skuDetailJson);
         }
+        return {'skuDetailJson': skuDetailJson, 'skuDetailNameJson': skuDetailNameJson, 'skuDetailChildNameJson': skuDetailChildNameJson};
+    };
 
-
-    }
+    const permutation = (source) => {
+        const result = [];
+        const _result = {};
+        const convert = (arr, index) => {
+            for (let i = 0; i < source[arr[index]].length; i++) {
+                if (source[arr[index]][i]) {
+                    _result[arr[index]] = source[arr[index]][i]
+                    if (index === arr.length - 1) {
+                        result.push(JSON.parse(JSON.stringify(_result)));
+                    } else {
+                        convert(arr, index + 1);
+                    }
+                }
+            }
+        };
+        convert(Object.keys(source), 0);
+        return result;
+    };
 
     // 将每个规格值都进行组合
     // function addSkuDetail1(){
