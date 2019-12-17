@@ -35,6 +35,7 @@ $(function () {
     //删除规格值事件
     $(document).on('click', '.self-sku-value-error', function () {
         $(this).parents('.self_sku_item').remove();
+        addSkuDetail();
     })
 
     //添加规格事件
@@ -56,6 +57,7 @@ $(function () {
     //删除规格事件
     $(document).on('click', '.self-sku-error', function () {
         $(this).parents('.self_sku_additem').remove();
+        addSkuDetail();
         if($('.self_sku_additem').length <= 5){
             $('.self-sku-additem').removeAttr('disabled')
         }
@@ -465,15 +467,40 @@ $(function () {
         let skuDetailTheadTr = skuDetailContainer.find('.self_sku_detail_thead tr'); // 规格明细容器thead下的tr选择器object
         let skuDetailTbody = skuDetailContainer.find('.self_sku_detail_body'); // 规格明细容器thead下的tr选择器object
         let skuDetailTbodyTr = skuDetailTbody.find('.self_sku_detail_tr'); //页面tbody tr元素选择器
-        skuDetailContainer.css('display', 'block'); // 规格明细显示
+
 
         let skuDeatailTheadStr = '';
         let skuDetailTbodyStr = '';
         let skuDataJson = skuIdToChecked();
+        //规格名的键值对的数据
         let skuDetailNameJson = skuDataJson.skuDetailNameJson;
+        //规格值的键值对数据
         let skuDetailChildNameJson = skuDataJson.skuDetailChildNameJson;
+        //规格值自由组合的数据
         let skuCombine = permutation(skuDataJson.skuDetailJson);
-        console.log(aa);
+        //规格名html模板渲染
+        $.each(skuDetailNameJson, function(key,value) {
+            skuDeatailTheadStr += '<th class="th-sku">'+value+'</th>';
+        });
+        //规格值html模板渲染
+        $.each(skuCombine, function(key,value) {
+            let skuDetailTbodyHtml = $('.prehtml .self_sku_detail tr').clone(); //克隆tbody tr模板
+
+            $.each(value, function(k,val) {
+
+                skuDetailTbodyHtml.find('.self_sku_detail_fixed_column').before('<td><div class="flex-view" style="align-items: center; justify-content: flex-start; flex-direction: row;"><span>'+skuDetailChildNameJson[val]+'</span></div></td>');
+
+            });
+            skuDetailTbodyStr += skuDetailTbodyHtml.prop('outerHTML');
+        });
+
+        //渲染规格明细
+        skuDetailContainer.css('display', 'block'); // 规格明细显示
+        if(skuDetailTbodyStr == '') skuDetailContainer.css('display', 'none');
+        if(skuDetailTheadTr.find('.th-sku').length > 0) skuDetailTheadTr.find('.th-sku').remove();
+        if(skuDetailTbodyTr.length > 0) skuDetailTbodyTr.remove();
+        skuDetailTheadTr.find('.th-price').before(skuDeatailTheadStr);
+        skuDetailTbody.append(skuDetailTbodyStr);
     };
 
     // 统计skuDetail选中的元素id
@@ -482,34 +509,33 @@ $(function () {
         let skuDetailJson = {};
         let skuDetailNameJson = {};
         let skuDetailChildNameJson = {};
-
         //规格名循环
         for (let i = 0; i < skuAutoObj.length; i++) {
             let skuName = skuAutoObj.eq(i).find('.ant-select-selection-selected-value').eq(0).text();
             let skuId = skuAutoObj.eq(i).find('.self_attr').val();
             let skuChildObj = skuAutoObj.eq(i).find('.self_sku_item');
+            if (skuId == '') return false;
             skuDetailNameJson[skuId] = skuName;
             //规格值循环
             let skuChildJson = [];
             for (let j = 0; j < skuChildObj.length; j++) {
                 let skuChildName = skuChildObj.eq(j).find('.ant-select-selection-selected-value').text();
                 let skuChildId = skuChildObj.eq(j).find('.self_attr_value').val();
-                if (skuChildId == '') {
-                    return false;
-                }
+                if (skuChildId == '') return false;
                 skuChildJson.push(skuChildId);
                 skuDetailChildNameJson[skuChildId] = skuChildName;
-
             }
             skuDetailJson[skuId] = skuChildJson;
         }
         return {'skuDetailJson': skuDetailJson, 'skuDetailNameJson': skuDetailNameJson, 'skuDetailChildNameJson': skuDetailChildNameJson};
     };
 
+    // 随机组合数据
     const permutation = (source) => {
         const result = [];
         const _result = {};
         const convert = (arr, index) => {
+            if(source[arr[index]] == undefined) return false;
             for (let i = 0; i < source[arr[index]].length; i++) {
                 if (source[arr[index]][i]) {
                     _result[arr[index]] = source[arr[index]][i]
@@ -524,55 +550,6 @@ $(function () {
         convert(Object.keys(source), 0);
         return result;
     };
-
-    // 将每个规格值都进行组合
-    // function addSkuDetail1(){
-    //     let skuDetailContainer = $('.self_sku_detail_container'); // 规格明细容器选择器object
-    //     let skuDetailTheadTr = skuDetailContainer.find('.self_sku_detail_thead tr'); // 规格明细容器thead下的tr选择器object
-    //     let skuDetailTbody = skuDetailContainer.find('.self_sku_detail_body'); // 规格明细容器thead下的tr选择器object
-    //     let skuDetailTbodyTr = skuDetailTbody.find('.self_sku_detail_tr'); //页面tbody tr元素选择器
-    //     skuDetailContainer.css('display', 'block'); // 规格明细显示
-    //
-    //     let skuAutoObj =  $('.self_auto_sku_container');
-    //     let skuDeatailTheadStr = '';
-    //     let skuDetailTbodyStr = '';
-    //
-    //     //规格名循环
-    //     for (let i = 0; i < skuAutoObj.length; i++){
-    //         let skuName = skuAutoObj.eq(i).find('.ant-select-selection-selected-value').eq(0).text();
-    //         let skuId = skuAutoObj.eq(i).find('.self_attr').val();
-    //         let skuChildObj = skuAutoObj.eq(i).find('.self_sku_item');
-    //         skuDeatailTheadStr += '<th class="th-sku">'+skuName+'</th>';
-    //         //规格值循环
-    //         for (let j = 0; j < skuChildObj.length; j++){
-    //             let skuDetailTbodyHtml = $('.prehtml .self_sku_detail tr').clone(); //克隆tbody tr模板
-    //             let skuChildName = skuChildObj.eq(j).find('.ant-select-selection-selected-value').text();
-    //             let skuChildId = skuChildObj.eq(j).find('.self_attr_value').val();
-    //             if(skuChildId == ''){
-    //                 skuDetailContainer.css('display', 'none'); // 规格明细显示
-    //                 return false;
-    //             }
-    //
-    //             skuDetailTbodyHtml.find('.self_sku_detail_fixed_column').before('<td><div class="flex-view" style="align-items: center; justify-content: flex-start; flex-direction: row;"><span>'+skuChildName+'</span></div></td>');
-    //             // 销量
-    //             skuDetailTbodyHtml.find('.self_sku_detail_td_last span').eq(0).attr('id', 'goods_skus['+skuChildId+'][sold_num]');
-    //             // 规格id
-    //             skuDetailTbodyHtml.find('.self_sku_detail_td_last').append('<span value="'+skuChildId+'" id="goods_skus['+skuChildId+'][attr_key]"></span>');
-    //             //规格值id
-    //             skuDetailTbodyHtml.find('.self_sku_detail_td_last').append('<span value="'+skuChildId+'" id="goods_skus['+skuChildId+'][attr_val_key]"></span>');
-    //
-    //             skuDetailTbodyStr += skuDetailTbodyHtml.prop('outerHTML');
-    //
-    //         }
-    //
-    //     }
-    //
-    //     if(skuDetailTheadTr.find('.th-sku').length > 0) skuDetailTheadTr.find('.th-sku').remove();
-    //     if(skuDetailTbodyTr.length > 0) skuDetailTbodyTr.remove();
-    //     skuDetailTheadTr.find('.th-price').before(skuDeatailTheadStr);
-    //     skuDetailTbody.append(skuDetailTbodyStr);
-    //
-    // }
 
 
 })

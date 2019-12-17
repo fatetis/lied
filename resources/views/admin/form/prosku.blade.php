@@ -332,13 +332,13 @@
                                 </div>
                                 <div class="ant-input-number-input-wrap"
                                      role="spinbutton" aria-valuemin="0">
-                                    <input class="ant-input-number-input"
-                                           autocomplete="off" min="0"
-                                           step="1"
-                                           id="goods_skus[17][price]"
-                                           data-__meta="[object Object]"
-                                           data-__field="[object Object]"
-                                           value="">
+                                    {{--<input class="ant-input-number-input"--}}
+                                           {{--autocomplete="off" min="0"--}}
+                                           {{--step="1"--}}
+                                           {{--id="goods_skus[17][price]"--}}
+                                           {{--data-__meta="[object Object]"--}}
+                                           {{--data-__field="[object Object]"--}}
+                                           {{--value="">--}}
                                 </div>
                             </div>
                         </span>
@@ -393,13 +393,13 @@
                                 </div>
                                 <div class="ant-input-number-input-wrap"
                                      role="spinbutton" aria-valuemin="0">
-                                    <input class="ant-input-number-input"
-                                           autocomplete="off" min="0"
-                                           step="1"
-                                           id="goods_skus[17][stock_num]"
-                                           data-__meta="[object Object]"
-                                           data-__field="[object Object]"
-                                           value="">
+                                    {{--<input class="ant-input-number-input"--}}
+                                           {{--autocomplete="off" min="0"--}}
+                                           {{--step="1"--}}
+                                           {{--id="goods_skus[17][stock_num]"--}}
+                                           {{--data-__meta="[object Object]"--}}
+                                           {{--data-__field="[object Object]"--}}
+                                           {{--value="">--}}
                                 </div>
                             </div>
                         </span>
@@ -414,10 +414,10 @@
                         <span class="ant-form-item-children">
                             <span class="ant-input-affix-wrapper"
                                   style="width: 150px;">
-                                <input type="text" id="goods_skus[17][code]"
-                                       data-__meta="[object Object]"
-                                       data-__field="[object Object]"
-                                       class="ant-input" value="">
+                                {{--<input type="text" id="goods_skus[17][code]"--}}
+                                       {{--data-__meta="[object Object]"--}}
+                                       {{--data-__field="[object Object]"--}}
+                                       {{--class="ant-input" value="">--}}
                                 <span class="ant-input-suffix">
                                 </span>
                             </span>
@@ -473,13 +473,13 @@
                                 </div>
                                 <div class="ant-input-number-input-wrap"
                                      role="spinbutton" aria-valuemin="0">
-                                    <input class="ant-input-number-input"
-                                           autocomplete="off" min="0"
-                                           step="1"
-                                           id="goods_skus[17][cost_price]"
-                                           data-__meta="[object Object]"
-                                           data-__field="[object Object]"
-                                           value="">
+                                    {{--<input class="ant-input-number-input"--}}
+                                           {{--autocomplete="off" min="0"--}}
+                                           {{--step="1"--}}
+                                           {{--id="goods_skus[17][cost_price]"--}}
+                                           {{--data-__meta="[object Object]"--}}
+                                           {{--data-__field="[object Object]"--}}
+                                           {{--value="">--}}
                                 </div>
                             </div>
                         </span>
@@ -488,7 +488,7 @@
                 </div>
             </td>
             <td class="self_sku_detail_td_last">
-                <span value="0" id="goods_skus[17][sold_num]">0</span>
+                {{--<span value="0" id="goods_skus[17][sold_num]">0</span>--}}
                 {{--<span value="17" id="goods_skus[17][attr_key]"></span>--}}
                 {{--<span value="false" id="goods_skus[17][is_image]"></span>--}}
                 {{--<span value="0" id="goods_skus[17][media_id]" ></span>--}}
@@ -504,8 +504,8 @@
 
 {{--正文--}}
 <div class="form-group {!! !$errors->has($label) ?: 'has-error' !!}">
-
-    <label for="{{$id}}" class="col-sm-2 control-label">{{$label}}</label>
+    {{--{{$label}}--}}
+    <label for="{{$id}}" class="col-sm-2 control-label">商品规格</label>
 
     <div class="{{$viewClass['field']}}">
 
