@@ -248,12 +248,13 @@
 
             <div class="self_uploaded" style="display: none; height: 100%;">
                 <div class="ant-upload-list-item-info">
-            <span>
-                <a target="_blank" rel="noopener noreferrer" class="ant-upload-list-item-thumbnail">
-                    <img/>
-                </a>
-            </span>
+                    <span>
+                        <a target="_blank" rel="noopener noreferrer" class="ant-upload-list-item-thumbnail">
+                            <img/>
+                        </a>
+                    </span>
                 </div>
+                <input class="media_id" type="hidden" value="">
                 <span class="ant-upload-list-item-actions">
                 <a target="_blank" title="预览文件" rel="noopener noreferrer">
                     <i aria-label="图标: eye-o" class="anticon anticon-eye-o">
@@ -271,7 +272,7 @@
                     <path d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"></path>
                     </svg>
                 </i>
-            </span>
+                </span>
             </div>
         </div>
     </div>
@@ -330,15 +331,13 @@
                                         </i>
                                     </span>
                                 </div>
-                                <div class="ant-input-number-input-wrap"
+                                <div class="ant-input-number-input-wrap self_sku_detail_price"
                                      role="spinbutton" aria-valuemin="0">
-                                    {{--<input class="ant-input-number-input"--}}
-                                           {{--autocomplete="off" min="0"--}}
-                                           {{--step="1"--}}
-                                           {{--id="goods_skus[17][price]"--}}
-                                           {{--data-__meta="[object Object]"--}}
-                                           {{--data-__field="[object Object]"--}}
-                                           {{--value="">--}}
+                                    <input class="ant-input-number-input"
+                                           autocomplete="off" min="0"
+                                           step="1"
+                                           name="goods_skus[17][price]"
+                                           value="">
                                 </div>
                             </div>
                         </span>
@@ -391,15 +390,13 @@
                                         </i>
                                     </span>
                                 </div>
-                                <div class="ant-input-number-input-wrap"
+                                <div class="ant-input-number-input-wrap self_sku_detail_stock_num"
                                      role="spinbutton" aria-valuemin="0">
-                                    {{--<input class="ant-input-number-input"--}}
-                                           {{--autocomplete="off" min="0"--}}
-                                           {{--step="1"--}}
-                                           {{--id="goods_skus[17][stock_num]"--}}
-                                           {{--data-__meta="[object Object]"--}}
-                                           {{--data-__field="[object Object]"--}}
-                                           {{--value="">--}}
+                                    <input class="ant-input-number-input"
+                                           autocomplete="off" min="0"
+                                           step="1"
+                                           name="goods_skus[17][stock_num]"
+                                           value="">
                                 </div>
                             </div>
                         </span>
@@ -412,12 +409,10 @@
                     <div class="ant-form-item-control-wrapper">
                         <div class="ant-form-item-control">
                         <span class="ant-form-item-children">
-                            <span class="ant-input-affix-wrapper"
+                            <span class="ant-input-affix-wrapper self_sku_detail_code"
                                   style="width: 150px;">
-                                {{--<input type="text" id="goods_skus[17][code]"--}}
-                                       {{--data-__meta="[object Object]"--}}
-                                       {{--data-__field="[object Object]"--}}
-                                       {{--class="ant-input" value="">--}}
+                                <input type="text" name="goods_skus[17][code]"
+                                       class="ant-input" value="">
                                 <span class="ant-input-suffix">
                                 </span>
                             </span>
@@ -471,15 +466,13 @@
                                         </i>
                                     </span>
                                 </div>
-                                <div class="ant-input-number-input-wrap"
+                                <div class="ant-input-number-input-wrap self_sku_detail_cost_price"
                                      role="spinbutton" aria-valuemin="0">
-                                    {{--<input class="ant-input-number-input"--}}
-                                           {{--autocomplete="off" min="0"--}}
-                                           {{--step="1"--}}
-                                           {{--id="goods_skus[17][cost_price]"--}}
-                                           {{--data-__meta="[object Object]"--}}
-                                           {{--data-__field="[object Object]"--}}
-                                           {{--value="">--}}
+                                    <input class="ant-input-number-input"
+                                           autocomplete="off" min="0"
+                                           step="1"
+                                           name="goods_skus[17][cost_price]"
+                                           value="">
                                 </div>
                             </div>
                         </span>
@@ -488,7 +481,8 @@
                 </div>
             </td>
             <td class="self_sku_detail_td_last">
-                {{--<span value="0" id="goods_skus[17][sold_num]">0</span>--}}
+                <span value="0">0</span>
+                <input type="hidden" name="goods_skus[17][sold_num]" value="0">
                 {{--<span value="17" id="goods_skus[17][attr_key]"></span>--}}
                 {{--<span value="false" id="goods_skus[17][is_image]"></span>--}}
                 {{--<span value="0" id="goods_skus[17][media_id]" ></span>--}}
@@ -621,7 +615,7 @@
 														<span class="ant-input-suffix">
 														</span>
 													</span>
-													<span class="ant-input-group-addon">
+													<span class="ant-input-group-addon" data-group-type='price'>
 														<a>
 															设置
 														</a>
@@ -637,7 +631,7 @@
 														<span class="ant-input-suffix">
 														</span>
 													</span>
-													<span class="ant-input-group-addon">
+													<span class="ant-input-group-addon" data-group-type='stock'>
 														<a>
 															设置
 														</a>
@@ -653,7 +647,7 @@
 														<span class="ant-input-suffix">
 														</span>
 													</span>
-													<span class="ant-input-group-addon">
+													<span class="ant-input-group-addon" data-group-type='const_price'>
 														<a>
 															设置
 														</a>

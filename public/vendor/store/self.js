@@ -435,6 +435,7 @@ $(function () {
                         toastr.error('抱歉！出错了1' + result.msg);
                         return false;
                     }
+
                     idObject.find('.self_uploading').hide();
                     mainObject.show();
                     // a标签href属性及img标签src属性替换url路径
@@ -443,6 +444,8 @@ $(function () {
                         'alt': '加载失败'
                     });
                     mainObject.find('.ant-upload-list-item-actions a').attr('href', src);
+                    mainObject.find('.media_id').val(file_id);
+                    addSkuDetail();
                 },
                 Error: function (up, err) {
                     toastr.error('ERROR');
@@ -468,7 +471,6 @@ $(function () {
         let skuDetailTbody = skuDetailContainer.find('.self_sku_detail_body'); // 规格明细容器thead下的tr选择器object
         let skuDetailTbodyTr = skuDetailTbody.find('.self_sku_detail_tr'); //页面tbody tr元素选择器
 
-
         let skuDeatailTheadStr = '';
         let skuDetailTbodyStr = '';
         let skuDataJson = skuIdToChecked();
@@ -476,6 +478,8 @@ $(function () {
         let skuDetailNameJson = skuDataJson.skuDetailNameJson;
         //规格值的键值对数据
         let skuDetailChildNameJson = skuDataJson.skuDetailChildNameJson;
+        //规格值的键与media值的数据
+        let skuDetailChildMediaIdJson = skuDataJson.skuDetailChildMediaIdJson;
         //规格值自由组合的数据
         let skuCombine = permutation(skuDataJson.skuDetailJson);
         //规格名html模板渲染
@@ -485,13 +489,36 @@ $(function () {
         //规格值html模板渲染
         $.each(skuCombine, function(key,value) {
             let skuDetailTbodyHtml = $('.prehtml .self_sku_detail tr').clone(); //克隆tbody tr模板
-
+            let skuChildIdArr = [];
+            let media = '';
             $.each(value, function(k,val) {
 
                 skuDetailTbodyHtml.find('.self_sku_detail_fixed_column').before('<td><div class="flex-view" style="align-items: center; justify-content: flex-start; flex-direction: row;"><span>'+skuDetailChildNameJson[val]+'</span></div></td>');
+                skuChildIdArr.push(val)
+                if (skuDetailChildMediaIdJson[val] != undefined) media = skuDetailChildMediaIdJson[val];
 
             });
+            skuChildIdArr.sort();
+            let skuChildId = skuChildIdArr.join('-');
+            //价格
+            skuDetailTbodyHtml.find('.self_sku_detail_price input').attr('name', 'goods_skus[' + skuChildId + '][price]');
+            //库存
+            skuDetailTbodyHtml.find('.self_sku_detail_stock_num input').attr('name', 'goods_skus[' + skuChildId + '][stock_num]');
+            //编码
+            skuDetailTbodyHtml.find('.self_sku_detail_code input').attr('name', 'goods_skus[' + skuChildId + '][code]');
+            //成本价格
+            skuDetailTbodyHtml.find('.self_sku_detail_cost_price input').attr('name', 'goods_skus[' + skuChildId + '][cost_price]');
+            // 销量
+            skuDetailTbodyHtml.find('.self_sku_detail_td_last span').eq(0).next().attr('name', 'goods_skus[' + skuChildId + '][sold_num]');
+            // 规格id
+            skuDetailTbodyHtml.find('.self_sku_detail_td_last')
+                .append('<input type="hidden" value="' + skuChildId + '" name="goods_skus[' + skuChildId + '][attr_key]">');
+            //图片id
+            skuDetailTbodyHtml.find('.self_sku_detail_td_last')
+                .append('<input type="hidden" value="' + media + '" name="goods_skus[' + skuChildId + '][media_id]">');
+            //clone对象导出html
             skuDetailTbodyStr += skuDetailTbodyHtml.prop('outerHTML');
+
         });
 
         //渲染规格明细
@@ -501,6 +528,7 @@ $(function () {
         if(skuDetailTbodyTr.length > 0) skuDetailTbodyTr.remove();
         skuDetailTheadTr.find('.th-price').before(skuDeatailTheadStr);
         skuDetailTbody.append(skuDetailTbodyStr);
+
     };
 
     // 统计skuDetail选中的元素id
@@ -509,6 +537,7 @@ $(function () {
         let skuDetailJson = {};
         let skuDetailNameJson = {};
         let skuDetailChildNameJson = {};
+        let skuDetailChildMediaIdJson = {};
         //规格名循环
         for (let i = 0; i < skuAutoObj.length; i++) {
             let skuName = skuAutoObj.eq(i).find('.ant-select-selection-selected-value').eq(0).text();
@@ -521,13 +550,20 @@ $(function () {
             for (let j = 0; j < skuChildObj.length; j++) {
                 let skuChildName = skuChildObj.eq(j).find('.ant-select-selection-selected-value').text();
                 let skuChildId = skuChildObj.eq(j).find('.self_attr_value').val();
+                let mediaId = skuChildObj.eq(j).find('.self_uploaded input').val();
                 if (skuChildId == '') return false;
                 skuChildJson.push(skuChildId);
                 skuDetailChildNameJson[skuChildId] = skuChildName;
+                if (mediaId != undefined) skuDetailChildMediaIdJson[skuChildId] = mediaId;
             }
             skuDetailJson[skuId] = skuChildJson;
         }
-        return {'skuDetailJson': skuDetailJson, 'skuDetailNameJson': skuDetailNameJson, 'skuDetailChildNameJson': skuDetailChildNameJson};
+        return {
+            'skuDetailJson': skuDetailJson,
+            'skuDetailNameJson': skuDetailNameJson,
+            'skuDetailChildNameJson': skuDetailChildNameJson,
+            'skuDetailChildMediaIdJson': skuDetailChildMediaIdJson,
+        };
     };
 
     // 随机组合数据
@@ -550,6 +586,80 @@ $(function () {
         convert(Object.keys(source), 0);
         return result;
     };
+
+    // 数字组件向上事件
+    $(document).on('click', '.ant-input-number-handler-up', function () {
+        let that = $(this);
+        let inputObj = that.parent().parent().find('input');
+        let inputNum = parseFloat(inputObj.val());
+        if (isNaN(inputNum) || inputNum >= 99) return false;
+        inputObj.val(accAdd(inputNum, 1));
+    })
+
+    // 数字组件向下事件
+    $(document).on('click', '.ant-input-number-handler-down', function () {
+        let that = $(this);
+        let inputObj = that.parent().parent().find('input');
+        let inputNum = parseFloat(inputObj.val());
+        if (isNaN(inputNum) || inputNum <= 1) return false;
+        inputObj.val(accSub(inputNum, 1));
+    })
+
+    // 浮点数减法函数
+    function accSub(arg1, arg2) {
+        var r1, r2, m, n;
+        try {
+            r1 = arg1.toString().split(".")[1].length
+        } catch (e) {
+            r1 = 0
+        }
+        try {
+            r2 = arg2.toString().split(".")[1].length
+        } catch (e) {
+            r2 = 0
+        }
+        m = Math.pow(10, Math.max(r1, r2));
+        //动态控制精度长度
+        n = (r1 >= r2) ? r1 : r2;
+        return ((arg1 * m - arg2 * m) / m).toFixed(n);
+    }
+
+    // 浮点数加法函数
+    function accAdd(arg1, arg2) {
+        var r1, r2, m, c;
+        try {
+            r1 = arg1.toString().split(".")[1].length
+        } catch (e) {
+            r1 = 0
+        }
+        try {
+            r2 = arg2.toString().split(".")[1].length
+        } catch (e) {
+            r2 = 0
+        }
+        c = Math.abs(r1 - r2);
+        m = Math.pow(10, Math.max(r1, r2))
+        if (c > 0) {
+            var cm = Math.pow(10, c);
+            if (r1 > r2) {
+                arg1 = Number(arg1.toString().replace(".", ""));
+                arg2 = Number(arg2.toString().replace(".", "")) * cm;
+            } else {
+                arg1 = Number(arg1.toString().replace(".", "")) * cm;
+                arg2 = Number(arg2.toString().replace(".", ""));
+            }
+        } else {
+            arg1 = Number(arg1.toString().replace(".", ""));
+            arg2 = Number(arg2.toString().replace(".", ""));
+        }
+        return (arg1 + arg2) / m
+    }
+
+    $(document).on('click', '.ant-input-group-addon', function () {
+        let that = $(this);
+        let aa = that.attr('data-group-type');
+        console.log(aa);
+    })
 
 
 })
