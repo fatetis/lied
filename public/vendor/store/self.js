@@ -657,10 +657,42 @@ $(function () {
 
     $(document).on('click', '.ant-input-group-addon', function () {
         let that = $(this);
-        let aa = that.attr('data-group-type');
-        console.log(aa);
+        let type = that.attr('data-group-type');
+        let val = that.parent().find('input').val();
+        let self_batch_value = $('.self_batch_value').find('.ant-checkbox-checked').length;
+        let oparateObj;
+        switch (type) {
+            case 'price' :
+                oparateObj = $('.self_sku_detail_container .self_sku_detail_price input');
+                break;
+            case 'const_price' :
+                oparateObj = $('.self_sku_detail_container .self_sku_detail_cost_price input');
+                break;
+            case 'stock' :
+                oparateObj = $('.self_sku_detail_container .self_sku_detail_stock_num input');
+                break;
+        }
+        eachBatchVal(val, oparateObj, self_batch_value);
     })
 
+    $(document).on('click', '.self_batch_value span', function () {
+        let that = $(this);
+        if (that.hasClass('ant-checkbox-checked')) {
+            that.removeClass('ant-checkbox-checked');
+            return false;
+        }
+        that.addClass('ant-checkbox-checked');
+    })
+
+    const eachBatchVal = (val, oparateObj, self_batch_value) => {
+        if (self_batch_value == 1) {
+            oparateObj.val(val);
+        }
+        for (let i = 0; i < oparateObj.length; i++) {
+            let eqVal = oparateObj.eq(i).val();
+            if (eqVal == '') oparateObj.eq(i).val(val);
+        }
+    };
 
 })
 

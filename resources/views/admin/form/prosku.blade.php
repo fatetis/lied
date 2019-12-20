@@ -498,8 +498,7 @@
 
 {{--正文--}}
 <div class="form-group {!! !$errors->has($label) ?: 'has-error' !!}">
-    {{--{{$label}}--}}
-    <label for="{{$id}}" class="col-sm-2 control-label">商品规格</label>
+    <label for="{{$id}}" class="col-sm-2 control-label">{{$label}}</label>
 
     <div class="{{$viewClass['field']}}">
 
@@ -655,7 +654,7 @@
 												</span>
 											</span>
 										</div>
-										<label class="ant-checkbox-wrapper">
+										<label class="ant-checkbox-wrapper self_batch_value">
 											<span class="ant-checkbox">
 												<input type="checkbox" name="self_add_image" class="ant-checkbox-input"
                                                        value="">

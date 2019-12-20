@@ -341,6 +341,15 @@ return [
             //table actions dom selecter
             'bind_selecter' => '.box-body table.table tbody a.grid-row-view,.box-body table.table tbody a.grid-row-edit,.box-header .pull-right .btn-success,.popup',
             //table action links [view edit] and create button ,and any thing has class pupop : <a class="pupop" popw="400px" poph="200px" href="someurl">mylink</a>
-        ]
+        ],
+        'extensions' => [
+
+            'crontab' => [
+
+                // 如果要关掉这个扩展，设置为false
+                //服务器配置crontab： * * * * * php /your web dir/artisan autotask:run >>/home/crontab.log 2>&1
+                'enable' => true,
+            ]
+        ],
     ],
 ];
