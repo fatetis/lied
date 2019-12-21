@@ -21,7 +21,7 @@ $(function () {
         if($('.self_style_control').hasClass('ant-checkbox-checked')){
             let picClone = $('.prehtml .self_pic_clone').clone();
             let self_sku = $('.self_style_control').parents('.self_sku_additem').find('.self_sku_item');
-            // console.log(self_sku.length);
+
             for(let i = 0; i < self_sku.length; i++){
                 if(self_sku.eq(i).find('.self_pic_clone').length <= 0){
                     self_sku.eq(i).append(picClone);
@@ -138,7 +138,6 @@ $(function () {
                     }
                 })
         }
-        // console.log(selectHtml.find('.ant-select-dropdown-menu li').length)
         $(document.body).append(selectHtml);
         selectShow(key,top,thatHeight,left,thatWidth)
 
@@ -480,12 +479,14 @@ $(function () {
         let skuDetailChildNameJson = skuDataJson.skuDetailChildNameJson;
         //规格值的键与media值的数据
         let skuDetailChildMediaIdJson = skuDataJson.skuDetailChildMediaIdJson;
+
         //规格值自由组合的数据
         let skuCombine = permutation(skuDataJson.skuDetailJson);
         //规格名html模板渲染
         $.each(skuDetailNameJson, function(key,value) {
             skuDeatailTheadStr += '<th class="th-sku">'+value+'</th>';
         });
+
         //规格值html模板渲染
         $.each(skuCombine, function(key,value) {
             let skuDetailTbodyHtml = $('.prehtml .self_sku_detail tr').clone(); //克隆tbody tr模板
@@ -498,24 +499,30 @@ $(function () {
                 if (skuDetailChildMediaIdJson[val] != undefined) media = skuDetailChildMediaIdJson[val];
 
             });
-            skuChildIdArr.sort();
+            // 规格详细原始排序
+            let skuChildIndex = skuChildIdArr.join('-');
+            // 规格详细排序从小到大
+            skuChildIdArr.sort(function (a, b) {
+                return a - b;
+            });
+            // 数组转成字符串
             let skuChildId = skuChildIdArr.join('-');
             //价格
-            skuDetailTbodyHtml.find('.self_sku_detail_price input').attr('name', 'goods_skus[' + skuChildId + '][price]');
+            skuDetailTbodyHtml.find('.self_sku_detail_price input').attr('name', 'prosku[' + skuChildId + '][price]');
             //库存
-            skuDetailTbodyHtml.find('.self_sku_detail_stock_num input').attr('name', 'goods_skus[' + skuChildId + '][stock_num]');
+            skuDetailTbodyHtml.find('.self_sku_detail_stock_num input').attr('name', 'prosku[' + skuChildId + '][stock_num]');
             //编码
-            skuDetailTbodyHtml.find('.self_sku_detail_code input').attr('name', 'goods_skus[' + skuChildId + '][code]');
+            skuDetailTbodyHtml.find('.self_sku_detail_code input').attr('name', 'prosku[' + skuChildId + '][code]');
             //成本价格
-            skuDetailTbodyHtml.find('.self_sku_detail_cost_price input').attr('name', 'goods_skus[' + skuChildId + '][cost_price]');
+            skuDetailTbodyHtml.find('.self_sku_detail_cost_price input').attr('name', 'prosku[' + skuChildId + '][cost_price]');
             // 销量
-            skuDetailTbodyHtml.find('.self_sku_detail_td_last span').eq(0).next().attr('name', 'goods_skus[' + skuChildId + '][sold_num]');
+            skuDetailTbodyHtml.find('.self_sku_detail_td_last span').eq(0).next().attr('name', 'prosku[' + skuChildId + '][sold_num]');
             // 规格id
             skuDetailTbodyHtml.find('.self_sku_detail_td_last')
-                .append('<input type="hidden" value="' + skuChildId + '" name="goods_skus[' + skuChildId + '][attr_key]">');
+                .append('<input type="hidden" value="' + skuChildIndex + '" name="prosku[' + skuChildId + '][attr_key]">');
             //图片id
             skuDetailTbodyHtml.find('.self_sku_detail_td_last')
-                .append('<input type="hidden" value="' + media + '" name="goods_skus[' + skuChildId + '][media_id]">');
+                .append('<input type="hidden" value="' + media + '" name="prosku[' + skuChildId + '][media_id]">');
             //clone对象导出html
             skuDetailTbodyStr += skuDetailTbodyHtml.prop('outerHTML');
 
@@ -544,7 +551,8 @@ $(function () {
             let skuId = skuAutoObj.eq(i).find('.self_attr').val();
             let skuChildObj = skuAutoObj.eq(i).find('.self_sku_item');
             if (skuId == '') return false;
-            skuDetailNameJson[skuId] = skuName;
+
+            skuDetailNameJson["'" + skuId + "'"] = skuName;
             //规格值循环
             let skuChildJson = [];
             for (let j = 0; j < skuChildObj.length; j++) {
@@ -556,7 +564,7 @@ $(function () {
                 skuDetailChildNameJson[skuChildId] = skuChildName;
                 if (mediaId != undefined) skuDetailChildMediaIdJson[skuChildId] = mediaId;
             }
-            skuDetailJson[skuId] = skuChildJson;
+            skuDetailJson["'" + skuId + "'"] = skuChildJson;
         }
         return {
             'skuDetailJson': skuDetailJson,

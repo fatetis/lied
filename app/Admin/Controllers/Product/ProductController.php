@@ -176,43 +176,46 @@ class ProductController extends Controller
             ];
 
             $form->text('name', '产品名称')->required();
-
-            $form->select('category_id', '产品分类')->options(ProductCategory::selectOptions());
-
-            $form->select('brand_id', '品牌')->options(function ($id) {
-                $brand = Brand::query()->find($id);
-                if ($brand) {
-                    return [$brand->id => $brand->name];
-                }
-            })->ajax(route('selectBrand'))->required();
-            $form->currency('market_price', '市场价格')->symbol('￥');
-            $form->currency('price', '销售价格')->symbol('￥')->required();
-            $form->skimage('thumb', '产品缩略图')->attribute('images')->attribute('upload_url', urlStandard('product_thumb'))->help('上传图片宽*高为750*750')->required();
-            $form->skimage('picture', '产品banner图')->attribute('images')->attribute('upload_url', urlStandard('product_picture'))->help('上传图片宽*高为750*750')->required();
-
-            $form->text('description', '简要描述');
-            $form->wangeditor('content', '描述');
-            $form->number('sort_order', '产品排序')->value(99);
-            $form->switch('is_show', '显示')->value(1);
-            $form->switch('is_audit', '审核状态')->states($states);
-
-        })->tab('属性信息', function ($form) {
             $form->prosku('prosku', '商品规格');
-        })->tab('扩展信息', function ($form) {
-
-            $form->currency('give_intergral', '赠送积分')->symbol('');
-            $form->number('virtual_quantity', '虚拟购买量');
-            $form->number('warn_number', '库存报警量')->min(0);
-            $form->switch('is_hot', '热销');
-            $form->switch('is_new', '新品');
+//            $form->select('category_id', '产品分类')->options(ProductCategory::selectOptions());
+//
+//            $form->select('brand_id', '品牌')->options(function ($id) {
+//                $brand = Brand::query()->find($id);
+//                if ($brand) {
+//                    return [$brand->id => $brand->name];
+//                }
+//            })->ajax(route('selectBrand'))->required();
+//            $form->currency('market_price', '市场价格')->symbol('￥');
+//            $form->currency('price', '销售价格')->symbol('￥')->required();
+//            $form->skimage('thumb', '产品缩略图')->attribute('images')->attribute('upload_url', urlStandard('product_thumb'))->help('上传图片宽*高为750*750')->required();
+//            $form->skimage('picture', '产品banner图')->attribute('images')->attribute('upload_url', urlStandard('product_picture'))->help('上传图片宽*高为750*750')->required();
+//
+//            $form->text('description', '简要描述');
+//            $form->wangeditor('content', '描述');
+//            $form->number('sort_order', '产品排序')->value(99);
+//            $form->switch('is_show', '显示')->value(1);
+//            $form->switch('is_audit', '审核状态')->states($states);
 
         });
+//        ->tab('属性信息', function ($form) {
+//            $form->prosku('prosku', '商品规格');
+//        })->tab('扩展信息', function ($form) {
+//
+//            $form->currency('give_intergral', '赠送积分')->symbol('');
+//            $form->number('virtual_quantity', '虚拟购买量');
+//            $form->number('warn_number', '库存报警量')->min(0);
+//            $form->switch('is_hot', '热销');
+//            $form->switch('is_new', '新品');
+//
+//        });
 
 
 //        $form->ignore('prosku');
 
+        $form->setAction(route('proCreateApi'));
+
         $form->saving(function (Form $form){
-            dd($form);
+            dd($form->prosku);
         });
 
         $form->saved(function (Form $form){

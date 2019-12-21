@@ -59,7 +59,7 @@
                                    data-url="{{ route('proAttrValueGetApi', ['_token'=>csrf_token()]) }}"
                                    data-create-url="{{ route('proAttrValueCreateApi', ['_token'=>csrf_token()]) }}"
                                    value="">
-                            <input class="self_attr_value" type="hidden" name="attr_value[]" value="">
+                            <input class="self_attr_value" type="hidden" value="">
                             <span class="ant-select-search__field__mirror">
                                                         &nbsp;
                                                     </span>
@@ -146,7 +146,7 @@
                                     <input data-url="{{ route('proAttrGetApi', ['_token'=>csrf_token()]) }}"
                                            data-create-url="{{ route('proAttrCreateApi', ['_token'=>csrf_token()]) }}"
                                            autocomplete="off" class="ant-select-search__field" value="">
-                                    <input class="self_attr" type="hidden" name="attr[]" value="">
+                                    <input class="self_attr" type="hidden" value="">
                                     <span class="ant-select-search__field__mirror">
                                         &nbsp;
                                     </span>
@@ -336,7 +336,6 @@
                                     <input class="ant-input-number-input"
                                            autocomplete="off" min="0"
                                            step="1"
-                                           name="goods_skus[17][price]"
                                            value="">
                                 </div>
                             </div>
@@ -395,7 +394,6 @@
                                     <input class="ant-input-number-input"
                                            autocomplete="off" min="0"
                                            step="1"
-                                           name="goods_skus[17][stock_num]"
                                            value="">
                                 </div>
                             </div>
@@ -411,7 +409,7 @@
                         <span class="ant-form-item-children">
                             <span class="ant-input-affix-wrapper self_sku_detail_code"
                                   style="width: 150px;">
-                                <input type="text" name="goods_skus[17][code]"
+                                <input type="text"
                                        class="ant-input" value="">
                                 <span class="ant-input-suffix">
                                 </span>
@@ -471,7 +469,6 @@
                                     <input class="ant-input-number-input"
                                            autocomplete="off" min="0"
                                            step="1"
-                                           name="goods_skus[17][cost_price]"
                                            value="">
                                 </div>
                             </div>
@@ -482,10 +479,7 @@
             </td>
             <td class="self_sku_detail_td_last">
                 <span value="0">0</span>
-                <input type="hidden" name="goods_skus[17][sold_num]" value="0">
-                {{--<span value="17" id="goods_skus[17][attr_key]"></span>--}}
-                {{--<span value="false" id="goods_skus[17][is_image]"></span>--}}
-                {{--<span value="0" id="goods_skus[17][media_id]" ></span>--}}
+                <input type="hidden" value="0">
             </td>
         </tr>
     </table>
@@ -505,19 +499,19 @@
         @include('admin::form.error')
         <div class="ant-col-22 ant-form-item-control-wrapper self_sku_container">
             <div class="ant-form-item-control has-success">
-		<span class="ant-form-item-children">
-			<div class="ant-card ant-card-bordered ant-card-wider-padding ant-card-padding-transition">
-				<div class="ant-card-body" style="padding: 0px;">
-					<div class="antd-pro-pages-goods-widget-styles-sku_group_title">
-						<button type="button" class="ant-btn ant-btn-primary self-sku-additem">
-							<span>
-								添加商品规格
-							</span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</span>
+                <span class="ant-form-item-children">
+                    <div class="ant-card ant-card-bordered ant-card-wider-padding ant-card-padding-transition">
+                        <div class="ant-card-body" style="padding: 0px;">
+                            <div class="antd-pro-pages-goods-widget-styles-sku_group_title">
+                                <button type="button" class="ant-btn ant-btn-primary self-sku-additem">
+                                    <span>
+                                        添加商品规格
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </span>
                 <div class="ant-form-extra">
                     如有颜色、尺码等多种规格，请添加商品规格，最多添加3个规格
                 </div>
@@ -525,10 +519,10 @@
         </div>
 
         <input type="hidden" name="{{$name}}" value="{{ old($column, $value) }}"/>
-
     </div>
 
 </div>
+
 <div class="form-group {!! !$errors->has($label) ?: 'has-error' !!} self_sku_detail_container" style="display: none">
     <label class="col-sm-2 control-label">规格明细</label>
     <div class="{{$viewClass['field']}}">

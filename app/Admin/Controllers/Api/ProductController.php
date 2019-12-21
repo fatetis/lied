@@ -7,6 +7,7 @@ use App\Models\ProductAttr;
 use App\Services\ProductAttrService;
 use App\Services\ProductAttrValuesService;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class ProductController extends BaseController {
 
@@ -86,6 +87,15 @@ class ProductController extends BaseController {
         return $this->success($data);
     }
 
+    public function createProductData(Request $request)
+    {
+        $error = new MessageBag([
+            'title' => 'title...',
+            'message' => 'message....',
+        ]);
+        return back()->with(compact('error'));
+        dd($request->all());
+    }
 
 
 }
