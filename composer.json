@@ -9,13 +9,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
-      "arrowjustdoit/crontab": "^1.0",
-        "askedio/laravel-soft-cascade": "^5.7",
-        "encore/laravel-admin": "^1.6",
+        "arrowjustdoit/crontab": "^1.0",
+        "askedio/laravel-soft-cascade": "^6.0",
+        "encore/laravel-admin": "^1.7",
         "fideloper/proxy": "^4.0",
         "ichynul/iframe-tabs": "^1.3",
         "laravel-admin-ext/log-viewer": "^1.0",
-        "laravel/framework": "5.7.*",
+        "laravel/framework": "6.0.*",
         "laravel/tinker": "^1.0",
         "maatwebsite/excel": "^3.1",
         "predis/predis": "^1.1"
