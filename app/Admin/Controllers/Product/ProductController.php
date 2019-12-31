@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Models\ProductCategory;
+use App\Services\ProductService;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -15,6 +16,13 @@ use Encore\Admin\Show;
 class ProductController extends Controller
 {
     use HasResourceActions;
+
+    protected $productService;
+
+    public function __construct(ProductService $productService)
+    {
+        $this->productService = $productService;
+    }
 
     /**
      * Index interface.
@@ -81,6 +89,8 @@ class ProductController extends Controller
      */
     protected function grid()
     {
+        $aa = $this->productService->saveProduct();
+        dd($aa);
         $grid = new Grid(new Product);
         $grid->model()->orderBy('updated_at', 'desc');
         $grid->model()->orderBy('id', 'desc');
@@ -167,6 +177,7 @@ class ProductController extends Controller
      */
     protected function form()
     {
+
         $form = new Form(new Product);
         $form->tab('基础信息', function ($form) {
 
@@ -212,10 +223,9 @@ class ProductController extends Controller
 
 //        $form->ignore('prosku');
 
-        $form->setAction(route('proCreateApi'));
 
         $form->saving(function (Form $form){
-            dd($form->prosku);
+            dd(je($form->prosku));
         });
 
         $form->saved(function (Form $form){

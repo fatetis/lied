@@ -258,5 +258,15 @@ if (!function_exists('je')) {
     }
 }
 
+/**
+ * 封装json_decode函数
+ */
+if (!function_exists('jd')) {
+    function jd($data)
+    {
+        return json_decode($data, true);
+    }
+}
+
 
 

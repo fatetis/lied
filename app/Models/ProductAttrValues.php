@@ -14,4 +14,9 @@ class ProductAttrValues extends BaseModel
      */
     protected $fillable = ['name', 'product_attr_id', 'sort'];
 
+    public function attr()
+    {
+        return $this->belongsTo(ProductAttr::class, 'product_attr_id', 'id');
+    }
+
 }

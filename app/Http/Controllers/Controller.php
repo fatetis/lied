@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin\Contracts\Api\ApiResponseTrait;
+use App\Admin\Traits\Api\ApiResponseTrait;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;

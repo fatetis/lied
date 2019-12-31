@@ -87,15 +87,5 @@ class ProductController extends BaseController {
         return $this->success($data);
     }
 
-    public function createProductData(Request $request)
-    {
-        $error = new MessageBag([
-            'title' => 'title...',
-            'message' => 'message....',
-        ]);
-        return back()->with(compact('error'));
-        dd($request->all());
-    }
-
 
 }

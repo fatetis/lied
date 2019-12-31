@@ -30,7 +30,6 @@ Route::group([
             $router->post('attr/create', 'ProductController@createAttrData')->name('proAttrCreateApi');//创建规格名称
             $router->post('attr/value/get', 'ProductController@getAttrValueData')->name('proAttrValueGetApi');//获取规格名称
             $router->post('attr/value/create', 'ProductController@createAttrValueData')->name('proAttrValueCreateApi');//创建规格名称
-            $router->post('product/create', 'ProductController@createProductData')->name('proCreateApi');//创建产品API
         });
     });
 

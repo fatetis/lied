@@ -5,7 +5,9 @@
  */
 namespace App\Services;
 
-abstract class BaseService{
+
+abstract class BaseService
+{
 
     protected $table;
 
@@ -64,9 +66,9 @@ abstract class BaseService{
      * @param $parameter array
      * @return mixed
      */
-    private function firstOrCreate($where,$parameter)
+    private function firstOrCreate($where, $parameter)
     {
-        return $this->table::firstOrCreate($where,$parameter);
+        return $this->table::firstOrCreate($where, $parameter);
     }
 
     /**
@@ -75,9 +77,9 @@ abstract class BaseService{
      * @param $parameter array
      * @return mixed
      */
-    private function updateOrCreate($where,$parameter)
+    private function updateOrCreate($where, $parameter)
     {
-        return $this->table::updateOrCreate($where,$parameter);
+        return $this->table::updateOrCreate($where, $parameter);
     }
 
     /**
@@ -86,7 +88,7 @@ abstract class BaseService{
      * @param $isAudit bool 可选是否加审核条件判断
      * @return bool
      */
-    private function checkModelDataById($id,$isAudit = false)
+    private function checkModelDataById($id, $isAudit = false)
     {
         $where['is_show'] = 1;
         if($isAudit){
@@ -94,7 +96,7 @@ abstract class BaseService{
         }
         $query = $this->table::where($where);
         if(is_array($id)){
-            $result = $query->whereIn('id',$id)->get();
+            $result = $query->whereIn('id', $id)->get();
             return $result->isEmpty() ? false : $result;
         }else{
             $result = $query->where('id',$id)->first();
@@ -122,6 +124,37 @@ abstract class BaseService{
             $sql->select($select);
         return $sql->get();
     }
+
+    private function pluck($key, $value)
+    {
+        return $this->query()->pluck($key, $value);
+    }
+
+    private function whereIn($key, $value)
+    {
+        return $this->query()->whereIn($key, $value);
+    }
+
+    private function where($where)
+    {
+        return $this->query()->where($where);
+    }
+
+    private function toArray()
+    {
+        return $this->table::toArray();
+    }
+
+    private function query()
+    {
+        return $this->table::query();
+    }
+
+    private function with($key, $fuc)
+    {
+        return $this->table::query()->with($key, $fuc);
+    }
+
 
     /**
      * user: fatetis

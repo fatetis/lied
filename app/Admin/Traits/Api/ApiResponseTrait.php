@@ -1,5 +1,6 @@
 <?php
-namespace App\Admin\Contracts\Api;
+
+namespace App\Admin\Traits\Api;
 
 use Illuminate\Support\Facades\Response;
 use Symfony\Component\HttpFoundation\Response as FoundationResponse;
