@@ -5,11 +5,12 @@
  */
 namespace App\Services;
 
-
 abstract class BaseService
 {
 
     protected $table;
+
+    const YES = 1;
 
     /**
      * 判断模型数据是否有效 依is_show来判断
@@ -19,9 +20,9 @@ abstract class BaseService
      */
     private function checkModelDataById($id, $isAudit = false)
     {
-        $where['is_show'] = 1;
+        $where['is_show'] = self::YES;
         if($isAudit){
-            $where['is_audit'] = 1;
+            $where['is_audit'] = self::YES;
         }
         $query = $this->table::where($where);
         if(is_array($id)){

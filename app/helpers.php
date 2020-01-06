@@ -7,7 +7,6 @@
  */
 
 use App\Models\LogError;
-use Encore\Admin\Facades\Admin;
 
 if (!function_exists('curlLink')) {
     function curlLink($url, $method = 'get', $post_data = 0)
@@ -194,13 +193,6 @@ if (!function_exists('upDecimal')) {
 
 }
 
-if (!function_exists('getAdminUserId')) {
-    function getAdminUserId()
-    {
-        return Admin::user()->id;
-    }
-}
-
 if (!function_exists('urlStandard')) {
     function urlStandard($val)
     {
@@ -213,10 +205,10 @@ if (!function_exists('elog')) {
     {
         $elog = new LogError();
         $elog->input = $input;
-        if (!empty($_SERVER["REQUEST_URI"])) {
-            $elog->path = $_SERVER["REQUEST_URI"];
-            $elog->method = $_SERVER["REQUEST_METHOD"];
-            $elog->ip = $_SERVER["REMOTE_ADDR"];
+        if (!empty(request()->getRequestUri())) {
+            $elog->path = request()->getRequestUri();
+            $elog->method = request()->getRealMethod();
+            $elog->ip = getIP();
         }
         $elog->save();
         return $elog;
@@ -268,5 +260,49 @@ if (!function_exists('jd')) {
     }
 }
 
+/**
+ * 获取ip地址
+ * @return string ip地址
+ */
+if (!function_exists('getIP')) {
+    function getIP($ipstr = '')
+    {
+        if ($ipstr) {
+            //user_ip|s:9:"127.0.0.1"
+            preg_match('/(?:\d{1,3}\.){3}\d{1,3}/is', $ipstr, $arr);
+            return $arr [0];
+        }
+        static $realip = null;
+        if ($realip !== null) {
+            return $realip;
+        }
+        //REMOTE_ADDR 是你的客户端跟你的服务器握手时候的IP。如果使用了“匿名代理”，REMOTE_ADDR将显示代理服务器的IP。
+        $realip = $_SERVER['REMOTE_ADDR'] ?? '';
+        //使用云加速获取真实ip
+        if (isset($_SERVER['HTTP_CF_CONNECTING_IP']) && filter_var($_SERVER ['HTTP_CF_CONNECTING_IP'], FILTER_VALIDATE_IP)) {
+            $realip = $_SERVER['HTTP_CF_CONNECTING_IP'];
+        } //使用cdn后获取真实ip
+        elseif (isset($_SERVER['HTTP_CDN_SRC_IP']) && filter_var($_SERVER ['HTTP_CDN_SRC_IP'], FILTER_VALIDATE_IP)) {
+            $realip = $_SERVER['HTTP_CDN_SRC_IP'];
+            //使用nginx代理模式下,获取客户端真实IP
+        } elseif (isset ($_SERVER ['HTTP_X_REAL_IP']) && filter_var($_SERVER ['HTTP_X_REAL_IP'], FILTER_VALIDATE_IP)) {
+            $realip = $_SERVER ['HTTP_X_REAL_IP'];
+        } //HTTP_CLIENT_IP 是代理服务器发送的HTTP头。如果是“超级匿名代理”，则返回none值（有可能存在，也可以伪造）
+        elseif (isset($_SERVER['HTTP_CLIENT_IP']) && filter_var($_SERVER ['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP)) {
+            $realip = $_SERVER['HTTP_CLIENT_IP'];
+            //HTTP的请求端真实的IP，只有在通过了HTTP 代理(比如APACHE代理)或者负载均衡服务器时才会添加该项 （有可能存在，也可以伪造）
+        } elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR']) AND preg_match_all('#\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}#s', $_SERVER['HTTP_X_FORWARDED_FOR'], $matches)) {
+            foreach ($matches[0] AS $xip) {
+                if (!preg_match('#^(10|172\.16|192\.168)\.#', $xip)) {
+                    $realip = $xip;
+                    break;
+                }
+            }
+        }
+        //验证ip地址合法性
+        $realip = filter_var($realip, FILTER_VALIDATE_IP) ? $realip : 'unknown';
+        return $realip;
+    }
+}
 
 

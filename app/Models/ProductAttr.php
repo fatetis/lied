@@ -6,6 +6,10 @@ class ProductAttr extends BaseModel
 {
     protected $table = 'product_attr';
     protected $primaryKey = 'id';
+    protected $softCascade = [
+//        'productAttrMap@restrict',
+//        'productAttrValueMap@restrict'
+    ];
 
     /**
      * 可以被批量赋值的属性.

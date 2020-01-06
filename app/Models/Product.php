@@ -6,7 +6,17 @@ class Product extends BaseModel
 {
     protected $table = 'product';
     protected $primaryKey = 'id';
-    protected $softCascade = ['sku','order@restrict','seckill@restrict'];//级联软删除
+    /**
+     * 级联软删除
+     * @var array
+     */
+    protected $softCascade = [
+        'sku',
+        'order@restrict',
+        'seckill@restrict',
+//        'productAttr@restrict',
+//        'productAttrValueMap@restrict'
+    ];
 
     public function sku()
     {
