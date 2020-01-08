@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50723
 File Encoding         : 65001
 
-Date: 2019-12-31 16:56:54
+Date: 2020-01-08 18:25:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -116,7 +116,7 @@ CREATE TABLE `lied_admin_operation_log`
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lied_admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6279 DEFAULT CHARSET=utf8mb4 COLLATE =utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6314 DEFAULT CHARSET=utf8mb4 COLLATE =utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of lied_admin_operation_log
@@ -8430,6 +8430,79 @@ INSERT INTO `lied_admin_operation_log`
 VALUES ('6277', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-12-31 11:47:33', '2019-12-31 11:47:33');
 INSERT INTO `lied_admin_operation_log`
 VALUES ('6278', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2019-12-31 11:47:53', '2019-12-31 11:47:53');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6279', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-04 15:05:20', '2020-01-04 15:05:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6280', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-04 15:07:43', '2020-01-04 15:07:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6281', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-04 15:07:45', '2020-01-04 15:07:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6282', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-04 15:08:39', '2020-01-04 15:08:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6283', '1', 'admin/product/category', 'GET', '127.0.0.1', '[]', '2020-01-04 15:12:45', '2020-01-04 15:12:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6284', '1', 'admin/auth/logout', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-01-04 15:12:52',
+        '2020-01-04 15:12:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6285', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-04 15:12:56', '2020-01-04 15:12:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6286', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-04 15:14:57', '2020-01-04 15:14:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6287', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-04 15:20:33', '2020-01-04 15:20:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6288', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-04 15:29:47', '2020-01-04 15:29:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6289', '1', 'admin/auth/logout', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-01-04 15:29:50',
+        '2020-01-04 15:29:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6290', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-04 15:29:54', '2020-01-04 15:29:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6291', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-04 15:30:09', '2020-01-04 15:30:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6292', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-04 15:34:15', '2020-01-04 15:34:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6293', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-04 15:34:35', '2020-01-04 15:34:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6294', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-04 15:47:46', '2020-01-04 15:47:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6295', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-04 15:48:32', '2020-01-04 15:48:32');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6296', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-04 15:48:55', '2020-01-04 15:48:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6297', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-04 15:51:24', '2020-01-04 15:51:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6298', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-06 16:06:22', '2020-01-06 16:06:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6299', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-01-06 16:06:27',
+        '2020-01-06 16:06:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6300', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:07:22', '2020-01-06 16:07:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6301', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:08:14', '2020-01-06 16:08:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6302', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:44:58', '2020-01-06 16:44:58');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6303', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:45:29', '2020-01-06 16:45:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6304', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:45:37', '2020-01-06 16:45:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6305', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:48:19', '2020-01-06 16:48:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6306', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:48:30', '2020-01-06 16:48:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6307', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:48:45', '2020-01-06 16:48:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6308', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:49:09', '2020-01-06 16:49:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6309', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:51:57', '2020-01-06 16:51:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6310', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:52:52', '2020-01-06 16:52:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6311', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 16:53:14', '2020-01-06 16:53:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6312', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 18:46:24', '2020-01-06 18:46:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6313', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 18:47:54', '2020-01-06 18:47:54');
 
 -- ----------------------------
 -- Table structure for `lied_admin_permissions`
@@ -8556,7 +8629,7 @@ CREATE TABLE `lied_admin_users` (
 -- ----------------------------
 INSERT INTO `lied_admin_users`
 VALUES ('1', 'admin', '$2y$10$7QvNbNNMgfrh8UmBcnhfdOJExSbF6jayvpFmBxf1JYWX/snjwc5Qi', 'Administrator', null,
-        'VS6RlDqu4yj3yGsSPZactqOi1cIbZk9xzv7nJOZ57Tq0ZRhPJ5tH817Kk49a', '2018-12-19 09:35:18', '2018-12-19 09:35:18');
+        'vhsnCXo1NJJGcQ5gERzZFHVJZ3lo3mhih2yqMBMydYA1fIWeJTgAgv07ZqCF', '2018-12-19 09:35:18', '2018-12-19 09:35:18');
 
 -- ----------------------------
 -- Table structure for `lied_admin_user_permissions`
