@@ -2,12 +2,12 @@
 
 namespace App\Services;
 
-use App\Models\Picture;
+use App\Models\Media;
 
-class PictureService extends BaseService
+class MediaService extends BaseService
 {
 
-    protected $table = Picture::class;
+    protected $table = Media::class;
 
     /**
      * 获取一条picture表数据
@@ -18,7 +18,7 @@ class PictureService extends BaseService
      */
     public function getMediaLinkById($picId)
     {
-        return parent::findOrFail($picId);
+        return $this->table::findOrFail($picId);
     }
 
     /**
@@ -30,7 +30,7 @@ class PictureService extends BaseService
      */
     public function createMedia($data)
     {
-        return parent::create($data);
+        return $this->table::create($data);
     }
 
 }

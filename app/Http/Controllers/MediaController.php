@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\PictureService;
+use App\Services\MediaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class PictureController extends Controller
+class MediaController extends Controller
 {
     protected $pictureService;
 
-    public function __construct(PictureService $pictureService)
+    public function __construct(MediaService $pictureService)
     {
         $this->pictureService = $pictureService;
     }

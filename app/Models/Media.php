@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-class Picture extends BaseModel
+class Media extends BaseModel
 {
-    protected $table = 'picture';
+    protected $table = 'media';
     protected $primaryKey = 'id';
 
     /**

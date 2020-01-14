@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : my
 Source Server Version : 50723
 Source Host           : localhost:3306
-Source Database       : lied
+Source Database       : lied1
 
 Target Server Type    : MYSQL
 Target Server Version : 50723
 File Encoding         : 65001
 
-Date: 2020-01-09 17:26:32
+Date: 2020-01-14 17:42:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -116,7 +116,7 @@ CREATE TABLE `lied_admin_operation_log`
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lied_admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6314 DEFAULT CHARSET=utf8mb4 COLLATE =utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6391 DEFAULT CHARSET=utf8mb4 COLLATE =utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of lied_admin_operation_log
@@ -8503,6 +8503,164 @@ INSERT INTO `lied_admin_operation_log`
 VALUES ('6312', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 18:46:24', '2020-01-06 18:46:24');
 INSERT INTO `lied_admin_operation_log`
 VALUES ('6313', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-06 18:47:54', '2020-01-06 18:47:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6314', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-09 17:38:27', '2020-01-09 17:38:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6315', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-01-09 17:38:31',
+        '2020-01-09 17:38:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6316', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-01-09 17:38:37',
+        '2020-01-09 17:38:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6317', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-09 17:58:29', '2020-01-09 17:58:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6318', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-09 18:01:47', '2020-01-09 18:01:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6319', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-09 18:02:57', '2020-01-09 18:02:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6320', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-09 18:25:41', '2020-01-09 18:25:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6321', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-09 18:29:11', '2020-01-09 18:29:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6322', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-13 17:05:22', '2020-01-13 17:05:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6323', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-01-13 17:05:26',
+        '2020-01-13 17:05:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6324', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:07:57', '2020-01-13 17:07:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6325', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:08:52', '2020-01-13 17:08:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6326', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:09:04', '2020-01-13 17:09:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6327', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:25:10', '2020-01-13 17:25:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6328', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:25:25', '2020-01-13 17:25:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6329', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:25:44', '2020-01-13 17:25:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6330', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:25:55', '2020-01-13 17:25:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6331', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:26:15', '2020-01-13 17:26:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6332', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:27:01', '2020-01-13 17:27:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6333', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:27:38', '2020-01-13 17:27:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6334', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:28:57', '2020-01-13 17:28:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6335', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:29:48', '2020-01-13 17:29:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6336', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:30:54', '2020-01-13 17:30:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6337', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:32:01', '2020-01-13 17:32:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6338', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 17:34:37', '2020-01-13 17:34:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6339', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 18:11:20', '2020-01-13 18:11:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6340', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 18:20:55', '2020-01-13 18:20:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6341', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 18:21:47', '2020-01-13 18:21:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6342', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 18:22:54', '2020-01-13 18:22:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6343', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 18:23:04', '2020-01-13 18:23:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6344', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 18:36:39', '2020-01-13 18:36:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6345', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 19:03:29', '2020-01-13 19:03:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6346', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 19:03:44', '2020-01-13 19:03:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6347', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-13 19:04:06', '2020-01-13 19:04:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6348', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-14 09:35:09', '2020-01-14 09:35:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6349', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-01-14 11:26:53',
+        '2020-01-14 11:26:53');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6350', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:39:06', '2020-01-14 11:39:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6351', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:45:54', '2020-01-14 11:45:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6352', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:49:13', '2020-01-14 11:49:13');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6353', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:49:36', '2020-01-14 11:49:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6354', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:49:41', '2020-01-14 11:49:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6355', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:50:11', '2020-01-14 11:50:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6356', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:50:22', '2020-01-14 11:50:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6357', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:50:34', '2020-01-14 11:50:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6358', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:55:42', '2020-01-14 11:55:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6359', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:55:53', '2020-01-14 11:55:53');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6360', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:56:09', '2020-01-14 11:56:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6361', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:56:36', '2020-01-14 11:56:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6362', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:57:02', '2020-01-14 11:57:02');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6363', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:57:45', '2020-01-14 11:57:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6364', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:59:02', '2020-01-14 11:59:02');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6365', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 11:59:31', '2020-01-14 11:59:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6366', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 12:00:17', '2020-01-14 12:00:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6367', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 13:50:34', '2020-01-14 13:50:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6368', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 13:50:51', '2020-01-14 13:50:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6369', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 13:51:11', '2020-01-14 13:51:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6370', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 13:52:41', '2020-01-14 13:52:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6371', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 13:52:47', '2020-01-14 13:52:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6372', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 13:52:54', '2020-01-14 13:52:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6373', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 13:53:48', '2020-01-14 13:53:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6374', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 13:57:01', '2020-01-14 13:57:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6375', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 13:57:12', '2020-01-14 13:57:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6376', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 13:57:21', '2020-01-14 13:57:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6377', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 13:58:21', '2020-01-14 13:58:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6378', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 14:01:28', '2020-01-14 14:01:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6379', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 15:06:47', '2020-01-14 15:06:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6380', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 15:07:21', '2020-01-14 15:07:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6381', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 15:10:20', '2020-01-14 15:10:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6382', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 15:28:10', '2020-01-14 15:28:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6383', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 15:51:38', '2020-01-14 15:51:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6384', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 15:52:00', '2020-01-14 15:52:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6385', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 15:56:00', '2020-01-14 15:56:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6386', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 16:00:41', '2020-01-14 16:00:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6387', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 17:11:05', '2020-01-14 17:11:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6388', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 17:11:19', '2020-01-14 17:11:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6389', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 17:14:59', '2020-01-14 17:14:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6390', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 17:15:29', '2020-01-14 17:15:29');
 
 -- ----------------------------
 -- Table structure for `lied_admin_permissions`
@@ -8747,23 +8905,23 @@ CREATE TABLE `lied_artical_category` (
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_brand`;
 CREATE TABLE `lied_brand` (
-  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) NOT NULL COMMENT '品牌名称',
-  `category_id` int(16) unsigned DEFAULT '0' COMMENT '品牌分类id',
-  `thumb` int(16) unsigned NOT NULL COMMENT '品牌logo',
-  `description` text NOT NULL COMMENT '品牌描述',
-  `site_url` varchar(255) NOT NULL COMMENT '品牌的网址',
-  `sort_order` tinyint(4) NOT NULL,
-  `is_audit` tinyint(1) NOT NULL,
-  `is_show` tinyint(1) NOT NULL COMMENT '是否显示',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `brand-category_id` (`category_id`),
-  KEY `brand-thumb` (`thumb`),
-  CONSTRAINT `brand-category_id` FOREIGN KEY (`category_id`) REFERENCES `lied_brand_category` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `brand-thumb` FOREIGN KEY (`thumb`) REFERENCES `lied_picture` (`id`) ON UPDATE CASCADE
+                            `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+                            `name` varchar(64) NOT NULL COMMENT '品牌名称',
+                            `category_id` int(16) unsigned DEFAULT '0' COMMENT '品牌分类id',
+                            `thumb` int(16) unsigned NOT NULL COMMENT '品牌logo',
+                            `description` text NOT NULL COMMENT '品牌描述',
+                            `site_url` varchar(255) NOT NULL COMMENT '品牌的网址',
+                            `sort_order` tinyint(4) NOT NULL,
+                            `is_audit` tinyint(1) NOT NULL,
+                            `is_show` tinyint(1) NOT NULL COMMENT '是否显示',
+                            `created_at` datetime DEFAULT NULL,
+                            `updated_at` datetime DEFAULT NULL,
+                            `deleted_at` datetime DEFAULT NULL,
+                            PRIMARY KEY (`id`),
+                            KEY `brand-category_id` (`category_id`),
+                            KEY `brand-thumb` (`thumb`),
+                            CONSTRAINT `brand-category_id` FOREIGN KEY (`category_id`) REFERENCES `lied_brand_category` (`id`) ON UPDATE CASCADE,
+                            CONSTRAINT `brand-thumb` FOREIGN KEY (`thumb`) REFERENCES `lied_media` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -9025,6 +9183,30 @@ CREATE TABLE `lied_log_error` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `lied_media`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_media`;
+CREATE TABLE `lied_media`
+(
+  `id`         int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `type`       tinyint(1) unsigned DEFAULT '1' COMMENT '媒体类型 1-图片 2-文件 3-多媒体',
+  `link`       varchar(255) DEFAULT '0',
+  `size`       smallint(6) unsigned DEFAULT '0' COMMENT '文件大小 以kb为单位',
+  `file_ext`   char(6)      DEFAULT '0' COMMENT '文件后缀',
+  `file_name`  varchar(128) DEFAULT '0' COMMENT '文件名称',
+  `is_lock`    tinyint(1) unsigned DEFAULT '0' COMMENT '是否上锁 0-否 1-是',
+  `is_show`    tinyint(1) unsigned DEFAULT '1' COMMENT '显示',
+  `created_at` datetime     DEFAULT NULL,
+  `updated_at` datetime     DEFAULT NULL,
+  `deleted_at` datetime     DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lied_media
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `lied_migrations`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_migrations`;
@@ -9106,30 +9288,6 @@ CREATE TABLE `lied_password_resets` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `lied_picture`
--- ----------------------------
-DROP TABLE IF EXISTS `lied_picture`;
-CREATE TABLE `lied_picture`
-(
-  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
-  `type` tinyint(1) unsigned DEFAULT '1' COMMENT '媒体类型 1-图片 2-文件 3-多媒体',
-  `link` varchar(255) DEFAULT '0',
-  `size` smallint(6) unsigned DEFAULT '0' COMMENT '文件大小 以kb为单位',
-  `file_ext` char(6) DEFAULT '0' COMMENT '文件后缀',
-  `file_name` varchar(128) DEFAULT '0' COMMENT '文件名称',
-  `is_lock` tinyint(1) unsigned DEFAULT '0' COMMENT '是否上锁 0-否 1-是',
-  `is_show` tinyint(1) unsigned DEFAULT '1' COMMENT '显示',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of lied_picture
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `lied_product`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_product`;
@@ -9183,7 +9341,7 @@ CREATE TABLE `lied_product_attr` (
 -- Table structure for `lied_product_attr_map`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_product_attr_map`;
-CREATE TABLE `lied_product_attr_map` (
+CREATE TABLE `lied_product_attr_map`(
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
   `product_attr_id` int(11) unsigned NOT NULL COMMENT '产品规格id',
@@ -9196,7 +9354,7 @@ CREATE TABLE `lied_product_attr_map` (
   KEY `product_attr_map_product_attr_id` (`product_attr_id`),
   CONSTRAINT `product_attr_map-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `product_attr_map_product_attr_id` FOREIGN KEY (`product_attr_id`) REFERENCES `lied_product_attr` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品与规格关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='产品与规格关系表';
 
 -- ----------------------------
 -- Records of lied_product_attr_map
@@ -9228,7 +9386,7 @@ CREATE TABLE `lied_product_attr_values`
 -- Table structure for `lied_product_attr_value_map`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_product_attr_value_map`;
-CREATE TABLE `lied_product_attr_value_map` (
+CREATE TABLE `lied_product_attr_value_map`(
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
   `product_attr_id` int(11) unsigned NOT NULL COMMENT '产品规格id',
@@ -9247,7 +9405,7 @@ CREATE TABLE `lied_product_attr_value_map` (
   CONSTRAINT `product_attr_value_map-product_attr_map_id` FOREIGN KEY (`product_attr_map_id`) REFERENCES `lied_product_attr_map` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `product_attr_value_map-product_attr_value_id` FOREIGN KEY (`product_attr_value_id`) REFERENCES `lied_product_attr_values` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `product_attr_value_map-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品与产品规格值关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='产品与产品规格值关系表';
 
 -- ----------------------------
 -- Records of lied_product_attr_value_map

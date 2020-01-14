@@ -22,7 +22,7 @@ class BaseModel extends Model
     {
         if(!empty($value)){
             $pictureIdArr = array_filter(explode(',',$value));
-            return Picture::whereIn('id',$pictureIdArr)->orderBy('created_at','asc')->pluck('link');
+            return Media::whereIn('id', $pictureIdArr)->orderBy('created_at', 'asc')->pluck('link');
         }
     }
 
@@ -35,13 +35,13 @@ class BaseModel extends Model
     {
         if(is_array($value)){
             if (request()->has('_file_del_')) {
-                $arr = Picture::whereIn('link',$value)->pluck('id')->toArray();
+                $arr = Media::whereIn('link', $value)->pluck('id')->toArray();
                 $result = explode(',',$this->original['picture']);
                 $result = array_diff($result,$arr);
-                Picture::destroy($result);
+                Media::destroy($result);
             }else{
                 foreach ($value as $picture){
-                    $result = Picture::firstOrCreate(['link' => $picture]);
+                    $result = Media::firstOrCreate(['link' => $picture]);
                     $arr[] = $result->id;
                 }
             }

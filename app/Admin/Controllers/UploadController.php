@@ -4,7 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Exceptions\SelfException;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\PictureController;
+use App\Http\Controllers\MediaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,12 +13,12 @@ class UploadController extends Controller
     /**
      * 上传skimage图片处理
      * @param Request $request
-     * @param PictureController $pictureController
+     * @param MediaController $mediaController
      * @return array
      * Author: fatetis
      * Date:2019/10/11 001116:21
      */
-    public function index(Request $request, PictureController $pictureController)
+    public function index(Request $request, MediaController $mediaController)
     {
         $path = $request->input('upload_url', '');
         $is_lock = $request->input('is_lock', 0);
@@ -54,7 +54,7 @@ class UploadController extends Controller
                 'is_lock' => $is_lock,
             ];
             // 保存图片数据
-            $savepath = $pictureController->createMedia($createData);
+            $savepath = $mediaController->createMedia($createData);
             //约定处理接口
             if ($savepath->getstatusCode() !== $this->getStatusCode()) {
                 throw new SelfException($savepath->getstatusText());
