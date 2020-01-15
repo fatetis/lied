@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50723
 File Encoding         : 65001
 
-Date: 2020-01-14 17:42:50
+Date: 2020-01-15 18:12:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -116,7 +116,7 @@ CREATE TABLE `lied_admin_operation_log`
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lied_admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6391 DEFAULT CHARSET=utf8mb4 COLLATE =utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6394 DEFAULT CHARSET=utf8mb4 COLLATE =utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of lied_admin_operation_log
@@ -8661,6 +8661,13 @@ INSERT INTO `lied_admin_operation_log`
 VALUES ('6389', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 17:14:59', '2020-01-14 17:14:59');
 INSERT INTO `lied_admin_operation_log`
 VALUES ('6390', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-14 17:15:29', '2020-01-14 17:15:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6391', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-01-15 08:54:28', '2020-01-15 08:54:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6392', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-01-15 08:54:33',
+        '2020-01-15 08:54:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('6393', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-01-15 17:08:39', '2020-01-15 17:08:39');
 
 -- ----------------------------
 -- Table structure for `lied_admin_permissions`
@@ -8905,21 +8912,21 @@ CREATE TABLE `lied_artical_category` (
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_brand`;
 CREATE TABLE `lied_brand` (
-                            `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
-                            `name` varchar(64) NOT NULL COMMENT '品牌名称',
+                            `id`          int(16) unsigned NOT NULL AUTO_INCREMENT,
+                            `name`        varchar(64)  NOT NULL COMMENT '品牌名称',
                             `category_id` int(16) unsigned DEFAULT '0' COMMENT '品牌分类id',
-                            `thumb` int(16) unsigned NOT NULL COMMENT '品牌logo',
-                            `description` text NOT NULL COMMENT '品牌描述',
-                            `site_url` varchar(255) NOT NULL COMMENT '品牌的网址',
-                            `sort_order` tinyint(4) NOT NULL,
-                            `is_audit` tinyint(1) NOT NULL,
-                            `is_show` tinyint(1) NOT NULL COMMENT '是否显示',
-                            `created_at` datetime DEFAULT NULL,
-                            `updated_at` datetime DEFAULT NULL,
-                            `deleted_at` datetime DEFAULT NULL,
+                            `thumb`       int(16) unsigned NOT NULL COMMENT '品牌logo',
+                            `description` text         NOT NULL COMMENT '品牌描述',
+                            `site_url`    varchar(255) NOT NULL COMMENT '品牌的网址',
+                            `sort_order`  tinyint(4) NOT NULL,
+                            `is_audit`    tinyint(1) NOT NULL,
+                            `is_show`     tinyint(1) NOT NULL COMMENT '是否显示',
+                            `created_at`  datetime DEFAULT NULL,
+                            `updated_at`  datetime DEFAULT NULL,
+                            `deleted_at`  datetime DEFAULT NULL,
                             PRIMARY KEY (`id`),
-                            KEY `brand-category_id` (`category_id`),
-                            KEY `brand-thumb` (`thumb`),
+                            KEY           `brand-category_id` (`category_id`),
+                            KEY           `brand-thumb` (`thumb`),
                             CONSTRAINT `brand-category_id` FOREIGN KEY (`category_id`) REFERENCES `lied_brand_category` (`id`) ON UPDATE CASCADE,
                             CONSTRAINT `brand-thumb` FOREIGN KEY (`thumb`) REFERENCES `lied_media` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
@@ -9341,7 +9348,8 @@ CREATE TABLE `lied_product_attr` (
 -- Table structure for `lied_product_attr_map`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_product_attr_map`;
-CREATE TABLE `lied_product_attr_map`(
+CREATE TABLE `lied_product_attr_map`
+(
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
   `product_attr_id` int(11) unsigned NOT NULL COMMENT '产品规格id',
@@ -9386,7 +9394,8 @@ CREATE TABLE `lied_product_attr_values`
 -- Table structure for `lied_product_attr_value_map`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_product_attr_value_map`;
-CREATE TABLE `lied_product_attr_value_map`(
+CREATE TABLE `lied_product_attr_value_map`
+(
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
   `product_attr_id` int(11) unsigned NOT NULL COMMENT '产品规格id',
@@ -9461,20 +9470,20 @@ CREATE TABLE `lied_product_seckill` (
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_product_sku`;
 CREATE TABLE `lied_product_sku` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
-  `attr-key` varchar(255) NOT NULL COMMENT '销售属性标识 - 链接，按小到大排序',
-  `thumb` int(64) unsigned NOT NULL COMMENT '缩略图',
-  `price` decimal(8,2) unsigned NOT NULL COMMENT '价格',
-  `cost_price` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '成本价格',
-  `sold_num` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '销量',
-  `code` varchar(255) NOT NULL DEFAULT '' COMMENT '编码',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `product_sku-product_id` (`product_id`),
-  CONSTRAINT `product_sku-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE
+                                  `id`         int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                  `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
+                                  `attr_key`   varchar(64) NOT NULL COMMENT '销售属性标识 - 链接，按小到大排序',
+                                  `media_id`   int(11) unsigned NOT NULL COMMENT '缩略图',
+                                  `price`      decimal(8,2) unsigned NOT NULL COMMENT '价格',
+                                  `cost_price` decimal(8,2) unsigned NOT NULL COMMENT '成本价格',
+                                  `sold_num`   int(11) unsigned NOT NULL DEFAULT '0' COMMENT '销量',
+                                  `code`       varchar(64) DEFAULT '' COMMENT '编码',
+                                  `created_at` datetime    DEFAULT NULL,
+                                  `updated_at` datetime    DEFAULT NULL,
+                                  `deleted_at` datetime    DEFAULT NULL,
+                                  PRIMARY KEY (`id`),
+                                  KEY          `product_sku-product_id` (`product_id`),
+                                  CONSTRAINT `product_sku-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品sku表';
 
 -- ----------------------------
@@ -9486,19 +9495,19 @@ CREATE TABLE `lied_product_sku` (
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_product_sku_stock`;
 CREATE TABLE `lied_product_sku_stock` (
-                                        `id`             int(11) unsigned NOT NULL AUTO_INCREMENT,
-                                        `product_id`     int(11) unsigned NOT NULL COMMENT '产品id',
-                                        `product_sku_id` int(11) unsigned NOT NULL COMMENT '产品sku表id',
-                                        `quantity`       int(11) unsigned NOT NULL COMMENT '数量',
-                                        `warn_number`    int(11) unsigned NOT NULL COMMENT '库存报警数',
-                                        `created_at`     datetime DEFAULT NULL,
-                                        `updated_at`     datetime DEFAULT NULL,
-                                        `deleted_at`     datetime DEFAULT NULL,
+                                        `id`          int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                        `product_id`  int(11) unsigned NOT NULL COMMENT '产品id',
+                                        `sku_id`      int(11) unsigned NOT NULL COMMENT '产品sku表id',
+                                        `quantity`    int(11) unsigned NOT NULL COMMENT '数量',
+                                        `warn_number` int(11) unsigned DEFAULT NULL COMMENT '报警数量',
+                                        `created_at`  datetime DEFAULT NULL,
+                                        `updated_at`  datetime DEFAULT NULL,
+                                        `deleted_at`  datetime DEFAULT NULL,
                                         PRIMARY KEY (`id`),
-                                        KEY              `product_sku_stock-product_id` (`product_id`),
-                                        KEY              `product_sku_stock-product_sku_id` (`product_sku_id`),
+                                        KEY           `product_sku_stock-product_id` (`product_id`),
+                                        KEY           `product_sku_stock-product_sku_id` (`sku_id`),
                                         CONSTRAINT `product_sku_stock-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE,
-                                        CONSTRAINT `product_sku_stock-product_sku_id` FOREIGN KEY (`product_sku_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE
+                                        CONSTRAINT `product_sku_stock-product_sku_id` FOREIGN KEY (`sku_id`) REFERENCES `lied_product_sku` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品sku库存表';
 
 -- ----------------------------

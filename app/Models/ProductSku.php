@@ -12,7 +12,7 @@ class ProductSku extends BaseModel
      *
      * @var array
      */
-    protected $fillable = ['sku_category_id','thumb','attr_price','product_number'];
+    protected $fillable = ['product_id', 'attr_key', 'media_id', 'price', 'cost_price', 'code'];
 
     public function product()
     {
