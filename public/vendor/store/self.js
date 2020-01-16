@@ -702,6 +702,53 @@ $(function () {
         }
     };
 
+    $(document).on("mouseover mouseout", '.self_tips', function (event) {
+        let that = $(this);
+        let position = that.offset();
+        let width = that.width();
+        let height = that.height();
+        let tipHtml = $('.prehtml .ant-tooltip').clone();
+        let thatTip = that.data('tipisset');
+        let thatP = that.parent().parent().attr('class');
+        if (event.type == "mouseover") {
+            if (thatTip != undefined) {
+                //计算弹窗位置
+                that.addClass('ant-tooltip-open');
+                let tipObj = $('.' + thatTip);
+                let tip_width = tipObj.width();
+                let tip_height = tipObj.height();
+                let left = position.left - (tip_width / 2) + (width / 2) + 'px';
+                let top = position.top - (tip_height / 2) - 22 - height + 'px';
+                tipObj.css({'left': left, 'top': top}).removeClass('ant-tooltip-hidden');
+                return false;
+            }
+            let randStr = randKey();
+            let contentStr;
+            that.addClass('ant-tooltip-open').attr('data-tipisset', randStr);
+            tipHtml.addClass(randStr);
+            switch (thatP) {
+                case 'th-code':
+                    contentStr = '为方便管理，可以自定义编码，比如货号';
+                    break;
+                case 'text-cost-price':
+                    contentStr = '成本价未来会用于营销建议，利润分析等';
+                    break;
+            }
+            tipHtml.find('.ant-tooltip-content .ant-tooltip-inner').text(contentStr);
+            $(document.body).append(tipHtml);
+            //计算弹窗位置
+            let tip_width = tipHtml.width();
+            let tip_height = tipHtml.height();
+            let left = position.left - (tip_width / 2) + (width / 2) + 'px';
+            let top = position.top - (tip_height / 2) - 22 - height + 'px';
+            $('.' + randStr).css({'left': left, 'top': top}).removeClass('ant-tooltip-hidden')
+
+        } else if (event.type == "mouseout") {
+            $('.' + thatTip).addClass('ant-tooltip-hidden');
+            that.removeClass('ant-tooltip-open')
+        }
+    });
+
 })
 
 

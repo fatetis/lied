@@ -14,8 +14,8 @@ class Product extends BaseModel
         'sku',
         'order@restrict',
         'seckill@restrict',
-//        'productAttr@restrict',
-//        'productAttrValueMap@restrict'
+        'productAttr@restrict',
+        'productAttrValueMap@restrict'
     ];
 
     public function sku()

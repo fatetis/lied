@@ -483,7 +483,17 @@
             </td>
         </tr>
     </table>
-
+    {{--弹窗提示--}}
+    <div>
+        <div>
+            <div class="ant-tooltip  ant-tooltip-placement-top  ant-tooltip-hidden">
+                <div class="ant-tooltip-content">
+                    <div class="ant-tooltip-arrow"></div>
+                    <div class="ant-tooltip-inner" role="tooltip"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {{--数据存放--}}
@@ -497,7 +507,7 @@
     <div class="{{$viewClass['field']}}">
 
         @include('admin::form.error')
-        <div class="ant-col-22 ant-form-item-control-wrapper self_sku_container">
+        <div class="ant-col-22 ant-form-item-control-wrapper self_sku_container" style="width: 100%">
             <div class="ant-form-item-control has-success">
                 <span class="ant-form-item-children">
                     <div class="ant-card ant-card-bordered ant-card-wider-padding ant-card-padding-transition">
@@ -526,7 +536,7 @@
 <div class="form-group {!! !$errors->has($label) ?: 'has-error' !!} self_sku_detail_container" style="display: none">
     <label class="col-sm-2 control-label">规格明细</label>
     <div class="{{$viewClass['field']}}">
-        <div class="ant-col-22 ant-form-item-control-wrapper">
+        <div class="ant-col-22 ant-form-item-control-wrapper" style="width: 100%">
             <div class="ant-form-item-control">
 				<span class="ant-form-item-children">
 					<div class="ant-card ant-card-bordered ant-card-wider-padding ant-card-padding-transition">
@@ -552,7 +562,7 @@
 														规格编码
 														<a>
 															<i aria-label="图标: question-circle"
-                                                               class="anticon anticon-question-circle">
+                                                               class="anticon anticon-question-circle self_tips">
 																<svg viewBox="64 64 896 896" class=""
                                                                      data-icon="question-circle" width="1em"
                                                                      height="1em" fill="currentColor"
@@ -571,7 +581,7 @@
 														成本价
 														<a>
 															<i aria-label="图标: question-circle"
-                                                               class="anticon anticon-question-circle">
+                                                               class="anticon anticon-question-circle self_tips">
 																<svg viewBox="64 64 896 896" class=""
                                                                      data-icon="question-circle" width="1em"
                                                                      height="1em" fill="currentColor"
@@ -669,6 +679,7 @@
         </div>
     </div>
 </div>
+
 
 <script src="{{ asset('vendor/store/self.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendor/laravel-admin-ext/sk-image/plupload/plupload.full.min.js') }}"

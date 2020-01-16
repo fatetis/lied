@@ -8,6 +8,7 @@
 
 namespace App\Admin\Extensions\Form;
 
+use App\Models\ProductAttr;
 use App\Services\ProductAttrService;
 use Encore\Admin\Form\Field;
 
@@ -25,7 +26,8 @@ class ProductSku extends Field
     public function render()
     {
         $name = $this->formatName($this->column);
-        $attrData = ProductAttrService::get([],['created_at' => 'desc'],[],['id','name']);
+//        $attrData = ProductAttr::get([],['created_at' => 'desc'],[],['id','name']);
+        $attrData = ProductAttr::query()->orderBy('created_at', 'desc')->select('id', 'name')->get();
         $this->variables = ['attrData' => $attrData];
 
         $this->script = <<<EOT

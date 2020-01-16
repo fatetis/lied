@@ -30,7 +30,7 @@ class ProductController extends BaseController {
     public function getAttrData(Request $request)
     {
         $key = $request->input('key','');
-        return $this->success($this->productAttrService->get([['name','like',"%{$key}%"]],['sort' => 'desc'])->toJson());
+        return $this->success($this->productAttrService->getProductAttrByLikeName($key)->toJson());
     }
 
     /**
@@ -46,7 +46,7 @@ class ProductController extends BaseController {
         if(empty($key)){
             $this->failed('缺少必要参数');
         }
-        $data = $this->productAttrService->create(['name' => $key]);
+        $data = $this->productAttrService->createProductAttr(['name' => $key]);
         return $this->success($data->toJson());
     }
 
@@ -59,13 +59,9 @@ class ProductController extends BaseController {
      */
     public function getAttrValueData(Request $request)
     {
-        $key = $request->input('key','');
-        $pid = $request->input('pid','');
-        $where = [['product_attr_id', '=', $pid]];
-        if(!empty($key)){
-            $where = array_merge([['name','like',"%{$key}%"]],$where);
-        }
-        $data = $this->productAttrValuesService->get($where,['sort' => 'desc'])->toJson();
+        $key = $request->input('key', '');
+        $pid = $request->input('pid', '');
+        $data = $this->productAttrValuesService->getProductAttrValueByLikeNameAndAttrId($pid, $key)->toJson();
         return $this->success($data);
     }
 
@@ -83,7 +79,8 @@ class ProductController extends BaseController {
         if(empty($key) || empty($pid)){
             $this->failed('缺少必要参数');
         }
-        $data = $this->productAttrValuesService->create(['name' => $key, 'product_attr_id' => $pid])->toJson();
+
+        $data = $this->productAttrValuesService->createProductAttrValue(['name' => $key, 'product_attr_id' => $pid])->toJson();
         return $this->success($data);
     }
 
