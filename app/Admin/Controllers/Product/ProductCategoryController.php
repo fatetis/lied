@@ -124,9 +124,10 @@ class ProductCategoryController extends Controller
         $form = new Form(new ProductCategory);
 
         $form->select('pid', trans('admin.parent_id'))->options(ProductCategory::selectOptions());
-        $form->text('name', '品牌名称')->rules('required')->rules('max:5',[
-            'max' => '最多只能输入5个字'
+        $form->text('name', '品牌名称')->rules('required')->rules('max:8', [
+            'max' => '最多只能输入8个字'
         ]);
+        $form->number('sort_order', '排序')->value(99)->max(99);
 
         return $form;
     }

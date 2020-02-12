@@ -129,8 +129,9 @@ class BrandController extends Controller
         $form->skimage('thumb', '品牌logo')->attribute('images')->attribute('upload_url', urlStandard('brand_thumb'));
         $form->text('site_url', '品牌网址');
         $form->textarea('description', '品牌描述');
-        $form->number('sort_order', '排序')->value(99);
+        $form->number('sort_order', '排序')->value(99)->max(99);
         $form->switch('is_show', '显示');
+        $form->switch('is_audit', '审核');
         return $form;
     }
 }

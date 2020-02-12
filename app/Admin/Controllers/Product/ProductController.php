@@ -194,14 +194,14 @@ class ProductController extends Controller
                     return [$brand->id => $brand->name];
                 }
             })->ajax(route('selectBrand'))->required();
-            $form->currency('market_price', '市场价格')->symbol('￥');
+            $form->currency('line_price', '市场价格')->symbol('￥');
             $form->currency('price', '销售价格')->symbol('￥')->required();
             $form->skimage('thumb', '产品缩略图')->attribute('images')->attribute('upload_url', urlStandard('product_thumb'))->help('上传图片宽*高为750*750')->required();
             $form->skimage('picture', '产品banner图')->attribute('images')->attribute('upload_url', urlStandard('product_picture'))->help('上传图片宽*高为750*750')->required();
 
             $form->text('description', '简要描述');
             $form->wangeditor('content', '描述');
-            $form->number('sort_order', '产品排序')->value(99);
+            $form->number('sort_order', '产品排序')->value(99)->max(99);
             $form->switch('is_show', '显示')->value(1);
             $form->switch('is_audit', '审核状态')->states($states);
 
