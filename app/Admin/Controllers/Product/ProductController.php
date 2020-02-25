@@ -196,8 +196,10 @@ class ProductController extends Controller
             })->ajax(route('selectBrand'))->required();
             $form->currency('line_price', '市场价格')->symbol('￥');
             $form->currency('price', '销售价格')->symbol('￥')->required();
-            $form->skimage('thumb', '产品缩略图')->attribute('images')->attribute('upload_url', urlStandard('product_thumb'))->help('上传图片宽*高为750*750')->required();
-            $form->skimage('picture', '产品banner图')->attribute('images')->attribute('upload_url', urlStandard('product_picture'))->help('上传图片宽*高为750*750')->required();
+            $form->skmedia('picture', '产品banner图')->attribute('images')->attribute([
+                'upload_url' => urlStandard('product_picture'),
+                'data-multi' => true
+            ])->help('上传图片宽*高为750*750')->required();
 
             $form->text('description', '简要描述');
             $form->wangeditor('content', '描述');
@@ -223,7 +225,7 @@ class ProductController extends Controller
 
 
         $form->saving(function (Form $form){
-//            dd(je($form->prosku));
+
         });
 
         $form->saved(function (Form $form){

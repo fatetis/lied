@@ -71,5 +71,6 @@ Route::group([
 
 //    上传路由
     $router->post('upload/image', 'UploadController@index')->name('uploadImage');
+    $router->post('upload/video', 'UploadController@video')->name('uploadVideo');
 
 });

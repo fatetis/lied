@@ -92,4 +92,87 @@ class UploadController extends Controller
         }
 
     }
+
+    /**
+     * 视频上传方法
+     * @param Request $request
+     * @param MediaController $mediaController
+     * @return mixed
+     * Author: fatetis
+     * Date:2020/2/25 002517:08
+     */
+    public function video(Request $request, MediaController $mediaController)
+    {
+        $file_key = key($request->file());
+        $path = $request->input('upload_url', '');
+        $is_lock = $request->input('is_lock', 0);
+        try {
+            if (!$request->file($file_key)->isValid()) {
+                throw new SelfException('文件无效');
+            }
+            $name = $request->input('name');
+            $chunk = $request->input('chunk');
+            $chunks = $request->input('chunks');
+            if (!$name || !$chunks) {
+                throw new SelfException('缺少必要参数，请刷新重试');
+            }
+            $ext = $request->input('file_ext', '');
+            $exts = ['video/mp4'];
+            if (!in_array($ext, $exts)) {
+                throw new SelfException('视频不支持的格式，仅支持mp4格式');
+            }
+
+            $size = ceil($request->$file_key->getSize() / 1024); //转换为kb单位
+
+            $filepath = videoUrlStandard('skmedia') . '/';
+            if (!empty($path)) {
+                $filepath = $path . '/';
+            }
+
+            if (!Storage::exists($filepath)) {
+                Storage::makeDirectory($filepath);
+            }
+            $savepath = $filepath . $name;
+//            Storage::append这个函数会往已经存在的文件里添加0X0A，也就是\n换行符。导致大文件分片上传合并无法完成
+//            $result = Storage::append($savepath, file_get_contents($request->$file_key->getRealPath()), FILE_APPEND);//上传
+            $uploadSavePath = public_path('uploads/' . $savepath);
+            $result = file_put_contents($uploadSavePath, file_get_contents($request->$file_key->getRealPath()), FILE_APPEND);
+            if ($chunk == $chunks - 1) {
+
+                $createData = [
+                    'link' => $savepath,
+                    'size' => $size,
+                    'file_ext' => $ext,
+                    'file_name' => $name,
+                    'is_lock' => $is_lock,
+                ];
+                // 保存图片数据
+                $savepath = $mediaController->createMedia($createData);
+                //约定处理接口
+                if ($savepath->getstatusCode() !== $this->getStatusCode()) {
+                    throw new SelfException($savepath->getstatusText());
+                }
+                $data = $savepath->getData()->data->id;
+                $src = Storage::url($savepath->getData()->data->link);
+
+
+                return $this->success([
+                    'url' => $data,
+                    "fileName" => $name,
+                    'src' => $src,
+                ], '上传成功');
+            }
+            if ($result === false) {
+                throw new SelfException('网络波动，请刷新重试');
+            }
+
+        } catch (SelfException $selfException) {
+            return $this->failed($selfException->getMessage());
+        } catch (\Exception $exception) {
+            return $this->failed($exception->getMessage());
+        }
+
+
+    }
+
 }

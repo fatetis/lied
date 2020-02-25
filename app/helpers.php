@@ -200,6 +200,13 @@ if (!function_exists('urlStandard')) {
     }
 }
 
+if (!function_exists('videoUrlStandard')) {
+    function videoUrlStandard($val)
+    {
+        return 'video/' . $val . '/' . date('Ymd', time());
+    }
+}
+
 if (!function_exists('elog')) {
     function elog($input)
     {

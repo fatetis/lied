@@ -6,7 +6,7 @@
 
     <div class="{{$viewClass['field']}}">
         @include('admin::form.error')
-        @if(strpos($attributes, 'images') === false)
+        @if(strpos($attributes, 'file') !== false)
             <?php
             $all_path = old($id, $value) ? old($id, $value) : '';
             $resize_path = old($id, $value) ? old($id, $value) : '';
@@ -21,7 +21,8 @@
                 </div>
                 <div id="{{$id}}_container"></div>
             </div>
-        @else
+
+        @elseif(strpos($attributes, 'images') !== false)
             <button id="{{$id}}_alioss_upload" type="button" class="btn btn-success btn-flat Js_alioss_btn" {!! $attributes !!}>
                 选择文件
             </button>
@@ -50,6 +51,51 @@
                                 </div>
                             </div>
                         @endif
+                    @endif
+                </div>
+                <!-- /.box-body -->
+            </div>
+        @elseif(strpos($attributes, 'video') !== false)
+            <button data-multi="true" id="{{$id}}_video_upload" type="button"
+                    class="btn btn-success btn-flat Js_alioss_btn" {!! $attributes !!}>选择视频
+            </button>
+            <div class="box box-widget">
+                <!-- /.box-header -->
+                <div id="{{$id}}_container" class="box-body show_upload_pic">
+                    <input type="hidden" name="{{ $id }}" value="">
+                    {{--{{ old($id, $value) }}--}}
+                    {{--@php--}}
+                    {{--dd(32);--}}
+                    {{--@endphp--}}
+                    @if(old($id, $value))
+                        @if(is_array(old($id, $value)))
+                            @foreach(old($id, $value) as $p)
+                                <div class="show_upload_pic_item" style="width: 200px;height: unset;">
+                                    <video src="{{ imgoss($p) }}" controls="controls" style="width: 100%">
+                                    </video>
+                                    <div class="operat_warp" style="display: inline-block">
+                                        <input type="hidden" name="{{$id}}[]" value="{{$p}}">
+                                        <a class='example-image-link ' href="{{imgoss($p)}}" data-lightbox='example-set'
+                                           data-title=''>预览</a> / <a
+                                                href="javascript:void(0);" onclick="alioss_del_video(this)"
+                                                data-filename="{{$p}}">删除</a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="show_upload_pic_item" style="width: 200px;height: unset;">
+                                <video src="{{ imgoss(old($id, $value)) }}" controls="controls" style="width: 100%">
+                                </video>
+                                <div class="operat_warp" style="display: inline-block">
+                                    <input type="hidden" name="{{$id}}" value="{{old($id, $value)}}">
+                                    <a class='example-image-link ' href="{{imgoss(old($id, $value))}}"
+                                       data-lightbox='example-set' data-title=''>预览</a> / <a
+                                            href="javascript:void(0);" onclick="alioss_del_video(this)"
+                                            data-filename="{{old($id, $value)}}">删除</a>
+                                </div>
+                            </div>
+                        @endif
+
                     @endif
                 </div>
                 <!-- /.box-body -->

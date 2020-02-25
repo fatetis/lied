@@ -35,10 +35,18 @@ class SkImage extends Field
     {
         $name = $this->formatName($this->column);
         $token = csrf_token();
-        $this->script = <<<EOT
+        $videoType = array_key_exists('video', $this->attributes);
+        if ($videoType) {
+            $this->script = <<<EOT
+init_video_upload('{$name}','$token');
+EOT;
+        } else {
+            $this->script = <<<EOT
 alioss_upload('{$name}','$token');
 
 EOT;
+        }
+
         return parent::render();
     }
 

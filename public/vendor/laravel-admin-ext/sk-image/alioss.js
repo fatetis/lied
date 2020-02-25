@@ -23,7 +23,7 @@
         return suffix.toLowerCase();
     }
 
-    // 初始化上传
+    // 图片初始化上传
     function init_upload(id, csrf_token) {
         var browse_button = $('#' + id + '_alioss_upload');
         var multi = Boolean(browse_button.attr('data-multi'));
@@ -109,13 +109,6 @@
                         ].join(''));
                     } else {
                         // 单图
-                        // browse_button.attr('src', src+'?style=admin_form_sk-image');
-                        // var operat_warp = browse_button.parents('.show_upload_pic_item').find('.operat_warp');
-                        // var a_s = operat_warp.find('a');
-                        // a_s.eq(0).attr('href', src);
-                        // a_s.eq(1).attr('data-filename', file_id);
-                        // operat_warp.show().find('input').val(file_id);
-                        // $('#' + file.id).remove();
                         $('#' + file.id).html([
                             '<img src="' + src + '" style="margin-bottom: 3px;width: 80%;height: 80%">',
                             '<div class="operat_warp" style="display: inline-block">',
@@ -150,7 +143,7 @@
 
     window.alioss_upload = init_upload;
 
-    // 删除文件 仅仅删除页面上的html标签
+    // 图片删除文件 仅仅删除页面上的html标签
     window.alioss_del_file = function (obj, type) {
         if (type) { // 多图
             let parents = $(obj).parents('.show_upload_pic');
@@ -171,4 +164,110 @@
         }
     };
 
+
+    const init_video_upload = (name, token) => {
+        var browse_button = $('#' + name + '_video_upload');
+        var multi = Boolean(browse_button.attr('data-multi'));
+        var upload_url = browse_button.attr('upload_url');
+        var container = document.getElementById(name + '_container');
+        var uploader = new plupload.Uploader({
+            runtimes: 'gears,html5,html4,silverlight,flash', //上传插件初始化选用那种方式的优先级顺序
+            browse_button: browse_button.attr('id'),//'pickfiles',
+            container: container,
+            url: '/admin/upload/video',
+            flash_swf_url: '/vendor/laravel-admin-ext/sk-image/plupload/Moxie.swf',
+            silverlight_xap_url: '/vendor/laravel-admin-ext/sk-image/plupload/Moxie.xap',
+            multi_selection: multi,//false单选，true多选
+            // multipart_params: {'_token': token, 'upload_url': upload_url},
+            unique_names: true,
+            //过滤
+            filters: {
+                max_file_size: '50mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
+                mime_types: [//允许文件上传类型
+                    {title: "files", extensions: "mp4"}
+                ]
+            },
+            chunk_size: "8mb",
+            init: {
+                FilesAdded: function (up, file) {
+                    uploader.start();//选择文件后立即上传
+                },
+                BeforeUpload: function (up, file) {
+                    // 阻断多次提交
+                    browse_button.attr("disabled", "disabled").css('opacity', 0.6);
+                    // 设置上传参数
+                    uploader.setOption("multipart_params", {
+                        "totalSize": file.origSize,
+                        '_token': token,
+                        'upload_url': upload_url,
+                        'file_ext': file.type
+                    });
+
+                    let containerObj = $('#' + name + '_container');
+                    //限定只能传一个
+                    let videoLength = containerObj.find('video').length;
+                    if (videoLength >= 1) {
+                        alioss_del_video(containerObj.eq(0).find('.show_upload_pic_item .example-image-link').next());
+                    }
+                    // 多图
+                    containerObj.append('<div id="' + file.id + '" class="show_upload_pic_item"><div class="alioss_percent">0%</div></div>');
+                },
+                UploadProgress: function (up, file) {
+                    $('#' + file.id).find('.alioss_percent').html(file.percent + '%');
+                },
+                FileUploaded: function (up, file, info) {
+                    var result = eval("(" + info.response + ")");
+                    if (result.code != 200) {
+                        RemoveBitMaps(file.id);
+                        browse_button.attr("disabled", false).css('opacity', 1);
+                        swal('上传失败', result.msg, 'error');
+                        return false;
+                    }
+                    var file_id = result.data.url;
+                    var src = result.data.src;
+                    // 多图
+                    $('#' + file.id).html([
+                        '<video src="' + src + '"  style="width: 100%"  controls="controls">您的浏览器不支持 video 标签。</video>',
+                        '<div class="operat_warp" style="display: inline-block;">',
+                        '<input type="hidden" name="' + name + '" value="' + file_id + '" />',
+                        '<a class="example-image-link" href="' + src + '" target="_blank">预览</a> / ',
+                        '<a href="javascript:void(0);" onclick="alioss_del_video(this)" data-filename="' + file_id + '">删除</a>',
+                        '</div><style>.show_upload_pic_item{width: 200px;height: unset;}</style>'
+                    ].join(''));
+
+                },
+                UploadComplete: function (up, files) {
+                    browse_button.attr("disabled", false).css('opacity', 1);
+                },
+                Error: function (up, err) {
+                    console.log(err);
+
+                    browse_button.attr("disabled", false).css('opacity', 1);
+                    RemoveBitMaps(err.file.id);
+                    swal('上传出错', '仅支持mp4格式，上传最大为50M', 'error');
+                },
+
+            }
+        });
+
+        // 上传失败，移除占位图
+        function RemoveBitMaps(file_id) {
+            $('#' + file_id).remove();
+        }
+
+        //初始化上传
+        uploader.init();
+    }
+    window.init_video_upload = init_video_upload;
+
+    window.alioss_del_video = function (obj) {
+        let parents = $(obj).parents('.show_upload_pic');
+        let parentsNum = parents.find('.show_upload_pic_item').length;
+        let key = $(obj).parents('.show_upload_pic_item').find('input').attr('name');
+        if (parentsNum <= 1) {
+            parents.append('<input type="hidden" name="' + key + '" value="">');
+        }
+        $(obj).parents('.show_upload_pic_item').remove()
+
+    };
 })();

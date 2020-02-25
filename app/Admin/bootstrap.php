@@ -27,4 +27,4 @@ use Encore\Admin\Form;
 Encore\Admin\Form::forget(['map','editor']);
 Form::extend('wangeditor', WangEditor::class);
 Form::extend('prosku', ProductSku::class);
-Form::extend('skimage', SkImage::class);
+Form::extend('skmedia', SkImage::class);
