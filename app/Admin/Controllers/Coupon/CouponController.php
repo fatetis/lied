@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Coupons;
 use App\Models\Product;
 use Encore\Admin\Controllers\AdminController;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
@@ -111,7 +112,7 @@ class CouponController extends AdminController
             $form->switch('is_online', '线上');
             $form->switch('is_show', '显示');
             $form->number('sort_order', '排序')->value(99);
-            $form->hidden('created_id')->value(getAdminUserId());
+            $form->hidden('created_id')->value(Admin::user()->id);
 
         })->tab('限领取设置',function($form){
 

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50723
 File Encoding         : 65001
 
-Date: 2020-02-25 17:31:30
+Date: 2020-02-26 18:06:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -109,9 +109,9 @@ CREATE TABLE `lied_admin_operation_log`
   `id`         int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id`    int(11) NOT NULL,
   `path`       varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `method`     varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `method`     varchar(10) COLLATE utf8mb4_unicode_ci  NOT NULL,
   `ip`         varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `input`      text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `input`      text COLLATE utf8mb4_unicode_ci         NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -156,9 +156,9 @@ VALUES ('7', 'Tab-dashboard', 'tabs.dashboard', '', '/dashboard', '2019-12-10 15
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_admin_roles`;
 CREATE TABLE `lied_admin_roles` (
-                                  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-                                  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-                                  `slug` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                  `id`         int(10) unsigned NOT NULL AUTO_INCREMENT,
+                                  `name`       varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                  `slug`       varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
                                   `created_at` datetime DEFAULT NULL,
                                   `updated_at` datetime DEFAULT NULL,
                                   PRIMARY KEY (`id`),
@@ -223,14 +223,14 @@ CREATE TABLE `lied_admin_role_users` (
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_admin_users`;
 CREATE TABLE `lied_admin_users` (
-                                  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-                                  `username` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
-                                  `password` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-                                  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                                  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                                  `id`             int(10) unsigned NOT NULL AUTO_INCREMENT,
+                                  `username`       varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                  `password`       varchar(60) COLLATE utf8mb4_unicode_ci  NOT NULL,
+                                  `name`           varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                  `avatar`         varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                                   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-                                  `created_at` datetime DEFAULT NULL,
-                                  `updated_at` datetime DEFAULT NULL,
+                                  `created_at`     datetime                                DEFAULT NULL,
+                                  `updated_at`     datetime                                DEFAULT NULL,
                                   PRIMARY KEY (`id`),
                                   UNIQUE KEY `lied_admin_users_username_unique` (`username`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE =utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
@@ -262,24 +262,25 @@ CREATE TABLE `lied_admin_user_permissions` (
 -- Table structure for `lied_adv`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_adv`;
-CREATE TABLE `lied_adv`(
-                         `id`             int(16) NOT NULL AUTO_INCREMENT,
-                         `name`           varchar(32) NOT NULL COMMENT '名称',
-                         `url`            varchar(255) DEFAULT NULL COMMENT '广告链接',
-                         `thumb`          int(16) NOT NULL COMMENT '广告图片',
-                         `position_id`    int(16) unsigned NOT NULL COMMENT '广告位置ID',
-                         `region_city_id` varchar(64) NOT NULL COMMENT '展示城市ID',
-                         `start_time`     datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '开始时间',
-                         `end_time`       datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
-                         `click_num`      int(16) DEFAULT '0' COMMENT '点击数量',
-                         `is_show`        tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否显示 1-显示 0-不显示',
-                         `sort_order`     int(4) DEFAULT NULL COMMENT '排序',
-                         `created_at`     datetime DEFAULT NULL,
-                         `updated_at`     datetime DEFAULT NULL,
-                         `deleted_at`     datetime DEFAULT NULL,
-                         PRIMARY KEY (`id`),
-                         KEY              `position_id` (`position_id`) USING BTREE,
-                         CONSTRAINT `adv-position_id` FOREIGN KEY (`position_id`) REFERENCES `lied_adv_position` (`id`) ON UPDATE CASCADE
+CREATE TABLE `lied_adv`
+(
+  `id`             int(16) NOT NULL AUTO_INCREMENT,
+  `name`           varchar(32) NOT NULL COMMENT '名称',
+  `url`            varchar(255)         DEFAULT NULL COMMENT '广告链接',
+  `thumb`          int(16) NOT NULL COMMENT '广告图片',
+  `position_id`    int(16) unsigned NOT NULL COMMENT '广告位置ID',
+  `region_city_id` varchar(64) NOT NULL COMMENT '展示城市ID',
+  `start_time`     datetime    NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '开始时间',
+  `end_time`       datetime    NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
+  `click_num`      int(16) DEFAULT '0' COMMENT '点击数量',
+  `is_show`        tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否显示 1-显示 0-不显示',
+  `sort_order`     int(4) DEFAULT NULL COMMENT '排序',
+  `created_at`     datetime             DEFAULT NULL,
+  `updated_at`     datetime             DEFAULT NULL,
+  `deleted_at`     datetime             DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY              `position_id` (`position_id`) USING BTREE,
+  CONSTRAINT `adv-position_id` FOREIGN KEY (`position_id`) REFERENCES `lied_adv_position` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -290,7 +291,8 @@ CREATE TABLE `lied_adv`(
 -- Table structure for `lied_adv_position`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_adv_position`;
-CREATE TABLE `lied_adv_position`(
+CREATE TABLE `lied_adv_position`
+(
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL COMMENT '名称',
   `width` int(8) NOT NULL COMMENT '宽度',
@@ -311,7 +313,8 @@ CREATE TABLE `lied_adv_position`(
 -- Table structure for `lied_artical`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_artical`;
-CREATE TABLE `lied_artical`(
+CREATE TABLE `lied_artical`
+(
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT COMMENT '文章自增id',
   `category_id` int(16) unsigned NOT NULL COMMENT '分类id',
   `user_id` int(32) unsigned NOT NULL COMMENT '创建者id',
@@ -336,7 +339,8 @@ CREATE TABLE `lied_artical`(
 -- Table structure for `lied_artical_category`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_artical_category`;
-CREATE TABLE `lied_artical_category`(
+CREATE TABLE `lied_artical_category`
+(
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类id',
   `name` varchar(64) NOT NULL COMMENT '分类名称',
   `description` text COMMENT '分类描述',
@@ -385,7 +389,8 @@ CREATE TABLE `lied_brand` (
 -- Table structure for `lied_brand_category`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_brand_category`;
-CREATE TABLE `lied_brand_category`(
+CREATE TABLE `lied_brand_category`
+(
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(16) unsigned NOT NULL,
   `name` varchar(64) NOT NULL COMMENT '名称',
@@ -404,23 +409,24 @@ CREATE TABLE `lied_brand_category`(
 -- Table structure for `lied_cart`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_cart`;
-CREATE TABLE `lied_cart`(
-                          `id`         int(16) NOT NULL,
-                          `user_id`    int(16) unsigned NOT NULL COMMENT '用户id',
-                          `product_id` int(16) unsigned NOT NULL COMMENT '产品id',
-                          `attr_id`    int(16) unsigned NOT NULL COMMENT '属性id',
-                          `brand_id`   int(16) unsigned NOT NULL COMMENT '品牌id',
-                          `number`     int(4) unsigned NOT NULL COMMENT '产品书数量',
-                          `created_at` datetime DEFAULT NULL,
-                          `updated_at` datetime DEFAULT NULL,
-                          `deleted_at` datetime DEFAULT NULL,
-                          PRIMARY KEY (`id`),
-                          KEY          `cart-usre_id` (`user_id`) USING BTREE,
-                          KEY          `cart-product_id` (`product_id`) USING BTREE,
-                          KEY          `cart-brand_id` (`brand_id`) USING BTREE,
-                          CONSTRAINT `cart-brand_id` FOREIGN KEY (`brand_id`) REFERENCES `lied_brand` (`id`) ON UPDATE CASCADE,
-                          CONSTRAINT `cart-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE,
-                          CONSTRAINT `cart-usre_id` FOREIGN KEY (`user_id`) REFERENCES `lied_users` (`id`) ON UPDATE CASCADE
+CREATE TABLE `lied_cart`
+(
+  `id`         int(16) NOT NULL,
+  `user_id`    int(16) unsigned NOT NULL COMMENT '用户id',
+  `product_id` int(16) unsigned NOT NULL COMMENT '产品id',
+  `attr_id`    int(16) unsigned NOT NULL COMMENT '属性id',
+  `brand_id`   int(16) unsigned NOT NULL COMMENT '品牌id',
+  `number`     int(4) unsigned NOT NULL COMMENT '产品书数量',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY          `cart-usre_id` (`user_id`) USING BTREE,
+  KEY          `cart-product_id` (`product_id`) USING BTREE,
+  KEY          `cart-brand_id` (`brand_id`) USING BTREE,
+  CONSTRAINT `cart-brand_id` FOREIGN KEY (`brand_id`) REFERENCES `lied_brand` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `cart-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `cart-usre_id` FOREIGN KEY (`user_id`) REFERENCES `lied_users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -431,7 +437,8 @@ CREATE TABLE `lied_cart`(
 -- Table structure for `lied_coupons`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_coupons`;
-CREATE TABLE `lied_coupons`(
+CREATE TABLE `lied_coupons`
+(
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL COMMENT '优惠券名称',
   `reveive_limit` int(4) unsigned NOT NULL COMMENT '限领取数量',
@@ -459,21 +466,22 @@ CREATE TABLE `lied_coupons`(
 -- Table structure for `lied_coupons_batch`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_coupons_batch`;
-CREATE TABLE `lied_coupons_batch`(
-                                   `id`              int(16) unsigned NOT NULL AUTO_INCREMENT,
-                                   `name`            varchar(64) NOT NULL COMMENT '批次名称',
-                                   `num`             int(4) unsigned NOT NULL COMMENT '生成数量',
-                                   `coupon_id`       int(16) unsigned NOT NULL COMMENT '优惠券id',
-                                   `coupon_limit_id` int(16) unsigned NOT NULL COMMENT '优惠券限领表id',
-                                   `created_id`      int(16) unsigned NOT NULL COMMENT '创建者id',
-                                   `created_at`      datetime DEFAULT NULL,
-                                   `updated_at`      datetime DEFAULT NULL,
-                                   `deleted_at`      datetime DEFAULT NULL,
-                                   PRIMARY KEY (`id`),
-                                   KEY               `coupons_batch-coupon_limit_id` (`coupon_limit_id`) USING BTREE,
-                                   KEY               `coupons_batch-coupon_id` (`coupon_id`) USING BTREE,
-                                   CONSTRAINT `coupons_batch-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE,
-                                   CONSTRAINT `coupons_batch-coupon_limit_id` FOREIGN KEY (`coupon_limit_id`) REFERENCES `lied_coupons_limit` (`id`) ON UPDATE CASCADE
+CREATE TABLE `lied_coupons_batch`
+(
+  `id`              int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `name`            varchar(64) NOT NULL COMMENT '批次名称',
+  `num`             int(4) unsigned NOT NULL COMMENT '生成数量',
+  `coupon_id`       int(16) unsigned NOT NULL COMMENT '优惠券id',
+  `coupon_limit_id` int(16) unsigned NOT NULL COMMENT '优惠券限领表id',
+  `created_id`      int(16) unsigned NOT NULL COMMENT '创建者id',
+  `created_at`      datetime DEFAULT NULL,
+  `updated_at`      datetime DEFAULT NULL,
+  `deleted_at`      datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY               `coupons_batch-coupon_limit_id` (`coupon_limit_id`) USING BTREE,
+  KEY               `coupons_batch-coupon_id` (`coupon_id`) USING BTREE,
+  CONSTRAINT `coupons_batch-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `coupons_batch-coupon_limit_id` FOREIGN KEY (`coupon_limit_id`) REFERENCES `lied_coupons_limit` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -484,19 +492,20 @@ CREATE TABLE `lied_coupons_batch`(
 -- Table structure for `lied_coupons_discount`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_coupons_discount`;
-CREATE TABLE `lied_coupons_discount`(
-                                      `id`                 int(16) unsigned NOT NULL AUTO_INCREMENT,
-                                      `coupon_id`          int(16) unsigned NOT NULL COMMENT '优惠券id',
-                                      `discount`           int(8) unsigned NOT NULL COMMENT '折扣',
-                                      `stock_number`       int(8) unsigned NOT NULL DEFAULT '0' COMMENT '库存数量',
-                                      `min_product_number` int(8) unsigned NOT NULL DEFAULT '0' COMMENT '最小购买产品数量',
-                                      `max_discount_price` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '最大优惠金额',
-                                      `created_at`         datetime DEFAULT NULL,
-                                      `updated_at`         datetime DEFAULT NULL,
-                                      `deleted_at`         datetime DEFAULT NULL,
-                                      PRIMARY KEY (`id`),
-                                      KEY                  `coupons_discount-coupon_id` (`coupon_id`) USING BTREE,
-                                      CONSTRAINT `coupons_discount-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE `lied_coupons_discount`
+(
+  `id`                 int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `coupon_id`          int(16) unsigned NOT NULL COMMENT '优惠券id',
+  `discount`           int(8) unsigned NOT NULL COMMENT '折扣',
+  `stock_number`       int(8) unsigned NOT NULL DEFAULT '0' COMMENT '库存数量',
+  `min_product_number` int(8) unsigned NOT NULL DEFAULT '0' COMMENT '最小购买产品数量',
+  `max_discount_price` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '最大优惠金额',
+  `created_at`         datetime DEFAULT NULL,
+  `updated_at`         datetime DEFAULT NULL,
+  `deleted_at`         datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY                  `coupons_discount-coupon_id` (`coupon_id`) USING BTREE,
+  CONSTRAINT `coupons_discount-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -507,17 +516,18 @@ CREATE TABLE `lied_coupons_discount`(
 -- Table structure for `lied_coupons_limit`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_coupons_limit`;
-CREATE TABLE `lied_coupons_limit`(
-                                   `id`         int(16) unsigned NOT NULL AUTO_INCREMENT,
-                                   `coupon_id`  int(16) unsigned NOT NULL COMMENT '优惠券id',
-                                   `brand_id`   int(16) unsigned NOT NULL COMMENT '品牌id',
-                                   `product_id` int(16) unsigned DEFAULT NULL COMMENT '产品id',
-                                   `created_at` datetime DEFAULT NULL,
-                                   `updated_at` datetime DEFAULT NULL,
-                                   `deleted_at` datetime DEFAULT NULL,
-                                   PRIMARY KEY (`id`),
-                                   KEY          `coupons_limit-coupon_id` (`coupon_id`) USING BTREE,
-                                   CONSTRAINT `coupons_limit-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE
+CREATE TABLE `lied_coupons_limit`
+(
+  `id`         int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `coupon_id`  int(16) unsigned NOT NULL COMMENT '优惠券id',
+  `brand_id`   int(16) unsigned NOT NULL COMMENT '品牌id',
+  `product_id` int(16) unsigned DEFAULT NULL COMMENT '产品id',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY          `coupons_limit-coupon_id` (`coupon_id`) USING BTREE,
+  CONSTRAINT `coupons_limit-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -528,17 +538,18 @@ CREATE TABLE `lied_coupons_limit`(
 -- Table structure for `lied_coupons_offline`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_coupons_offline`;
-CREATE TABLE `lied_coupons_offline`(
-                                     `id`              int(16) unsigned NOT NULL AUTO_INCREMENT,
-                                     `coupon_batch_id` int(16) unsigned NOT NULL COMMENT '优惠券线下券生成批次设置表id',
-                                     `code`            varchar(16) NOT NULL COMMENT '券码',
-                                     `is_use`          tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否使用 1-使用 0-未使用',
-                                     `created_at`      datetime DEFAULT NULL,
-                                     `updated_at`      datetime DEFAULT NULL,
-                                     `deleted_at`      datetime DEFAULT NULL,
-                                     PRIMARY KEY (`id`),
-                                     KEY               `coupons_offline-coupon_batch_id` (`coupon_batch_id`) USING BTREE,
-                                     CONSTRAINT `coupons_offline-coupon_batch_id` FOREIGN KEY (`coupon_batch_id`) REFERENCES `lied_coupons_batch` (`id`) ON UPDATE CASCADE
+CREATE TABLE `lied_coupons_offline`
+(
+  `id`              int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `coupon_batch_id` int(16) unsigned NOT NULL COMMENT '优惠券线下券生成批次设置表id',
+  `code`            varchar(16) NOT NULL COMMENT '券码',
+  `is_use`          tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否使用 1-使用 0-未使用',
+  `created_at`      datetime DEFAULT NULL,
+  `updated_at`      datetime DEFAULT NULL,
+  `deleted_at`      datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY               `coupons_offline-coupon_batch_id` (`coupon_batch_id`) USING BTREE,
+  CONSTRAINT `coupons_offline-coupon_batch_id` FOREIGN KEY (`coupon_batch_id`) REFERENCES `lied_coupons_batch` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -549,18 +560,19 @@ CREATE TABLE `lied_coupons_offline`(
 -- Table structure for `lied_coupons_price`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_coupons_price`;
-CREATE TABLE `lied_coupons_price`(
-                                   `id`                int(16) unsigned NOT NULL AUTO_INCREMENT,
-                                   `coupon_id`         int(16) unsigned NOT NULL COMMENT '优惠券id',
-                                   `stock_number`      int(8) unsigned NOT NULL DEFAULT '0' COMMENT '库存数量',
-                                   `price`             decimal(8,2) unsigned NOT NULL COMMENT '优惠金额',
-                                   `min_consume_price` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '最低消费金额',
-                                   `created_at`        datetime DEFAULT NULL,
-                                   `updated_at`        datetime DEFAULT NULL,
-                                   `deleted_at`        datetime DEFAULT NULL,
-                                   PRIMARY KEY (`id`),
-                                   KEY                 `coupons_price-coupon_id` (`coupon_id`) USING BTREE,
-                                   CONSTRAINT `coupons_price-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE `lied_coupons_price`
+(
+  `id`                int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `coupon_id`         int(16) unsigned NOT NULL COMMENT '优惠券id',
+  `stock_number`      int(8) unsigned NOT NULL DEFAULT '0' COMMENT '库存数量',
+  `price`             decimal(8,2) unsigned NOT NULL COMMENT '优惠金额',
+  `min_consume_price` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '最低消费金额',
+  `created_at`        datetime DEFAULT NULL,
+  `updated_at`        datetime DEFAULT NULL,
+  `deleted_at`        datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY                 `coupons_price-coupon_id` (`coupon_id`) USING BTREE,
+  CONSTRAINT `coupons_price-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -620,7 +632,8 @@ CREATE TABLE `lied_crontab_log`
 -- Table structure for `lied_log_error`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_log_error`;
-CREATE TABLE `lied_log_error`(
+CREATE TABLE `lied_log_error`
+(
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `input` text NOT NULL COMMENT '请求参数',
   `ip` varchar(64) NOT NULL COMMENT '请求ip',
@@ -679,46 +692,47 @@ CREATE TABLE `lied_migrations`
 -- Table structure for `lied_order`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_order`;
-CREATE TABLE `lied_order`(
-                           `id`             int(16) unsigned NOT NULL AUTO_INCREMENT,
-                           `temp_id`        varchar(32) NOT NULL COMMENT '区别订单多商家产生的唯一标识',
-                           `temp_sid`       varchar(32) NOT NULL COMMENT '区别订单单一商家多产品的唯一标识',
-                           `order_id`       varchar(32) NOT NULL COMMENT '订单生成唯一编号',
-                           `order_num`      varchar(64) DEFAULT NULL COMMENT '订单流水支付号',
-                           `user_id` int(16) unsigned NOT NULL,
-                           `order_status` tinyint(1) NOT NULL COMMENT '订单的状态;,0关闭,1正常,2完成,',
-                           `shipping_status` tinyint(1) NOT NULL COMMENT '商品配送情况;0未发货,1已发货,2已收货,3退货',
-                           `pay_status` tinyint(1) NOT NULL COMMENT '支付状态;0未付款;1已付款',
-                           `brand_id` int(16) unsigned NOT NULL COMMENT '商家id',
-                           `product_id` int(16) unsigned NOT NULL COMMENT '产品id',
-                           `attr_id` int(16) NOT NULL,
-                           `product_num` int(4) NOT NULL COMMENT '产品数量',
-                           `product_price` decimal(8,2) NOT NULL COMMENT '产品价格',
-                           `product_intergral` decimal(8,2) NOT NULL COMMENT '产品积分',
-                           `total_price` decimal(8,2) unsigned NOT NULL COMMENT '订单总金额',
-                           `total_intergral` decimal(8,2) unsigned NOT NULL COMMENT '订单总积分',
-                           `pay_price` decimal(8,2) NOT NULL COMMENT '已支付价格',
-                           `pay_intergral` decimal(8,2) NOT NULL COMMENT '已支付的积分',
-                           `discount_price` decimal(8,2) NOT NULL COMMENT '优惠价格',
-                           `shipping_fee` decimal(8,2) NOT NULL COMMENT '配送费用',
-                           `region_province_id` int(16) unsigned NOT NULL COMMENT '第一级省id',
-                           `region_city_id` int(16) unsigned NOT NULL COMMENT '第二级市id',
-                           `region_area_id` int(16) unsigned NOT NULL COMMENT '第三级区id',
-                           `address`        varchar(255) NOT NULL COMMENT '收货地址',
-                           `mobile`         varchar(32) NOT NULL COMMENT '收货人手机号',
-                           `postscript`     varchar(255) DEFAULT NULL COMMENT '订单留言，由用户提交填写',
-                           `pay_id`         int(16) DEFAULT NULL,
-                           `pay_time`       datetime DEFAULT NULL,
-                           `to_buyer`       varchar(255) DEFAULT NULL COMMENT '商家给用户留言',
-                           `type`           varchar(16) NOT NULL,
-                           `created_at`     datetime DEFAULT NULL,
-                           `updated_at`     datetime DEFAULT NULL,
-                           `deleted_at`     datetime DEFAULT NULL,
-                           PRIMARY KEY (`id`),
-                           KEY              `order-product_id` (`product_id`) USING BTREE,
-                           KEY              `order-user_id` (`user_id`) USING BTREE,
-                           CONSTRAINT `order-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE,
-                           CONSTRAINT `order-user_id` FOREIGN KEY (`user_id`) REFERENCES `lied_users` (`id`) ON UPDATE CASCADE
+CREATE TABLE `lied_order`
+(
+  `id`                 int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `temp_id`            varchar(32)  NOT NULL COMMENT '区别订单多商家产生的唯一标识',
+  `temp_sid`           varchar(32)  NOT NULL COMMENT '区别订单单一商家多产品的唯一标识',
+  `order_id`           varchar(32)  NOT NULL COMMENT '订单生成唯一编号',
+  `order_num`          varchar(64)  DEFAULT NULL COMMENT '订单流水支付号',
+  `user_id`            int(16) unsigned NOT NULL,
+  `order_status`       tinyint(1) NOT NULL COMMENT '订单的状态;,0关闭,1正常,2完成,',
+  `shipping_status`    tinyint(1) NOT NULL COMMENT '商品配送情况;0未发货,1已发货,2已收货,3退货',
+  `pay_status`         tinyint(1) NOT NULL COMMENT '支付状态;0未付款;1已付款',
+  `brand_id`           int(16) unsigned NOT NULL COMMENT '商家id',
+  `product_id`         int(16) unsigned NOT NULL COMMENT '产品id',
+  `attr_id`            int(16) NOT NULL,
+  `product_num`        int(4) NOT NULL COMMENT '产品数量',
+  `product_price`      decimal(8,2) NOT NULL COMMENT '产品价格',
+  `product_intergral`  decimal(8,2) NOT NULL COMMENT '产品积分',
+  `total_price`        decimal(8,2) unsigned NOT NULL COMMENT '订单总金额',
+  `total_intergral`    decimal(8,2) unsigned NOT NULL COMMENT '订单总积分',
+  `pay_price`          decimal(8,2) NOT NULL COMMENT '已支付价格',
+  `pay_intergral`      decimal(8,2) NOT NULL COMMENT '已支付的积分',
+  `discount_price`     decimal(8,2) NOT NULL COMMENT '优惠价格',
+  `shipping_fee`       decimal(8,2) NOT NULL COMMENT '配送费用',
+  `region_province_id` int(16) unsigned NOT NULL COMMENT '第一级省id',
+  `region_city_id`     int(16) unsigned NOT NULL COMMENT '第二级市id',
+  `region_area_id`     int(16) unsigned NOT NULL COMMENT '第三级区id',
+  `address`            varchar(255) NOT NULL COMMENT '收货地址',
+  `mobile`             varchar(32)  NOT NULL COMMENT '收货人手机号',
+  `postscript`         varchar(255) DEFAULT NULL COMMENT '订单留言，由用户提交填写',
+  `pay_id`             int(16) DEFAULT NULL,
+  `pay_time`           datetime     DEFAULT NULL,
+  `to_buyer`           varchar(255) DEFAULT NULL COMMENT '商家给用户留言',
+  `type`               varchar(16)  NOT NULL,
+  `created_at`         datetime     DEFAULT NULL,
+  `updated_at`         datetime     DEFAULT NULL,
+  `deleted_at`         datetime     DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY                  `order-product_id` (`product_id`) USING BTREE,
+  KEY                  `order-user_id` (`user_id`) USING BTREE,
+  CONSTRAINT `order-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `order-user_id` FOREIGN KEY (`user_id`) REFERENCES `lied_users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -759,7 +773,7 @@ CREATE TABLE `lied_product` (
                               `is_audit`         tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '审核，1为审核',
                               `is_on_sale`       tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示，1为显示',
                               `created_id`       int(11) unsigned NOT NULL COMMENT '创建者id',
-                              `sort_order`       int(4) unsigned DEFAULT '0' COMMENT '排序',
+                              `sort`             int(4) unsigned DEFAULT '0' COMMENT '排序',
                               `created_at`       datetime              DEFAULT NULL,
                               `updated_at`       datetime              DEFAULT NULL,
                               `deleted_at`       datetime              DEFAULT NULL,
@@ -776,7 +790,8 @@ CREATE TABLE `lied_product` (
 -- Table structure for `lied_product_attr`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_product_attr`;
-CREATE TABLE `lied_product_attr`(
+CREATE TABLE `lied_product_attr`
+(
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL COMMENT '规格名称',
   `sort` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
@@ -799,7 +814,7 @@ CREATE TABLE `lied_product_attr_map`
   `id`              int(11) unsigned NOT NULL AUTO_INCREMENT,
   `product_id`      int(11) unsigned NOT NULL COMMENT '产品id',
   `product_attr_id` int(11) unsigned NOT NULL COMMENT '产品规格id',
-  `sort_order`      int(4) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `sort`            int(4) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
   `created_at`      datetime DEFAULT NULL,
   `updated_at`      datetime DEFAULT NULL,
   `deleted_at`      datetime DEFAULT NULL,
@@ -847,7 +862,7 @@ CREATE TABLE `lied_product_attr_value_map`
   `product_attr_id`       int(11) unsigned NOT NULL COMMENT '产品规格id',
   `product_attr_map_id`   int(11) unsigned NOT NULL COMMENT '产品与规格关系表id',
   `product_attr_value_id` int(11) unsigned NOT NULL COMMENT '产品规格值表id',
-  `sort_order`            int(4) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `sort`                  int(4) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
   `created_at`            datetime DEFAULT NULL,
   `updated_at`            datetime DEFAULT NULL,
   `deleted_at`            datetime DEFAULT NULL,
@@ -887,24 +902,42 @@ CREATE TABLE `lied_product_category`
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `lied_product_medias`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_product_medias`;
+CREATE TABLE `lied_product_medias`
+(
+  `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
+  `media_id`   int(11) unsigned NOT NULL COMMENT '媒体id',
+  `sort`       int(4) NOT NULL COMMENT '排序',
+  UNIQUE KEY `product_media-product_id_media_id_sort` (`product_id`,`media_id`,`sort`) USING BTREE,
+  KEY          `product_media-product_id` (`product_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of lied_product_medias
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `lied_product_seckill`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_product_seckill`;
-CREATE TABLE `lied_product_seckill`(
-                                     `id`            int(16) unsigned NOT NULL AUTO_INCREMENT,
-                                     `product_id`    int(16) unsigned NOT NULL COMMENT '产品id',
-                                     `stock_number`  int(4) unsigned NOT NULL COMMENT '秒杀库存',
-                                     `limit_user`    varchar(128) DEFAULT '0' COMMENT '限定用户',
-                                     `limit_buy_num` int(4) unsigned DEFAULT '0' COMMENT '限定用户购买次数',
-                                     `start_time`    datetime NOT NULL COMMENT '开始时间',
-                                     `end_time`      datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
-                                     `is_show`       tinyint(1) NOT NULL COMMENT '是否显示 1为显示',
-                                     `created_at`    datetime DEFAULT NULL,
-                                     `updated_at`    datetime DEFAULT NULL,
-                                     `deleted_at`    datetime DEFAULT NULL,
-                                     PRIMARY KEY (`id`),
-                                     KEY             `seckill-product_id` (`product_id`) USING BTREE,
-                                     CONSTRAINT `seckill-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE
+CREATE TABLE `lied_product_seckill`
+(
+  `id`            int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `product_id`    int(16) unsigned NOT NULL COMMENT '产品id',
+  `stock_number`  int(4) unsigned NOT NULL COMMENT '秒杀库存',
+  `limit_user`    varchar(128)      DEFAULT '0' COMMENT '限定用户',
+  `limit_buy_num` int(4) unsigned DEFAULT '0' COMMENT '限定用户购买次数',
+  `start_time`    datetime NOT NULL COMMENT '开始时间',
+  `end_time`      datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
+  `is_show`       tinyint(1) NOT NULL COMMENT '是否显示 1为显示',
+  `created_at`    datetime          DEFAULT NULL,
+  `updated_at`    datetime          DEFAULT NULL,
+  `deleted_at`    datetime          DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY             `seckill-product_id` (`product_id`) USING BTREE,
+  CONSTRAINT `seckill-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -918,7 +951,7 @@ DROP TABLE IF EXISTS `lied_product_sku`;
 CREATE TABLE `lied_product_sku` (
                                   `id`         int(11) unsigned NOT NULL AUTO_INCREMENT,
                                   `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
-                                  `attr_key`   varchar(64) NOT NULL COMMENT '销售属性标识 - 链接，按小到大排序',
+                                  `attr_key`   varchar(64) NOT NULL COMMENT '销售属性标识 - 链接，按小到大排序, attr_values表的id',
                                   `media_id`   int(11) unsigned NOT NULL COMMENT '缩略图',
                                   `price`      decimal(8,2) unsigned NOT NULL COMMENT '价格',
                                   `cost_price` decimal(8,2) unsigned NOT NULL COMMENT '成本价格',
@@ -964,7 +997,8 @@ CREATE TABLE `lied_product_sku_stock` (
 -- Table structure for `lied_regions`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_regions`;
-CREATE TABLE `lied_regions`(
+CREATE TABLE `lied_regions`
+(
   `region_id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) unsigned DEFAULT NULL,
   `region_path` varchar(20) DEFAULT NULL,
@@ -7583,7 +7617,8 @@ VALUES ('3240', '3239', ',3239,3240,', '2', '澳门半岛', null, null, null, nu
 -- Table structure for `lied_regions_open`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_regions_open`;
-CREATE TABLE `lied_regions_open`(
+CREATE TABLE `lied_regions_open`
+(
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `region_id` int(16) unsigned NOT NULL COMMENT '开通城市regions表id',
   `is_show` tinyint(1) unsigned DEFAULT '0' COMMENT '显示',
@@ -7602,7 +7637,8 @@ CREATE TABLE `lied_regions_open`(
 -- Table structure for `lied_users`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_users`;
-CREATE TABLE `lied_users`(
+CREATE TABLE `lied_users`
+(
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) CHARACTER SET utf8 NOT NULL COMMENT '用户名',
   `nick_name` varchar(64) CHARACTER SET utf8 DEFAULT '0' COMMENT '真实姓名',
@@ -7628,7 +7664,8 @@ CREATE TABLE `lied_users`(
 -- Table structure for `lied_users_collect`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_users_collect`;
-CREATE TABLE `lied_users_collect`(
+CREATE TABLE `lied_users_collect`
+(
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(16) unsigned NOT NULL COMMENT '用户id',
   `type` tinyint(1) unsigned NOT NULL COMMENT '收藏类型 0-商品 1-文章 2-商家',
@@ -7648,7 +7685,8 @@ CREATE TABLE `lied_users_collect`(
 -- Table structure for `lied_users_comment`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_users_comment`;
-CREATE TABLE `lied_users_comment`(
+CREATE TABLE `lied_users_comment`
+(
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(16) unsigned NOT NULL COMMENT '评论的父节点',
   `type` tinyint(3) unsigned NOT NULL COMMENT '类型 0-产品 1-文章',
@@ -7671,18 +7709,19 @@ CREATE TABLE `lied_users_comment`(
 -- Table structure for `lied_users_coupon`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_users_coupon`;
-CREATE TABLE `lied_users_coupon`(
-                                  `id`              int(16) unsigned NOT NULL,
-                                  `coupon_id`       int(16) unsigned NOT NULL COMMENT '优惠券id',
-                                  `coupon_limit_id` int(16) unsigned NOT NULL COMMENT '优惠券限领取表id',
-                                  `user_id`         int(16) unsigned NOT NULL COMMENT '用户id',
-                                  `use_time`        datetime DEFAULT '0000-00-00 00:00:00' COMMENT '使用时间',
-                                  `created_at`      datetime DEFAULT NULL,
-                                  `updated_at`      datetime DEFAULT NULL,
-                                  `deleted_at`      datetime DEFAULT NULL,
-                                  PRIMARY KEY (`id`),
-                                  KEY               `users_coupon-coupon_id` (`coupon_id`) USING BTREE,
-                                  CONSTRAINT `users_coupon-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE
+CREATE TABLE `lied_users_coupon`
+(
+  `id`              int(16) unsigned NOT NULL,
+  `coupon_id`       int(16) unsigned NOT NULL COMMENT '优惠券id',
+  `coupon_limit_id` int(16) unsigned NOT NULL COMMENT '优惠券限领取表id',
+  `user_id`         int(16) unsigned NOT NULL COMMENT '用户id',
+  `use_time`        datetime DEFAULT '0000-00-00 00:00:00' COMMENT '使用时间',
+  `created_at`      datetime DEFAULT NULL,
+  `updated_at`      datetime DEFAULT NULL,
+  `deleted_at`      datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY               `users_coupon-coupon_id` (`coupon_id`) USING BTREE,
+  CONSTRAINT `users_coupon-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -7693,7 +7732,8 @@ CREATE TABLE `lied_users_coupon`(
 -- Table structure for `lied_users_oauth`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_users_oauth`;
-CREATE TABLE `lied_users_oauth`(
+CREATE TABLE `lied_users_oauth`
+(
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(16) unsigned DEFAULT '0',
   `unionid` varchar(128) DEFAULT '0' COMMENT '多公众号下联合id',

@@ -42,8 +42,8 @@ Route::group([
         $router->resource('sku/category', 'ProductSkuCategoryController');//产品属性分类
         $router->resource('seckill', 'ProductSeckillController');//产品秒杀
 //        $router->resource('order', 'Order\OrderController');//订单
-        $router->resource('/', 'ProductController');//产品
     });
+    $router->resource('product', 'Product\ProductController');//产品
 
 //    品牌路由
     $router->resource('brand/category', 'Brand\BrandCategoryController');

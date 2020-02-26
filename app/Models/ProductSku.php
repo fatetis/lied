@@ -14,8 +14,14 @@ class ProductSku extends BaseModel
      */
     protected $fillable = ['product_id', 'attr_key', 'media_id', 'price', 'cost_price', 'code'];
 
-    public function product()
+    public function stock()
     {
-        return $this->belongsTo(Product::class);
+        return $this->hasOne(ProductSkuStock::class, 'sku_id');
     }
+
+    public function media()
+    {
+        return $this->belongsTo(Media::class, 'media_id');
+    }
+
 }

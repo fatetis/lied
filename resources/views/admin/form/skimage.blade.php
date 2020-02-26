@@ -33,10 +33,12 @@
                         @if(is_array(old($id, $value)))
                             @foreach(old($id, $value) as $p)
                                 <div class="show_upload_pic_item">
-                                    <img src="{{ asset($p) }}" data-original="{{asset($p)}}" style="margin-bottom: 3px;width: 80%;height: 80%" >
+                                    <img src="{{ route('getMedia', $p) }}" data-original="{{ route('getMedia', $p) }}"
+                                         style="margin-bottom: 3px;width: 80%;height: 80%">
                                     <div class="operat_warp" style="display: inline-block">
                                         <input type="hidden" name="{{$id}}[]" value="{{$p}}">
-                                        <a class='example-image-link ' href="{{asset($p)}}" data-lightbox='example-set' data-title=''>预览</a>
+                                        <a class='example-image-link ' href="{{ route('getMedia', $p) }}"
+                                           data-lightbox='example-set' data-title=''>预览</a>
                                         / <a href="javascript:void(0);" onclick="alioss_del_file(this,1,true)" data-filename="{{$p}}">删除</a>
                                     </div>
                                 </div>

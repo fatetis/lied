@@ -18,4 +18,9 @@ class ProductAttr extends BaseModel
      */
     protected $fillable = ['name', 'sort'];
 
+    public function values()
+    {
+        return $this->hasMany(ProductAttrValues::class, 'product_attr_id');
+    }
+
 }

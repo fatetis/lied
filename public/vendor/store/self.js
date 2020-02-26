@@ -515,8 +515,11 @@ $(function () {
             skuDetailTbodyHtml.find('.self_sku_detail_code input').attr('name', 'prosku[' + skuChildId + '][code]');
             //成本价格
             skuDetailTbodyHtml.find('.self_sku_detail_cost_price input').attr('name', 'prosku[' + skuChildId + '][cost_price]');
+            // 库存报警数
+            skuDetailTbodyHtml.find('.self_sku_detail_warn_num input').attr('name', 'prosku[' + skuChildId + '][warn_number]');
             // 销量
             skuDetailTbodyHtml.find('.self_sku_detail_td_last span').eq(0).next().attr('name', 'prosku[' + skuChildId + '][sold_num]');
+
             // 规格id
             skuDetailTbodyHtml.find('.self_sku_detail_td_last')
                 .append('<input type="hidden" value="' + skuChildIndex + '" name="prosku[' + skuChildId + '][attr_key]">');

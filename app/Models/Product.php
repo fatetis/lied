@@ -11,17 +11,12 @@ class Product extends BaseModel
      * @var array
      */
     protected $softCascade = [
-        'sku',
+        'skus',
         'order@restrict',
         'seckill@restrict',
         'productAttr@restrict',
         'productAttrValueMap@restrict'
     ];
-
-    public function sku()
-    {
-        return $this->hasMany(ProductSku::class, 'product_id', 'id');
-    }
 
     public function order()
     {
@@ -42,5 +37,21 @@ class Product extends BaseModel
     {
         return $this->belongsTo(Brand::class,'brand_id','id');
     }
+
+    public function attrs()
+    {
+        return $this->hasMany(ProductAttrMap::class, 'product_id')
+            ->with([
+                'values',
+                'values.value',
+                'attr'
+            ])->orderBy('sort');
+    }
+
+    public function skus()
+    {
+        return $this->hasMany(ProductSku::class, 'product_id')->with(['stock', 'media']);
+    }
+
 
 }

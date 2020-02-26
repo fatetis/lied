@@ -29,8 +29,6 @@ class ProductService extends BaseService {
     public function saveProduct($sku_data, $product_id)
     {
         try {
-//            $sku_data = jd('{"8-13":{"price":"1","stock_num":"2","code":null,"cost_price":"3","sold_num":"0","attr_key":"13-8","media_id":275},"2-13":{"price":"1","stock_num":"2","code":null,"cost_price":"3","sold_num":"0","attr_key":"13-2","media_id":275},"8-11":{"price":"1","stock_num":"2","code":null,"cost_price":"3","sold_num":"0","attr_key":"11-8","media_id":275},"2-11":{"price":"1","stock_num":"2","code":null,"cost_price":"3","sold_num":"0","attr_key":"11-2","media_id":275}}');
-//            $product_id = 6;
 
             if (empty($sku_data) || empty($product_id)) throw new \Exception('参数错误');
 
@@ -46,7 +44,7 @@ class ProductService extends BaseService {
             DB::commit();
             return true;
         } catch (\Exception $exception) {
-            dd($exception->getFile(), $exception->getLine(), $exception->getMessage());
+            elog("商品规格上传失败，产品id：{$product_id},商品规格数据：{$sku_data},第" . $exception->getLine() . '行:' . $exception->getMessage());
             DB::rollBack();
             return $exception->getMessage();
         }
@@ -72,7 +70,7 @@ class ProductService extends BaseService {
                 $insert_attr_map = [
                     'product_id' => $product_id,
                     'product_attr_id' => $key,
-                    'sort_order' => $loop,
+                    'sort' => $loop,
                 ];
                 $attr_map = ProductAttrMap::query()->updateOrCreate($insert_attr_map, $insert_attr_map);
                 $index = count($value) - 1;
@@ -82,7 +80,7 @@ class ProductService extends BaseService {
                         'product_attr_map_id' => $attr_map['id'],
                         'product_attr_id' => $key,
                         'product_attr_value_id' => $val,
-                        'sort_order' => $index,
+                        'sort' => $index,
                     ];
                     ProductAttrValueMap::query()->updateOrCreate($insert_attr_map, $insert_attr_map);
                     $index--;
@@ -154,26 +152,41 @@ class ProductService extends BaseService {
         return true;
     }
 
+
     /**
      * 保存sku库存
-     * @param int $product_id
-     * @param array $products_sku
-     * @param array $sku
+     * @param int $product_id 产品id
+     * @param int $products_sku 产品skuid
+     * @param array $sku sku基础数据
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model
      * Author: fatetis
-     * Date:2020/1/15 001518:01
+     * Date:2020/2/26 002616:13
      */
     public function setSkuStock($product_id, $products_sku, $sku)
     {
 
-        ProductSkuStock::query()
+        return ProductSkuStock::query()
             ->where('product_id', $product_id)
             ->where('sku_id', $products_sku->id)
             ->updateOrCreate([], [
                 'sku_id' => $products_sku->id,
                 'product_id' => $product_id,
                 'quantity' => $sku['stock_num'],
+                'warn_number' => $sku['warn_number'],
             ]);
 
+    }
+
+    public function getProduct($id, $with = [])
+    {
+        try {
+            $aa = Product::query()->with($with)->findOrFail($id);
+            dd($aa);
+        } catch (\Exception $exception) {
+            abort(400, '产品不存在');
+        }
+//        $aa = ProductAttr::query()->where('product_id', $product_id)->with('values')->get();
+//        dd($aa);
     }
 
 

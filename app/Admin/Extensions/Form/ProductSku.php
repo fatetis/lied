@@ -10,6 +10,7 @@ namespace App\Admin\Extensions\Form;
 
 use App\Models\ProductAttr;
 use App\Services\ProductAttrService;
+use App\Services\ProductService;
 use Encore\Admin\Form\Field;
 
 class ProductSku extends Field
@@ -25,10 +26,17 @@ class ProductSku extends Field
 
     public function render()
     {
-        $name = $this->formatName($this->column);
+//        $name = $this->formatName($this->column);
 //        $attrData = ProductAttr::get([],['created_at' => 'desc'],[],['id','name']);
-        $attrData = ProductAttr::query()->orderBy('created_at', 'desc')->select('id', 'name')->get();
-        $this->variables = ['attrData' => $attrData];
+
+//        获取产品数据
+        $product_id = request()->route()->product;
+        $product_service = new ProductService();
+        $product_attr_data = $product_service->getProduct($product_id, ['attrs', 'skus']);
+        dd($product_attr_data);
+//        属性选择数据
+        $attr_data = ProductAttr::query()->orderBy('created_at', 'desc')->select('id', 'name')->get();
+        $this->variables = ['attrData' => $attr_data, 'product_attr_data' => $product_attr_data];
 
         $this->script = <<<EOT
 

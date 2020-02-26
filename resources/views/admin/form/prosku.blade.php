@@ -477,10 +477,70 @@
                     </div>
                 </div>
             </td>
+            <td>
+                <div class="ant-row ant-form-item">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                            <div class="ant-input-number"
+                                 style="width: 100px;">
+                                <div class="ant-input-number-handler-wrap">
+                                    <span unselectable="unselectable"
+                                          role="button"
+                                          aria-label="Increase Value"
+                                          aria-disabled="false"
+                                          class="ant-input-number-handler ant-input-number-handler-up ">
+                                        <i aria-label="图标: up"
+                                           class="anticon anticon-up ant-input-number-handler-up-inner">
+                                            <svg viewBox="64 64 896 896"
+                                                 class="" data-icon="up"
+                                                 width="1em" height="1em"
+                                                 fill="currentColor"
+                                                 aria-hidden="true">
+                                                <path
+                                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z">
+                                                </path>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                    <span unselectable="unselectable"
+                                          role="button"
+                                          aria-label="Decrease Value"
+                                          aria-disabled="false"
+                                          class="ant-input-number-handler ant-input-number-handler-down ">
+                                        <i aria-label="图标: down"
+                                           class="anticon anticon-down ant-input-number-handler-down-inner">
+                                            <svg viewBox="64 64 896 896"
+                                                 class="" data-icon="down"
+                                                 width="1em" height="1em"
+                                                 fill="currentColor"
+                                                 aria-hidden="true">
+                                                <path
+                                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                </path>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                </div>
+                                <div class="ant-input-number-input-wrap self_sku_detail_warn_num"
+                                     role="spinbutton" aria-valuemin="0">
+                                    <input class="ant-input-number-input"
+                                           autocomplete="off" min="0"
+                                           step="1"
+                                           value="">
+                                </div>
+                            </div>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </td>
             <td class="self_sku_detail_td_last">
                 <span value="0">0</span>
                 <input type="hidden" value="0">
             </td>
+
+
         </tr>
     </table>
     {{--弹窗提示--}}
@@ -527,8 +587,6 @@
                 </div>
             </div>
         </div>
-
-        <input type="hidden" name="{{$name}}" value="{{ old($column, $value) }}"/>
     </div>
 
 </div>
@@ -596,9 +654,13 @@
 															</i>
 														</a>
 													</th>
+                                                    <th class="text-right">
+														库存报警数
+													</th>
 													<th class="text-right">
 														销量
 													</th>
+
 												</tr>
 											</thead>
 											<tbody class="ant-table-tbody self_sku_detail_body">
