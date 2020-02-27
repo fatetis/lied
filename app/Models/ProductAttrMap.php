@@ -19,7 +19,7 @@ class ProductAttrMap extends BaseModel
     public function values()
     {
         return $this->hasMany(ProductAttrValueMap::class, 'product_attr_map_id', 'id')
-            ->orderBy('sort');
+            ->orderByDesc('sort');
     }
 
 }

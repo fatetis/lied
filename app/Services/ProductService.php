@@ -177,11 +177,10 @@ class ProductService extends BaseService {
 
     }
 
-    public function getProduct($id, $with = [])
+    public function getProductById($id, $with = [])
     {
         try {
-            $aa = Product::query()->with($with)->findOrFail($id);
-            dd($aa);
+            return Product::query()->with($with)->findOrFail($id);
         } catch (\Exception $exception) {
             abort(400, '产品不存在');
         }

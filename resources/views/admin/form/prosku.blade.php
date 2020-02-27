@@ -536,7 +536,7 @@
                 </div>
             </td>
             <td class="self_sku_detail_td_last">
-                <span value="0">0</span>
+                <span>0</span>
                 <input type="hidden" value="0">
             </td>
 
@@ -572,6 +572,181 @@
                 <span class="ant-form-item-children">
                     <div class="ant-card ant-card-bordered ant-card-wider-padding ant-card-padding-transition">
                         <div class="ant-card-body" style="padding: 0px;">
+                                @if(!empty($product_attr_data))
+                                @forelse($product_attr_data['attrs'] as $key => $val)
+                                    <div class="self_sku_additem self_auto_sku_container">
+        <div class="antd-pro-pages-goods-widget-styles-sku_group_title ">
+                        <span>
+                            规格名：
+                        </span>
+            <div class="f-c" style="flex: 1 1 0%;">
+                <div class="ant-select ant-select-enabled" style="width: 150px;">
+                    <div class="ant-select-selection
+                                ant-select-selection--single" role="combobox" aria-autocomplete="list"
+                         aria-haspopup="true" aria-expanded="false"
+                         tabindex="0">
+                        <div class="ant-select-selection__rendered">
+                            {{--规格名显示框--}}
+                            <div class="ant-select-selection-selected-value" title=""
+                                 style="display: block; opacity: 1;">{{ $val['attr']['name'] }}
+                            </div>
+                            <div class="ant-select-search ant-select-search--inline" style="display: none;">
+                                <div class="ant-select-search__field__wrap">
+                                    <input data-url="{{ route('proAttrGetApi', ['_token'=>csrf_token()]) }}"
+                                           data-create-url="{{ route('proAttrCreateApi', ['_token'=>csrf_token()]) }}"
+                                           autocomplete="off" class="ant-select-search__field" value="">
+                                    <input class="self_attr" type="hidden" value="{{ $val['id'] }}">
+                                    <span class="ant-select-search__field__mirror">
+                                        &nbsp;
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ant-select-arrow" unselectable="on" style="user-select: none;">
+                                        <i aria-label="图标: down"
+                                           class="anticon anticon-down ant-select-arrow-icon">
+                                            <svg viewBox="64 64 896 896" class="" data-icon="down" width="1em"
+                                                 height="1em"
+                                                 fill="currentColor" aria-hidden="true">
+                                                <path
+                                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                </path>
+                                            </svg>
+                                        </i>
+                                    </span>
+                    </div>
+                </div>
+                @if($loop->index == 0)
+                    <div class="f-c-c font-12 ml-10 self_sku_picture">
+                    <label class="ant-checkbox-wrapper">
+                                    <span class="ant-checkbox self_style_control">
+                                        <input type="checkbox" class="ant-checkbox-input" value="">
+                                        <span class="ant-checkbox-inner">
+                                        </span>
+                                    </span>
+                        <span>
+                                        <a>
+                                            添加规格图片
+
+                                        </a>
+                                    </span>
+                    </label>
+                </div>
+                @endif
+            </div>
+            {{--规格名叉叉--}}
+            <a style="line-height: 1;" class="self-sku-error">
+                <i aria-label="图标: close-circle" class="anticon anticon-close-circle"
+                   style="font-size: 16px;">
+                    <svg viewBox="64 64 896 896" class="" data-icon="close-circle" width="1em"
+                         height="1em" fill="currentColor" aria-hidden="true">
+                        <path
+                                d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 0 0-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z">
+                        </path>
+                        <path
+                                d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z">
+                        </path>
+                    </svg>
+                </i>
+            </a>
+        </div>
+        <div class="antd-pro-pages-goods-widget-styles-sku_group_container">
+                        <span style="flex-shrink: 0; line-height: 30px;">
+                            规格值：
+                        </span>
+            <div class="flex self_sku" style="flex-wrap: wrap; flex: 1 1 0%;">
+                                    @forelse($val['values'] as $k => $v)
+
+                    {{--规格值框框--}}
+                    <div class="mr-10 mb-10 antd-pro-pages-goods-widget-styles-sku_values_item self_sku_item">
+        <div class="ant-select ant-select-enabled self_random_key " style="width: 150px;">
+            <div class="ant-select-selection
+                                    ant-select-selection--single" role="combobox" aria-autocomplete="list"
+                 aria-haspopup="true"
+                 aria-controls="ddecfc9c-c099-4627-bba2-3b4384958ce7"
+                 aria-expanded="false"
+                 tabindex="0">
+                <div class="ant-select-selection__rendered ">
+                    {{--规格值显示框--}}
+                    <div class="ant-select-selection-selected-value" title=""
+                         style="display: block; opacity: 1;">
+                        {{ $v['value']['name'] }}
+                    </div>
+                    <div class="ant-select-search ant-select-search--inline"
+                         style="display: none;">
+                        <div class="ant-select-search__field__wrap">
+                            {{--data-url：查找url；data-create-url：创建url--}}
+                            <input autocomplete="off" class="ant-select-search__field"
+                                   data-url="{{ route('proAttrValueGetApi', ['_token'=>csrf_token()]) }}"
+                                   data-create-url="{{ route('proAttrValueCreateApi', ['_token'=>csrf_token()]) }}"
+                                   value="">
+                            <input class="self_attr_value" type="hidden" value="{{ $v['id'] }}">
+                            <span class="ant-select-search__field__mirror">
+                                                        &nbsp;
+                                                    </span>
+                        </div>
+                    </div>
+                </div>
+                <span class="ant-select-arrow" unselectable="on"
+                      style="user-select: none;">
+                                            <i aria-label="图标: down"
+                                               class="anticon anticon-down ant-select-arrow-icon">
+                                                <svg viewBox="64 64 896 896" class="" data-icon="down"
+                                                     width="1em" height="1em"
+                                                     fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                                    </path>
+                                                </svg>
+                                            </i>
+                                        </span>
+            </div>
+        </div>
+        <a class="antd-pro-pages-goods-widget-styles-sku_values_item_del_btn self-sku-value-error">
+            <i aria-label="图标: close-circle" class="anticon anticon-close-circle"
+               style="font-size: 15px;">
+                <svg viewBox="64 64 896 896" class="" data-icon="close-circle"
+                     width="1em"
+                     height="1em" fill="currentColor" aria-hidden="true">
+                    <path fill="#1890ff"
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z">
+                    </path>
+                    <path fill="#e6f7ff"
+                          d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm171.8 527.1c1.2 1.5 1.9 3.3 1.9 5.2 0 4.5-3.6 8-8 8l-66-.3-99.3-118.4-99.3 118.5-66.1.3c-4.4 0-8-3.6-8-8 0-1.9.7-3.7 1.9-5.2L471 512.3l-130.1-155a8.32 8.32 0 0 1-1.9-5.2c0-4.5 3.6-8 8-8l66.1.3 99.3 118.4 99.4-118.5 66-.3c4.4 0 8 3.6 8 8 0 1.9-.6 3.8-1.8 5.2l-130.1 155 129.9 154.9z">
+                    </path>
+                    <path fill="#1890ff"
+                          d="M685.8 352c0-4.4-3.6-8-8-8l-66 .3-99.4 118.5-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155-130.1 154.9a8.32 8.32 0 0 0-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3 99.3-118.5L611.7 680l66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.9 512.2l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z">
+                    </path>
+                </svg>
+            </i>
+        </a>
+
+    </div>
+                @empty
+                @endforelse
+                <button type="button" class="ant-btn mb-10 self-sku-add" style="flex-shrink: 0;">
+                    <i aria-label="图标: plus" class="anticon anticon-plus">
+                        <svg viewBox="64 64 896 896" class="" data-icon="plus" width="1em"
+                             height="1em"
+                             fill="currentColor" aria-hidden="true">
+                            <path
+                                    d="M848 474H550V152h-76v322H176c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h298v322h76V550h298c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z">
+                            </path>
+                        </svg>
+                    </i>
+                    <span>
+                                    添加规格值
+                                </span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+                                @empty
+                                @endforelse
+                                {{--服务器sku数据--}}
+                                <input type="hidden" name="sku_attr" value="{{ $product_attr_data['skus'] }}">
+                            @endif
                             <div class="antd-pro-pages-goods-widget-styles-sku_group_title">
                                 <button type="button" class="ant-btn ant-btn-primary self-sku-additem">
                                     <span>
@@ -606,10 +781,10 @@
 											<thead class="ant-table-thead self_sku_detail_thead">
 												<tr>
 													{{--<th class="th-sku">--}}
-														{{--<span>--}}
-															{{--颜色--}}
-														{{--</span>--}}
-													{{--</th>--}}
+                                                    {{--<span>--}}
+                                                    {{--颜色--}}
+                                                    {{--</span>--}}
+                                                    {{--</th>--}}
 													<th class="th-price">
 														价格（元）
 													</th>
@@ -654,7 +829,7 @@
 															</i>
 														</a>
 													</th>
-                                                    <th class="text-right">
+                                                    <th class="text-warn_num">
 														库存报警数
 													</th>
 													<th class="text-right">
@@ -664,7 +839,6 @@
 												</tr>
 											</thead>
 											<tbody class="ant-table-tbody self_sku_detail_body">
-
 											</tbody>
 										</table>
 									</div>

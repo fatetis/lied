@@ -45,7 +45,7 @@ class Product extends BaseModel
                 'values',
                 'values.value',
                 'attr'
-            ])->orderBy('sort');
+            ])->orderByDesc('sort');
     }
 
     public function skus()

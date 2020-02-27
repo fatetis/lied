@@ -29,14 +29,19 @@ class ProductSku extends Field
 //        $name = $this->formatName($this->column);
 //        $attrData = ProductAttr::get([],['created_at' => 'desc'],[],['id','name']);
 
-//        获取产品数据
-        $product_id = request()->route()->product;
-        $product_service = new ProductService();
-        $product_attr_data = $product_service->getProduct($product_id, ['attrs', 'skus']);
-        dd($product_attr_data);
 //        属性选择数据
         $attr_data = ProductAttr::query()->orderBy('created_at', 'desc')->select('id', 'name')->get();
-        $this->variables = ['attrData' => $attr_data, 'product_attr_data' => $product_attr_data];
+//        获取产品数据
+        $product_id = request()->route()->product;
+        if (!empty($product_id)) {
+            $product_service = new ProductService();
+            $product_attr_data = $product_service->getProductById($product_id, ['attrs', 'skus']);
+        }
+
+        $this->variables = ['attrData' => $attr_data, 'product_attr_data' => $product_attr_data ?? []];
+//        dd($this->variables);
+
+
 
         $this->script = <<<EOT
 

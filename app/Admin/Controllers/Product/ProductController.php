@@ -64,9 +64,9 @@ class ProductController extends Controller
      */
     public function edit($id, Content $content)
     {
-        $product_id = request()->route()->product;
-        $aa = $this->productService->getProduct($product_id, ['attrs', 'skus']);
-        dd($aa);
+//        $product_id = request()->route()->product;
+//        $aa = $this->productService->getProductById($product_id, ['attrs', 'skus']);
+//        dd($aa);
         return $content
             ->header('产品管理')
             ->description('编辑')
