@@ -36,17 +36,22 @@ class ProductSku extends Field
         if (!empty($product_id)) {
             $product_service = new ProductService();
             $product_attr_data = $product_service->getProductById($product_id, ['attrs', 'skus']);
-        }
-
-        $this->variables = ['attrData' => $attr_data, 'product_attr_data' => $product_attr_data ?? []];
-//        dd($this->variables);
-
-
-
-        $this->script = <<<EOT
+            if (!empty($product_attr_data)) {
+                $media_id_arr = array_values(array_unique(array_column($product_attr_data['skus']->toArray(), 'media_id')));
+            }
+            $this->script = <<<EOT
+        
+    addSkuDetail();
 
 
 EOT;
+        }
+
+        $this->variables = ['attrData' => $attr_data, 'product_attr_data' => $product_attr_data ?? [], 'media_id_arr' => $media_id_arr ?? [],];
+
+
+
+
         return parent::render();
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Models\ProductCategory;
+use App\Models\ProductSku;
 use App\Services\ProductService;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Facades\Admin;
@@ -94,6 +95,7 @@ class ProductController extends Controller
      */
     protected function grid()
     {
+
         $grid = new Grid(new Product);
         $grid->model()->orderBy('updated_at', 'desc');
         $grid->model()->orderBy('id', 'desc');
@@ -202,7 +204,8 @@ class ProductController extends Controller
             $form->currency('price', '销售价格')->symbol('￥')->required();
             $form->skmedia('picture', '产品banner图')->attribute('images')->attribute([
                 'upload_url' => urlStandard('product_picture'),
-                'data-multi' => true
+                'data-multi' => true,
+                'value' => je($this->productService->getProductMedia(request()->route()->product)),
             ])->help('上传图片宽*高为750*750')->required();
 
             $form->text('description', '简要描述');
@@ -227,11 +230,14 @@ class ProductController extends Controller
         });
 
         $form->ignore('prosku');
+        $form->ignore('picture');
 
 
         $form->saving(function (Form $form){
+
 //            商品规格属性判断
             $prosku = request('prosku');
+
             if (!empty($prosku) && count($prosku) != count(array_filter(array_column($prosku, 'media_id')))) {
                 $error = new MessageBag([
                     'title' => '错误信息',
@@ -243,8 +249,10 @@ class ProductController extends Controller
 
         $form->saved(function (Form $form){
             $prosku = request('prosku');
-            $result = $this->productService->saveProduct($prosku, $form->model()->id);
-            if (!$result) {
+            $picture = request('picture');
+            $picture_result = $this->productService->dealProductMediaData($form->model()->id, $picture);
+            $prosku_result = $this->productService->saveProduct($prosku, $form->model()->id);
+            if (!$prosku_result || $picture_result !== true) {
                 $form->model()->delete();
                 $error = new MessageBag([
                     'title' => '错误信息',

@@ -53,5 +53,10 @@ class Product extends BaseModel
         return $this->hasMany(ProductSku::class, 'product_id')->with(['stock', 'media']);
     }
 
+    public function medias()
+    {
+        return $this->hasMany(ProductMedias::class, 'product_id')->with(['media']);
+    }
+
 
 }

@@ -46,7 +46,9 @@ alioss_upload('{$name}','$token');
 
 EOT;
         }
-
+        if (array_key_exists('value', $this->attributes) && !empty($this->attributes['value'])) {
+            $this->value = jd($this->attributes['value']);
+        }
         return parent::render();
     }
 

@@ -572,7 +572,7 @@
                 <span class="ant-form-item-children">
                     <div class="ant-card ant-card-bordered ant-card-wider-padding ant-card-padding-transition">
                         <div class="ant-card-body" style="padding: 0px;">
-                                @if(!empty($product_attr_data))
+                            @if(!empty($product_attr_data))
                                 @forelse($product_attr_data['attrs'] as $key => $val)
                                     <div class="self_sku_additem self_auto_sku_container">
         <div class="antd-pro-pages-goods-widget-styles-sku_group_title ">
@@ -618,20 +618,20 @@
                 </div>
                 @if($loop->index == 0)
                     <div class="f-c-c font-12 ml-10 self_sku_picture">
-                    <label class="ant-checkbox-wrapper">
-                                    <span class="ant-checkbox self_style_control">
-                                        <input type="checkbox" class="ant-checkbox-input" value="">
-                                        <span class="ant-checkbox-inner">
+                        <label class="ant-checkbox-wrapper">
+                                        <span class="ant-checkbox self_style_control ant-checkbox-checked">
+                                            <input type="checkbox" class="ant-checkbox-input" value="">
+                                            <span class="ant-checkbox-inner">
+                                            </span>
                                         </span>
-                                    </span>
-                        <span>
-                                        <a>
-                                            添加规格图片
+                            <span>
+                                            <a>
+                                                添加规格图片
 
-                                        </a>
-                                    </span>
-                    </label>
-                </div>
+                                            </a>
+                                        </span>
+                        </label>
+                    </div>
                 @endif
             </div>
             {{--规格名叉叉--}}
@@ -680,7 +680,8 @@
                                    data-url="{{ route('proAttrValueGetApi', ['_token'=>csrf_token()]) }}"
                                    data-create-url="{{ route('proAttrValueCreateApi', ['_token'=>csrf_token()]) }}"
                                    value="">
-                            <input class="self_attr_value" type="hidden" value="{{ $v['id'] }}">
+                            {{--attr_value_id表id--}}
+                            <input class="self_attr_value" type="hidden" value="{{ $v['value']['id'] }}">
                             <span class="ant-select-search__field__mirror">
                                                         &nbsp;
                                                     </span>
@@ -720,7 +721,67 @@
                 </svg>
             </i>
         </a>
+                    {{--缩略图数据--}}
+                        @if($key == 0)
+                            {{--@foreach($media_id_arr as $data)--}}
 
+                            <div style="float: unset;margin-top: 15px;position: relative;width: 104px"
+                                 class="ant-upload-list ant-upload-list-picture-card self_pic_clone">
+        <div class="antd-pro-pages-goods-widget-styles-arrow jiantou"></div>
+        <div class="ant-upload-list-item ant-upload-list-item-done">
+            <div class="self_upload" style="height: 100%; cursor: pointer; display: none">
+            <span class="ant-upload-list-item-actions" style="opacity: 1">
+                <i aria-label="图标: plus-circle" class="anticon anticon-plus-circle">
+                <svg viewBox="64 64 896 896" class="" data-icon="plus-circle" width="1em" height="1em"
+                     fill="currentColor"
+                     aria-hidden="true">
+                <path d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"></path>
+                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>
+                </svg>
+                </i>添加图片
+            </span>
+            </div>
+
+            <div class="self_uploading" style="height: 100%; display: none">
+            <span class="ant-upload-list-item-actions"
+                  style="opacity: 1; display: inline-block; width: 48px; height: 48px; text-align: center; line-height: 48px; font-size: 12px; border-radius: 50%; background-color: #1890ff; color: #ffffff">
+                0%
+            </span>
+            </div>
+
+            <div class="self_uploaded" style="display: block; height: 100%;">
+                <div class="ant-upload-list-item-info">
+                    <span>
+                        <a target="_blank" rel="noopener noreferrer" class="ant-upload-list-item-thumbnail">
+                            <img src="{{ route('getMedia', $media_id_arr[$k]) }}"/>
+                        </a>
+                    </span>
+                </div>
+                <input class="media_id" type="hidden" value="{{ $media_id_arr[$k] }}">
+                <span class="ant-upload-list-item-actions">
+                <a target="_blank" title="预览文件" rel="noopener noreferrer"
+                   href="{{ route('getMedia', $media_id_arr[$k]) }}">
+                    <i aria-label="图标: eye-o" class="anticon anticon-eye-o">
+                        <svg viewBox="64 64 896 896" class="" data-icon="eye" width="1em" height="1em"
+                             fill="currentColor"
+                             aria-hidden="true">
+                        <path d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path>
+                        </svg>
+                    </i>
+                </a>
+                <i aria-label="图标: delete" title="删除文件" tabindex="-1" class="anticon anticon-delete">
+                    <svg viewbox="64 64 896 896" class="" data-icon="delete" width="1em" height="1em"
+                         fill="currentColor"
+                         aria-hidden="true">
+                    <path d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"></path>
+                    </svg>
+                </i>
+                </span>
+            </div>
+        </div>
+    </div>
+                            {{--@endforeach--}}
+                        @endif
     </div>
                 @empty
                 @endforelse
@@ -887,6 +948,23 @@
 														</span>
 													</span>
 													<span class="ant-input-group-addon" data-group-type='const_price'>
+														<a>
+															设置
+														</a>
+													</span>
+												</span>
+											</span>
+										</div>
+                                        <div class="mr-10">
+											<span class="ant-input-group-wrapper" style="width: 150px;">
+												<span class="ant-input-wrapper ant-input-group">
+													<span class="ant-input-affix-wrapper">
+														<input placeholder="库存报警数" type="text" class="ant-input"
+                                                               value="">
+														<span class="ant-input-suffix">
+														</span>
+													</span>
+													<span class="ant-input-group-addon" data-group-type='warn_num'>
 														<a>
 															设置
 														</a>

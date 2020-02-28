@@ -559,6 +559,9 @@ $(function () {
 
     };
 
+    // 设置为全局方法
+    window.addSkuDetail = addSkuDetail;
+
     function trim(str) { //删除左右两端的空格
         return str.replace(/(^\s*)|(\s*$)/g, "");
     }
@@ -703,6 +706,9 @@ $(function () {
             case 'stock' :
                 oparateObj = $('.self_sku_detail_container .self_sku_detail_stock_num input');
                 break;
+            case 'warn_num' :
+                oparateObj = $('.self_sku_detail_container .self_sku_detail_warn_num input');
+                break;
         }
         eachBatchVal(val, oparateObj, self_batch_value);
     })
@@ -772,7 +778,8 @@ $(function () {
             that.removeClass('ant-tooltip-open')
         }
     });
-    addSkuDetail();
+
+
 })
 
 
