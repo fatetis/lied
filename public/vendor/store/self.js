@@ -48,18 +48,30 @@ $(function () {
             skuAddHtml.find(".self_sku_picture").eq(0).remove();
         }
         skuAddHtml.addClass('self_auto_sku_container');
+        // 上一个规格名的id
+        let pre = $(this).parent().prev().find('.antd-pro-pages-goods-widget-styles-sku_group_title .ant-select-search__field').next().val()
+        let pre_val = $(this).parent().prev().find('.self_sku_item .ant-select-search__field').last().next().val()
+        if (pre == '') {
+            toastr.error('请先添加规格名');
+            return false;
+        }
+        if ((pre != undefined && pre_val == undefined) || (pre != undefined && pre_val == '')) {
+            toastr.error('请先添加规格值');
+            return false;
+        }
         $(this).parent().before(skuAddHtml);
         // $('.self_sku_container .self_sku_picture').eq(0).remove();
         if(addHtmlObj.length > 2){
             $(this).attr({'disabled': ''})
         }
+
     })
 
     //删除规格事件
     $(document).on('click', '.self-sku-error', function () {
         $(this).parents('.self_sku_additem').remove();
         addSkuDetail();
-        if($('.self_sku_additem').length <= 5){
+        if ($('.self_sku_additem').length <= 3) {
             $('.self-sku-additem').removeAttr('disabled')
         }
     })
@@ -483,6 +495,7 @@ $(function () {
 
         //规格值自由组合的数据
         let skuCombine = permutation(skuDataJson.skuDetailJson);
+
         //规格名html模板渲染
         $.each(skuDetailNameJson, function(key,value) {
             skuDeatailTheadStr += '<th class="th-sku">'+value+'</th>';
@@ -605,6 +618,7 @@ $(function () {
     const permutation = (source) => {
         const result = [];
         const _result = {};
+        // if(source == undefined) return false;
         const convert = (arr, index) => {
             if(source[arr[index]] == undefined) return false;
             for (let i = 0; i < source[arr[index]].length; i++) {
