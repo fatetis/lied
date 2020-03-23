@@ -65,6 +65,7 @@ class ProductService extends BaseService {
         try {
             $product_attr_id_arr = $this->dealAttrValueData($attr_key);
             $loop = count($product_attr_id_arr) - 1;
+
             collect($product_attr_id_arr)->map(function ($value, $key) use ($product_attr_id_arr, $product_id, &$loop) {
                 $insert_attr_map = [
                     'product_id' => $product_id,
@@ -240,6 +241,7 @@ class ProductService extends BaseService {
      */
     public function saveProductMedia($product_id, $media_id, $sort)
     {
+        ProductMedias::query()->where('product_id', $product_id)->delete();
         return ProductMedias::query()->updateOrCreate([
             'product_id' => $product_id,
             'media_id' => $media_id,

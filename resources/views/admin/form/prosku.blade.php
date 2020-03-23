@@ -559,6 +559,10 @@
 {{--数据存放--}}
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" name="_date" value="{{ date('Ymd') }}">
+@if(!empty($product_attr_data))
+    {{--服务器sku数据--}}
+    <input type="hidden" name="sku_attr" value="{{ $product_attr_data['skus'] }}">
+@endif
 
 {{--正文--}}
 <div class="form-group {!! !$errors->has($label) ?: 'has-error' !!}">
@@ -573,6 +577,8 @@
                     <div class="ant-card ant-card-bordered ant-card-wider-padding ant-card-padding-transition">
                         <div class="ant-card-body" style="padding: 0px;">
                             @if(!empty($product_attr_data))
+                                {{--服务器sku数据--}}
+                                <input type="hidden" name="sku_attr" value="{{ $product_attr_data['skus'] }}">
                                 @forelse($product_attr_data['attrs'] as $key => $val)
                                     <div class="self_sku_additem self_auto_sku_container">
         <div class="antd-pro-pages-goods-widget-styles-sku_group_title ">
@@ -580,7 +586,7 @@
                             规格名：
                         </span>
             <div class="f-c" style="flex: 1 1 0%;">
-                <div class="ant-select ant-select-enabled" style="width: 150px;">
+                <div class="ant-select ant-select-enabled " style="width: 150px;" data-select1-obj="">
                     <div class="ant-select-selection
                                 ant-select-selection--single" role="combobox" aria-autocomplete="list"
                          aria-haspopup="true" aria-expanded="false"
@@ -595,7 +601,7 @@
                                     <input data-url="{{ route('proAttrGetApi', ['_token'=>csrf_token()]) }}"
                                            data-create-url="{{ route('proAttrCreateApi', ['_token'=>csrf_token()]) }}"
                                            autocomplete="off" class="ant-select-search__field" value="">
-                                    <input class="self_attr" type="hidden" value="{{ $val['id'] }}">
+                                    <input class="self_attr" type="hidden" value="{{ $val['product_attr_id'] }}">
                                     <span class="ant-select-search__field__mirror">
                                         &nbsp;
                                     </span>
@@ -659,7 +665,7 @@
 
                     {{--规格值框框--}}
                     <div class="mr-10 mb-10 antd-pro-pages-goods-widget-styles-sku_values_item self_sku_item">
-        <div class="ant-select ant-select-enabled self_random_key " style="width: 150px;">
+        <div class="ant-select ant-select-enabled self_random_key " style="width: 150px;" data-select1-obj="">
             <div class="ant-select-selection
                                     ant-select-selection--single" role="combobox" aria-autocomplete="list"
                  aria-haspopup="true"
@@ -679,7 +685,7 @@
                             <input autocomplete="off" class="ant-select-search__field"
                                    data-url="{{ route('proAttrValueGetApi', ['_token'=>csrf_token()]) }}"
                                    data-create-url="{{ route('proAttrValueCreateApi', ['_token'=>csrf_token()]) }}"
-                                   value="">
+                                   value="" data-child="1">
                             {{--attr_value_id表id--}}
                             <input class="self_attr_value" type="hidden" value="{{ $v['value']['id'] }}">
                             <span class="ant-select-search__field__mirror">
@@ -805,8 +811,7 @@
     </div>
                                 @empty
                                 @endforelse
-                                {{--服务器sku数据--}}
-                                <input type="hidden" name="sku_attr" value="{{ $product_attr_data['skus'] }}">
+
                             @endif
                             <div class="antd-pro-pages-goods-widget-styles-sku_group_title">
                                 <button type="button" class="ant-btn ant-btn-primary self-sku-additem">
@@ -826,6 +831,7 @@
     </div>
 
 </div>
+
 
 <div class="form-group {!! !$errors->has($label) ?: 'has-error' !!} self_sku_detail_container" style="display: none">
     <label class="col-sm-2 control-label">规格明细</label>

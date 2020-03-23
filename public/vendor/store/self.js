@@ -7,6 +7,7 @@ $(function () {
         let pid = that.parents('.self_sku_additem').find('.antd-pro-pages-goods-widget-styles-sku_group_title .ant-select-search__field').next().val();//获取父级pid的value值
         let prevVal = that.prev().find('.ant-select-search__field').next().val();//input框value值
         let skuHtml = $('.prehtml .self_sku_item').clone();//模板库克隆
+
         if(pid == ''){
             toastr.error('请先添加规格名');
             return false;
@@ -95,6 +96,7 @@ $(function () {
         }else{
             thatInline.css('display','block').prev().css({'display':'none', 'opacity':'0.4'}) //改变状态显示
         }
+
         if(thatInlineInput.data('child') != 1){
             //父级元素值改变，子元素select框移除
             let childObj = that.parents('.self_sku_additem').find('.self_sku .ant-select');
@@ -153,7 +155,6 @@ $(function () {
         }
         $(document.body).append(selectHtml);
         selectShow(key,top,thatHeight,left,thatWidth)
-
     })
 
     //改变li状态：不可选、选中、可选
