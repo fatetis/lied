@@ -2,15 +2,14 @@
 
 namespace App\Services;
 
+use App\Exceptions\SelfException;
 use App\Models\Product;
-use App\Models\ProductAttr;
 use App\Models\ProductAttrMap;
 use App\Models\ProductAttrValueMap;
 use App\Models\ProductAttrValues;
 use App\Models\ProductMedias;
 use App\Models\ProductSku;
 use App\Models\ProductSkuStock;
-use Encore\Admin\Facades\Admin;
 use Illuminate\Support\Facades\DB;
 
 class ProductService extends BaseService {
@@ -30,22 +29,31 @@ class ProductService extends BaseService {
     public function saveProduct($sku_data, $product_id)
     {
         try {
+//            $sku_data = jd('{"8-13":{"price":"1","stock_num":"2","code":null,"cost_price":"3","sold_num":"0","attr_key":"13-8","media_id":null},"2-13":{"price":"1","stock_num":"2","code":null,"cost_price":"3","sold_num":"0","attr_key":"13-2","media_id":null},"8-11":{"price":"1","stock_num":"2","code":null,"cost_price":"3","sold_num":"0","attr_key":"11-8","media_id":null},"2-11":{"price":"1","stock_num":"2","code":null,"cost_price":"3","sold_num":"0","attr_key":"11-2","media_id":null}}');
+//            $product_id = 6;
 
-            if (empty($sku_data) || empty($product_id)) throw new \Exception('参数错误');
-
+            if (empty($product_id)) throw new SelfException('参数错误');
+            if (empty($sku_data)) return true;
             $attr_key = array_column($sku_data, 'attr_key');
-            if (count($attr_key) != count(array_filter($attr_key))) throw new \Exception('sku属性错误');
+            if (count($attr_key) != count(array_filter($attr_key))) throw new SelfException('sku属性错误');
+
+            // 重置商品信息
+            $del_result = $this->delProInfo($product_id);
+            if ($del_result !== true) throw new SelfException('商品信息重置失败');
 
             DB::beginTransaction();
             $attr_result = $this->saveProductAttr($attr_key, $product_id);
             $sku_result = $this->saveProductSku($sku_data, $product_id);
-
-            if ($attr_result !== true || $sku_result !== true) throw new \Exception($attr_result . ',after:' . $sku_result);
+            if ($attr_result !== true || $sku_result !== true) throw new SelfException($attr_result . ',after:' . $sku_result);
             DB::commit();
+
             return true;
-        } catch (\Exception $exception) {
-            elog("商品规格上传失败，产品id：{$product_id},商品规格数据：" . je($sku_data) . ",第" . $exception->getLine() . '行:' . $exception->getMessage());
+        } catch (SelfException $selfException) {
             DB::rollBack();
+            return $selfException->getMessage();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            elog("商品规格上传失败，产品id：{$product_id},商品规格数据：" . je($sku_data) . ",第" . $exception->getLine() . '行:' . $exception->getMessage());
             return $exception->getMessage();
         }
 
@@ -72,7 +80,9 @@ class ProductService extends BaseService {
                     'product_attr_id' => $key,
                     'sort' => $loop,
                 ];
-                $attr_map = ProductAttrMap::query()->updateOrCreate($insert_attr_map, $insert_attr_map);
+                $attr_map = ProductAttrMap::query()->withTrashed()->updateOrCreate($insert_attr_map, array_merge($insert_attr_map, [
+                    'deleted_at' => null,
+                ]));
                 $index = count($value) - 1;
                 collect($value)->map(function ($val) use ($attr_map, &$index, $product_id, $key) {
                     $insert_attr_map = [
@@ -82,7 +92,9 @@ class ProductService extends BaseService {
                         'product_attr_value_id' => $val,
                         'sort' => $index,
                     ];
-                    ProductAttrValueMap::query()->updateOrCreate($insert_attr_map, $insert_attr_map);
+                    ProductAttrValueMap::query()->withTrashed()->updateOrCreate($insert_attr_map, array_merge($insert_attr_map, [
+                        'deleted_at' => null,
+                    ]));
                     $index--;
                 });
                 $loop--;
@@ -132,9 +144,6 @@ class ProductService extends BaseService {
      */
     public function saveProductSku($sku_data, $product_id)
     {
-//        先删除原来sku和sku_stock数据
-//        $this->delSkuAndSkuStock($product_id);
-
         collect($sku_data)->filter(function ($item) {
             return is_array($item);
         })->map(function ($sku, $key) use ($product_id) {
@@ -142,6 +151,7 @@ class ProductService extends BaseService {
             $products_sku = ProductSku::query()
                 ->where('product_id', $product_id)
                 ->where('attr_key', $key)
+                ->withTrashed()
                 ->updateOrCreate([
                     'product_id' => $product_id,
                     'attr_key' => $key,
@@ -152,6 +162,7 @@ class ProductService extends BaseService {
                     'price' => $sku['price'],
                     'cost_price' => $sku['cost_price'],
                     'code' => $sku['code'],
+                    'deleted_at' => null,
                 ]);
             //更新库存
             $this->setSkuStock($product_id, $products_sku, $sku);
@@ -165,7 +176,7 @@ class ProductService extends BaseService {
     /**
      * 保存sku库存
      * @param int $product_id 产品id
-     * @param int $products_sku 产品skuid
+     * @param object $products_sku 产品skuid
      * @param array $sku sku基础数据
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model
      * Author: fatetis
@@ -176,6 +187,7 @@ class ProductService extends BaseService {
         return ProductSkuStock::query()
             ->where('product_id', $product_id)
             ->where('sku_id', $products_sku->id)
+            ->withTrashed()
             ->updateOrCreate([
                 'product_id' => $product_id,
                 'sku_id' => $products_sku->id,
@@ -184,6 +196,7 @@ class ProductService extends BaseService {
                 'product_id' => $product_id,
                 'quantity' => $sku['stock_num'],
                 'warn_number' => $sku['warn_number'],
+                'deleted_at' => null
             ]);
 
     }
@@ -201,9 +214,8 @@ class ProductService extends BaseService {
         try {
             return Product::query()->with($with)->findOrFail($id);
         } catch (\Exception $exception) {
-            abort(400, '产品不存在');
+            return abort(400, '产品不存在');
         }
-
     }
 
     /**
@@ -280,6 +292,21 @@ class ProductService extends BaseService {
         //修改库存表
         ProductSkuStock::query()->where('product_id', $product_id)->delete();
 
+    }
+
+    public function delProInfo($product_id)
+    {
+        DB::transaction(function () use ($product_id) {
+            // 产品与规格关系表
+            ProductAttrMap::query()->where('product_id', $product_id)->delete();
+            // 产品与产品规格值关系表
+            ProductAttrValueMap::query()->where('product_id', $product_id)->delete();
+            // 删除sku表
+            ProductSku::query()->where('product_id', $product_id)->delete();
+            // 修改库存表
+            ProductSkuStock::query()->where('product_id', $product_id)->delete();
+        });
+        return true;
     }
 
 }

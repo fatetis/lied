@@ -252,7 +252,7 @@ class ProductController extends Controller
             $picture = request('picture');
             $picture_result = $this->productService->dealProductMediaData($form->model()->id, $picture);
             $prosku_result = $this->productService->saveProduct($prosku, $form->model()->id);
-            if (!$prosku_result || $picture_result !== true) {
+            if ($prosku_result !== true || $picture_result !== true) {
                 $form->model()->delete();
                 $error = new MessageBag([
                     'title' => '错误信息',
