@@ -26,9 +26,11 @@ class MediaController extends Controller
     {
         $id = $request->route('id');
         try {
+            header('Content-type:image/png');
             $pictureInfo = $this->pictureService->getMediaLinkById($id);
             if(!empty($pictureInfo->link) && Storage::exists($pictureInfo->link)){
-                return file_get_contents(Storage::url($pictureInfo->link));
+                echo file_get_contents(Storage::url($pictureInfo->link));
+                die;
             }
             throw new \Exception('图片链接为空');
         }catch (\Exception $exception){

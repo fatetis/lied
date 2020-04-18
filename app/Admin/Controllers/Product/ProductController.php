@@ -95,7 +95,8 @@ class ProductController extends Controller
      */
     protected function grid()
     {
-
+//        $prosku_result = $this->productService->saveProduct(jd('{"8":{"price":"1","stock_num":"2","code":"3","cost_price":"4","warn_number":"5","sold_num":"0","attr_key":"8","media_id":"415"}}'), 18);
+//        dd($prosku_result);
         $grid = new Grid(new Product);
         $grid->model()->orderBy('updated_at', 'desc');
         $grid->model()->orderBy('id', 'desc');
@@ -113,7 +114,6 @@ class ProductController extends Controller
         $grid->brand()->name('品牌分类');
         $grid->category()->name('产品分类');
         $grid->line_price('市场价格（元）');
-        $grid->price('销售价格（元）');
         $grid->is_on_sale('显示')->switch();
         $grid->is_audit('审核')->switch();
         $grid->sort('排序')->editable();
@@ -201,7 +201,6 @@ class ProductController extends Controller
                 }
             })->ajax(route('selectBrand'))->required();
             $form->currency('line_price', '市场价格')->symbol('￥');
-            $form->currency('price', '销售价格')->symbol('￥')->required();
             $form->skmedia('picture', '产品banner图')->attribute('images')->attribute([
                 'upload_url' => urlStandard('product_picture'),
                 'data-multi' => true,
@@ -250,10 +249,9 @@ class ProductController extends Controller
         $form->saved(function (Form $form){
             $prosku = request('prosku');
             $picture = request('picture');
-            $picture_result = $this->productService->dealProductMediaData($form->model()->id, $picture);
-            $prosku_result = $this->productService->saveProduct($prosku, $form->model()->id);
-            if ($prosku_result !== true || $picture_result !== true) {
-                $form->model()->delete();
+            $prosku_result = $this->productService->saveProduct($form->model()->id, $prosku, $picture);
+            if ($prosku_result !== true) {
+                if ($form->isCreating()) $form->model()->delete();
                 $error = new MessageBag([
                     'title' => '错误信息',
                     'message' => '商品规格保存出错，请重新再试',

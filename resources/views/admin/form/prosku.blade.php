@@ -594,14 +594,14 @@
                         <div class="ant-select-selection__rendered">
                             {{--规格名显示框--}}
                             <div class="ant-select-selection-selected-value" title=""
-                                 style="display: block; opacity: 1;">{{ $val['attr']['name'] }}
+                                 style="display: block; opacity: 1;">{{ isset($val['attr']) ? $val['attr']['name'] : '' }}
                             </div>
                             <div class="ant-select-search ant-select-search--inline" style="display: none;">
                                 <div class="ant-select-search__field__wrap">
                                     <input data-url="{{ route('proAttrGetApi', ['_token'=>csrf_token()]) }}"
                                            data-create-url="{{ route('proAttrCreateApi', ['_token'=>csrf_token()]) }}"
                                            autocomplete="off" class="ant-select-search__field" value="">
-                                    <input class="self_attr" type="hidden" value="{{ $val['product_attr_id'] }}">
+                                    <input class="self_attr" type="hidden" value="{{ $val['product_attr_id'] ?? '' }}">
                                     <span class="ant-select-search__field__mirror">
                                         &nbsp;
                                     </span>
@@ -661,6 +661,7 @@
                             规格值：
                         </span>
             <div class="flex self_sku" style="flex-wrap: wrap; flex: 1 1 0%;">
+
                                     @forelse($val['values'] as $k => $v)
 
                     {{--规格值框框--}}
@@ -687,7 +688,8 @@
                                    data-create-url="{{ route('proAttrValueCreateApi', ['_token'=>csrf_token()]) }}"
                                    value="" data-child="1">
                             {{--attr_value_id表id--}}
-                            <input class="self_attr_value" type="hidden" value="{{ $v['value']['id'] }}">
+                            <input class="self_attr_value" type="hidden"
+                                   value="{{ isset($v['value']) ? $v['value']['id'] : '' }}">
                             <span class="ant-select-search__field__mirror">
                                                         &nbsp;
                                                     </span>
@@ -728,11 +730,11 @@
             </i>
         </a>
                     {{--缩略图数据--}}
-                        @if($key == 0)
+                        @if($key == 0 && isset($media_id_arr[$k]))
                             {{--@foreach($media_id_arr as $data)--}}
 
                             <div style="float: unset;margin-top: 15px;position: relative;width: 104px"
-                                 class="ant-upload-list ant-upload-list-picture-card self_pic_clone">
+                                 class="ant-upload-list ant-upload-list-picture-card self_pic_clone {{ $media_id_arr[$k] }}">
         <div class="antd-pro-pages-goods-widget-styles-arrow jiantou"></div>
         <div class="ant-upload-list-item ant-upload-list-item-done">
             <div class="self_upload" style="height: 100%; cursor: pointer; display: none">
@@ -775,7 +777,8 @@
                         </svg>
                     </i>
                 </a>
-                <i aria-label="图标: delete" title="删除文件" tabindex="-1" class="anticon anticon-delete">
+                <i aria-label="图标: delete" title="删除文件" tabindex="-1" class="anticon anticon-delete"
+                   data-id="{{ $media_id_arr[$k] }}">
                     <svg viewbox="64 64 896 896" class="" data-icon="delete" width="1em" height="1em"
                          fill="currentColor"
                          aria-hidden="true">
@@ -1001,6 +1004,6 @@
 </div>
 
 
-<script src="{{ asset('vendor/store/self.js') }}" type="text/javascript"></script>
+{{--<script src="{{ asset('vendor/store/self.js') }}" type="text/javascript"></script>--}}
 <script src="{{ asset('vendor/laravel-admin-ext/sk-image/plupload/plupload.full.min.js') }}"
         type="text/javascript"></script>

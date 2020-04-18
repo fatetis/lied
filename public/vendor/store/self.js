@@ -51,12 +51,14 @@ $(function () {
         skuAddHtml.addClass('self_auto_sku_container');
         // 上一个规格名的id
         let pre = $(this).parent().prev().find('.antd-pro-pages-goods-widget-styles-sku_group_title .ant-select-search__field').next().val()
+        let pre_length = $(this).parent().prev().length;
         let pre_val = $(this).parent().prev().find('.self_sku_item .ant-select-search__field').last().next().val()
-        if (pre == '') {
+        let pre_val_length = $(this).parent().prev().length
+        if (pre_length != 0 && pre == '') {
             toastr.error('请先添加规格名');
             return false;
         }
-        if ((pre != undefined && pre_val == undefined) || (pre != undefined && pre_val == '')) {
+        if ((pre_val_length != 0 && pre != undefined && pre_val == undefined) || (pre_val_length != 0 && pre != undefined && pre_val == '')) {
             toastr.error('请先添加规格值');
             return false;
         }
@@ -65,7 +67,7 @@ $(function () {
         if(addHtmlObj.length > 2){
             $(this).attr({'disabled': ''})
         }
-
+        return false;
     })
 
     //删除规格事件
@@ -570,7 +572,7 @@ $(function () {
         if(skuDetailTbodyTr.length > 0) skuDetailTbodyTr.remove();
         skuDetailTheadTr.find('.th-price').before(skuDeatailTheadStr);
         skuDetailTbody.append(skuDetailTbodyStr);
-
+        assignmentUploadImg();
     };
 
     // 设置为全局方法

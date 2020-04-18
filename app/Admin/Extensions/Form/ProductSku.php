@@ -22,6 +22,7 @@ class ProductSku extends Field
     ];
 
     protected static $js = [
+        'vendor/store/self.js'
     ];
 
     public function render()
@@ -34,6 +35,7 @@ class ProductSku extends Field
 //        获取产品数据
         $product_id = request()->route()->product;
         if (!empty($product_id)) {
+
             $product_service = new ProductService();
             $product_attr_data = $product_service->getProductById($product_id, ['attrs', 'skus']);
             if (!empty($product_attr_data)) {
@@ -41,7 +43,9 @@ class ProductSku extends Field
             }
             $this->script = <<<EOT
         
-    addSkuDetail();
+        $(function(){
+            addSkuDetail();
+        })
 
 
 EOT;
