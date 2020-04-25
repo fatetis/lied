@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('code', function($attribute, $value, $parameters, $validator) {
             return preg_match("/[0-9]{6}/", $value);
         });
+        // 前端请求链接协议 默认使用http
+        if(env('REDIRECT_HTTPS')){
+            $this->app['request']->server->set('HTTPS',true);
+        }
     }
 
     /**
