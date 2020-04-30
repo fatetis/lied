@@ -22,9 +22,10 @@ class ProductService extends BaseService {
 
     /**
      * 保存产品数据
-     * @param array $sku_data
      * @param int $product_id
-     * @return boolean bool|string
+     * @param array $sku_data
+     * @param array $picture
+     * @return bool|string
      * Author: fatetis
      * Date:2020/1/15 001518:04
      */
@@ -34,18 +35,23 @@ class ProductService extends BaseService {
 
             if (empty($product_id)) throw new SelfException('参数错误');
             if (empty($picture)) throw new SelfException('商品图片不能为空');
-            if (empty($sku_data)) return true;
-            $attr_key = array_column($sku_data, 'attr_key');
-            if (count($attr_key) != count(array_filter($attr_key))) throw new SelfException('sku属性错误');
             $this->created_arr = [];
 
-            DB::transaction(function () use ($product_id, $attr_key, $sku_data, $picture) {
+            DB::transaction(function () use ($product_id, $sku_data, $picture) {
+
                 $media_result = $this->dealProductMediaData($product_id, $picture);
-                $attr_result = $this->saveProductAttr($attr_key, $product_id);
-                $sku_result = $this->saveProductSku($sku_data, $product_id);
-                $del_result = $this->delProInfo($product_id);
-                if ($attr_result !== true || $sku_result !== true || $del_result !== true || $media_result !== true)
-                    throw new SelfException('first' . $media_result . ',second:' . $attr_result . ',third:' . $sku_result . ',last:' . $del_result);
+                if ($media_result !== true)
+                    throw new SelfException('banner图片上传失败' . $media_result);
+                if (!empty($sku_data)) {
+                    $attr_key = array_column($sku_data, 'attr_key');
+                    if (count($attr_key) != count(array_filter($attr_key))) throw new SelfException('sku属性错误');
+                    $attr_result = $this->saveProductAttr($attr_key, $product_id);
+                    $sku_result = $this->saveProductSku($sku_data, $product_id);
+                    $del_result = $this->delProInfo($product_id);
+                    if ($attr_result !== true || $sku_result !== true || $del_result !== true)
+                        throw new SelfException('产品SKU上传失败' . $media_result);
+                }
+
             });
 
             return true;

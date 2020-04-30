@@ -221,10 +221,9 @@ class ProductController extends Controller
 
         })->tab('扩展信息', function ($form) {
 
-//                $form->currency('give_intergral', '赠送积分')->symbol('');
-                $form->number('virtual_quantity', '虚拟购买量');
-//                $form->switch('is_hot', '热销');
-//                $form->switch('is_new', '新品');
+            $form->number('virtual_quantity', '虚拟购买量');
+            $form->number('is_limit', '限购')->value(0)->min(0);
+
 
         });
 

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50723
 File Encoding         : 65001
 
-Date: 2020-02-28 17:31:45
+Date: 2020-04-30 15:35:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -706,26 +706,27 @@ CREATE TABLE `lied_password_resets` (
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_product`;
 CREATE TABLE `lied_product` (
-  `id` int(16) unsigned NOT NULL AUTO_INCREMENT COMMENT '商品ID',
-  `name` varchar(64) NOT NULL DEFAULT '' COMMENT '商品名称',
-  `brand_id` int(16) NOT NULL COMMENT '商家品牌ID',
-  `category_id` int(16) unsigned NOT NULL COMMENT '商品类别ID',
-  `virtual_quantity` int(8) DEFAULT '0' COMMENT '虚拟购买量',
-  `line_price` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '市场价格',
-  `price` decimal(8,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '销售价格',
-  `description` text COMMENT '商品描述',
-  `content` text COMMENT '内容',
-  `is_real` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否实物，1为是',
-  `is_audit` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '审核，1为审核',
-  `is_on_sale` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示，1为显示',
-  `created_id` int(11) unsigned NOT NULL COMMENT '创建者id',
-  `sort` int(4) unsigned DEFAULT '0' COMMENT '排序',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `product-category_id` (`category_id`) USING BTREE,
-  CONSTRAINT `product-category_id` FOREIGN KEY (`category_id`) REFERENCES `lied_product_category` (`id`) ON UPDATE CASCADE
+                              `id` int(16) unsigned NOT NULL AUTO_INCREMENT COMMENT '商品ID',
+                              `name` varchar(64) NOT NULL DEFAULT '' COMMENT '商品名称',
+                              `brand_id` int(16) NOT NULL COMMENT '商家品牌ID',
+                              `category_id`      int(16) unsigned NOT NULL COMMENT '商品类别ID',
+                              `virtual_quantity` int(8) DEFAULT '0' COMMENT '虚拟购买量',
+                              `line_price`       decimal(8,2) unsigned DEFAULT '0.00' COMMENT '市场价格',
+                              `price`            decimal(8,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '销售价格',
+                              `description`      text COMMENT '商品描述',
+                              `content`          text COMMENT '内容',
+                              `is_real`          tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否实物，1为是',
+                              `is_audit`         tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '审核，1为审核',
+                              `is_on_sale`       tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示，1为显示',
+                              `is_limit`         int(2) unsigned NOT NULL DEFAULT '0' COMMENT '是否限购',
+                              `created_id`       int(11) unsigned NOT NULL COMMENT '创建者id',
+                              `sort`             int(4) unsigned DEFAULT '0' COMMENT '排序',
+                              `created_at`       datetime DEFAULT NULL,
+                              `updated_at`       datetime DEFAULT NULL,
+                              `deleted_at`       datetime DEFAULT NULL,
+                              PRIMARY KEY (`id`),
+                              KEY                `product-category_id` (`category_id`) USING BTREE,
+                              CONSTRAINT `product-category_id` FOREIGN KEY (`category_id`) REFERENCES `lied_product_category` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -847,14 +848,16 @@ CREATE TABLE `lied_product_category` (
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_product_medias`;
 CREATE TABLE `lied_product_medias` (
-  `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
-  `media_id` int(11) unsigned NOT NULL COMMENT '媒体id',
-  `sort` int(4) NOT NULL COMMENT '排序',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  UNIQUE KEY `product_media-product_id_media_id_sort` (`product_id`,`media_id`,`sort`) USING BTREE,
-  KEY `product_media-product_id` (`product_id`) USING BTREE
+                                     `id`         int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                     `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
+                                     `media_id`   int(11) unsigned NOT NULL COMMENT '媒体id',
+                                     `sort`       int(4) NOT NULL COMMENT '排序',
+                                     `created_at` datetime DEFAULT NULL,
+                                     `updated_at` datetime DEFAULT NULL,
+                                     `deleted_at` datetime DEFAULT NULL,
+                                     PRIMARY KEY (`id`),
+                                     UNIQUE KEY `product_media-product_id_media_id_sort` (`product_id`,`media_id`,`sort`) USING BTREE,
+                                     KEY          `product_media-product_id` (`product_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
