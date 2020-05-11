@@ -796,6 +796,20 @@ $(function () {
         }
     });
 
+    $(document).on('click', '.box-footer .btn-group button', function () {
+        let proskuLength = $('input[name*=prosku]').length;
+        if (proskuLength <= 0) return true;
+
+        let mediaObj = $('input[name*=media_id]');
+        for (let i = 0; i < mediaObj.length; i++) {
+            let mediaVal = mediaObj.eq(i).val();
+            if (mediaVal == '') {
+                swal('商品sku缩略图不能为空', 'error');
+                return false;
+            }
+        }
+        return true;
+    })
 
 })
 

@@ -192,9 +192,6 @@ class ProductService extends BaseService {
     public function setSkuStock($product_id, $products_sku, $sku)
     {
         $product_sku_stock = ProductSkuStock::query()
-            ->where('product_id', $product_id)
-            ->where('sku_id', $products_sku->id)
-            ->withTrashed()
             ->updateOrCreate([
                 'product_id' => $product_id,
                 'sku_id' => $products_sku->id,
@@ -203,7 +200,6 @@ class ProductService extends BaseService {
                 'product_id' => $product_id,
                 'quantity' => $sku['stock_num'],
                 'warn_number' => $sku['warn_number'],
-                'deleted_at' => null
             ]);
         $this->created_arr['product_sku_stock'][] = $product_sku_stock['id'];
         return $product_sku_stock;
@@ -297,6 +293,13 @@ class ProductService extends BaseService {
 
     }
 
+    /**
+     * 删除旧的数据
+     * @param $product_id
+     * @return bool
+     * Author: fatetis
+     * Date:2020/5/11 001114:33
+     */
     public function delProInfo($product_id)
     {
         // 产品与规格关系表
@@ -329,21 +332,6 @@ class ProductService extends BaseService {
             ->whereNotIn('id', $this->created_arr['product_medias'] ?? [])
             ->where('deleted_at')
             ->delete();
-        return true;
-    }
-
-    public function restoreProInfo($product_id, $time)
-    {
-        DB::transaction(function () use ($product_id, $time) {
-            // 产品与规格关系表
-            ProductAttrMap::query()->where('product_id', $product_id)->where('deleted_at', '>=', $time)->restore();
-            // 产品与产品规格值关系表
-            ProductAttrValueMap::query()->where('product_id', $product_id)->where('deleted_at', '>=', $time)->restore();
-            // 删除sku表
-            ProductSku::query()->where([['product_id', '=', $product_id], ['deleted_at', '>=', $time]])->restore();
-            // 修改库存表
-            ProductSkuStock::query()->where('product_id', $product_id)->where('deleted_at', '>=', $time)->restore();
-        });
         return true;
     }
 
