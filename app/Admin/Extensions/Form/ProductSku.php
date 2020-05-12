@@ -31,7 +31,7 @@ class ProductSku extends Field
 //        $attrData = ProductAttr::get([],['created_at' => 'desc'],[],['id','name']);
 
 //        属性选择数据
-        $attr_data = ProductAttr::query()->orderBy('created_at', 'desc')->select('id', 'name')->get();
+        $attr_data = ProductAttr::query()->orderBy('sort', 'desc')->orderBy('created_at', 'desc')->select('id', 'name')->get();
 //        获取产品数据
         $product_id = request()->route()->product;
         if (!empty($product_id)) {

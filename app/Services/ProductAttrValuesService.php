@@ -14,7 +14,7 @@ class ProductAttrValuesService extends BaseService {
         if (!empty($name)) {
             $sql->where('name', 'like', "%{$name}%");
         }
-        return $sql->orderBy('sort', 'desc')->get();
+        return $sql->orderBy('sort', 'desc')->orderBy('created_at', 'desc')->get();
     }
 
     public function createProductAttrValue($insert)

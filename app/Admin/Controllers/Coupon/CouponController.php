@@ -116,7 +116,7 @@ class CouponController extends AdminController
 
         })->tab('限领取设置',function($form){
 
-            $form->hasMany('rellimit','限领取', function (Form\NestedForm $form) {
+            $form->hasMany('rellimit', '限领取', function (Form\NestedForm $form) {
 
                 $form->select('brand_id','参与品牌')->options(function ($id) {
                     $brand = Brand::find($id);

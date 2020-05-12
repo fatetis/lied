@@ -335,7 +335,7 @@ $(function () {
                 if(dataed.length > 0 && dataed.indexOf(String(item['id'])) >= 0){
                     unclickClassName = 'ant-select-dropdown-menu-item-disabled';
                 }
-                ulObj.prepend(`<li role="option" class="ant-select-dropdown-menu-item self-optionid-${item['id']} ${unclickClassName}" data-key="${item['id']}">${item['name']}</li>`)
+                ulObj.append(`<li role="option" class="ant-select-dropdown-menu-item self-optionid-${item['id']} ${unclickClassName}" data-key="${item['id']}">${item['name']}</li>`)
             }else{
                 ulObj.find(`.self-optionid-${item['id']}`).css('display','block')
             }

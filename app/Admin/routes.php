@@ -39,7 +39,7 @@ Route::group([
 
     $router->group(['prefix' => 'product', 'namespace' => 'Product'], function ($router) {
         $router->resource('category', 'ProductCategoryController');//产品分类
-        $router->resource('sku/category', 'ProductSkuCategoryController');//产品属性分类
+        $router->resource('attr', 'ProductAttrController');//产品属性分类
         $router->resource('seckill', 'ProductSeckillController');//产品秒杀
 //        $router->resource('order', 'Order\OrderController');//订单
     });

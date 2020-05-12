@@ -10,7 +10,11 @@ class ProductAttrService extends BaseService {
 
     public function getProductAttrByLikeName($name)
     {
-        return ProductAttr::query()->where("name", "like", "%{$name}%")->orderBy('sort', 'desc')->get();
+        return ProductAttr::query()
+            ->where("name", "like", "%{$name}%")
+            ->orderBy('sort', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->get();
     }
 
     public function createProductAttr($insert)
