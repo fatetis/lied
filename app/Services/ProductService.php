@@ -47,11 +47,12 @@ class ProductService extends BaseService {
                     if (count($attr_key) != count(array_filter($attr_key))) throw new SelfException('sku属性错误');
                     $attr_result = $this->saveProductAttr($attr_key, $product_id);
                     $sku_result = $this->saveProductSku($sku_data, $product_id);
-                    $del_result = $this->delProInfo($product_id);
-                    if ($attr_result !== true || $sku_result !== true || $del_result !== true)
-                        throw new SelfException('产品SKU上传失败' . $media_result);
+                    if ($attr_result !== true || $sku_result !== true)
+                        throw new SelfException('产品SKU上传失败' . $attr_result . '|' . $sku_result);
                 }
-
+                $del_result = $this->delProInfo($product_id);
+                if ($del_result !== true)
+                    throw new SelfException('清除产品旧数据失败' . $del_result);
             });
 
             return true;
@@ -237,6 +238,7 @@ class ProductService extends BaseService {
             $this->saveProductMedia($product_id, $value, $index);
             $index--;
         });
+
         return true;
     }
 
@@ -305,31 +307,31 @@ class ProductService extends BaseService {
         // 产品与规格关系表
         ProductAttrMap::query()
             ->where('product_id', $product_id)
-            ->whereNotIn('id', $this->created_arr['product_attr_map'] ?? [])
+            ->whereNotIn('id', array_filter($this->created_arr['product_attr_map'] ?? []))
             ->where('deleted_at')
             ->delete();
         // 产品与产品规格值关系表
         ProductAttrValueMap::query()
             ->where('product_id', $product_id)
-            ->whereNotIn('id', $this->created_arr['product_attr_value_map'] ?? [])
+            ->whereNotIn('id', array_filter($this->created_arr['product_attr_value_map'] ?? []))
             ->where('deleted_at')
             ->delete();
         // 删除sku表
         ProductSku::query()
             ->where('product_id', $product_id)
-            ->whereNotIn('id', $this->created_arr['product_sku'] ?? [])
+            ->whereNotIn('id', array_filter($this->created_arr['product_sku'] ?? []))
             ->where('deleted_at')
             ->delete();
         // 删除库存表
         ProductSkuStock::query()
             ->where('product_id', $product_id)
-            ->whereNotIn('id', $this->created_arr['product_sku_stock'] ?? [])
+            ->whereNotIn('id', array_filter($this->created_arr['product_sku_stock'] ?? []))
             ->where('deleted_at')
             ->delete();
         // 删除产品banner图
         ProductMedias::query()
             ->where('product_id', $product_id)
-            ->whereNotIn('id', $this->created_arr['product_medias'] ?? [])
+            ->whereNotIn('id', array_filter($this->created_arr['product_medias'] ?? []))
             ->where('deleted_at')
             ->delete();
         return true;

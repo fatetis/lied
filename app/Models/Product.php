@@ -50,7 +50,7 @@ class Product extends BaseModel
 
     public function skus()
     {
-        return $this->hasMany(ProductSku::class, 'product_id')->orderByDesc('sort')->with(['stock', 'media']);
+        return $this->hasMany(ProductSku::class, 'product_id')->with(['stock', 'media']);
     }
 
     public function medias()

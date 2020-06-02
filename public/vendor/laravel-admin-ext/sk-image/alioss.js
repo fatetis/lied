@@ -98,6 +98,9 @@
                         return;
                     }
                     if (multi) {
+                        $("input[name='" + id + "[]']").map(function () {
+                            if ($(this).val() == '') $(this).remove();
+                        });
                         // 多图
                         $('#' + file.id).html([
                             '<img src="' + src + '" style="margin-bottom: 3px;width: 80%;height: 80%">',
