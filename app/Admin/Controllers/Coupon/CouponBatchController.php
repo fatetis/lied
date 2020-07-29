@@ -100,7 +100,7 @@ class CouponBatchController extends AdminController
             }
         })->rules('required');
 
-        $form->hidden('created_id')->value(getAdminUserId());
+//        $form->hidden('created_id')->value(getAdminUserId());
 
         return $form;
     }

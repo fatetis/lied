@@ -61,8 +61,8 @@ Route::group([
     $router->resource('adv', 'Adv\AdvController');
 
 //    文章路由
-    $router->resource('artical/category', 'Artical\ArticalCategoryController');
-    $router->resource('artical', 'Artical\ArticalController');
+    $router->resource('article/category', 'Article\ArticleCategoryController');
+    $router->resource('article', 'Article\ArticleController');
 
 //    优惠券路由
     $router->resource('coupon/offline', 'Coupon\CouponOfflineController');

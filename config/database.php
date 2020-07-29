@@ -1,5 +1,16 @@
 <?php
-
+/*
+ * 数据初始化的表-运行seed.sql文件
+adv_position
+adv_menu
+admin_users
+lied_admin_role_menu
+lied_admin_roles
+lied_admin_role_permissions
+lied_admin_role_users
+lied_letter
+lied_regions
+*/
 return [
 
     /*
@@ -48,8 +59,8 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
+            'charset' => 'utf8',
+            'collation' => 'utf8_general_ci',
             'prefix' => 'lied_',
             'prefix_indexes' => true,
             'strict' => true,

@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Admin\Controllers\Artical;
+namespace App\Admin\Controllers\Article;
 
-use App\Models\Artical;
+use App\Models\Article;
 use App\Http\Controllers\Controller;
-use App\Models\ArticalCategory;
+use App\Models\ArticleCategory;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
 
-class ArticalController extends Controller
+class ArticleController extends Controller
 {
     use HasResourceActions;
 
@@ -80,7 +80,7 @@ class ArticalController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new Artical);
+        $grid = new Grid(new Article);
 
         $grid->id('Id');
         $grid->category()->name('分类名称');
@@ -105,7 +105,7 @@ class ArticalController extends Controller
      */
     protected function detail($id)
     {
-        $show = new Show(Artical::findOrFail($id));
+        $show = new Show(Article::findOrFail($id));
 
         $show->id('Id');
         $show->category_id('文章分类ID');
@@ -130,11 +130,11 @@ class ArticalController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new Artical);
+        $form = new Form(new Article);
         $form->text('title', '文章标题')->rules('required');
-        $form->select('category_id', '文章分类')->options(ArticalCategory::selectOptions());
+        $form->select('category_id', '文章分类')->options(ArticleCategory::selectOptions());
 
-        $form->image('thumb', '文章缩略图')->move(urlStandard('artical_thumb'))->uniqueName()->removable();
+        $form->image('thumb', '文章缩略图')->move(urlStandard('article_thumb'))->uniqueName()->removable();
 
         $form->wangeditor('description', '文章简介');
         $form->wangeditor('content', '文章内容');
@@ -142,7 +142,7 @@ class ArticalController extends Controller
         $form->number('sort_order', '排序')->value(99);
         $form->switch('is_show', '显示')->value(1);
         $form->switch('is_hot', '热门')->value(1);
-        $form->hidden('user_id')->value(getAdminUserId());
+//        $form->hidden('user_id')->value(getAdminUserId());
         return $form;
     }
 }

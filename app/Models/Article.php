@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-class Artical extends BaseModel
+class Article extends BaseModel
 {
-    protected $table = 'artical';
+    protected $table = 'article';
     protected $primaryKey = 'id';
     /**
      * bu可以被批量赋值的属性.
@@ -14,7 +14,7 @@ class Artical extends BaseModel
 
     public function category()
     {
-        return $this->belongsTo(ArticalCategory::class,'category_id','id');
+        return $this->belongsTo(ArticleCategory::class,'category_id','id');
     }
 
 }

@@ -5,12 +5,12 @@ namespace App\Models;
 use Encore\Admin\Traits\AdminBuilder;
 use Encore\Admin\Traits\ModelTree;
 
-class ArticalCategory extends BaseModel
+class ArticleCategory extends BaseModel
 {
 
     use ModelTree, AdminBuilder;
 
-    protected $table = 'artical_category';
+    protected $table = 'article_category';
     protected $primaryKey = 'id';
 
     public function __construct(array $attributes = [])

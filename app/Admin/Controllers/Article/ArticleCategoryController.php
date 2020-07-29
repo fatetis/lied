@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Admin\Controllers\Artical;
+namespace App\Admin\Controllers\Article;
 
-use App\Models\ArticalCategory;
+use App\Models\ArticleCategory;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
@@ -12,7 +12,7 @@ use Encore\Admin\Show;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Controllers\ModelForm;
 
-class ArticalCategoryController extends Controller
+class ArticleCategoryController extends Controller
 {
     use ModelForm;
 
@@ -26,7 +26,7 @@ class ArticalCategoryController extends Controller
     {
         return Admin::content(function (Content $content) {
             $content->header('文章分类');
-            $content->body(ArticalCategory::tree(function($tree){
+            $content->body(ArticleCategory::tree(function($tree){
                 $tree->query(function ($model) {
                     return $model->where('is_show', 1);
                 });
@@ -85,7 +85,7 @@ class ArticalCategoryController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new ArticalCategory);
+        $grid = new Grid(new ArticleCategory);
 
         $grid->id('Id');
         $grid->name('Name');
@@ -108,7 +108,7 @@ class ArticalCategoryController extends Controller
      */
     protected function detail($id)
     {
-        $show = new Show(ArticalCategory::findOrFail($id));
+        $show = new Show(ArticleCategory::findOrFail($id));
 
         $show->id('Id');
         $show->name('Name');
@@ -130,9 +130,9 @@ class ArticalCategoryController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new ArticalCategory);
+        $form = new Form(new ArticleCategory);
 
-        $form->select('pid', trans('admin.parent_id'))->options(ArticalCategory::selectOptions());
+        $form->select('pid', trans('admin.parent_id'))->options(ArticleCategory::selectOptions());
         $form->text('name', '分类名称')->rules('required')->rules('max:5',[
             'max' => '最多只能输入5个字'
         ]);
