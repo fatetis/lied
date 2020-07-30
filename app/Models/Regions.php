@@ -11,12 +11,21 @@ class Regions extends BaseModel
     protected $table = 'regions';
     protected $primaryKey = 'region_id';
 
+    /**
+     * 省份等级
+     */
+    const GRADE_PROVINCE = 1;
+    /**
+     * 城市等级
+     */
+    const GRADE_CITY = 2;
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
 
         $this->setParentColumn('parent_id');
-        $this->setOrderColumn('sort_order');
+        $this->setOrderColumn('sort');
         $this->setTitleColumn('region_name');
     }
 

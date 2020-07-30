@@ -6,6 +6,7 @@ use App\Models\Adv;
 use App\Http\Controllers\Controller;
 use App\Models\AdvPosition;
 use App\Models\Regions;
+use App\Services\RegionsService;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -87,18 +88,20 @@ class AdvController extends Controller
         });
         $grid->name('名称');
         $grid->url('链接')->link();
-        $grid->advPosition()->name('位置名称');
-        $grid->region_city_id('所属城市')->display(function($regionCityId){
-            $result = Regions::whereIn('region_id',$regionCityId)->pluck('region_name','region_id')->toArray();
-            return implode(',',$result);
-        });
-        $grid->start_time('开始时间');
-        $grid->end_time('结束时间');
+        $grid->advposition()->name('位置名称');
+//        $grid->region_city_id('所属城市')->display(function($regionCityId){
+//            $result = Regions::whereIn('region_id',$regionCityId)->pluck('region_name','region_id')->toArray();
+//            return implode(',',$result);
+//        });
+//        $grid->start_time('开始时间');
+//        $grid->end_time('结束时间');
         $grid->click_num('点击数量');
         $grid->is_show('显示')->switch();
         $grid->sort_order('排序')->editable();
         $grid->created_at('创建时间');
         $grid->updated_at('编辑时间');
+
+
 
         return $grid;
     }
@@ -149,11 +152,21 @@ class AdvController extends Controller
                 return [$advPosition->id => $advPosition->name];
             }
         })->ajax('/admin/api/adv/position')->rules('required');
-        $form->multipleSelect('region_city_id','市')->options(Regions::getAllCity());
-
-        $form->datetimeRange('start_time', 'end_time', '活动时间');
+//        $form->multipleSelect('region_city_id','城市')->options(RegionsService::getAllCity());
+//
+//        $form->datetimeRange('start_time', 'end_time', '活动时间');
         $form->switch('is_show', '是否显示');
-        $form->number('sort_order', '排序')->default('99');
+        $form->number('sort', '排序')->default('99');
+
+        $form->hasMany('advopen', '城市展示', function (Form\NestedForm $form) {
+            $form->select('position_id', '广告位置')->options(function ($id) {
+                $advPosition = AdvPosition::find($id);
+                if ($advPosition) {
+                    return [$advPosition->id => $advPosition->name];
+                }
+            })->ajax('/admin/api/adv/position')->rules('required');
+            $form->datetimeRange('start_time', 'end_time', '活动时间');
+        });
 
         return $form;
     }

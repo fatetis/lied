@@ -6,6 +6,7 @@ class Adv extends BaseModel
 {
     protected $table = 'adv';
     protected $primaryKey = 'id';
+    protected $softCascade = ['advopen@restrict'];//级联软删除
 
     /**
      * 可以被批量赋值的属性.
@@ -15,26 +16,14 @@ class Adv extends BaseModel
     protected $fillable = [];
 
 
-    public function setRegionCityIdAttribute($value)
+    public function advposition()
     {
-        $this->attributes['region_city_id'] = implode(',', $value);
+        return $this->belongsTo(AdvPosition::class, 'position_id', 'id');
     }
 
-    public function getRegionCityIdAttribute($value)
+    public function advopen()
     {
-        if(!empty($value)){
-            return array_filter(explode(',', $value));
-        }
+        return $this->hasMany(AdvOpen::class, 'adv_id', 'id');
     }
-
-    public function advPosition()
-    {
-        return $this->belongsTo(AdvPosition::class,'position_id','id');
-    }
-
-//    public function regions()
-//    {
-//        return $this->hasMany(Regions::class,'region_id','region_city_id');
-//    }
 
 }

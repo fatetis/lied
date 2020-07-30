@@ -25,12 +25,15 @@ CREATE TABLE `lied_regions` (
   `letter_id` int(11) unsigned NOT NULL COMMENT '字母表主键id',
   `region_code` varchar(10) DEFAULT NULL,
   `code_path` varchar(50) DEFAULT NULL,
+  `sort` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
   `is_show` tinyint(1) unsigned NOT NULL DEFAULT '1',
-  `created_at` int(11) DEFAULT NULL,
-  `updated_at` int(11) DEFAULT NULL,
-  `deleted_at` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`region_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;");
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+");
     }
 
     /**

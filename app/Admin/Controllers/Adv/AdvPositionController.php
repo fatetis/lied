@@ -83,6 +83,7 @@ class AdvPositionController extends Controller
         $grid->disableExport();
         $grid->id('Id');
         $grid->name('名称');
+        $grid->ename('英文代号');
         $grid->width('宽度');
         $grid->height('高度');
         $grid->is_show('显示')->switch();
@@ -105,10 +106,10 @@ class AdvPositionController extends Controller
 
         $show->id('Id');
         $show->name('名称');
+        $show->ename('英文代号');
         $show->width('宽度');
         $show->height('高度');
         $show->is_show('显示')->using(['0'=>'否','1'=>'是']);
-        $show->sort_order('排序');
         $show->created_at('创建时间');
         $show->updated_at('编辑时间');
 
@@ -125,10 +126,10 @@ class AdvPositionController extends Controller
         $form = new Form(new AdvPosition);
 
         $form->text('name', '广告名称');
+        $form->text('ename', '英文代号');
         $form->number('width', '宽度');
         $form->number('height', '高度');
         $form->switch('is_show', '是否显示');
-        $form->number('sort_order', '排序')->default('99');
 
         return $form;
     }

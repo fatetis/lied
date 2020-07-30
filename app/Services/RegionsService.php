@@ -9,19 +9,27 @@ class RegionsService extends BaseService {
 
     protected $table = Regions::class;
 
-    public static function getAllProvice()
+    /**
+     * 获取所有省份
+     * @return \Illuminate\Support\Collection
+     * Author: fatetis
+     * Date:2020/7/30 003017:00
+     */
+    public static function getAllProvince()
     {
-        return Regions::where(['region_grade'=>1])->pluck('region_name', 'region_id');
-
+        return Regions::query()->where(['region_grade'=> Regions::GRADE_PROVINCE])->pluck('region_name', 'region_id');
     }
 
+
     /**
-     * 获取所有城市选择
-     * @return array
+     * 获取所有城市
+     * @return \Illuminate\Support\Collection
+     * Author: fatetis
+     * Date:2020/7/30 003016:57
      */
     public static function getAllCity()
     {
-        return Regions::where(['region_grade'=>2])->pluck('region_name', 'region_id');
+        return Regions::query()->where(['region_grade'=> Regions::GRADE_CITY])->pluck('region_name', 'region_id');
     }
 
     /**
@@ -34,7 +42,7 @@ class RegionsService extends BaseService {
         $regionSql = Regions::query();
 
         if(empty($regionId)){
-            $regionId = RegionsOpen::where('is_show',1)->pluck('region_id')->toArray();
+            $regionId = RegionsOpen::query()->where('is_show',1)->pluck('region_id')->toArray();
         }
 
         if(is_array($regionId)){

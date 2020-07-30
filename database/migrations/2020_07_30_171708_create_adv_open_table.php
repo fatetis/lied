@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdvPositionTable extends Migration
+class CreateAdvOpenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,18 +15,18 @@ class CreateAdvPositionTable extends Migration
     public function up()
     {
         DB::statement("
-CREATE TABLE `lied_adv_position` (
+CREATE TABLE `lied_adv_open` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL COMMENT '名称',
-  `ename` varchar(32) NOT NULL COMMENT '英文代号',
-  `width` int(4) NOT NULL COMMENT '宽度',
-  `height` int(4) NOT NULL COMMENT '高度',
-  `is_show` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否显示 1-显示 0-不显示',
+  `adv_id` int(10) unsigned NOT NULL COMMENT '广告id',
+  `region_open_id` int(10) unsigned NOT NULL COMMENT '城市开通id',
+  `start_time` datetime DEFAULT NULL COMMENT '开始时间',
+  `end_time` datetime DEFAULT NULL COMMENT '结束时间',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='广告位置表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='广告开通设置';
+
 ");
     }
 
@@ -37,6 +37,6 @@ CREATE TABLE `lied_adv_position` (
      */
     public function down()
     {
-        Schema::dropIfExists('adv_position');
+        Schema::dropIfExists('adv_open');
     }
 }
