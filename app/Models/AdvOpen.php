@@ -12,11 +12,21 @@ class AdvOpen extends BaseModel
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+//        'adv_id',
+//        'region_open_id',
+//        'start_time',
+//        'end_time'
+    ];
 
     public function adv()
     {
         return $this->belongsTo(Adv::class, 'adv_id', 'id');
+    }
+
+    public function regionopen()
+    {
+        return $this->belongsTo(RegionsOpen::class, 'region_open_id')->with('regions');
     }
 
 

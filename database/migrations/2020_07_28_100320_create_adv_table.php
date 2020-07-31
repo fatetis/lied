@@ -18,6 +18,7 @@ class CreateAdvTable extends Migration
 CREATE TABLE `lied_adv` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL COMMENT '名称',
+  `desc` varchar(64) DEFAULT NULL COMMENT '描述',
   `url` varchar(255) DEFAULT NULL COMMENT '广告链接',
   `media_id` int(10) NOT NULL COMMENT '广告图片',
   `position_id` int(10) unsigned NOT NULL COMMENT '广告位置ID',
@@ -30,6 +31,8 @@ CREATE TABLE `lied_adv` (
   KEY `position_id` (`position_id`),
   CONSTRAINT `adv-position_id` FOREIGN KEY (`position_id`) REFERENCES `lied_adv_position` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='广告展示表';
+
+
 
 ");
     }

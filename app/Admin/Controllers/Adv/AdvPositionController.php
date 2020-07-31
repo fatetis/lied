@@ -87,7 +87,6 @@ class AdvPositionController extends Controller
         $grid->width('宽度');
         $grid->height('高度');
         $grid->is_show('显示')->switch();
-        $grid->sort_order('排序')->editable();
         $grid->created_at('创建时间');
         $grid->updated_at('更新时间');
 
@@ -125,10 +124,10 @@ class AdvPositionController extends Controller
     {
         $form = new Form(new AdvPosition);
 
-        $form->text('name', '广告名称');
-        $form->text('ename', '英文代号');
-        $form->number('width', '宽度');
-        $form->number('height', '高度');
+        $form->text('name', '广告名称')->required();
+        $form->text('ename', '英文代号')->required();
+        $form->number('width', '宽度')->required();
+        $form->number('height', '高度')->required();
         $form->switch('is_show', '是否显示');
 
         return $form;

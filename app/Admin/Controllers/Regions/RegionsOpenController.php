@@ -130,7 +130,7 @@ class RegionsOpenController extends Controller
 
         $form->select('region_id', '开通城市')->options(RegionsService::getAllCity());
         $form->switch('is_show', '显示');
-        $form->number('sort_order', '排序');
+        $form->number('sort_order', '排序')->default(99);
 
         return $form;
     }

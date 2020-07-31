@@ -10,6 +10,7 @@ use App\Models\CouponsLimit;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Regions;
+use App\Models\RegionsOpen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +25,12 @@ class ApiController extends Controller
     public static function brand(Request $request)
     {
         $q = $request->get('q');
-        return Brand::where('name', 'like', "%$q%")->where('is_show',1)->where('is_audit',1)->orderBy('sort_order','desc')->paginate(null, ['id', 'name as text']);
+        return Brand::query()
+            ->where('name', 'like', "%$q%")
+            ->where('is_show', GlobalStatusController::YES)
+            ->where('is_audit', GlobalStatusController::YES)
+            ->orderBy('sort_order','desc')
+            ->paginate(null, ['id', 'name as text']);
     }
 
     /**
@@ -35,7 +41,10 @@ class ApiController extends Controller
     public static function productCategory(Request $request)
     {
         $q = $request->get('q');
-        return ProductCategory::where('name', 'like', "%$q%")->where('is_show',1)->paginate(null, ['id', 'name as text']);
+        return ProductCategory::query()
+            ->where('name', 'like', "%$q%")
+            ->where('is_show', GlobalStatusController::YES)
+            ->paginate(null, ['id', 'name as text']);
     }
 
     /**
@@ -46,7 +55,12 @@ class ApiController extends Controller
     public static function product(Request $request)
     {
         $q = $request->get('q');
-        return Product::where('name', 'like', "%$q%")->where('is_show',1)->where('is_audit',1)->orderBy('sort_order','desc')->paginate(null, ['id', 'name as text']);
+        return Product::query()
+            ->where('name', 'like', "%$q%")
+            ->where('is_show', GlobalStatusController::YES)
+            ->where('is_audit', GlobalStatusController::YES)
+            ->orderBy('sort_order','desc')
+            ->paginate(null, ['id', 'name as text']);
     }
 
     /**
@@ -57,7 +71,10 @@ class ApiController extends Controller
     public static function advPosition(Request $request)
     {
         $q = $request->get('q');
-        return AdvPosition::where('name', 'like', "%$q%")->where('is_show',1)->paginate(null, ['id', 'name as text']);
+        return AdvPosition::query()
+            ->where('name', 'like', "%$q%")
+            ->where('is_show',1)
+            ->paginate(null, ['id', 'name as text']);
     }
 
     /**
@@ -68,7 +85,11 @@ class ApiController extends Controller
     public function regionsCity(Request $request)
     {
         $q = $request->get('q');
-        return Regions::where('region_name', 'like', "%$q%")->where('region_grade' ,'=', 2)->orderBY('region_id','asc')->paginate(null, ['region_id', 'region_name as text']);
+        return Regions::query()
+            ->where('region_name', 'like', "%$q%")
+            ->where('region_grade' ,'=', Regions::GRADE_CITY)
+            ->orderBY('region_id','asc')
+            ->paginate(null, ['region_id', 'region_name as text']);
     }
 
     /**
@@ -79,7 +100,10 @@ class ApiController extends Controller
     public static function city(Request $request)
     {
         $q = $request->get('q');
-        return Regions::where(['region_grade' => 2,'parent_id'=>$q])->select('region_name as text', 'region_id as id')->get();
+        return Regions::query()
+            ->where(['region_grade' => Regions::GRADE_CITY, 'parent_id'=>$q])
+            ->select('region_name as text', 'region_id as id')
+            ->get();
     }
 
     /**
@@ -90,7 +114,10 @@ class ApiController extends Controller
     public static function area(Request $request)
     {
         $q = $request->get('q');
-        return Regions::where(['region_grade' => 3,'parent_id'=>$q])->select('region_name as text', 'region_id as id')->get();
+        return Regions::query()
+            ->where(['region_grade' => Regions::GRADE_AREA, 'parent_id'=>$q])
+            ->select('region_name as text', 'region_id as id')
+            ->get();
     }
 
     /**
@@ -101,31 +128,70 @@ class ApiController extends Controller
     public static function loadpro(Request $request)
     {
         $q = $request->get('q');
-        return Product::where('brand_id', $q)->where('is_show',1)->where('is_audit',1)->orderBy('sort_order','desc')->get(['id', DB::raw('name as text')]);
+        return Product::query()
+            ->where('brand_id', $q)
+            ->where('is_show', GlobalStatusController::YES)
+            ->where('is_audit', GlobalStatusController::YES)
+            ->orderBy('sort_order','desc')
+            ->get(['id', DB::raw('name as text')]);
     }
 
+    /**
+     * 优惠券选择框-优惠券数据
+     * @param Request $request
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * Author: fatetis
+     * Date:2020/7/31 00319:54
+     */
     public function coupon(Request $request)
     {
         $q = $request->get('q');
-        return Coupons::where('name','like',"%$q%")->where('is_show',1)->where('is_online',0)->orderBy('sort_order','desc')->paginate(null, ['id', 'name as text']);
+        return Coupons::query()
+            ->where('name','like',"%$q%")
+            ->where('is_show', GlobalStatusController::YES)
+            ->where('is_online', GlobalStatusController::NO)
+            ->orderBy('sort_order','desc')
+            ->paginate(null, ['id', 'name as text']);
     }
 
+    /**
+     * 优惠券限制选择框-优惠券限制数据
+     * @param Request $request
+     * @return mixed
+     * Author: fatetis
+     * Date:2020/7/31 00319:55
+     */
     public function loadCouponLimit(Request $request)
     {
         $q = $request->get('q');
         $prefix = Config::get('database.connections.mysql.prefix');
-        return CouponsLimit::leftJoin('product','product.id','coupons_limit.product_id')
+        return CouponsLimit::query()
+            ->leftJoin('product','product.id','coupons_limit.product_id')
             ->leftJoin('brand','brand.id','coupons_limit.brand_id')
             ->where([
                 'coupons_limit.coupon_id'   => $q,
-                'brand.is_audit'            => 1,
-                'brand.is_show'             => 1,
-                'product.is_audit'          => 1,
-                'product.is_show'           => 1,
+                'brand.is_audit'            => GlobalStatusController::YES,
+                'brand.is_show'             => GlobalStatusController::YES,
+                'product.is_audit'          => GlobalStatusController::YES,
+                'product.is_show'           => GlobalStatusController::YES,
             ])
             ->orderBy('coupons_limit.updated_at','desc')
             ->get(['coupons_limit.id',DB::raw("concat(".$prefix."brand.`name`,'-',".$prefix."product.`name`) as text")]);
 
+    }
+
+    public function getRegionsOpenCity(Request $request)
+    {
+        $q = $request->get('q');
+        return RegionsOpen::query()
+            ->leftJoin('regions','regions.region_id', 'regions_open.region_id')
+            ->where(function ($query) use ($q){
+                return $query->where('regions.region_name','like',"%$q%")
+                    ->orwhere('regions.e_name','like',"%$q%");
+            })
+            ->where('regions_open.is_show', GlobalStatusController::YES)
+            ->orderBy('regions_open.sort_order','desc')
+            ->paginate(null, ['regions_open.id', 'regions.region_name as text']);
     }
 
 

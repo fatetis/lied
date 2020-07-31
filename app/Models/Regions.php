@@ -19,6 +19,10 @@ class Regions extends BaseModel
      * 城市等级
      */
     const GRADE_CITY = 2;
+    /**
+     * 区等级
+     */
+    const GRADE_AREA = 3;
 
     public function __construct(array $attributes = [])
     {

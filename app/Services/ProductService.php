@@ -272,7 +272,7 @@ class ProductService extends BaseService {
      * Author: fatetis
      * Date:2020/2/28 002816:05
      */
-    public function getProductMedia($product_id)
+    public static function getProductMedia($product_id)
     {
         if (empty($product_id)) {
             return null;

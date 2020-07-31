@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Admin\Controllers\GlobalStatusController;
 use App\Models\Regions;
 use App\Models\RegionsOpen;
 
@@ -88,6 +89,16 @@ class RegionsService extends BaseService {
             }
         }
         return $arr;
+    }
+
+    public static function getRegionsOpenCity()
+    {
+        return RegionsOpen::query()
+            ->leftJoin('regions','regions.region_id', 'regions_open.region_id')
+            ->where('regions_open.is_show', GlobalStatusController::YES)
+            ->orderBy('regions_open.sort_order','desc')
+            ->pluck('regions.region_name', 'regions_open.id');
+
     }
 
 }

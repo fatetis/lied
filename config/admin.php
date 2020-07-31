@@ -104,7 +104,7 @@ return [
 
         'guards' => [
             'admin' => [
-                'driver'   => 'session',
+                'driver' => 'session',
                 'provider' => 'admin',
             ],
         ],
@@ -112,7 +112,7 @@ return [
         'providers' => [
             'admin' => [
                 'driver' => 'eloquent',
-                'model'  => Encore\Admin\Auth\Database\Administrator::class,
+                'model' => Encore\Admin\Auth\Database\Administrator::class,
             ],
         ],
     ],
@@ -134,7 +134,7 @@ return [
         // Image and file upload path under the disk above.
         'directory' => [
             'image' => 'images',
-            'file'  => 'files',
+            'file' => 'files',
         ],
     ],
 
@@ -168,11 +168,11 @@ return [
         'menu_model' => Encore\Admin\Auth\Database\Menu::class,
 
         // Pivot table for table above.
-        'operation_log_table'    => 'admin_operation_log',
+        'operation_log_table' => 'admin_operation_log',
         'user_permissions_table' => 'admin_user_permissions',
-        'role_users_table'       => 'admin_role_users',
+        'role_users_table' => 'admin_role_users',
         'role_permissions_table' => 'admin_role_permissions',
-        'role_menu_table'        => 'admin_role_menu',
+        'role_menu_table' => 'admin_role_menu',
     ],
 
     /*
@@ -323,7 +323,7 @@ return [
             // Whether show icon befor titles for all tab
             'use_icon' => true,
             // dashboard css
-            'tabs_css' =>'vendor/laravel-admin-ext/iframe-tabs/dashboard.css',
+            'tabs_css' => 'vendor/laravel-admin-ext/iframe-tabs/dashboard.css',
             // layer.js path
             'layer_path' => 'vendor/laravel-admin-ext/iframe-tabs/layer/layer.js',
             /**
@@ -333,14 +333,16 @@ return [
              */
             'pass_urls' => ['/auth/logout', '/auth/lock'],
             // When login session state of a tab-page was expired , force top-level window goto login page .
+            //登录超时是是否强制整体跳转到登录页面，设为false的话只在触发超时登录的页面跳转，最大程度保留已打开页面。
             'force_login_in_top' => true,
             // tabs left offset
-            'tabs_left'  => 42,
+            'tabs_left' => 42,
             // bind click event of table actions [edit / view]
             'bind_urls' => 'none', //[ popup / new_tab / none]
             //table actions dom selecter
-            'bind_selecter' => '.box-body table.table tbody a.grid-row-view,.box-body table.table tbody a.grid-row-edit,.box-header .pull-right .btn-success,.popup',
+            'bind_selecter' => 'a.grid-row-view,a.grid-row-edit,.column-__actions__ ul.dropdown-menu a,.box-header .pull-right .btn-success,.popup',
             //table action links [view edit] and create button ,and any thing has class pupop : <a class="pupop" popw="400px" poph="200px" href="someurl">mylink</a>
+            'layer_size' => '1100px,98%',
         ],
         'crontab' => [
 

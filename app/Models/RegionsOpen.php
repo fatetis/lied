@@ -13,11 +13,12 @@ class RegionsOpen extends BaseModel
      *
      * @var array
      */
-//    protected $fillable = ['name','password','mobile','register_ip'];
+    protected $fillable = [
+    ];
 
     public function regions()
     {
-        return $this->belongsTo(Regions::class,'region_id','region_id');
+        return $this->belongsTo(Regions::class, 'region_id', 'region_id');
     }
 
 }

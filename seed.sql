@@ -68,7 +68,10 @@ INSERT INTO `lied_admin_permissions` VALUES ('9', 'Redis Manager', 'ext.redis-ma
 
 
 
-INSERT INTO `lied_adv_position` VALUES ('1', '首页轮播', '750', '640', '1', '99', '2019-02-19 09:32:17', '2019-02-19 09:32:17', null);
+INSERT INTO `lied_adv_position` VALUES ('1', '首页轮播', 'index', '750', '640', '1', '2019-02-19 09:32:17', '2019-02-19 09:32:17', null);
+INSERT INTO `lied_adv_position` VALUES ('2', '首页分类', 'index_category', '120', '120', '1', '2020-07-31 17:44:29', '2020-07-31 17:55:07', null);
+INSERT INTO `lied_adv_position` VALUES ('3', '首页插槽', 'index_plug', '0', '200', '1', '2020-07-31 17:53:06', '2020-07-31 17:57:09', null);
+INSERT INTO `lied_adv_position` VALUES ('4', '首页每日逛', 'index_daily', '120', '0', '1', '2020-07-31 17:56:46', '2020-07-31 17:56:46', null);
 
 
 

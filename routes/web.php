@@ -45,9 +45,8 @@ Route::group([], function (Router $router) {
 //    测试
     $router->get('auth/weixin', 'Socialite\WechatController@redirectToProvider');
     $router->get('auth/weixin/callback','WechatController@handleProviderCallback')->name('aa');
-
 //    获取图片路径
-    $router->get('get/media/{id}', 'MediaController@getMediaLinkById')->where('id', '[1-9][0-9]+')->name('getMedia');
+    $router->get('media/get/{id}', 'MediaController@getMediaLinkById')->where('id', '[1-9]+')->name('getMedia');
 });
 
 /**

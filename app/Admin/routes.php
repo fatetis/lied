@@ -25,6 +25,9 @@ Route::group([
 
         $router->get('adv/position', 'ApiController@advPosition');
         $router->get('region/city', 'ApiController@regionsCity');
+
+        $router->get('region/open/city', 'ApiController@getRegionsOpenCity');
+
         $router->group(['namespace' => 'Api'], function ($router) {
             $router->post('attr/get', 'ProductController@getAttrData')->name('proAttrGetApi');//获取规格名称
             $router->post('attr/create', 'ProductController@createAttrData')->name('proAttrCreateApi');//创建规格名称

@@ -310,6 +310,17 @@ if (!function_exists('getIP')) {
         $realip = filter_var($realip, FILTER_VALIDATE_IP) ? $realip : 'unknown';
         return $realip;
     }
+
+    if (function_exists('ss'))
+    {
+        function ss($value, $str)
+        {
+            $val = mb_substr($value,-1,1,'utf8');
+            if($val == $str) return mb_substr($value,0,-1,'utf8');
+            return $value;
+        }
+    }
+
 }
 
 

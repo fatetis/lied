@@ -14,6 +14,8 @@ class AdvPosition extends BaseModel
      */
     protected $fillable = [];
 
+
+
     public function adv()
     {
         return $this->hasMany(Adv::class, 'position_id', 'id');

@@ -18,12 +18,12 @@ class Adv extends BaseModel
 
     public function advposition()
     {
-        return $this->belongsTo(AdvPosition::class, 'position_id', 'id');
+        return $this->belongsTo(AdvPosition::class, 'position_id');
     }
 
     public function advopen()
     {
-        return $this->hasMany(AdvOpen::class, 'adv_id', 'id');
+        return $this->hasMany(AdvOpen::class, 'adv_id')->with('regionopen');
     }
 
 }
