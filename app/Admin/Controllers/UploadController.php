@@ -60,7 +60,7 @@ class UploadController extends Controller
                 throw new SelfException($savepath->getstatusText());
             }
             $data = $savepath->getData()->data->id;
-            $src = Storage::url($savepath->getData()->data->link);
+            $src = $savepath->getData()->data->link;
             return [
                 "uploaded" => true,
                 "fileName" => $filename,

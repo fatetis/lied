@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 class ProductMedias extends BaseModel
 {
     protected $table = 'product_medias';

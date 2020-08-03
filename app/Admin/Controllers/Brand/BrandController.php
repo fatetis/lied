@@ -123,10 +123,14 @@ class BrandController extends Controller
     protected function form()
     {
         $form = new Form(new Brand);
+        $category_data = BrandCategory::selectOptions();
+        array_shift($category_data);
 
         $form->text('name', '品牌名称');
-        $form->select('category_id', '品牌分类')->options(BrandCategory::selectOptions());
-        $form->skimage('thumb', '品牌logo')->attribute('images')->attribute('upload_url', urlStandard('brand_thumb'));
+        $form->select('category_id', '品牌分类')->options($category_data);
+        $form->skmedia('media_id', '品牌logo')->attribute('images')->attribute([
+            'upload_url' => urlStandard('brand_thumb')
+        ])->help('上传图片宽*高为750*750')->required();
         $form->text('site_url', '品牌网址');
         $form->textarea('description', '品牌描述');
         $form->number('sort_order', '排序')->value(99)->max(99);

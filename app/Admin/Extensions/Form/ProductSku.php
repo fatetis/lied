@@ -9,6 +9,7 @@
 namespace App\Admin\Extensions\Form;
 
 use App\Models\ProductAttr;
+use App\Services\MediaService;
 use App\Services\ProductAttrService;
 use App\Services\ProductService;
 use Encore\Admin\Form\Field;
@@ -40,6 +41,7 @@ class ProductSku extends Field
             $product_attr_data = $product_service->getProductById($product_id, ['attrs', 'skus']);
             if (!empty($product_attr_data)) {
                 $media_id_arr = array_values(array_unique(array_column($product_attr_data['skus']->toArray(), 'media_id')));
+                $media_link = (new MediaService())->getMediaLinkById($media_id_arr);
             }
             $this->script = <<<EOT
         
@@ -51,7 +53,12 @@ class ProductSku extends Field
 EOT;
         }
 
-        $this->variables = ['attrData' => $attr_data, 'product_attr_data' => $product_attr_data ?? [], 'media_id_arr' => $media_id_arr ?? [],];
+        $this->variables = [
+            'attrData' => $attr_data,
+            'product_attr_data' => $product_attr_data ?? [],
+            'media_id_arr' => $media_id_arr ?? [],
+            'media_link' => $media_link ?? []
+        ];
 
 
 

@@ -93,20 +93,21 @@ $(function () {
         let thatInline = that.find('.ant-select-search--inline'); //该选择框下的inline元素
         let thatInlineInput = thatInline.find('.ant-select-search__field'); //该选择框下的input元素
         let sku = false; // 父级元素还是子元素，true为父级 false为子级
-        if(thatInlineInput.val() == ''){
+
+        if(thatInlineInput.val() === ''){
             thatInline.css('display','block').prev().css({'display':'block', 'opacity':'0.4'}) //改变状态显示
         }else{
             thatInline.css('display','block').prev().css({'display':'none', 'opacity':'0.4'}) //改变状态显示
         }
 
-        if(thatInlineInput.data('child') != 1){
+        if(thatInlineInput.data('child') !== 1){
             //父级元素值改变，子元素select框移除
             let childObj = that.parents('.self_sku_additem').find('.self_sku .ant-select');
             sku = true;
             if(childObj.length > 0){
                 for(let i = 0; i < childObj.length;  i++){
                     let childObjId = childObj.eq(i).data('select-obj');
-                    if(childObjId != undefined){
+                    if(childObjId !== undefined){
                         $('#'+childObjId).remove();
                     }
                 }
@@ -116,28 +117,28 @@ $(function () {
 
             let liobject = selectHtml.find('li');
             checkLiStatus(liobject, thatInlineInput, sku, true)
-        }else{
-            checkLiStatus(thatObjData, thatInlineInput)
         }
 
 
         //检测该元素是否存在option选项
-        if(thatObjData != undefined){
+        if(thatObjData !== undefined){
             selectShow(thatObjData,top,thatHeight,left,thatWidth)
             return false;
         }
 
-        that.attr('data-select-obj',key).addClass(key);
-        selectHtml.attr('id',key)
+
         //子选择框重新获取li数据
-        if(thatInlineInput.data('child') == 1){
+        if(thatInlineInput.data('child') === 1){
             let pid = thatInlineInput.parents('.self_sku_additem').find('.antd-pro-pages-goods-widget-styles-sku_group_title .ant-select-search__field').next().val();//获取父级pid的value值
             let ulObj = selectHtml.find('.ant-select-dropdown-menu') //ul选择器
             let liObj  = ulObj.find('li');
             liObj.remove();
-            $.post(thatInlineInput.data('url'),
-                {pid:pid},
-                function (d) {
+            $.ajax({
+                url: thatInlineInput.data('url'),
+                data: {pid:pid},
+                async: false,
+                type: 'POST',
+                success: function (d) {
                     let data = JSON.parse(d.data)
                     // 获取所有的规格value值
                     let attrValueObj = $('.self_sku_container .self_attr_value');
@@ -153,9 +154,14 @@ $(function () {
                     }else{
                         createOptionByLiArray(ulObj,data,attrValueArray)
                     }
-                })
+                }
+            })
+
         }
+        that.attr('data-select-obj',key).addClass(key);
+        selectHtml.attr('id',key)
         $(document.body).append(selectHtml);
+        checkLiStatus(key, thatInlineInput)
         selectShow(key,top,thatHeight,left,thatWidth)
     })
 
@@ -367,7 +373,7 @@ $(function () {
             }, delay);
         };
     }
-    
+
     $(document).on('click', '.self_sku_picture', function () {
 
         let picClone = $('.prehtml .self_pic_clone').clone();

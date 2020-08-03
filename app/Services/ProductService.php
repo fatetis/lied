@@ -60,7 +60,7 @@ class ProductService extends BaseService {
             elog("商品规格上传失败" . $selfException->getMessage());
             return $selfException->getMessage();
         } catch (\Exception $exception) {
-            elog("商品规格上传失败，产品id：{$product_id},商品规格数据：" . je($sku_data) . ",第" . $exception->getLine() . '行:' . $exception->getMessage());
+            elog("商品规格上传异常，产品id：{$product_id},商品规格数据：" . je($sku_data) .",文件路径：".$exception->getFile(). ",第" . $exception->getLine() . '行:' . $exception->getMessage());
             return $exception->getMessage();
         }
 
@@ -155,7 +155,10 @@ class ProductService extends BaseService {
         collect($sku_data)->filter(function ($item) {
             return is_array($item);
         })->map(function ($sku, $key) use ($product_id) {
-
+            if(empty($sku['price']) || empty($sku['cost_price']) || empty($sku['media_id'])) {
+                return [];
+//                throw new SelfException('商品SKU数据不完整');
+            }
             //更新或创建
             $products_sku = ProductSku::query()
                 ->where([
@@ -264,6 +267,7 @@ class ProductService extends BaseService {
         $this->created_arr['product_medias'][] = $product_medias['id'];
         return $product_medias;
     }
+
 
     /**
      * 获取productMedia表数据

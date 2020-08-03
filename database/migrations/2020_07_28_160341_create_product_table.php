@@ -19,7 +19,7 @@ CREATE TABLE `lied_product` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '商品ID',
   `name` varchar(64) NOT NULL DEFAULT '' COMMENT '商品名称',
   `brand_id` int(10) NOT NULL COMMENT '商家品牌ID',
-  `category_id` int(10) unsigned NOT NULL COMMENT '商品类别ID',
+  `category_id` int(10) unsigned DEFAULT NULL COMMENT '商品类别ID',
   `virtual_quantity` int(8) DEFAULT '0' COMMENT '虚拟购买量',
   `line_price` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '市场价格',
   `price` decimal(8,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '销售价格',
@@ -37,7 +37,11 @@ CREATE TABLE `lied_product` (
   PRIMARY KEY (`id`),
   KEY `product-category_id` (`category_id`),
   CONSTRAINT `product-category_id` FOREIGN KEY (`category_id`) REFERENCES `lied_product_category` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品基本表';");
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='商品基本表';
+
+
+
+");
     }
 
     /**

@@ -95,8 +95,10 @@ class ProductController extends Controller
      */
     protected function grid()
     {
-//        $prosku_result = $this->productService->saveProduct(jd('{"8":{"price":"1","stock_num":"2","code":"3","cost_price":"4","warn_number":"5","sold_num":"0","attr_key":"8","media_id":"415"}}'), 18);
+//        $prosku_result = $this->productService->saveProduct(1, jd('{"3-6":{"price":"1","stock_num":"2","code":"1","cost_price":"3","warn_number":"4","sold_num":"0","attr_key":"6-3","media_id":"20"},"2-6":{"price":"1","stock_num":"2","code":"2","cost_price":"3","warn_number":"4","sold_num":"0","attr_key":"6-2","media_id":"20"},"3-5":{"price":"1","stock_num":"2","code":"3","cost_price":"3","warn_number":"4","sold_num":"0","attr_key":"5-3","media_id":"21"},"2-5":{"price":"1","stock_num":"2","code":"4","cost_price":"3","warn_number":"4","sold_num":"0","attr_key":"5-2","media_id":"21"}}'), jd('{"0":"13","1":"14","2":"12","3":"11"}'));
+//
 //        dd($prosku_result);
+
         $grid = new Grid(new Product);
         $grid->model()->orderBy('updated_at', 'desc');
         $grid->model()->orderBy('id', 'desc');
@@ -191,8 +193,11 @@ class ProductController extends Controller
                 'off' => ['value' => 0, 'text' => '✖', 'color' => 'danger'],
             ];
 
+            $product_data = ProductCategory::selectOptions();
+            array_shift($product_data);
+
             $form->text('name', '产品名称')->required();
-            $form->select('category_id', '产品分类')->options(ProductCategory::selectOptions());
+            $form->select('category_id', '产品分类')->options($product_data);
 
             $form->select('brand_id', '品牌')->options(function ($id) {
                 $brand = Brand::query()->find($id);
@@ -248,12 +253,13 @@ class ProductController extends Controller
         $form->saved(function (Form $form){
             $prosku = request('prosku');
             $picture = request('picture');
+
             $prosku_result = $this->productService->saveProduct($form->model()->id, $prosku, $picture);
             if ($prosku_result !== true) {
                 if ($form->isCreating()) $form->model()->delete();
                 $error = new MessageBag([
                     'title' => '错误信息',
-                    'message' => '商品规格保存出错，请重新再试',
+                    'message' => $prosku_result
                 ]);
                 return back()->with(compact('error'));
             }

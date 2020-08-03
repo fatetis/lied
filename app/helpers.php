@@ -7,6 +7,7 @@
  */
 
 use App\Models\LogError;
+use Illuminate\Support\Facades\Storage;
 
 if (!function_exists('curlLink')) {
     function curlLink($url, $method = 'get', $post_data = 0)
@@ -180,11 +181,11 @@ if (!function_exists('upDecimal')) {
         $num = bcmul($num, $powint, $subnum);//两数相乘
         $numArr = explode('.', $num);
         $num = $numArr[0];
-        $dcm = $numArr[1] ?? 0;
+        $dcm = substr(($numArr[1] ?? 0), 0, $qty+1);
         if ($dcm > 0) {
-            if ($type == 1 && $num > 0) {
+            if ($type == 1 && $num >= 0) {
                 $num = $num + 1;
-            } elseif ($type == 2 && $num < 0) {
+            } elseif ($type == 2 && $num <= 0) {
                 $num = $num - 1;
             }
         }
@@ -318,6 +319,30 @@ if (!function_exists('getIP')) {
             $val = mb_substr($value,-1,1,'utf8');
             if($val == $str) return mb_substr($value,0,-1,'utf8');
             return $value;
+        }
+    }
+
+    if (!function_exists('imgoss')) {
+        function imgoss($param)
+        {
+            if (env('FILESYSTEM_DRIVER') == 'alioss') {
+                $config = config('filesystems')['disks']['alioss'];
+                $timeout = 3600;
+                $param = ltrim($param, '/');
+                if (strpos($param, 'lock') === false) {
+                    $signedUrl = Storage::url($param);
+                } else {
+                    $ossClient = new OssClient($config['access_id'], $config['access_key'], $config['endpoint'], false);
+                    // 生成PutObject的签名URL。
+                    $signedUrl = $ossClient->signUrl($config['bucket'], $param, $timeout, "GET");
+
+                }
+
+            } else {
+                $signedUrl = asset($param);
+            }
+
+            return $signedUrl;
         }
     }
 

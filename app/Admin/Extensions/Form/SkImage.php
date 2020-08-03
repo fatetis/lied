@@ -8,7 +8,9 @@
 
 namespace App\Admin\Extensions\Form;
 
+use App\Services\MediaService;
 use Encore\Admin\Form\Field;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * 使用示例：
@@ -28,7 +30,7 @@ class SkImage extends Field
     ];
 
     protected static $js = [
-        
+
     ];
 
     public function render()
@@ -47,7 +49,19 @@ alioss_upload('{$name}','$token');
 EOT;
         }
         if (array_key_exists('value', $this->attributes) && !empty($this->attributes['value'])) {
-            $this->value = jd($this->attributes['value']);
+            $this->value = jd($this->attributes['value']) ?: [];
+        }else{
+            $this->value = $this->value ? explode(' ', $this->value) : [];
+        }
+
+        if(!empty($this->value)) {
+            $this->variables['media_link'] = (new MediaService())->getMediaLinkById($this->value);
+
+//            if (!$pictureInfo->isEmpty()) {
+//                $this->variables['media_link'] = collect($pictureInfo)->map(function($value){
+//                    return Storage::url($value);
+//                })->toArray();
+//            }
         }
         return parent::render();
     }

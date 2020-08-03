@@ -28,32 +28,24 @@
             </button>
             <div class="box box-widget">
                 <!-- /.box-header -->
-                <div id="{{$id}}_container" class="box-body show_upload_pic">
-                    @if(old($id, $value))
-                        @if(is_array(old($id, $value)))
-                            @foreach(old($id, $value) as $p)
-                                <div class="show_upload_pic_item">
-                                    <img src="{{ route('getMedia', $p) }}" data-original="{{ route('getMedia', $p) }}"
-                                         style="margin-bottom: 3px;width: 80%;height: 80%">
-                                    <div class="operat_warp" style="display: inline-block">
-                                        <input type="hidden" name="{{$id}}[]" value="{{$p}}">
-                                        <a class='example-image-link ' href="{{ route('getMedia', $p) }}"
-                                           data-lightbox='example-set' data-title=''>预览</a>
-                                        / <a href="javascript:void(0);" onclick="alioss_del_file(this,1,true)" data-filename="{{$p}}">删除</a>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @else
-                            <div class="show_upload_pic_item">
-                                <img src="{{ route('getMedia', old($id, $value)) }}" data-original="{{ route('getMedia', old($id, $value)) }}" style="margin-bottom: 3px;width: 80%;height: 80%" >
-                                <div class="operat_warp" style="display: inline-block">
-                                    <input type="hidden" name="{{$id}}" value="{{old($id, $value)}}">
-                                    <a class='example-image-link ' href="{{route('getMedia', old($id, $value))}}" data-lightbox='example-set' data-title=''>预览</a>
-                                    / <a href="javascript:void(0);" onclick="alioss_del_file(this,1,true)" data-filename="{{old($id, $value)}}">删除</a>
-                                </div>
+                <div id="{{$id}}_container" class="box-body show_upload_pic" >
+                    @forelse(old($id, $value) as $key => $p)
+                        <div class="show_upload_pic_item">
+                            <img src="{{ $media_link[$p] ?? '' }}" data-original="{{ $media_link[$p] ?? '' }}"
+                                 style="margin-bottom: 3px;width: 80%;height: 80%">
+                            <div class="operat_warp" style="display: inline-block">
+                                @if(count(old($id, $value)) >= 2)
+                                    <input type="hidden" name="{{$id}}[]" value="{{$p}}">
+                                    @else
+                                    <input type="hidden" name="{{$id}}" value="{{$p}}">
+                                @endif
+                                <a class='example-image-link ' href="{{ $media_link[$p] ?? '' }}"
+                                   data-lightbox='example-set' data-title=''>预览</a>
+                                / <a href="javascript:void(0);" onclick="alioss_del_file(this,1,true)" data-filename="{{$p}}">删除</a>
                             </div>
-                        @endif
-                    @endif
+                        </div>
+                    @empty
+                    @endforelse
                 </div>
                 <!-- /.box-body -->
             </div>

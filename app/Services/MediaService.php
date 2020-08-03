@@ -10,7 +10,7 @@ class MediaService extends BaseService
     protected $table = Media::class;
 
     /**
-     * 获取一条picture表数据
+     * 获取一条或者多条picture表数据
      * @param int $picId 主键id
      * @return string 媒体地址
      * Author: fatetis
@@ -18,7 +18,10 @@ class MediaService extends BaseService
      */
     public function getMediaLinkById($picId)
     {
-        return $this->table::findOrFail($picId);
+        if(is_array($picId)) {
+            return $this->table::whereIn('id', $picId)->pluck('link', 'id')->toArray();
+        }
+        return $this->table::find($picId);
     }
 
     /**

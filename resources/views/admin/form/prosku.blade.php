@@ -761,14 +761,14 @@
                 <div class="ant-upload-list-item-info">
                     <span>
                         <a target="_blank" rel="noopener noreferrer" class="ant-upload-list-item-thumbnail">
-                            <img src="{{ route('getMedia', $media_id_arr[$k]) }}"/>
+                            <img src="{{ $media_link[$media_id_arr[$k]] }}"/>
                         </a>
                     </span>
                 </div>
                 <input class="media_id" type="hidden" value="{{ $media_id_arr[$k] }}">
                 <span class="ant-upload-list-item-actions">
                 <a target="_blank" title="预览文件" rel="noopener noreferrer"
-                   href="{{ route('getMedia', $media_id_arr[$k]) }}">
+                   href="{{ $media_link[$media_id_arr[$k]] }}">
                     <i aria-label="图标: eye-o" class="anticon anticon-eye-o">
                         <svg viewBox="64 64 896 896" class="" data-icon="eye" width="1em" height="1em"
                              fill="currentColor"
@@ -789,6 +789,7 @@
             </div>
         </div>
     </div>
+
                             {{--@endforeach--}}
                         @endif
     </div>

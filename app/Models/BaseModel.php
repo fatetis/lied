@@ -14,42 +14,6 @@ class BaseModel extends Model
 
 
     /**
-     * 获取多图上传的数据
-     * @param $value
-     * @return mixed
-     */
-    public function getPictureAttribute($value)
-    {
-        if(!empty($value)){
-            $pictureIdArr = array_filter(explode(',',$value));
-            return Media::whereIn('id', $pictureIdArr)->orderBy('created_at', 'asc')->pluck('link');
-        }
-    }
-
-    /**
-     * 设置多图上传的保存数据
-     * @param $value
-     * @return mixed
-     */
-    public function setPictureAttribute($value)
-    {
-        if(is_array($value)){
-            if (request()->has('_file_del_')) {
-                $arr = Media::whereIn('link', $value)->pluck('id')->toArray();
-                $result = explode(',',$this->original['picture']);
-                $result = array_diff($result,$arr);
-                Media::destroy($result);
-            }else{
-                foreach ($value as $picture){
-                    $result = Media::firstOrCreate(['link' => $picture]);
-                    $arr[] = $result->id;
-                }
-            }
-            $this->attributes['picture'] = implode(',',$arr);
-        }
-    }
-
-    /**
      * 反转义字段输出
      * @param $value
      * @return string
