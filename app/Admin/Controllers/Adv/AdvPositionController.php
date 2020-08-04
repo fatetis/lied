@@ -125,7 +125,12 @@ class AdvPositionController extends Controller
         $form = new Form(new AdvPosition);
 
         $form->text('name', '广告名称')->required();
-        $form->text('ename', '英文代号')->required();
+        if ($form->isCreating()) {
+            $form->text('ename', '英文代号')->required();
+        } else {
+            $form->text('ename', '英文代号')->disable();
+        }
+
         $form->number('width', '宽度')->required();
         $form->number('height', '高度')->required();
         $form->switch('is_show', '是否显示');

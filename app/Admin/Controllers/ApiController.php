@@ -27,8 +27,8 @@ class ApiController extends Controller
         $q = $request->get('q');
         return Brand::query()
             ->where('name', 'like', "%$q%")
-            ->where('is_show', GlobalStatusController::YES)
-            ->where('is_audit', GlobalStatusController::YES)
+            ->where('is_show', GlobalStatusCodeController::YES)
+            ->where('is_audit', GlobalStatusCodeController::YES)
             ->orderBy('sort_order','desc')
             ->paginate(null, ['id', 'name as text']);
     }
@@ -43,7 +43,7 @@ class ApiController extends Controller
         $q = $request->get('q');
         return ProductCategory::query()
             ->where('name', 'like', "%$q%")
-            ->where('is_show', GlobalStatusController::YES)
+            ->where('is_show', GlobalStatusCodeController::YES)
             ->paginate(null, ['id', 'name as text']);
     }
 
@@ -57,8 +57,8 @@ class ApiController extends Controller
         $q = $request->get('q');
         return Product::query()
             ->where('name', 'like', "%$q%")
-            ->where('is_show', GlobalStatusController::YES)
-            ->where('is_audit', GlobalStatusController::YES)
+            ->where('is_show', GlobalStatusCodeController::YES)
+            ->where('is_audit', GlobalStatusCodeController::YES)
             ->orderBy('sort_order','desc')
             ->paginate(null, ['id', 'name as text']);
     }
@@ -130,8 +130,8 @@ class ApiController extends Controller
         $q = $request->get('q');
         return Product::query()
             ->where('brand_id', $q)
-            ->where('is_show', GlobalStatusController::YES)
-            ->where('is_audit', GlobalStatusController::YES)
+            ->where('is_show', GlobalStatusCodeController::YES)
+            ->where('is_audit', GlobalStatusCodeController::YES)
             ->orderBy('sort_order','desc')
             ->get(['id', DB::raw('name as text')]);
     }
@@ -148,8 +148,8 @@ class ApiController extends Controller
         $q = $request->get('q');
         return Coupons::query()
             ->where('name','like',"%$q%")
-            ->where('is_show', GlobalStatusController::YES)
-            ->where('is_online', GlobalStatusController::NO)
+            ->where('is_show', GlobalStatusCodeController::YES)
+            ->where('is_online', GlobalStatusCodeController::NO)
             ->orderBy('sort_order','desc')
             ->paginate(null, ['id', 'name as text']);
     }
@@ -170,10 +170,10 @@ class ApiController extends Controller
             ->leftJoin('brand','brand.id','coupons_limit.brand_id')
             ->where([
                 'coupons_limit.coupon_id'   => $q,
-                'brand.is_audit'            => GlobalStatusController::YES,
-                'brand.is_show'             => GlobalStatusController::YES,
-                'product.is_audit'          => GlobalStatusController::YES,
-                'product.is_show'           => GlobalStatusController::YES,
+                'brand.is_audit'            => GlobalStatusCodeController::YES,
+                'brand.is_show'             => GlobalStatusCodeController::YES,
+                'product.is_audit'          => GlobalStatusCodeController::YES,
+                'product.is_show'           => GlobalStatusCodeController::YES,
             ])
             ->orderBy('coupons_limit.updated_at','desc')
             ->get(['coupons_limit.id',DB::raw("concat(".$prefix."brand.`name`,'-',".$prefix."product.`name`) as text")]);
@@ -189,7 +189,7 @@ class ApiController extends Controller
                 return $query->where('regions.region_name','like',"%$q%")
                     ->orwhere('regions.e_name','like',"%$q%");
             })
-            ->where('regions_open.is_show', GlobalStatusController::YES)
+            ->where('regions_open.is_show', GlobalStatusCodeController::YES)
             ->orderBy('regions_open.sort_order','desc')
             ->paginate(null, ['regions_open.id', 'regions.region_name as text']);
     }
