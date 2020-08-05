@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers\Product;
 
+use App\Admin\Controllers\GlobalStatusCodeController;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Form;
@@ -10,6 +11,8 @@ use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Tree;
+use Illuminate\Support\MessageBag;
 
 class ProductCategoryController extends Controller
 {
@@ -25,7 +28,11 @@ class ProductCategoryController extends Controller
     {
         return Admin::content(function (Content $content) {
             $content->header('产品分类');
-            $content->body(ProductCategory::tree());
+            $content->body(ProductCategory::tree(function (Tree $tree) {
+                $tree->branch(function ($branch) {
+                    return "{$branch['id']} - {$branch['name']}". ($branch['is_rec'] == 1 ? ' - <strong style="color: #c9302c">推荐</strong>': '');
+                });
+            }));
         });
     }
 
@@ -124,11 +131,23 @@ class ProductCategoryController extends Controller
         $form = new Form(new ProductCategory);
 
         $form->select('pid', trans('admin.parent_id'))->options(ProductCategory::selectOptions());
-        $form->text('name', '品牌名称')->rules('required')->rules('max:8', [
+        $form->text('name', '分类名称')->rules('required')->rules('max:8', [
             'max' => '最多只能输入8个字'
         ]);
-        $form->number('sort_order', '排序')->value(99)->max(99);
+        $form->number('sort', '排序')->value(99)->max(99);
+        $form->switch('is_rec', '推荐')->value(0);
 
+        $form->saving(function (Form $form){
+            $pid = $form->pid;
+            $is_rec = $form->is_rec;
+            if (empty($pid) && $is_rec === GlobalStatusCodeController::ON) {
+                $error = new MessageBag([
+                    'title' => '错误信息',
+                    'message' => '顶级分类不可以做推荐',
+                ]);
+                return back()->with(compact('error'));
+            }
+        });
         return $form;
     }
 }

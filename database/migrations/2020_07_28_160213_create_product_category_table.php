@@ -16,15 +16,18 @@ class CreateProductCategoryTable extends Migration
     {
         DB::statement("
 CREATE TABLE `lied_product_category` (
-`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-`pid` int(10) unsigned DEFAULT NULL,
-`name` varchar(64) NOT NULL COMMENT '名称',
-`sort_order` int(4) DEFAULT '0',
-`created_at` datetime DEFAULT NULL,
-`updated_at` datetime DEFAULT NULL,
-`deleted_at` datetime DEFAULT NULL,
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `pid` int(10) unsigned DEFAULT NULL,
+  `name` varchar(64) NOT NULL COMMENT '名称',
+  `is_rec` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否推荐',
+  `sort` int(4) DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+");
     }
 
     /**

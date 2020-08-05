@@ -18,7 +18,7 @@ class ProductCategory extends BaseModel
         parent::__construct($attributes);
 
         $this->setParentColumn('pid');
-        $this->setOrderColumn('sort_order');
+        $this->setOrderColumn('sort');
         $this->setTitleColumn('name');
     }
 
