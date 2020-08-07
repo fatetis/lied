@@ -85,7 +85,7 @@ class BrandController extends Controller
         $grid->name('名称');
         $grid->site_url('网址');
         $grid->is_show('显示')->switch();
-        $grid->sort_order('排序')->editable()->sortable();
+        $grid->sort('排序')->editable()->sortable();
         $grid->created_at('创建时间');
         $grid->updated_at('更新时间');
 
@@ -108,7 +108,7 @@ class BrandController extends Controller
         $show->description('品牌描述');
         $show->site_url('品牌网址')->link();
         $show->is_show('显示')->using(['1' => '是', '0' => '否']);
-        $show->sort_order('排序序号');
+        $show->sort('排序序号');
         $show->created_at('创建时间');
         $show->updated_at('更新时间');
 
@@ -133,7 +133,7 @@ class BrandController extends Controller
         ])->help('上传图片宽*高为750*750')->required();
         $form->text('site_url', '品牌网址');
         $form->textarea('description', '品牌描述');
-        $form->number('sort_order', '排序')->value(99)->max(99);
+        $form->number('sort', '排序')->value(99)->max(99);
         $form->switch('is_show', '显示');
         $form->switch('is_audit', '审核');
         return $form;

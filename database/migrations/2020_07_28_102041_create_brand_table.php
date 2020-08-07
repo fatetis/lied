@@ -22,7 +22,7 @@ CREATE TABLE `lied_brand` (
   `media_id` int(10) unsigned NOT NULL COMMENT '品牌logo',
   `description` text NOT NULL COMMENT '品牌描述',
   `site_url` varchar(255) NOT NULL COMMENT '品牌的网址',
-  `sort_order` tinyint(4) NOT NULL,
+  `sort` tinyint(4) unsigned NOT NULL COMMENT '排序',
   `is_audit` tinyint(1) NOT NULL,
   `is_show` tinyint(1) NOT NULL COMMENT '是否显示',
   `created_at` datetime DEFAULT NULL,
@@ -34,6 +34,8 @@ CREATE TABLE `lied_brand` (
   CONSTRAINT `brand-category_id` FOREIGN KEY (`category_id`) REFERENCES `lied_brand_category` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `brand-thumb` FOREIGN KEY (`media_id`) REFERENCES `lied_media` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 ");
     }

@@ -35,7 +35,7 @@ class Product extends BaseModel
 
     public function brand()
     {
-        return $this->belongsTo(Brand::class, 'brand_id', 'id');
+        return $this->belongsTo(Brand::class, 'brand_id', 'id')->orderByDesc('sort');
     }
 
     public function attrs()
@@ -55,7 +55,7 @@ class Product extends BaseModel
 
     public function medias()
     {
-        return $this->hasMany(ProductMedias::class, 'product_id')->with(['media']);
+        return $this->hasMany(ProductMedias::class, 'product_id')->with(['media'])->orderByDesc('sort');
     }
 
 
