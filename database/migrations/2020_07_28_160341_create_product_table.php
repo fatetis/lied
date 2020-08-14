@@ -28,7 +28,6 @@ CREATE TABLE `lied_product` (
   `is_real` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否实物，1为是',
   `is_audit` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '审核，1为审核',
   `is_on_sale` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示，1为显示',
-  `is_limit` int(2) unsigned NOT NULL DEFAULT '0' COMMENT '是否限购',
   `created_id` int(11) unsigned NOT NULL COMMENT '创建者id',
   `sort` int(4) unsigned DEFAULT '0' COMMENT '排序',
   `created_at` datetime DEFAULT NULL,
