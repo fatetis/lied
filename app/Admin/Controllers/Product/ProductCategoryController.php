@@ -134,6 +134,9 @@ class ProductCategoryController extends Controller
         $form->text('name', '分类名称')->rules('required')->rules('max:8', [
             'max' => '最多只能输入8个字'
         ]);
+        $form->skmedia('media_id', '分类icon')->attribute('images')->attribute([
+            'upload_url' => urlStandard('product_category')
+        ])->help('上传图片宽*高为140*140')->required();
         $form->number('sort', '排序')->value(99)->max(99);
         $form->switch('is_rec', '推荐')->value(0);
 

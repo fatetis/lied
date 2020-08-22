@@ -29,7 +29,7 @@ class ApiController extends Controller
             ->where('name', 'like', "%$q%")
             ->where('is_show', GlobalStatusCodeController::YES)
             ->where('is_audit', GlobalStatusCodeController::YES)
-            ->orderBy('sort_order','desc')
+            ->orderBy('sort','desc')
             ->paginate(null, ['id', 'name as text']);
     }
 

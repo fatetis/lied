@@ -19,6 +19,7 @@ CREATE TABLE `lied_product_category` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(10) unsigned DEFAULT NULL,
   `name` varchar(64) NOT NULL COMMENT '名称',
+  `media_id` int(10) unsigned DEFAULT NULL COMMENT '媒体id',
   `is_rec` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否推荐',
   `sort` int(4) DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
@@ -26,6 +27,8 @@ CREATE TABLE `lied_product_category` (
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 ");
     }
