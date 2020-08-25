@@ -227,7 +227,7 @@ class ProductController extends Controller
         })->tab('扩展信息', function ($form) {
 
             $form->number('virtual_quantity', '虚拟购买量');
-            $form->number('is_limit', '限购')->value(0)->min(0);
+//            $form->number('is_limit', '限购')->value(0)->min(0);
 
 
         });
