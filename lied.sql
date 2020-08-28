@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-08-22 17:55:07
+Date: 2020-08-28 14:44:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -92,7 +92,7 @@ CREATE TABLE `lied_admin_operation_log` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lied_admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1006 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1020 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lied_admin_operation_log
@@ -1102,6 +1102,20 @@ INSERT INTO `lied_admin_operation_log` VALUES ('1002', '1', 'admin/product/categ
 INSERT INTO `lied_admin_operation_log` VALUES ('1003', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-08-22 11:58:02', '2020-08-22 11:58:02');
 INSERT INTO `lied_admin_operation_log` VALUES ('1004', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-22 11:58:27', '2020-08-22 11:58:27');
 INSERT INTO `lied_admin_operation_log` VALUES ('1005', '1', 'admin/product/category/3/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-22 11:58:30', '2020-08-22 11:58:30');
+INSERT INTO `lied_admin_operation_log` VALUES ('1006', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-08-24 16:01:38', '2020-08-24 16:01:38');
+INSERT INTO `lied_admin_operation_log` VALUES ('1007', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-24 16:01:43', '2020-08-24 16:01:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1008', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-24 16:01:48', '2020-08-24 16:01:48');
+INSERT INTO `lied_admin_operation_log` VALUES ('1009', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2020-08-24 16:03:12', '2020-08-24 16:03:12');
+INSERT INTO `lied_admin_operation_log` VALUES ('1010', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-24 16:04:20', '2020-08-24 16:04:20');
+INSERT INTO `lied_admin_operation_log` VALUES ('1011', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-24 16:04:22', '2020-08-24 16:04:22');
+INSERT INTO `lied_admin_operation_log` VALUES ('1012', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2020-08-24 16:04:35', '2020-08-24 16:04:35');
+INSERT INTO `lied_admin_operation_log` VALUES ('1013', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-24 16:05:06', '2020-08-24 16:05:06');
+INSERT INTO `lied_admin_operation_log` VALUES ('1014', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-24 16:26:43', '2020-08-24 16:26:43');
+INSERT INTO `lied_admin_operation_log` VALUES ('1015', '1', 'admin/product/1', 'PUT', '127.0.0.1', '{\"name\":\"lied\",\"category_id\":\"1\",\"brand_id\":\"2\",\"line_price\":\"112.00\",\"picture\":[\"13\",\"14\",\"12\",\"11\"],\"description\":\"1231\",\"content\":\"<p>12313<\\/p>\",\"sort\":\"99\",\"is_real\":\"on\",\"is_on_sale\":\"on\",\"is_audit\":\"on\",\"created_id\":\"1\",\"_token\":\"yM9buegCVQrbJMPwWhN8KXXWEIA08Iz3sCEtReLv\",\"_date\":\"20200824\",\"sku_attr\":\"[{\\\"id\\\":9,\\\"product_id\\\":1,\\\"attr_key\\\":\\\"3-6\\\",\\\"media_id\\\":20,\\\"price\\\":\\\"1.00\\\",\\\"cost_price\\\":\\\"3.00\\\",\\\"sold_num\\\":0,\\\"code\\\":\\\"1\\\",\\\"created_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"updated_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"deleted_at\\\":null,\\\"stock\\\":{\\\"id\\\":9,\\\"product_id\\\":1,\\\"sku_id\\\":9,\\\"quantity\\\":2,\\\"warn_number\\\":4,\\\"created_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"updated_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"deleted_at\\\":null},\\\"media\\\":{\\\"id\\\":20,\\\"type\\\":1,\\\"link\\\":\\\"http:\\\\\\/\\\\\\/www.lied.com\\\\\\/uploads\\\\\\/images\\\\\\/sku\\\\\\/20200803\\\\\\/68562cb301eeae026614cc842a4e6a2f.jpeg\\\",\\\"rlink\\\":\\\"0\\\",\\\"size\\\":365,\\\"file_ext\\\":\\\"jpeg\\\",\\\"file_name\\\":\\\"68562cb301eeae026614cc842a4e6a2f.jpeg\\\",\\\"is_lock\\\":0,\\\"is_show\\\":1,\\\"created_at\\\":\\\"2020-08-03 15:20:48\\\",\\\"updated_at\\\":\\\"2020-08-03 15:20:48\\\",\\\"deleted_at\\\":null}},{\\\"id\\\":10,\\\"product_id\\\":1,\\\"attr_key\\\":\\\"2-6\\\",\\\"media_id\\\":20,\\\"price\\\":\\\"1.00\\\",\\\"cost_price\\\":\\\"3.00\\\",\\\"sold_num\\\":0,\\\"code\\\":\\\"2\\\",\\\"created_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"updated_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"deleted_at\\\":null,\\\"stock\\\":{\\\"id\\\":10,\\\"product_id\\\":1,\\\"sku_id\\\":10,\\\"quantity\\\":2,\\\"warn_number\\\":4,\\\"created_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"updated_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"deleted_at\\\":null},\\\"media\\\":{\\\"id\\\":20,\\\"type\\\":1,\\\"link\\\":\\\"http:\\\\\\/\\\\\\/www.lied.com\\\\\\/uploads\\\\\\/images\\\\\\/sku\\\\\\/20200803\\\\\\/68562cb301eeae026614cc842a4e6a2f.jpeg\\\",\\\"rlink\\\":\\\"0\\\",\\\"size\\\":365,\\\"file_ext\\\":\\\"jpeg\\\",\\\"file_name\\\":\\\"68562cb301eeae026614cc842a4e6a2f.jpeg\\\",\\\"is_lock\\\":0,\\\"is_show\\\":1,\\\"created_at\\\":\\\"2020-08-03 15:20:48\\\",\\\"updated_at\\\":\\\"2020-08-03 15:20:48\\\",\\\"deleted_at\\\":null}},{\\\"id\\\":11,\\\"product_id\\\":1,\\\"attr_key\\\":\\\"3-5\\\",\\\"media_id\\\":21,\\\"price\\\":\\\"1.00\\\",\\\"cost_price\\\":\\\"3.00\\\",\\\"sold_num\\\":0,\\\"code\\\":\\\"3\\\",\\\"created_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"updated_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"deleted_at\\\":null,\\\"stock\\\":{\\\"id\\\":11,\\\"product_id\\\":1,\\\"sku_id\\\":11,\\\"quantity\\\":2,\\\"warn_number\\\":4,\\\"created_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"updated_at\\\":\\\"2020-08-03 15:24:14\\\",\\\"deleted_at\\\":null},\\\"media\\\":{\\\"id\\\":21,\\\"type\\\":1,\\\"link\\\":\\\"http:\\\\\\/\\\\\\/www.lied.com\\\\\\/uploads\\\\\\/images\\\\\\/sku\\\\\\/20200803\\\\\\/f7592c2eb81ff3309cc8f0a5d469d277.png\\\",\\\"rlink\\\":\\\"0\\\",\\\"size\\\":327,\\\"file_ext\\\":\\\"png\\\",\\\"file_name\\\":\\\"f7592c2eb81ff3309cc8f0a5d469d277.png\\\",\\\"is_lock\\\":0,\\\"is_show\\\":1,\\\"created_at\\\":\\\"2020-08-03 15:20:50\\\",\\\"updated_at\\\":\\\"2020-08-03 15:20:50\\\",\\\"deleted_at\\\":null}},{\\\"id\\\":13,\\\"product_id\\\":1,\\\"attr_key\\\":\\\"2-5\\\",\\\"media_id\\\":21,\\\"price\\\":\\\"1.00\\\",\\\"cost_price\\\":\\\"1.00\\\",\\\"sold_num\\\":0,\\\"code\\\":\\\"1\\\",\\\"created_at\\\":\\\"2020-08-03 15:39:38\\\",\\\"updated_at\\\":\\\"2020-08-03 15:39:38\\\",\\\"deleted_at\\\":null,\\\"stock\\\":{\\\"id\\\":13,\\\"product_id\\\":1,\\\"sku_id\\\":13,\\\"quantity\\\":1,\\\"warn_number\\\":1,\\\"created_at\\\":\\\"2020-08-03 15:39:38\\\",\\\"updated_at\\\":\\\"2020-08-03 15:39:38\\\",\\\"deleted_at\\\":null},\\\"media\\\":{\\\"id\\\":21,\\\"type\\\":1,\\\"link\\\":\\\"http:\\\\\\/\\\\\\/www.lied.com\\\\\\/uploads\\\\\\/images\\\\\\/sku\\\\\\/20200803\\\\\\/f7592c2eb81ff3309cc8f0a5d469d277.png\\\",\\\"rlink\\\":\\\"0\\\",\\\"size\\\":327,\\\"file_ext\\\":\\\"png\\\",\\\"file_name\\\":\\\"f7592c2eb81ff3309cc8f0a5d469d277.png\\\",\\\"is_lock\\\":0,\\\"is_show\\\":1,\\\"created_at\\\":\\\"2020-08-03 15:20:50\\\",\\\"updated_at\\\":\\\"2020-08-03 15:20:50\\\",\\\"deleted_at\\\":null}}]\",\"prosku\":{\"3-6\":{\"price\":\"1.00\",\"stock_num\":\"2\",\"code\":\"1\",\"cost_price\":\"3.00\",\"warn_number\":\"4\",\"sold_num\":\"0\",\"attr_key\":\"6-3\",\"media_id\":\"20\"},\"2-6\":{\"price\":\"1.00\",\"stock_num\":\"2\",\"code\":\"2\",\"cost_price\":\"3.00\",\"warn_number\":\"4\",\"sold_num\":\"0\",\"attr_key\":\"6-2\",\"media_id\":\"20\"},\"3-5\":{\"price\":\"1.00\",\"stock_num\":\"2\",\"code\":\"3\",\"cost_price\":\"3.00\",\"warn_number\":\"4\",\"sold_num\":\"0\",\"attr_key\":\"5-3\",\"media_id\":\"21\"},\"2-5\":{\"price\":\"1.00\",\"stock_num\":\"1\",\"code\":\"1\",\"cost_price\":\"1.00\",\"warn_number\":\"1\",\"sold_num\":\"0\",\"attr_key\":\"5-2\",\"media_id\":\"21\"}},\"virtual_quantity\":\"1\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/product\"}', '2020-08-24 16:26:50', '2020-08-24 16:26:50');
+INSERT INTO `lied_admin_operation_log` VALUES ('1016', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-08-24 16:26:51', '2020-08-24 16:26:51');
+INSERT INTO `lied_admin_operation_log` VALUES ('1017', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-08-25 13:58:28', '2020-08-25 13:58:28');
+INSERT INTO `lied_admin_operation_log` VALUES ('1018', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-25 13:58:32', '2020-08-25 13:58:32');
+INSERT INTO `lied_admin_operation_log` VALUES ('1019', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-25 13:58:34', '2020-08-25 13:58:34');
 
 -- ----------------------------
 -- Table structure for `lied_admin_permissions`
@@ -2017,11 +2031,16 @@ INSERT INTO `lied_oauth_access_tokens` VALUES ('6762ca1305c076fdd31f4338e350b2f8
 INSERT INTO `lied_oauth_access_tokens` VALUES ('d9ec97d54b068f7cdee0b41b152d603bdfb90106ca2bc3c428084be8870c7177474ef2a3b4a4f702', '1', '2', null, '[]', '1', '2020-08-21 16:13:51', '2020-08-21 16:13:51', '2020-08-22 16:13:51');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('6a375beec088ef46428e65f3f76ae253bffde649a723bcaf2534f2cb31a9f049c2f73bd41ee027fd', '1', '2', null, '[]', '0', '2020-08-21 16:18:09', '2020-08-21 16:18:09', '2020-08-22 16:18:09');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('efd06b5249291fc36646eef5470a73dc01f47efd60c61a1c3504a273150516d483af72769061bedd', '1', '2', null, '[]', '1', '2020-08-21 16:19:54', '2020-08-21 16:19:54', '2020-08-22 16:19:54');
-INSERT INTO `lied_oauth_access_tokens` VALUES ('be9cdf1aeaf4670911a4bdf90f22ae3ca206072972bb38a09e5f95c32503586499d4dc7ad93eec16', '1', '2', null, '[]', '0', '2020-08-21 16:20:25', '2020-08-21 16:20:25', '2020-08-22 16:20:25');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('be9cdf1aeaf4670911a4bdf90f22ae3ca206072972bb38a09e5f95c32503586499d4dc7ad93eec16', '1', '2', null, '[]', '1', '2020-08-21 16:20:25', '2020-08-21 16:20:25', '2020-08-22 16:20:25');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('d58eeb9f0c7d108588c1fb0f19052ed71319ded1da6507daf8dd6d3b14315c5e8598bbf9e5e73d6d', '1', '2', null, '[]', '0', '2020-08-21 17:35:31', '2020-08-21 17:35:31', '2020-08-22 17:35:31');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('b9fc14f5d0c13dce4b005a23b97c8f060716afe5ee0fd811eb6004c3a6193e0a14729a2734b55af0', '1', '2', null, '[]', '0', '2020-08-21 17:35:57', '2020-08-21 17:35:57', '2020-08-22 17:35:57');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('349a73fe5a6766f005e16c6aa842ddc0d7eb4578a1e5b43113d2fd33b2730a3e2e725b32fc3c3753', '1', '2', null, '[]', '0', '2020-08-21 17:37:57', '2020-08-21 17:37:57', '2020-08-22 17:37:57');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('f139da230c8b66f9943f0ce0f70c9f8985ed9240df5ab0044737a1a369bbc836ee52cd91029d07c3', '1', '2', null, '[]', '0', '2020-08-21 17:46:03', '2020-08-21 17:46:03', '2020-08-22 17:46:03');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('bf0feabc4191e28ad1f07af9426142d0a84afd9ac7b916c692fecade14bac98e327a89729102f2dd', '1', '2', null, '[]', '1', '2020-08-24 13:59:07', '2020-08-24 13:59:07', '2020-08-25 13:59:07');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('8830a2dfd5fbfed7240f7fcbad62ee1831a4ccc6b7ae20e7508bafdc65d2face8f569e1353d28df4', '1', '2', null, '[]', '1', '2020-08-25 14:20:23', '2020-08-25 14:20:23', '2020-08-26 14:20:23');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('47c38366530cd1145afdb72a37e61f2c17be8f54b491c1e1ec71d4a7db8fb6bff635c992d0bc9e53', '1', '2', null, '[]', '1', '2020-08-26 16:30:38', '2020-08-26 16:30:38', '2020-08-27 16:30:37');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('e7994e2710bd1e4f0c2476329f0c4f7cd993b5267f452506ec3275721114d9ec0f3ae70a6c7d05b6', '1', '2', null, '[]', '0', '2020-08-26 17:45:26', '2020-08-26 17:45:26', '2020-08-27 17:45:26');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('00bdfd4d090c4b3269c94b6b0373348cf9aeb1bb43bc6eaf16d2a8b30ee859263761f590b0cbdbc0', '1', '2', null, '[]', '0', '2020-08-28 08:59:09', '2020-08-28 08:59:09', '2020-08-29 08:59:07');
 
 -- ----------------------------
 -- Table structure for `lied_oauth_auth_codes`
@@ -2215,11 +2234,16 @@ INSERT INTO `lied_oauth_refresh_tokens` VALUES ('948f1f4b90f9aa15f47ab8aa7e2ba85
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('a35915385f70465f6d12c7fe2d75de7d5e1ad0696e53083248ba06593ae39a08e9f5517bb95222bb', 'd9ec97d54b068f7cdee0b41b152d603bdfb90106ca2bc3c428084be8870c7177474ef2a3b4a4f702', '1', '2020-09-20 16:13:51');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('a6459c8531d796bcb888e2f99b4bfe0505964d3481c444d257cb4f592938308ca25577a2d19b853f', '6a375beec088ef46428e65f3f76ae253bffde649a723bcaf2534f2cb31a9f049c2f73bd41ee027fd', '0', '2020-09-20 16:18:09');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('9baf165a35bc3eb7c03c2fc16ae5328fbb5e819de0cb1f3a017b1477bf8146891d7715b82e6e1ce7', 'efd06b5249291fc36646eef5470a73dc01f47efd60c61a1c3504a273150516d483af72769061bedd', '1', '2020-09-20 16:19:54');
-INSERT INTO `lied_oauth_refresh_tokens` VALUES ('087147cace47c4ed32442dc685db4a1ed5b525b4a020963a8fcdde0c22dd1f7ba6bf9950267e2b67', 'be9cdf1aeaf4670911a4bdf90f22ae3ca206072972bb38a09e5f95c32503586499d4dc7ad93eec16', '0', '2020-09-20 16:20:25');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('087147cace47c4ed32442dc685db4a1ed5b525b4a020963a8fcdde0c22dd1f7ba6bf9950267e2b67', 'be9cdf1aeaf4670911a4bdf90f22ae3ca206072972bb38a09e5f95c32503586499d4dc7ad93eec16', '1', '2020-09-20 16:20:25');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('06d84a6a234f412d7c43acc129eeda3e1cff576e3cc413c23d1e1d8614ef9aac3e525f0df3f9ff61', 'd58eeb9f0c7d108588c1fb0f19052ed71319ded1da6507daf8dd6d3b14315c5e8598bbf9e5e73d6d', '0', '2020-09-20 17:35:31');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('dc49a71b31411e23458834c60e42c2908bf67dfbb92ad9d3d1a82bc2852fce4264c76ae67525ebef', 'b9fc14f5d0c13dce4b005a23b97c8f060716afe5ee0fd811eb6004c3a6193e0a14729a2734b55af0', '0', '2020-09-20 17:35:57');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('720bb78f099232520a3840aef7af1119c1ab85be14eb7956384b31c06cb8e71350db04ee9ce7eef8', '349a73fe5a6766f005e16c6aa842ddc0d7eb4578a1e5b43113d2fd33b2730a3e2e725b32fc3c3753', '0', '2020-09-20 17:37:57');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('06844e28512e933652cfc7acf0b3f505d44039e429971e6b368a60d19ed2745bc308ae06e1319194', 'f139da230c8b66f9943f0ce0f70c9f8985ed9240df5ab0044737a1a369bbc836ee52cd91029d07c3', '0', '2020-09-20 17:46:03');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('e63e93ce771d877b6a1c44c244e5754c9453a5a13c6962082d89a27ced070248ff7c19a59a671df3', 'bf0feabc4191e28ad1f07af9426142d0a84afd9ac7b916c692fecade14bac98e327a89729102f2dd', '1', '2020-09-23 13:59:07');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('17f537ec1b326d4b08a5ceb9534c71cf07115b8b380f24996737b215138e2d7363ef761bb6f013ac', '8830a2dfd5fbfed7240f7fcbad62ee1831a4ccc6b7ae20e7508bafdc65d2face8f569e1353d28df4', '1', '2020-09-24 14:20:23');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('c9d4b89d75065b89ec84b2c747865b5870654686f5d422123761bb6f092643a7abfa5b278deb0ad5', '47c38366530cd1145afdb72a37e61f2c17be8f54b491c1e1ec71d4a7db8fb6bff635c992d0bc9e53', '1', '2020-09-25 16:30:37');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('7de72676566667959b4e3fcaacb4e1163e5502c8e6fcce3d5ab8e0a73066438d6cf9b813431a180c', 'e7994e2710bd1e4f0c2476329f0c4f7cd993b5267f452506ec3275721114d9ec0f3ae70a6c7d05b6', '0', '2020-09-25 17:45:26');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('5edb68917d649df88c2e7bff24f1481ce1708c818ad37f66663d6c7ff0d33875e7f6be2aa87255a1', '00bdfd4d090c4b3269c94b6b0373348cf9aeb1bb43bc6eaf16d2a8b30ee859263761f590b0cbdbc0', '0', '2020-09-27 08:59:07');
 
 -- ----------------------------
 -- Table structure for `lied_order`
@@ -2384,7 +2408,7 @@ CREATE TABLE `lied_product` (
 -- ----------------------------
 -- Records of lied_product
 -- ----------------------------
-INSERT INTO `lied_product` VALUES ('1', 'lied', '2', '1', '1', '112.00', '0.00', '1231', '&lt;p&gt;&lt;/p&gt;&lt;p&gt;1211&lt;/p&gt;', '1', '1', '1', '1', '99', '2020-08-03 10:43:33', '2020-08-03 15:39:37', null);
+INSERT INTO `lied_product` VALUES ('1', 'lied', '2', '1', '1', '112.00', '1.00', '1231', '<p>12313</p>', '1', '1', '1', '1', '99', '2020-08-03 10:43:33', '2020-08-24 16:26:50', null);
 
 -- ----------------------------
 -- Table structure for `lied_product_attr`
@@ -2638,11 +2662,11 @@ CREATE TABLE `lied_product_sku_stock` (
 -- ----------------------------
 -- Records of lied_product_sku_stock
 -- ----------------------------
-INSERT INTO `lied_product_sku_stock` VALUES ('9', '1', '9', '2', '4', '2020-08-03 15:24:14', '2020-08-03 15:24:14', null);
+INSERT INTO `lied_product_sku_stock` VALUES ('9', '1', '9', '1', '4', '2020-08-03 15:24:14', '2020-08-03 15:24:14', null);
 INSERT INTO `lied_product_sku_stock` VALUES ('10', '1', '10', '2', '4', '2020-08-03 15:24:14', '2020-08-03 15:24:14', null);
-INSERT INTO `lied_product_sku_stock` VALUES ('11', '1', '11', '2', '4', '2020-08-03 15:24:14', '2020-08-03 15:24:14', null);
+INSERT INTO `lied_product_sku_stock` VALUES ('11', '1', '11', '3', '4', '2020-08-03 15:24:14', '2020-08-03 15:24:14', null);
 INSERT INTO `lied_product_sku_stock` VALUES ('12', '1', '12', '2', '4', '2020-08-03 15:24:14', '2020-08-03 15:38:42', '2020-08-03 15:38:42');
-INSERT INTO `lied_product_sku_stock` VALUES ('13', '1', '13', '1', '1', '2020-08-03 15:39:38', '2020-08-03 15:39:38', null);
+INSERT INTO `lied_product_sku_stock` VALUES ('13', '1', '13', '4', '1', '2020-08-03 15:39:38', '2020-08-03 15:39:38', null);
 
 -- ----------------------------
 -- Table structure for `lied_regions`
