@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-08-28 14:44:26
+Date: 2020-09-25 15:31:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -2250,49 +2250,69 @@ INSERT INTO `lied_oauth_refresh_tokens` VALUES ('5edb68917d649df88c2e7bff24f1481
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_order`;
 CREATE TABLE `lied_order` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `temp_id` varchar(32) NOT NULL COMMENT '区别订单多商家产生的唯一标识',
-  `temp_sid` varchar(32) NOT NULL COMMENT '区别订单单一商家多产品的唯一标识',
-  `order_id` varchar(32) NOT NULL COMMENT '订单生成唯一编号',
-  `order_num` varchar(64) DEFAULT NULL COMMENT '订单流水支付号',
-  `user_id` int(10) unsigned NOT NULL,
-  `order_status` tinyint(1) NOT NULL COMMENT '订单的状态;,0关闭,1正常,2完成,',
-  `shipping_status` tinyint(1) NOT NULL COMMENT '商品配送情况;0未发货,1已发货,2已收货,3退货',
-  `pay_status` tinyint(1) NOT NULL COMMENT '支付状态;0未付款;1已付款',
-  `brand_id` int(10) unsigned NOT NULL COMMENT '商家id',
-  `product_id` int(10) unsigned NOT NULL COMMENT '产品id',
-  `attr_id` int(10) NOT NULL,
-  `product_num` int(4) NOT NULL COMMENT '产品数量',
-  `product_price` decimal(8,2) NOT NULL COMMENT '产品价格',
-  `product_intergral` decimal(8,2) NOT NULL COMMENT '产品积分',
-  `total_price` decimal(8,2) unsigned NOT NULL COMMENT '订单总金额',
-  `total_intergral` decimal(8,2) unsigned NOT NULL COMMENT '订单总积分',
-  `pay_price` decimal(8,2) NOT NULL COMMENT '已支付价格',
-  `pay_intergral` decimal(8,2) NOT NULL COMMENT '已支付的积分',
-  `discount_price` decimal(8,2) NOT NULL COMMENT '优惠价格',
-  `shipping_fee` decimal(8,2) NOT NULL COMMENT '配送费用',
-  `region_province_id` int(10) unsigned NOT NULL COMMENT '第一级省id',
-  `region_city_id` int(10) unsigned NOT NULL COMMENT '第二级市id',
-  `region_area_id` int(10) unsigned NOT NULL COMMENT '第三级区id',
-  `address` varchar(255) NOT NULL COMMENT '收货地址',
-  `mobile` varchar(32) NOT NULL COMMENT '收货人手机号',
-  `postscript` varchar(255) DEFAULT NULL COMMENT '订单留言，由用户提交填写',
-  `pay_id` int(10) DEFAULT NULL,
-  `pay_time` datetime DEFAULT NULL,
-  `to_buyer` varchar(255) DEFAULT NULL COMMENT '商家给用户留言',
-  `type` varchar(16) NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `base_id` int(11) unsigned NOT NULL COMMENT '订单基础表id',
+  `brand_id` int(11) unsigned NOT NULL COMMENT '商家id',
+  `message` varchar(255) DEFAULT NULL COMMENT '用户留言',
+  `shipping_fee` decimal(8,2) unsigned NOT NULL COMMENT '配送费用',
+  `shipping_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '商品配送情况;0未发货,1已发货,2已收货,3退货',
+  `order_type` tinyint(1) unsigned NOT NULL COMMENT '订单类型',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `order-product_id` (`product_id`),
-  KEY `order-user_id` (`user_id`),
-  CONSTRAINT `order-product_id` FOREIGN KEY (`product_id`) REFERENCES `lied_product` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `order-user_id` FOREIGN KEY (`user_id`) REFERENCES `lied_users` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `order-base_id` (`base_id`),
+  CONSTRAINT `order-base_id` FOREIGN KEY (`base_id`) REFERENCES `lied_order_base` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='单商家订单表';
 
 -- ----------------------------
 -- Records of lied_order
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_order_base`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_order_base`;
+CREATE TABLE `lied_order_base` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `orderno` varchar(64) NOT NULL COMMENT '订单流水号',
+  `paidno` varchar(64) DEFAULT NULL COMMENT '支付流水号',
+  `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
+  `price` decimal(8,2) unsigned NOT NULL COMMENT '订单价格',
+  `pay_price` decimal(8,2) unsigned DEFAULT NULL COMMENT '实际支付价格',
+  `order_status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '订单状态',
+  `pay_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '支付状态',
+  `source` tinyint(1) unsigned DEFAULT NULL COMMENT '订单来源',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单基础表';
+
+-- ----------------------------
+-- Records of lied_order_base
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_order_child`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_order_child`;
+CREATE TABLE `lied_order_child` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) unsigned NOT NULL COMMENT '订单id',
+  `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
+  `sku_id` int(11) unsigned NOT NULL COMMENT 'sku表id',
+  `product_price` decimal(8,2) unsigned NOT NULL COMMENT '产品价格',
+  `number` int(4) unsigned NOT NULL COMMENT '购买数量',
+  `delivery_id` int(11) unsigned DEFAULT NULL COMMENT '发货表id',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='单产品订单表';
+
+-- ----------------------------
+-- Records of lied_order_child
 -- ----------------------------
 
 -- ----------------------------
@@ -6099,6 +6119,32 @@ CREATE TABLE `lied_settings` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `lied_shipping_address`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_shipping_address`;
+CREATE TABLE `lied_shipping_address` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) unsigned NOT NULL COMMENT '订单id',
+  `name` varchar(16) NOT NULL COMMENT '收货人姓名',
+  `region_pid` int(11) unsigned NOT NULL COMMENT '省id',
+  `region_cid` int(11) unsigned NOT NULL COMMENT '市id',
+  `region_aid` int(11) unsigned NOT NULL COMMENT '区id',
+  `address` varchar(255) NOT NULL COMMENT '收货人地址',
+  `mobile` char(11) NOT NULL COMMENT '收货人手机号',
+  `code` char(6) DEFAULT NULL COMMENT '邮政编码',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `shipping_address-order_id` (`order_id`),
+  CONSTRAINT `shipping_address-order_id` FOREIGN KEY (`order_id`) REFERENCES `lied_order` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='配送地址表';
+
+-- ----------------------------
+-- Records of lied_shipping_address
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `lied_stripe_accounts`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_stripe_accounts`;
@@ -6162,71 +6208,6 @@ INSERT INTO `lied_users` VALUES ('1', 'Super Admin', 'admin', 'admin@admin.com',
 INSERT INTO `lied_users` VALUES ('9', null, null, null, '18825099088', null, '0', null, null, null, null, '1', null, '2020-08-13 15:34:13', '2020-08-13 15:34:13', null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
--- Table structure for `lied_users_collect`
--- ----------------------------
-DROP TABLE IF EXISTS `lied_users_collect`;
-CREATE TABLE `lied_users_collect` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) unsigned NOT NULL COMMENT '用户id',
-  `type` tinyint(1) unsigned NOT NULL COMMENT '收藏类型 0-商品 1-文章 2-商家',
-  `id_value` int(10) unsigned NOT NULL COMMENT '所属类型的id',
-  `is_attention` tinyint(1) unsigned DEFAULT '0' COMMENT '是否关注该收藏品0-现未关注 1-已关注',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户收藏表';
-
--- ----------------------------
--- Records of lied_users_collect
--- ----------------------------
-
--- ----------------------------
--- Table structure for `lied_users_comment`
--- ----------------------------
-DROP TABLE IF EXISTS `lied_users_comment`;
-CREATE TABLE `lied_users_comment` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `pid` int(10) unsigned NOT NULL COMMENT '评论的父节点',
-  `type` tinyint(3) unsigned NOT NULL COMMENT '类型 0-产品 1-文章',
-  `id_value` int(10) unsigned NOT NULL COMMENT '所属类型表的id',
-  `user_id` int(10) unsigned NOT NULL COMMENT '用户id',
-  `content` text NOT NULL COMMENT '评论内容',
-  `rank` tinyint(1) unsigned NOT NULL COMMENT '评论的星星数 1~5星',
-  `is_show` tinyint(1) unsigned NOT NULL COMMENT '是否显示',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户评论表';
-
--- ----------------------------
--- Records of lied_users_comment
--- ----------------------------
-
--- ----------------------------
--- Table structure for `lied_users_coupon`
--- ----------------------------
-DROP TABLE IF EXISTS `lied_users_coupon`;
-CREATE TABLE `lied_users_coupon` (
-  `id` int(10) unsigned NOT NULL,
-  `coupon_id` int(10) unsigned NOT NULL COMMENT '优惠券id',
-  `coupon_limit_id` int(10) unsigned NOT NULL COMMENT '优惠券限领取表id',
-  `user_id` int(10) unsigned NOT NULL COMMENT '用户id',
-  `use_time` datetime DEFAULT NULL COMMENT '使用时间',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `users_coupon-coupon_id` (`coupon_id`),
-  CONSTRAINT `users_coupon-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户优惠券表';
-
--- ----------------------------
--- Records of lied_users_coupon
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `lied_users_oauth`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_users_oauth`;
@@ -6247,6 +6228,97 @@ CREATE TABLE `lied_users_oauth` (
 
 -- ----------------------------
 -- Records of lied_users_oauth
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_user_address`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_user_address`;
+CREATE TABLE `lied_user_address` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL COMMENT '用户ID',
+  `name` varchar(16) NOT NULL COMMENT '收货人姓名',
+  `region_pid` int(11) unsigned NOT NULL COMMENT '省id',
+  `region_cid` int(11) unsigned NOT NULL COMMENT '市id',
+  `region_aid` int(11) unsigned NOT NULL COMMENT '区id',
+  `address` varchar(255) NOT NULL COMMENT '收货人地址',
+  `mobile` char(11) NOT NULL COMMENT '收货人手机号',
+  `code` char(6) DEFAULT NULL COMMENT '邮政编码',
+  `is_default` tinyint(1) unsigned DEFAULT '0' COMMENT '是否为默认',
+  `sort` int(4) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户地址表';
+
+-- ----------------------------
+-- Records of lied_user_address
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_user_collect`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_user_collect`;
+CREATE TABLE `lied_user_collect` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL COMMENT '用户id',
+  `type` tinyint(1) unsigned NOT NULL COMMENT '收藏类型 0-商品 1-文章 2-商家',
+  `id_value` int(10) unsigned NOT NULL COMMENT '所属类型的id',
+  `is_attention` tinyint(1) unsigned DEFAULT '0' COMMENT '是否关注该收藏品0-现未关注 1-已关注',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户收藏表';
+
+-- ----------------------------
+-- Records of lied_user_collect
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_user_comment`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_user_comment`;
+CREATE TABLE `lied_user_comment` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `pid` int(10) unsigned NOT NULL COMMENT '评论的父节点',
+  `type` tinyint(3) unsigned NOT NULL COMMENT '类型 0-产品 1-文章',
+  `id_value` int(10) unsigned NOT NULL COMMENT '所属类型表的id',
+  `user_id` int(10) unsigned NOT NULL COMMENT '用户id',
+  `content` text NOT NULL COMMENT '评论内容',
+  `rank` tinyint(1) unsigned NOT NULL COMMENT '评论的星星数 1~5星',
+  `is_show` tinyint(1) unsigned NOT NULL COMMENT '是否显示',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户评论表';
+
+-- ----------------------------
+-- Records of lied_user_comment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_user_coupon`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_user_coupon`;
+CREATE TABLE `lied_user_coupon` (
+  `id` int(10) unsigned NOT NULL,
+  `coupon_id` int(10) unsigned NOT NULL COMMENT '优惠券id',
+  `coupon_limit_id` int(10) unsigned NOT NULL COMMENT '优惠券限领取表id',
+  `user_id` int(10) unsigned NOT NULL COMMENT '用户id',
+  `use_time` datetime DEFAULT NULL COMMENT '使用时间',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `users_coupon-coupon_id` (`coupon_id`),
+  CONSTRAINT `user_coupon-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户优惠券表';
+
+-- ----------------------------
+-- Records of lied_user_coupon
 -- ----------------------------
 
 -- ----------------------------

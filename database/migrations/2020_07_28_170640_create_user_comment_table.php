@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersCollectTable extends Migration
+class CreateUsersCommentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,17 +15,20 @@ class CreateUsersCollectTable extends Migration
     public function up()
     {
         DB::statement("
-CREATE TABLE `lied_users_collect` (
+CREATE TABLE `lied_user_comment` (
 `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+`pid` int(10) unsigned NOT NULL COMMENT '评论的父节点',
+`type` tinyint(3) unsigned NOT NULL COMMENT '类型 0-产品 1-文章',
+`id_value` int(10) unsigned NOT NULL COMMENT '所属类型表的id',
 `user_id` int(10) unsigned NOT NULL COMMENT '用户id',
-`type` tinyint(1) unsigned NOT NULL COMMENT '收藏类型 0-商品 1-文章 2-商家',
-`id_value` int(10) unsigned NOT NULL COMMENT '所属类型的id',
-`is_attention` tinyint(1) unsigned DEFAULT '0' COMMENT '是否关注该收藏品0-现未关注 1-已关注',
+`content` text NOT NULL COMMENT '评论内容',
+`rank` tinyint(1) unsigned NOT NULL COMMENT '评论的星星数 1~5星',
+`is_show` tinyint(1) unsigned NOT NULL COMMENT '是否显示',
 `created_at` datetime DEFAULT NULL,
 `updated_at` datetime DEFAULT NULL,
 `deleted_at` datetime DEFAULT NULL,
 PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户收藏表';");
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户评论表';");
     }
 
     /**
@@ -35,6 +38,6 @@ PRIMARY KEY (`id`)
      */
     public function down()
     {
-        Schema::dropIfExists('users_collect');
+        Schema::dropIfExists('user_comment');
     }
 }

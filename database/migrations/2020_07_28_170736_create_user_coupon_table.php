@@ -15,7 +15,7 @@ class CreateUsersCouponTable extends Migration
     public function up()
     {
         DB::statement("
-CREATE TABLE `lied_users_coupon` (
+CREATE TABLE `lied_user_coupon` (
 `id` int(10) unsigned NOT NULL,
 `coupon_id` int(10) unsigned NOT NULL COMMENT '优惠券id',
 `coupon_limit_id` int(10) unsigned NOT NULL COMMENT '优惠券限领取表id',
@@ -25,8 +25,8 @@ CREATE TABLE `lied_users_coupon` (
 `updated_at` datetime DEFAULT NULL,
 `deleted_at` datetime DEFAULT NULL,
 PRIMARY KEY (`id`),
-KEY `users_coupon-coupon_id` (`coupon_id`),
-CONSTRAINT `users_coupon-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE
+KEY `user_coupon-coupon_id` (`coupon_id`),
+CONSTRAINT `user_coupon-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_coupons` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户优惠券表';");
     }
 
@@ -37,6 +37,6 @@ CONSTRAINT `users_coupon-coupon_id` FOREIGN KEY (`coupon_id`) REFERENCES `lied_c
      */
     public function down()
     {
-        Schema::dropIfExists('users_coupon');
+        Schema::dropIfExists('user_coupon');
     }
 }
