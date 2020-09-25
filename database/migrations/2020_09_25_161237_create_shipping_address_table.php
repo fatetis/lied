@@ -29,8 +29,8 @@ CREATE TABLE `lied_shipping_address` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `shipping_address-order_id` (`order_id`),
-  CONSTRAINT `shipping_address-order_id` FOREIGN KEY (`order_id`) REFERENCES `lied_order` (`id`) ON UPDATE CASCADE
+  KEY `shipping_address-order_id` (`order_base_id`),
+  CONSTRAINT `shipping_address-order_id` FOREIGN KEY (`order_base_id`) REFERENCES `lied_order_base` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='配送地址表';
 
 ");
