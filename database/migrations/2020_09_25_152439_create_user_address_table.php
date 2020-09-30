@@ -25,7 +25,6 @@ class CreateUsersAddress extends Migration
   `mobile` char(11) NOT NULL COMMENT '收货人手机号',
   `code` char(6) DEFAULT NULL COMMENT '邮政编码',
   `is_default` tinyint(1) unsigned DEFAULT '0' COMMENT '是否为默认',
-  `sort` int(4) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
