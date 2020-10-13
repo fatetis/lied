@@ -20,8 +20,6 @@ CREATE TABLE `lied_order` (
   `base_id` int(11) unsigned NOT NULL COMMENT '订单基础表id',
   `brand_id` int(11) unsigned NOT NULL COMMENT '商家id',
   `message` varchar(255) DEFAULT NULL COMMENT '用户留言',
-  `shipping_fee` decimal(8,2) unsigned NOT NULL COMMENT '配送费用',
-  `shipping_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '商品配送情况;0未发货,1已发货,2已收货,3退货',
   `order_type` tinyint(1) unsigned NOT NULL COMMENT '订单类型',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -30,6 +28,8 @@ CREATE TABLE `lied_order` (
   KEY `order-base_id` (`base_id`),
   CONSTRAINT `order-base_id` FOREIGN KEY (`base_id`) REFERENCES `lied_order_base` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='单商家订单表';
+
+
 
 ");
     }
