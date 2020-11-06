@@ -98,8 +98,8 @@ return [
         'filter_clear'       => 'عرض الكل',
         'filter_placeholder' => 'تنقية',
     ],
-    'menu_titles' => [],
-    'prev' => 'السابق',
-    'next' => 'التالي',
-    'quick_create' => 'إضافة سريعة',
+    'menu_titles'            => [],
+    'prev'                   => 'السابق',
+    'next'                   => 'التالي',
+    'quick_create'           => 'إضافة سريعة',
 ];

@@ -98,10 +98,10 @@ return [
         'filter_clear'       => 'Show all',
         'filter_placeholder' => 'Filter',
     ],
-    'grid_items_selected' => '{n} items selected',
+    'grid_items_selected'    => '{n} items selected',
 
-    'menu_titles' => [],
-    'prev' => 'Prev',
-    'next' => 'Next',
-    'quick_create' => 'Quick create',
+    'menu_titles'            => [],
+    'prev'                   => 'Prev',
+    'next'                   => 'Next',
+    'quick_create'           => 'Quick create',
 ];
