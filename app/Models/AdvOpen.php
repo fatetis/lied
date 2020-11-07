@@ -13,10 +13,10 @@ class AdvOpen extends BaseModel
      * @var array
      */
     protected $fillable = [
-//        'adv_id',
-//        'region_open_id',
-//        'start_time',
-//        'end_time'
+       'adv_id',
+       'region_open_id',
+       'start_time',
+       'end_time'
     ];
 
     public function adv()
