@@ -18,21 +18,19 @@ class CreateComments extends Migration
 
 CREATE TABLE `lied_comments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) unsigned DEFAULT NULL COMMENT '用户id',
-  `type` tinyint(1) unsigned NOT NULL COMMENT '类型 1-文章 2-产品 3-商家',
-  `id_value` int(11) unsigned DEFAULT NULL COMMENT '所属类型的对应id',
-  `pid` int(11) unsigned DEFAULT NULL COMMENT '评论父节点',
+  `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
+  `base_id` int(11) unsigned NOT NULL COMMENT '订单基础表id',
+  `pid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '评论父节点',
   `content` varchar(255) DEFAULT NULL COMMENT '内容',
   `content_rank` decimal(1,1) unsigned DEFAULT NULL COMMENT '分数 满分5分',
-  `is_quality` tinyint(1) unsigned DEFAULT NULL COMMENT '是否优质评论',
-  `is_show` tinyint(1) unsigned DEFAULT NULL COMMENT '是否显示',
+  `is_quality` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否优质评论',
+  `is_show` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `is_brand` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否商家评论',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户评论表';
-
-
 
 ");
     }
