@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-11-04 15:54:21
+Date: 2020-11-20 10:55:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1429,23 +1429,45 @@ CREATE TABLE `lied_brand_category` (
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_cart`;
 CREATE TABLE `lied_cart` (
-  `id` int(11) NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
   `sku_id` int(11) unsigned NOT NULL COMMENT 'sku表主键id',
-  `brand_id` int(11) unsigned NOT NULL COMMENT '品牌id',
   `number` int(4) unsigned NOT NULL COMMENT '产品书数量',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `cart-usre_id` (`user_id`),
-  KEY `cart-product_id` (`sku_id`),
-  KEY `cart-brand_id` (`brand_id`),
-  CONSTRAINT `cart-user_id` FOREIGN KEY (`user_id`) REFERENCES `lied_users` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='购物车';
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='购物车';
 
 -- ----------------------------
 -- Records of lied_cart
+-- ----------------------------
+INSERT INTO `lied_cart` VALUES ('1', '1', '9', '3', '2020-11-10 10:29:33', '2020-11-10 10:30:46', null);
+INSERT INTO `lied_cart` VALUES ('2', '1', '10', '1', '2020-11-10 10:33:39', '2020-11-10 11:18:20', '2020-11-10 11:18:20');
+INSERT INTO `lied_cart` VALUES ('3', '1', '10', '2', '2020-11-10 11:18:28', '2020-11-10 13:39:58', null);
+
+-- ----------------------------
+-- Table structure for `lied_comments`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_comments`;
+CREATE TABLE `lied_comments` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned DEFAULT NULL COMMENT '用户id',
+  `type` tinyint(1) unsigned NOT NULL COMMENT '类型 1-文章 2-产品 3-商家',
+  `id_value` int(11) unsigned DEFAULT NULL COMMENT '所属类型的对应id',
+  `pid` int(11) unsigned DEFAULT NULL COMMENT '评论父节点',
+  `content` varchar(255) DEFAULT NULL COMMENT '内容',
+  `content_rank` decimal(1,1) unsigned DEFAULT NULL COMMENT '分数 满分5分',
+  `is_quality` tinyint(1) unsigned DEFAULT NULL COMMENT '是否优质评论',
+  `is_show` tinyint(1) unsigned DEFAULT NULL COMMENT '是否显示',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户评论表';
+
+-- ----------------------------
+-- Records of lied_comments
 -- ----------------------------
 
 -- ----------------------------
@@ -2053,6 +2075,12 @@ INSERT INTO `lied_oauth_access_tokens` VALUES ('91a5872bea944894345c9359518206b1
 INSERT INTO `lied_oauth_access_tokens` VALUES ('8b6e2f4915aee97a270a0785375660a91a0c7bcbce26d9f4032d1284f265d167051c97777fde87f7', '1', '5', null, '[]', '0', '2020-10-13 14:59:37', '2020-10-13 14:59:37', '2020-10-14 14:59:37');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('633a8b4e6aedd53f98941ddafdc77cd0bdcca7d5f5984f0ef463125d8b9b7df612eacda39c905446', '1', '5', null, '[]', '0', '2020-11-02 14:18:11', '2020-11-02 14:18:11', '2020-11-03 14:18:11');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('f742dd469e49d6555fce15b0f6929e6cbf18b3936f4044bd1c70c6a22c0dfefacc2a0a6f354f675e', '1', '5', null, '[]', '0', '2020-11-04 14:15:13', '2020-11-04 14:15:13', '2020-11-05 14:15:12');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('021fd8b4118d5c58246bc71f1b0ad6235500477595ee6f9e8065e77f19211420de6a91b7aa364f5b', '1', '5', null, '[]', '0', '2020-11-09 09:16:59', '2020-11-09 09:16:59', '2020-11-10 09:16:58');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('539849f5a8685985e90500605e24103fe2786dcbaeacfefa61df376ba8eb2106de544a5e456de307', '1', '5', null, '[]', '0', '2020-11-10 10:17:13', '2020-11-10 10:17:13', '2020-11-11 10:17:13');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('475288dd5d0ecc599d5ef6ac0498e38551d5308b5b545c41c01622f635d69cf55c1e24a2820709dc', '1', '5', null, '[]', '0', '2020-11-14 15:59:10', '2020-11-14 15:59:10', '2020-11-15 15:59:10');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('5435cd7d9e0521f742dea091ce37a0d9ef26cf3aedbf5abfefe41154b489300ffd0383ef2480b78e', '1', '5', null, '[]', '0', '2020-11-17 10:20:28', '2020-11-17 10:20:28', '2020-11-18 10:20:28');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('911cff489bc8b6dea7028843acf59479c990c78aa946c0d938f3c1b116568343b3a9ed24a37ef902', '1', '5', null, '[]', '0', '2020-11-17 16:45:21', '2020-11-17 16:45:21', '2020-11-18 16:45:21');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('e09bc14b90ded2c20d59ffdb2692754eb8a9f2503ef8456955dea7899e57d220e472b60b3b81129b', '1', '5', null, '[]', '0', '2020-11-20 09:57:42', '2020-11-20 09:57:42', '2020-11-21 09:57:42');
 
 -- ----------------------------
 -- Table structure for `lied_oauth_auth_codes`
@@ -2275,6 +2303,12 @@ INSERT INTO `lied_oauth_refresh_tokens` VALUES ('a16caf4e9d7e5ccd52b5cd0c3763a81
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('dddbf25d94c2f3fd95b7c6c9e6919482f0d576025d1b48474f75421ea69b024c75f6d029713a121e', '8b6e2f4915aee97a270a0785375660a91a0c7bcbce26d9f4032d1284f265d167051c97777fde87f7', '0', '2020-11-12 14:59:37');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('f11c50854aecd628f20366c92f25f3cf2a9c75061274ac59ee162e5b41a7d0b8b9b3477ddc420790', '633a8b4e6aedd53f98941ddafdc77cd0bdcca7d5f5984f0ef463125d8b9b7df612eacda39c905446', '0', '2020-12-02 14:18:11');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('d88760748ee96a229a5c7f2c515d1bebb8a3496b0f3f47f6fbd63f00f324fed71d29b23c3c0d3844', 'f742dd469e49d6555fce15b0f6929e6cbf18b3936f4044bd1c70c6a22c0dfefacc2a0a6f354f675e', '0', '2020-12-04 14:15:13');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('32d094083e94d7df7ce6597a84fe6d7f57d31ae6b4ec1cd827ef0352ab1b179913b18a944b1a1043', '021fd8b4118d5c58246bc71f1b0ad6235500477595ee6f9e8065e77f19211420de6a91b7aa364f5b', '0', '2020-12-09 09:16:59');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('55c91b13152abaf184b512923d17654b8dec8d89170991b3855c4473836aef9ee96d2e8f1282e25d', '539849f5a8685985e90500605e24103fe2786dcbaeacfefa61df376ba8eb2106de544a5e456de307', '0', '2020-12-10 10:17:13');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('e7a2c6faedc86bc546c941db6fa857e6f3fee13086f6abf3516336ccada8e1340c75a7e828e7dfe2', '475288dd5d0ecc599d5ef6ac0498e38551d5308b5b545c41c01622f635d69cf55c1e24a2820709dc', '0', '2020-12-14 15:59:10');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('af79bab0c887253b42489a2ce02e54c74bb0baa31c300999d5802124812294ba667b5c45a666fcbe', '5435cd7d9e0521f742dea091ce37a0d9ef26cf3aedbf5abfefe41154b489300ffd0383ef2480b78e', '0', '2020-12-17 10:20:28');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('5d307e7109073471510ed563f232a66f43be95c90058da22152c9043038022301caef4b28430d34d', '911cff489bc8b6dea7028843acf59479c990c78aa946c0d938f3c1b116568343b3a9ed24a37ef902', '0', '2020-12-17 16:45:21');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('cca5019a364d258562a474e81f08064066ccc0b7a1231acdcefd30a59633325886c803ae792c8af3', 'e09bc14b90ded2c20d59ffdb2692754eb8a9f2503ef8456955dea7899e57d220e472b60b3b81129b', '0', '2020-12-20 09:57:42');
 
 -- ----------------------------
 -- Table structure for `lied_order`
@@ -2292,7 +2326,7 @@ CREATE TABLE `lied_order` (
   PRIMARY KEY (`id`),
   KEY `order-base_id` (`base_id`),
   CONSTRAINT `order-base_id` FOREIGN KEY (`base_id`) REFERENCES `lied_order_base` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='单商家订单表';
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='单商家订单表';
 
 -- ----------------------------
 -- Records of lied_order
@@ -2314,6 +2348,8 @@ INSERT INTO `lied_order` VALUES ('14', '17', '2', null, '0', '2020-11-02 14:53:3
 INSERT INTO `lied_order` VALUES ('15', '18', '2', null, '0', '2020-11-02 15:04:09', '2020-11-02 15:04:09', null);
 INSERT INTO `lied_order` VALUES ('16', '19', '2', null, '0', '2020-11-02 15:20:03', '2020-11-02 15:20:03', null);
 INSERT INTO `lied_order` VALUES ('17', '20', '2', null, '0', '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
+INSERT INTO `lied_order` VALUES ('18', '21', '2', null, '0', '2020-11-05 08:58:31', '2020-11-05 08:58:31', null);
+INSERT INTO `lied_order` VALUES ('24', '27', '2', null, '0', '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
 
 -- ----------------------------
 -- Table structure for `lied_order_base`
@@ -2334,12 +2370,12 @@ CREATE TABLE `lied_order_base` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='订单基础表';
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COMMENT='订单基础表';
 
 -- ----------------------------
 -- Records of lied_order_base
 -- ----------------------------
-INSERT INTO `lied_order_base` VALUES ('2', '2020101450541000000158960', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-10-14 11:28:58', '2020-10-14 11:28:58', null);
+INSERT INTO `lied_order_base` VALUES ('2', '2020101450541000000158960', null, '1', '4.00', '2.00', null, '0', '0', '0', '2020-10-14 11:28:58', '2020-11-17 17:01:57', null);
 INSERT INTO `lied_order_base` VALUES ('3', '2020101479561000000152582', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-10-14 11:31:45', '2020-10-14 11:31:45', null);
 INSERT INTO `lied_order_base` VALUES ('4', '2020101447227000000180608', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-10-14 11:36:53', '2020-10-14 11:36:53', null);
 INSERT INTO `lied_order_base` VALUES ('6', '2020101480166000000143956', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-10-14 11:41:38', '2020-10-14 11:41:38', null);
@@ -2348,7 +2384,7 @@ INSERT INTO `lied_order_base` VALUES ('8', '2020101458892000000138139', null, '1
 INSERT INTO `lied_order_base` VALUES ('9', '2020101421556000000160412', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-10-14 11:42:39', '2020-10-14 11:42:39', null);
 INSERT INTO `lied_order_base` VALUES ('10', '2020101445007000000110966', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-10-14 11:43:30', '2020-10-14 11:43:30', null);
 INSERT INTO `lied_order_base` VALUES ('11', '2020101421751000000124771', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-10-14 11:43:52', '2020-10-14 11:43:52', null);
-INSERT INTO `lied_order_base` VALUES ('13', '2020110258349000000191501', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-02 14:29:20', '2020-11-02 14:29:20', null);
+INSERT INTO `lied_order_base` VALUES ('13', '2020110258349000000191501', null, '1', '2.00', '0.00', null, '1', '0', '0', '2020-11-02 14:29:20', '2020-11-02 14:29:20', null);
 INSERT INTO `lied_order_base` VALUES ('14', '2020110236025000000125607', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-02 14:46:53', '2020-11-02 14:46:53', null);
 INSERT INTO `lied_order_base` VALUES ('15', '2020110263488000000134504', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-02 14:48:18', '2020-11-02 14:48:18', null);
 INSERT INTO `lied_order_base` VALUES ('16', '2020110256531000000121306', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-02 14:53:21', '2020-11-02 14:53:21', null);
@@ -2356,6 +2392,8 @@ INSERT INTO `lied_order_base` VALUES ('17', '2020110280573000000119106', null, '
 INSERT INTO `lied_order_base` VALUES ('18', '2020110247713000000116461', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-02 15:04:09', '2020-11-02 15:04:09', null);
 INSERT INTO `lied_order_base` VALUES ('19', '2020110269990000000117090', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-02 15:20:03', '2020-11-02 15:20:03', null);
 INSERT INTO `lied_order_base` VALUES ('20', '2020110273594000000196987', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
+INSERT INTO `lied_order_base` VALUES ('21', '2020110533221000000150163', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-05 08:58:31', '2020-11-05 08:58:31', null);
+INSERT INTO `lied_order_base` VALUES ('27', '2020112040191000000180649', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
 
 -- ----------------------------
 -- Table structure for `lied_order_child`
@@ -2363,6 +2401,7 @@ INSERT INTO `lied_order_base` VALUES ('20', '2020110273594000000196987', null, '
 DROP TABLE IF EXISTS `lied_order_child`;
 CREATE TABLE `lied_order_child` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `base_id` int(11) unsigned NOT NULL COMMENT '订单基础表id',
   `order_id` int(11) unsigned NOT NULL COMMENT '订单id',
   `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
   `sku_id` int(11) unsigned NOT NULL COMMENT 'sku表id',
@@ -2373,46 +2412,54 @@ CREATE TABLE `lied_order_child` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COMMENT='单产品订单表';
+  PRIMARY KEY (`id`),
+  KEY `order_child-base_id` (`base_id`),
+  KEY `order_child-order_id` (`order_id`),
+  CONSTRAINT `order_child-base_id` FOREIGN KEY (`base_id`) REFERENCES `lied_order_base` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `order_child-order_id` FOREIGN KEY (`order_id`) REFERENCES `lied_order` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COMMENT='单产品订单表';
 
 -- ----------------------------
 -- Records of lied_order_child
 -- ----------------------------
-INSERT INTO `lied_order_child` VALUES ('1', '1', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:28:58', '2020-10-14 11:28:58', null);
-INSERT INTO `lied_order_child` VALUES ('2', '1', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:28:58', '2020-10-14 11:28:58', null);
-INSERT INTO `lied_order_child` VALUES ('3', '2', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:31:45', '2020-10-14 11:31:45', null);
-INSERT INTO `lied_order_child` VALUES ('4', '2', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:31:45', '2020-10-14 11:31:45', null);
-INSERT INTO `lied_order_child` VALUES ('5', '3', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:36:53', '2020-10-14 11:36:53', null);
-INSERT INTO `lied_order_child` VALUES ('6', '3', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:36:53', '2020-10-14 11:36:53', null);
-INSERT INTO `lied_order_child` VALUES ('7', '4', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:41:38', '2020-10-14 11:41:38', null);
-INSERT INTO `lied_order_child` VALUES ('8', '4', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:41:38', '2020-10-14 11:41:38', null);
-INSERT INTO `lied_order_child` VALUES ('9', '5', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:41:57', '2020-10-14 11:41:57', null);
-INSERT INTO `lied_order_child` VALUES ('10', '5', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:41:57', '2020-10-14 11:41:57', null);
-INSERT INTO `lied_order_child` VALUES ('11', '6', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:42:17', '2020-10-14 11:42:17', null);
-INSERT INTO `lied_order_child` VALUES ('12', '6', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:42:17', '2020-10-14 11:42:17', null);
-INSERT INTO `lied_order_child` VALUES ('13', '7', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:42:39', '2020-10-14 11:42:39', null);
-INSERT INTO `lied_order_child` VALUES ('14', '7', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:42:39', '2020-10-14 11:42:39', null);
-INSERT INTO `lied_order_child` VALUES ('15', '8', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:43:31', '2020-10-14 11:43:31', null);
-INSERT INTO `lied_order_child` VALUES ('16', '8', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:43:31', '2020-10-14 11:43:31', null);
-INSERT INTO `lied_order_child` VALUES ('17', '9', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:43:52', '2020-10-14 11:43:52', null);
-INSERT INTO `lied_order_child` VALUES ('18', '9', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:43:52', '2020-10-14 11:43:52', null);
-INSERT INTO `lied_order_child` VALUES ('19', '10', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 14:29:20', '2020-11-02 14:29:20', null);
-INSERT INTO `lied_order_child` VALUES ('20', '10', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 14:29:20', '2020-11-02 14:29:20', null);
-INSERT INTO `lied_order_child` VALUES ('21', '11', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 14:46:53', '2020-11-02 14:46:53', null);
-INSERT INTO `lied_order_child` VALUES ('22', '11', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 14:46:53', '2020-11-02 14:46:53', null);
-INSERT INTO `lied_order_child` VALUES ('23', '12', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 14:48:18', '2020-11-02 14:48:18', null);
-INSERT INTO `lied_order_child` VALUES ('24', '12', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 14:48:18', '2020-11-02 14:48:18', null);
-INSERT INTO `lied_order_child` VALUES ('25', '13', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 14:53:21', '2020-11-02 14:53:21', null);
-INSERT INTO `lied_order_child` VALUES ('26', '13', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 14:53:21', '2020-11-02 14:53:21', null);
-INSERT INTO `lied_order_child` VALUES ('27', '14', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 14:53:31', '2020-11-02 14:53:31', null);
-INSERT INTO `lied_order_child` VALUES ('28', '14', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 14:53:31', '2020-11-02 14:53:31', null);
-INSERT INTO `lied_order_child` VALUES ('29', '15', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 15:04:09', '2020-11-02 15:04:09', null);
-INSERT INTO `lied_order_child` VALUES ('30', '15', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 15:04:09', '2020-11-02 15:04:09', null);
-INSERT INTO `lied_order_child` VALUES ('31', '16', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 15:20:03', '2020-11-02 15:20:03', null);
-INSERT INTO `lied_order_child` VALUES ('32', '16', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 15:20:03', '2020-11-02 15:20:03', null);
-INSERT INTO `lied_order_child` VALUES ('33', '17', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
-INSERT INTO `lied_order_child` VALUES ('34', '17', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
+INSERT INTO `lied_order_child` VALUES ('1', '2', '1', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:28:58', '2020-10-14 11:28:58', null);
+INSERT INTO `lied_order_child` VALUES ('2', '2', '1', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:28:58', '2020-10-14 11:28:58', null);
+INSERT INTO `lied_order_child` VALUES ('3', '3', '2', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:31:45', '2020-10-14 11:31:45', null);
+INSERT INTO `lied_order_child` VALUES ('4', '3', '2', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:31:45', '2020-10-14 11:31:45', null);
+INSERT INTO `lied_order_child` VALUES ('5', '4', '3', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:36:53', '2020-10-14 11:36:53', null);
+INSERT INTO `lied_order_child` VALUES ('6', '4', '3', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:36:53', '2020-10-14 11:36:53', null);
+INSERT INTO `lied_order_child` VALUES ('7', '6', '4', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:41:38', '2020-10-14 11:41:38', null);
+INSERT INTO `lied_order_child` VALUES ('8', '6', '4', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:41:38', '2020-10-14 11:41:38', null);
+INSERT INTO `lied_order_child` VALUES ('9', '7', '5', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:41:57', '2020-10-14 11:41:57', null);
+INSERT INTO `lied_order_child` VALUES ('10', '7', '5', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:41:57', '2020-10-14 11:41:57', null);
+INSERT INTO `lied_order_child` VALUES ('11', '8', '6', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:42:17', '2020-10-14 11:42:17', null);
+INSERT INTO `lied_order_child` VALUES ('12', '8', '6', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:42:17', '2020-10-14 11:42:17', null);
+INSERT INTO `lied_order_child` VALUES ('13', '9', '7', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:42:39', '2020-10-14 11:42:39', null);
+INSERT INTO `lied_order_child` VALUES ('14', '9', '7', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:42:39', '2020-10-14 11:42:39', null);
+INSERT INTO `lied_order_child` VALUES ('15', '10', '8', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:43:31', '2020-10-14 11:43:31', null);
+INSERT INTO `lied_order_child` VALUES ('16', '10', '8', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:43:31', '2020-10-14 11:43:31', null);
+INSERT INTO `lied_order_child` VALUES ('17', '11', '9', '1', '10', '1.00', '0.00', '1', null, '2020-10-14 11:43:52', '2020-10-14 11:43:52', null);
+INSERT INTO `lied_order_child` VALUES ('18', '11', '9', '1', '9', '1.00', '0.00', '1', null, '2020-10-14 11:43:52', '2020-10-14 11:43:52', null);
+INSERT INTO `lied_order_child` VALUES ('19', '13', '10', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 14:29:20', '2020-11-02 14:29:20', null);
+INSERT INTO `lied_order_child` VALUES ('20', '13', '10', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 14:29:20', '2020-11-02 14:29:20', null);
+INSERT INTO `lied_order_child` VALUES ('21', '14', '11', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 14:46:53', '2020-11-02 14:46:53', null);
+INSERT INTO `lied_order_child` VALUES ('22', '14', '11', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 14:46:53', '2020-11-02 14:46:53', null);
+INSERT INTO `lied_order_child` VALUES ('23', '15', '12', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 14:48:18', '2020-11-02 14:48:18', null);
+INSERT INTO `lied_order_child` VALUES ('24', '15', '12', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 14:48:18', '2020-11-02 14:48:18', null);
+INSERT INTO `lied_order_child` VALUES ('25', '16', '13', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 14:53:21', '2020-11-02 14:53:21', null);
+INSERT INTO `lied_order_child` VALUES ('26', '16', '13', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 14:53:21', '2020-11-02 14:53:21', null);
+INSERT INTO `lied_order_child` VALUES ('27', '17', '14', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 14:53:31', '2020-11-02 14:53:31', null);
+INSERT INTO `lied_order_child` VALUES ('28', '17', '14', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 14:53:31', '2020-11-02 14:53:31', null);
+INSERT INTO `lied_order_child` VALUES ('29', '18', '15', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 15:04:09', '2020-11-02 15:04:09', null);
+INSERT INTO `lied_order_child` VALUES ('30', '18', '15', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 15:04:09', '2020-11-02 15:04:09', null);
+INSERT INTO `lied_order_child` VALUES ('31', '19', '16', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 15:20:03', '2020-11-02 15:20:03', null);
+INSERT INTO `lied_order_child` VALUES ('32', '19', '16', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 15:20:03', '2020-11-02 15:20:03', null);
+INSERT INTO `lied_order_child` VALUES ('33', '20', '17', '1', '10', '1.00', '0.00', '1', null, '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
+INSERT INTO `lied_order_child` VALUES ('34', '20', '17', '1', '9', '1.00', '0.00', '1', null, '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
+INSERT INTO `lied_order_child` VALUES ('35', '21', '18', '1', '10', '1.00', '0.00', '1', null, '2020-11-05 08:58:31', '2020-11-05 08:58:31', null);
+INSERT INTO `lied_order_child` VALUES ('36', '21', '18', '1', '9', '1.00', '0.00', '1', null, '2020-11-05 08:58:31', '2020-11-05 08:58:31', null);
+INSERT INTO `lied_order_child` VALUES ('44', '27', '24', '1', '10', '1.00', '0.00', '1', null, '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
+INSERT INTO `lied_order_child` VALUES ('45', '27', '24', '1', '9', '1.00', '0.00', '1', null, '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
 
 -- ----------------------------
 -- Table structure for `lied_password_resets`
@@ -2565,7 +2612,7 @@ CREATE TABLE `lied_product_attr` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='产品规格表';
 
 -- ----------------------------
 -- Records of lied_product_attr
@@ -2673,7 +2720,7 @@ CREATE TABLE `lied_product_category` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='产品分类表';
 
 -- ----------------------------
 -- Records of lied_product_category
@@ -2717,7 +2764,7 @@ CREATE TABLE `lied_product_medias` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `product_media-product_id_media_id_sort` (`product_id`,`media_id`,`sort`) USING BTREE,
   KEY `product_media-product_id` (`product_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='产品图库表';
 
 -- ----------------------------
 -- Records of lied_product_medias
@@ -2805,8 +2852,8 @@ CREATE TABLE `lied_product_sku_stock` (
 -- ----------------------------
 -- Records of lied_product_sku_stock
 -- ----------------------------
-INSERT INTO `lied_product_sku_stock` VALUES ('9', '1', '9', '1', '4', '2020-08-03 15:24:14', '2020-08-03 15:24:14', null);
-INSERT INTO `lied_product_sku_stock` VALUES ('10', '1', '10', '2', '4', '2020-08-03 15:24:14', '2020-08-03 15:24:14', null);
+INSERT INTO `lied_product_sku_stock` VALUES ('9', '1', '9', '9', '4', '2020-08-03 15:24:14', '2020-11-20 10:54:27', null);
+INSERT INTO `lied_product_sku_stock` VALUES ('10', '1', '10', '11', '4', '2020-08-03 15:24:14', '2020-11-20 10:54:27', null);
 INSERT INTO `lied_product_sku_stock` VALUES ('11', '1', '11', '3', '4', '2020-08-03 15:24:14', '2020-08-03 15:24:14', null);
 INSERT INTO `lied_product_sku_stock` VALUES ('12', '1', '12', '2', '4', '2020-08-03 15:24:14', '2020-08-03 15:38:42', '2020-08-03 15:38:42');
 INSERT INTO `lied_product_sku_stock` VALUES ('13', '1', '13', '4', '1', '2020-08-03 15:39:38', '2020-08-03 15:39:38', null);
@@ -6261,7 +6308,7 @@ CREATE TABLE `lied_shipping_address` (
   PRIMARY KEY (`id`),
   KEY `shipping_address-order_id` (`order_base_id`),
   CONSTRAINT `shipping_address-order_id` FOREIGN KEY (`order_base_id`) REFERENCES `lied_order_base` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='配送地址表';
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='配送地址表';
 
 -- ----------------------------
 -- Records of lied_shipping_address
@@ -6283,6 +6330,28 @@ INSERT INTO `lied_shipping_address` VALUES ('14', '17', '蛇形', '1', '2', '3',
 INSERT INTO `lied_shipping_address` VALUES ('15', '18', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 15:04:09', '2020-11-02 15:04:09', null);
 INSERT INTO `lied_shipping_address` VALUES ('16', '19', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 15:20:03', '2020-11-02 15:20:03', null);
 INSERT INTO `lied_shipping_address` VALUES ('17', '20', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
+INSERT INTO `lied_shipping_address` VALUES ('18', '21', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-05 08:58:31', '2020-11-05 08:58:31', null);
+INSERT INTO `lied_shipping_address` VALUES ('24', '27', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
+
+-- ----------------------------
+-- Table structure for `lied_snapshots`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_snapshots`;
+CREATE TABLE `lied_snapshots` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `type` tinyint(1) unsigned NOT NULL COMMENT '类型',
+  `id_value` int(11) unsigned NOT NULL COMMENT '所属类型对应的id',
+  `value` text NOT NULL COMMENT '记录内容',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='快照记录';
+
+-- ----------------------------
+-- Records of lied_snapshots
+-- ----------------------------
+INSERT INTO `lied_snapshots` VALUES ('1', '0', '27', '{\"sku_info\":{\"0\":{\"id\":10,\"product_id\":1,\"attr_key\":\"2-6\",\"media_id\":20,\"price\":\"1.00\",\"cost_price\":\"3.00\",\"sold_num\":0,\"code\":\"2\",\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-08-03 15:24:14\",\"deleted_at\":null,\"attr_values\":{\"2\":{\"id\":2,\"product_attr_id\":1,\"name\":\"绿\",\"sort\":0,\"created_at\":\"2020-08-03 15:10:58\",\"updated_at\":\"2020-08-03 15:10:58\",\"deleted_at\":null,\"attr\":{\"id\":1,\"name\":\"颜色\",\"sort\":0,\"created_at\":\"2020-08-03 15:10:28\",\"updated_at\":\"2020-08-03 15:10:28\",\"deleted_at\":null}},\"6\":{\"id\":6,\"product_attr_id\":2,\"name\":\"X\",\"sort\":0,\"created_at\":\"2020-08-03 15:12:20\",\"updated_at\":\"2020-08-03 15:12:20\",\"deleted_at\":null,\"attr\":{\"id\":2,\"name\":\"尺寸\",\"sort\":0,\"created_at\":\"2020-08-03 15:11:27\",\"updated_at\":\"2020-08-03 15:11:27\",\"deleted_at\":null}}},\"product\":{\"id\":1,\"name\":\"lied\",\"brand_id\":2,\"category_id\":1,\"virtual_quantity\":1,\"line_price\":\"112.00\",\"price\":\"1.00\",\"description\":\"1231\",\"content\":\"<p>12313<\\/p>\",\"is_real\":1,\"is_audit\":1,\"is_on_sale\":1,\"created_id\":1,\"sort\":99,\"created_at\":\"2020-08-03 10:43:33\",\"updated_at\":\"2020-08-24 16:26:50\",\"deleted_at\":null},\"stock\":{\"id\":10,\"product_id\":1,\"sku_id\":10,\"quantity\":12,\"warn_number\":4,\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-11-05 08:58:31\",\"deleted_at\":null}},\"1\":{\"id\":9,\"product_id\":1,\"attr_key\":\"3-6\",\"media_id\":20,\"price\":\"1.00\",\"cost_price\":\"3.00\",\"sold_num\":0,\"code\":\"1\",\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-08-03 15:24:14\",\"deleted_at\":null,\"attr_values\":{\"3\":{\"id\":3,\"product_attr_id\":1,\"name\":\"蓝\",\"sort\":0,\"created_at\":\"2020-08-03 15:11:09\",\"updated_at\":\"2020-08-03 15:11:09\",\"deleted_at\":null,\"attr\":{\"id\":1,\"name\":\"颜色\",\"sort\":0,\"created_at\":\"2020-08-03 15:10:28\",\"updated_at\":\"2020-08-03 15:10:28\",\"deleted_at\":null}},\"6\":{\"id\":6,\"product_attr_id\":2,\"name\":\"X\",\"sort\":0,\"created_at\":\"2020-08-03 15:12:20\",\"updated_at\":\"2020-08-03 15:12:20\",\"deleted_at\":null,\"attr\":{\"id\":2,\"name\":\"尺寸\",\"sort\":0,\"created_at\":\"2020-08-03 15:11:27\",\"updated_at\":\"2020-08-03 15:11:27\",\"deleted_at\":null}}},\"product\":{\"id\":1,\"name\":\"lied\",\"brand_id\":2,\"category_id\":1,\"virtual_quantity\":1,\"line_price\":\"112.00\",\"price\":\"1.00\",\"description\":\"1231\",\"content\":\"<p>12313<\\/p>\",\"is_real\":1,\"is_audit\":1,\"is_on_sale\":1,\"created_id\":1,\"sort\":99,\"created_at\":\"2020-08-03 10:43:33\",\"updated_at\":\"2020-08-24 16:26:50\",\"deleted_at\":null},\"stock\":{\"id\":9,\"product_id\":1,\"sku_id\":9,\"quantity\":10,\"warn_number\":4,\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-11-05 08:58:31\",\"deleted_at\":null}}},\"order_base\":{\"orderno\":\"2020112040191000000180649\",\"user_id\":1,\"price\":\"2.00\",\"pay_price\":null,\"order_status\":0,\"pay_status\":0,\"source\":0},\"order\":{\"base_id\":27,\"brand_id\":2,\"message\":null,\"order_type\":0},\"shipping_address\":{\"order_base_id\":27,\"name\":\"蛇形\",\"region_pid\":1,\"region_cid\":2,\"region_aid\":3,\"address\":\"愉景大厦3楼\",\"mobile\":\"18825099088\",\"code\":null},\"order_child\":{\"0\":{\"product_id\":1,\"sku_id\":10,\"product_price\":\"1.00\",\"number\":\"1\",\"order_id\":24,\"base_id\":27},\"1\":{\"product_id\":1,\"sku_id\":9,\"product_price\":\"1.00\",\"number\":\"1\",\"order_id\":24,\"base_id\":27}}}', '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
 
 -- ----------------------------
 -- Table structure for `lied_stripe_accounts`
@@ -6311,7 +6380,7 @@ CREATE TABLE `lied_stripe_accounts` (
 DROP TABLE IF EXISTS `lied_users`;
 CREATE TABLE `lied_users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) DEFAULT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 DEFAULT NULL,
   `username` varchar(64) DEFAULT NULL COMMENT '用户名 登录用',
   `email` varchar(191) DEFAULT NULL,
   `mobile` varchar(11) NOT NULL,
@@ -6348,29 +6417,6 @@ INSERT INTO `lied_users` VALUES ('1', 'Super Admin', 'admin', 'admin@admin.com',
 INSERT INTO `lied_users` VALUES ('9', null, null, null, '18825099088', null, '0', null, null, null, null, '1', null, '2020-08-13 15:34:13', '2020-08-13 15:34:13', null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
--- Table structure for `lied_users_oauth`
--- ----------------------------
-DROP TABLE IF EXISTS `lied_users_oauth`;
-CREATE TABLE `lied_users_oauth` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) unsigned DEFAULT '0',
-  `unionid` varchar(128) DEFAULT '0' COMMENT '多公众号下联合id',
-  `openid` varchar(128) NOT NULL COMMENT '唯一授权id',
-  `sex` tinyint(1) unsigned DEFAULT '0' COMMENT '性别1-男 2-女',
-  `name` varchar(64) DEFAULT '0' COMMENT '姓名',
-  `thumb` int(10) unsigned DEFAULT '0' COMMENT '图片id',
-  `type` tinyint(1) unsigned NOT NULL COMMENT '授权类型1-wechat',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of lied_users_oauth
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `lied_user_address`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_user_address`;
@@ -6389,16 +6435,17 @@ CREATE TABLE `lied_user_address` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='用户地址表';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='用户地址表';
 
 -- ----------------------------
 -- Records of lied_user_address
 -- ----------------------------
-INSERT INTO `lied_user_address` VALUES ('1', '1', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '0', null, null, null);
-INSERT INTO `lied_user_address` VALUES ('2', '1', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '0', null, null, null);
-INSERT INTO `lied_user_address` VALUES ('3', '1', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '0', null, null, null);
-INSERT INTO `lied_user_address` VALUES ('4', '1', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '0', '2020-09-30 11:42:23', '2020-09-30 11:42:23', null);
-INSERT INTO `lied_user_address` VALUES ('5', '1', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '0', '2020-09-30 11:48:40', '2020-09-30 11:48:40', null);
+INSERT INTO `lied_user_address` VALUES ('1', '1', '蛇形', '1', '2', '3', '愉景大厦3楼123', '18825099088', null, '1', null, '2020-11-10 13:38:59', null);
+INSERT INTO `lied_user_address` VALUES ('2', '1', '蛇形', '1', '2', '3', '愉景大厦3楼1233', '18825099088', null, '0', null, '2020-11-09 14:47:00', '2020-11-09 14:47:00');
+INSERT INTO `lied_user_address` VALUES ('3', '1', '蛇形', '1', '2', '3', '愉景大厦3楼1122', '18825099088', null, '0', null, '2020-11-10 13:38:59', null);
+INSERT INTO `lied_user_address` VALUES ('4', '1', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '0', '2020-09-30 11:42:23', '2020-11-10 13:38:59', null);
+INSERT INTO `lied_user_address` VALUES ('5', '1', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '0', '2020-09-30 11:48:40', '2020-11-10 13:38:59', null);
+INSERT INTO `lied_user_address` VALUES ('6', '1', '蛇形', '1', '2', '3', '愉景大厦3楼1', '18825099088', null, '0', '2020-11-09 09:17:17', '2020-11-10 13:38:59', null);
 
 -- ----------------------------
 -- Table structure for `lied_user_collect`
@@ -6463,6 +6510,29 @@ CREATE TABLE `lied_user_coupon` (
 
 -- ----------------------------
 -- Records of lied_user_coupon
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `lied_user_oauth`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_user_oauth`;
+CREATE TABLE `lied_user_oauth` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned DEFAULT '0',
+  `unionid` varchar(128) DEFAULT '0' COMMENT '多公众号下联合id',
+  `openid` varchar(128) NOT NULL COMMENT '唯一授权id',
+  `sex` tinyint(1) unsigned DEFAULT '0' COMMENT '性别1-男 2-女',
+  `name` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '姓名',
+  `thumb` int(10) unsigned DEFAULT '0' COMMENT '图片id',
+  `type` tinyint(1) unsigned NOT NULL COMMENT '授权类型1-wechat',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lied_user_oauth
 -- ----------------------------
 
 -- ----------------------------
