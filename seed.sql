@@ -111,7 +111,7 @@ INSERT INTO `lied_letter` VALUES ('26', 'Z');
 
 
 INSERT INTO `lied_regions` VALUES ('1', null, ',1,', '1', 'beijing', '北京', '2', '110000', '110000', '1', null, null, null);
-INSERT INTO `lied_regions` VALUES ('2', '1', ',1,2,', '2', 'beijingshi', '北京市', '2', '110000', '110000,110000', '1', null, null, null);
+INSERT INTO `lied_regions` VALUES ('2', '1', ',1,2,', '2', 'beijingshi', '北京市', '2', '110100', '110000,110000', '1', null, null, null);
 INSERT INTO `lied_regions` VALUES ('3', '2', ',1,2,3,', '3', 'dongchengqu', '东城区', '4', '110101', '110000,110000,110101', '1', null, null, null);
 INSERT INTO `lied_regions` VALUES ('4', '2', ',1,2,4,', '3', 'xichengqu', '西城区', '24', '110102', '110000,110000,110102', '1', null, null, null);
 INSERT INTO `lied_regions` VALUES ('5', '2', ',1,2,5,', '3', 'chongwenqu', '崇文区', '3', '110103', '110000,110000,110103', '1', null, null, null);
@@ -152,7 +152,7 @@ INSERT INTO `lied_regions` VALUES ('39', '22', ',21,22,39,', '3', 'nanhuiqu', '�
 INSERT INTO `lied_regions` VALUES ('40', '22', ',21,22,40,', '3', 'fengxianqu', '奉贤区', '6', '310120', '310000,310000,310120', '1', null, null, null);
 INSERT INTO `lied_regions` VALUES ('41', '22', ',21,22,41,', '3', 'chongmingxian', '崇明县', '3', '310230', '310000,310000,310230', '1', null, null, null);
 INSERT INTO `lied_regions` VALUES ('42', null, ',42,', '1', 'tianjin', '天津', '20', '120000', '120000', '1', null, null, null);
-INSERT INTO `lied_regions` VALUES ('43', '42', ',42,43,', '2', 'tianjinshi', '天津市', '20', '120000', '120000,120000', '1', null, null, null);
+INSERT INTO `lied_regions` VALUES ('43', '42', ',42,43,', '2', 'tianjinshi', '天津市', '20', '120100', '120000,120000', '1', null, null, null);
 INSERT INTO `lied_regions` VALUES ('44', '43', ',42,43,44,', '3', 'hepingqu', '和平区', '8', '120101', '120000,120000,120101', '1', null, null, null);
 INSERT INTO `lied_regions` VALUES ('45', '43', ',42,43,45,', '3', 'hedongqu', '河东区', '8', '120102', '120000,120000,120102', '1', null, null, null);
 INSERT INTO `lied_regions` VALUES ('46', '43', ',42,43,46,', '3', 'hexiqu', '河西区', '8', '120103', '120000,120000,120103', '1', null, null, null);
