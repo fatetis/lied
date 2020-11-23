@@ -22,7 +22,7 @@ CREATE TABLE `lied_comments` (
   `base_id` int(11) unsigned NOT NULL COMMENT '订单基础表id',
   `pid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '评论父节点',
   `content` varchar(255) DEFAULT NULL COMMENT '内容',
-  `content_rank` decimal(1,1) unsigned DEFAULT NULL COMMENT '分数 满分5分',
+  `content_rank` decimal(4,1) unsigned DEFAULT NULL COMMENT '分数 满分5分',
   `is_quality` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否优质评论',
   `is_show` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示',
   `is_brand` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否商家评论',
@@ -31,6 +31,8 @@ CREATE TABLE `lied_comments` (
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户评论表';
+
+
 
 
 
