@@ -2,6 +2,9 @@
 ALTER TABLE `lied_users`
   MODIFY COLUMN `name`  varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL AFTER `id`;
 
+ALTER TABLE `lied_users`
+  ADD COLUMN `media_id`  int(11) UNSIGNED NULL COMMENT '用户头像' AFTER `username`;
+
 INSERT INTO `lied_admin_menu` VALUES ('1', '0', '1', 'Index', 'fa-bar-chart', 'dashboard', null, null, '2019-12-10 15:27:18');
 INSERT INTO `lied_admin_menu` VALUES ('2', '0', '2', 'Admin', 'fa-tasks', '', null, null, null);
 INSERT INTO `lied_admin_menu` VALUES ('3', '2', '3', 'Users', 'fa-users', 'auth/users', null, null, null);

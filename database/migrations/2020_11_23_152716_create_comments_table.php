@@ -19,7 +19,10 @@ class CreateCommentsTable extends Migration
 CREATE TABLE `lied_comments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
+  `name` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '用户名-name-冗余字段',
+  `media_id` int(11) unsigned DEFAULT NULL COMMENT '用户头像-冗余字段',
   `base_id` int(11) unsigned NOT NULL COMMENT '订单基础表id',
+  `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
   `pid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '评论父节点',
   `content` varchar(255) DEFAULT NULL COMMENT '内容',
   `content_rank` decimal(4,1) unsigned DEFAULT NULL COMMENT '分数 满分5分',
@@ -31,10 +34,6 @@ CREATE TABLE `lied_comments` (
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户评论表';
-
-
-
-
 
 
         ");
