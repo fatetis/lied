@@ -18,14 +18,18 @@ class CreateCommentsTable extends Migration
 
 CREATE TABLE `lied_comments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
-  `name` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '用户名-name-冗余字段',
-  `media_id` int(11) unsigned DEFAULT NULL COMMENT '用户头像-冗余字段',
   `base_id` int(11) unsigned NOT NULL COMMENT '订单基础表id',
   `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
   `pid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '评论父节点',
+  `from_uid` int(11) unsigned NOT NULL COMMENT '用户id',
+  `from_name` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '用户名-name-冗余字段',
+  `from_media_id` int(11) unsigned DEFAULT NULL COMMENT '用户头像-冗余字段',
+  `to_uid` int(11) unsigned DEFAULT '0',
+  `to_name` varchar(64) DEFAULT NULL COMMENT '名称',
+  `to_media_id` int(11) unsigned DEFAULT NULL COMMENT '图像id',
   `content` varchar(255) DEFAULT NULL COMMENT '内容',
   `content_rank` decimal(4,1) unsigned DEFAULT NULL COMMENT '分数 满分5分',
+  `like_num` int(4) unsigned DEFAULT '0' COMMENT '点赞数量',
   `is_quality` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否优质评论',
   `is_show` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示',
   `is_brand` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否商家评论',
@@ -34,6 +38,8 @@ CREATE TABLE `lied_comments` (
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户评论表';
+
+
 
 
         ");

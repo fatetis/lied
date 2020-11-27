@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-11-26 18:33:00
+Date: 2020-11-27 17:13:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1452,14 +1452,18 @@ INSERT INTO `lied_cart` VALUES ('3', '1', '10', '2', '2020-11-10 11:18:28', '202
 DROP TABLE IF EXISTS `lied_comments`;
 CREATE TABLE `lied_comments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
-  `name` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '用户名-name-冗余字段',
-  `media_id` int(11) unsigned DEFAULT NULL COMMENT '用户头像-冗余字段',
   `base_id` int(11) unsigned NOT NULL COMMENT '订单基础表id',
   `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
   `pid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '评论父节点',
+  `from_uid` int(11) unsigned NOT NULL COMMENT '用户id',
+  `from_name` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '用户名-name-冗余字段',
+  `from_media_id` int(11) unsigned DEFAULT NULL COMMENT '用户头像-冗余字段',
+  `to_uid` int(11) unsigned DEFAULT '0',
+  `to_name` varchar(64) DEFAULT NULL COMMENT '名称',
+  `to_media_id` int(11) unsigned DEFAULT NULL COMMENT '图像id',
   `content` varchar(255) DEFAULT NULL COMMENT '内容',
   `content_rank` decimal(4,1) unsigned DEFAULT NULL COMMENT '分数 满分5分',
+  `like_num` int(4) unsigned DEFAULT '0' COMMENT '点赞数量',
   `is_quality` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否优质评论',
   `is_show` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示',
   `is_brand` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否商家评论',
@@ -1467,23 +1471,24 @@ CREATE TABLE `lied_comments` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='用户评论表';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='用户评论表';
 
 -- ----------------------------
 -- Records of lied_comments
 -- ----------------------------
-INSERT INTO `lied_comments` VALUES ('1', '1', 'Super Admin', '1', '2', '1', '0', '这是评论内容1', '1.0', '0', '1', '0', '2020-11-23 16:27:44', '2020-11-23 16:27:44', null);
-INSERT INTO `lied_comments` VALUES ('2', '1', 'Super Admin', '1', '2', '1', '0', '这是评论内容2', '1.0', '0', '1', '0', '2020-11-23 16:30:19', '2020-11-23 16:30:19', null);
-INSERT INTO `lied_comments` VALUES ('3', '1', 'Super Admin', '1', '2', '1', '1', '这是评论内容3', '1.0', '0', '1', '0', '2020-11-23 16:36:54', '2020-11-23 16:36:54', null);
-INSERT INTO `lied_comments` VALUES ('4', '1', 'Super Admin', '1', '2', '1', '1', '这是评论内容4', '1.0', '0', '1', '0', '2020-11-23 16:37:50', '2020-11-23 16:37:50', null);
-INSERT INTO `lied_comments` VALUES ('5', '1', 'Super Admin', '1', '2', '1', '1', '这是评论内容5', '1.0', '0', '1', '0', '2020-11-23 17:44:18', '2020-11-23 17:44:18', null);
-INSERT INTO `lied_comments` VALUES ('6', '1', 'Super Admin', '1', '2', '1', '2', '这是评论内容6', '1.0', '0', '1', '0', '2020-11-23 17:50:46', '2020-11-23 17:50:46', null);
-INSERT INTO `lied_comments` VALUES ('7', '1', 'Super Admin', '1', '2', '1', '2', '这是评论内容7', '1.0', '0', '1', '0', '2020-11-23 17:51:21', '2020-11-23 17:51:21', null);
-INSERT INTO `lied_comments` VALUES ('10', '1', 'Super Admin', '1', '2', '1', '1', '这是评论内容8', '1.0', '0', '1', '1', '2020-11-26 09:33:44', '2020-11-26 09:33:44', null);
-INSERT INTO `lied_comments` VALUES ('11', '1', 'Super Admin', '1', '2', '1', '2', '这是评论内容9', '1.0', '0', '1', '1', '2020-11-26 09:39:20', '2020-11-26 09:39:20', null);
-INSERT INTO `lied_comments` VALUES ('12', '1', 'Super Admin', '1', '2', '1', '11', '这是评论内容10', '1.0', '0', '1', '0', '2020-11-26 09:41:24', '2020-11-26 09:41:24', null);
-INSERT INTO `lied_comments` VALUES ('13', '1', 'Super Admin', '1', '2', '1', '2', '这是评论内容11', '1.0', '0', '1', '0', '2020-11-26 09:41:36', '2020-11-26 16:48:10', null);
-INSERT INTO `lied_comments` VALUES ('14', '1', 'Super Admin', '1', '2', '1', '2', '这是评论内容12', '1.0', '0', '1', '0', '2020-11-26 09:41:54', '2020-11-26 09:41:54', null);
+INSERT INTO `lied_comments` VALUES ('1', '2', '1', '0', '1', 'Super Admin', '1', '0', null, null, '这是评论内容1', '1.0', '0', '0', '1', '0', '2020-11-23 16:27:44', '2020-11-23 16:27:44', null);
+INSERT INTO `lied_comments` VALUES ('2', '2', '1', '0', '1', 'Super Admin', '1', '0', null, null, '这是评论内容2', '1.0', '0', '0', '1', '0', '2020-11-23 16:30:19', '2020-11-23 16:30:19', null);
+INSERT INTO `lied_comments` VALUES ('3', '2', '1', '1', '1', 'Super Admin', '1', '0', null, null, '这是评论内容3', '1.0', '0', '0', '1', '0', '2020-11-23 16:36:54', '2020-11-23 16:36:54', null);
+INSERT INTO `lied_comments` VALUES ('4', '2', '1', '1', '1', 'Super Admin', '1', '0', null, null, '这是评论内容4', '1.0', '0', '0', '1', '0', '2020-11-23 16:37:50', '2020-11-23 16:37:50', null);
+INSERT INTO `lied_comments` VALUES ('5', '2', '1', '1', '1', 'Super Admin', '1', '0', null, null, '这是评论内容5', '1.0', '0', '0', '1', '0', '2020-11-23 17:44:18', '2020-11-23 17:44:18', null);
+INSERT INTO `lied_comments` VALUES ('6', '2', '1', '2', '1', 'Super Admin', '1', '0', null, null, '这是评论内容6', '1.0', '0', '0', '1', '0', '2020-11-23 17:50:46', '2020-11-23 17:50:46', null);
+INSERT INTO `lied_comments` VALUES ('7', '2', '1', '2', '1', 'Super Admin', '1', '0', null, null, '这是评论内容7', '1.0', '0', '0', '1', '0', '2020-11-23 17:51:21', '2020-11-23 17:51:21', null);
+INSERT INTO `lied_comments` VALUES ('10', '2', '1', '1', '1', 'Super Admin', '1', '1', null, null, '这是评论内容8', '1.0', '0', '0', '1', '1', '2020-11-26 09:33:44', '2020-11-26 09:33:44', null);
+INSERT INTO `lied_comments` VALUES ('11', '2', '1', '2', '1', 'Super Admin', '1', '0', null, null, '这是评论内容9', '1.0', '0', '0', '1', '1', '2020-11-26 09:39:20', '2020-11-26 09:39:20', null);
+INSERT INTO `lied_comments` VALUES ('12', '2', '1', '11', '1', 'Super Admin', '1', '0', null, null, '这是评论内容10', '1.0', '0', '0', '1', '0', '2020-11-26 09:41:24', '2020-11-26 09:41:24', null);
+INSERT INTO `lied_comments` VALUES ('13', '2', '1', '2', '1', 'Super Admin', '1', '0', null, null, '这是评论内容11', '1.0', '0', '0', '1', '0', '2020-11-26 09:41:36', '2020-11-26 16:48:10', null);
+INSERT INTO `lied_comments` VALUES ('14', '2', '1', '2', '1', 'Super Admin', '1', '0', null, null, '这是评论内容12', '1.0', '0', '0', '1', '0', '2020-11-26 09:41:54', '2020-11-26 09:41:54', null);
+INSERT INTO `lied_comments` VALUES ('16', '2', '1', '2', '1', 'Super Admin', '1', '1', 'Super Admin', '1', '这是评论内容11', '1.0', '0', '0', '1', '0', '2020-11-27 16:56:10', '2020-11-27 16:56:10', null);
 
 -- ----------------------------
 -- Table structure for `lied_comment_medias`
@@ -1498,7 +1503,7 @@ CREATE TABLE `lied_comment_medias` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='评论表图库';
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='评论表图库';
 
 -- ----------------------------
 -- Records of lied_comment_medias
@@ -1520,6 +1525,8 @@ INSERT INTO `lied_comment_medias` VALUES ('18', '13', '21', '0', '2020-11-26 09:
 INSERT INTO `lied_comment_medias` VALUES ('19', '14', '20', '1', '2020-11-26 09:41:54', '2020-11-26 09:41:54', null);
 INSERT INTO `lied_comment_medias` VALUES ('20', '14', '21', '0', '2020-11-26 09:41:54', '2020-11-26 09:41:54', null);
 INSERT INTO `lied_comment_medias` VALUES ('21', '13', '22', '0', '2020-11-26 09:49:25', '2020-11-26 09:55:19', null);
+INSERT INTO `lied_comment_medias` VALUES ('22', '16', '20', '1', '2020-11-27 16:56:10', '2020-11-27 16:56:10', null);
+INSERT INTO `lied_comment_medias` VALUES ('23', '16', '22', '0', '2020-11-27 16:56:10', '2020-11-27 16:56:10', null);
 
 -- ----------------------------
 -- Table structure for `lied_coupons`
@@ -2135,6 +2142,7 @@ INSERT INTO `lied_oauth_access_tokens` VALUES ('e09bc14b90ded2c20d59ffdb2692754e
 INSERT INTO `lied_oauth_access_tokens` VALUES ('b48c3f9f643da82ea4ad36f4f2edd2357d07b9bd1ef1676f28ef7fa457bde1d10e5137652059f604', '1', '5', null, '[]', '0', '2020-11-23 09:37:36', '2020-11-23 09:37:36', '2020-11-24 09:37:36');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('f713145bf7bcb6d8b7e0718e4ad54175c040e16a9d04851140206da12326c459fa87a0c6f61df3d6', '1', '5', null, '[]', '0', '2020-11-23 15:48:57', '2020-11-23 15:48:57', '2020-11-24 15:48:57');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('176a3aabf60bde35b04775d36bbbf0193c837509423440edf978aaf85eb29fcda8814bdaae45d802', '1', '5', null, '[]', '0', '2020-11-26 09:30:05', '2020-11-26 09:30:05', '2020-11-27 09:30:05');
+INSERT INTO `lied_oauth_access_tokens` VALUES ('5bba7eef70bf952d1b73b68b224727f40455f6fd7efac28fcdf598e78949862cba0907bc5ac17689', '1', '5', null, '[]', '0', '2020-11-27 16:53:10', '2020-11-27 16:53:10', '2020-11-28 16:53:09');
 
 -- ----------------------------
 -- Table structure for `lied_oauth_auth_codes`
@@ -2366,6 +2374,7 @@ INSERT INTO `lied_oauth_refresh_tokens` VALUES ('cca5019a364d258562a474e81f08064
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('a92f40deb865479ed2cb0790752e9fa7fcafca0040135ff990f584b6b2281f29a25783181fbc31e7', 'b48c3f9f643da82ea4ad36f4f2edd2357d07b9bd1ef1676f28ef7fa457bde1d10e5137652059f604', '0', '2020-12-23 09:37:36');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('63d620b6f05d809dabf1ba4560071b6c5e25fc308eb0f1f27b80d9e5d0b2419741c4b4df0ef6f696', 'f713145bf7bcb6d8b7e0718e4ad54175c040e16a9d04851140206da12326c459fa87a0c6f61df3d6', '0', '2020-12-23 15:48:57');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('6e2cca8ff377a74e871a705de626c0d3ed5e903e568ceda5de63594247f9da68e50dfdc73923443e', '176a3aabf60bde35b04775d36bbbf0193c837509423440edf978aaf85eb29fcda8814bdaae45d802', '0', '2020-12-26 09:30:05');
+INSERT INTO `lied_oauth_refresh_tokens` VALUES ('64924696a5297a3a0c4107b269b239886278cda4e7f96e392c8f39a5ab8864d9104c9feaba4917a3', '5bba7eef70bf952d1b73b68b224727f40455f6fd7efac28fcdf598e78949862cba0907bc5ac17689', '0', '2020-12-27 16:53:09');
 
 -- ----------------------------
 -- Table structure for `lied_order`
