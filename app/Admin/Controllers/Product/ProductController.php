@@ -95,10 +95,6 @@ class ProductController extends Controller
      */
     protected function grid()
     {
-//        $prosku_result = $this->productService->saveProduct(1, jd('{"3-6":{"price":"1","stock_num":"2","code":"1","cost_price":"3","warn_number":"4","sold_num":"0","attr_key":"6-3","media_id":"20"},"2-6":{"price":"1","stock_num":"2","code":"2","cost_price":"3","warn_number":"4","sold_num":"0","attr_key":"6-2","media_id":"20"},"3-5":{"price":"1","stock_num":"2","code":"3","cost_price":"3","warn_number":"4","sold_num":"0","attr_key":"5-3","media_id":"21"},"2-5":{"price":"1","stock_num":"2","code":"4","cost_price":"3","warn_number":"4","sold_num":"0","attr_key":"5-2","media_id":"21"}}'), jd('{"0":"13","1":"14","2":"12","3":"11"}'));
-//
-//        dd($prosku_result);
-
         $grid = new Grid(new Product);
         $grid->model()->orderBy('updated_at', 'desc');
         $grid->model()->orderBy('id', 'desc');

@@ -1,13 +1,9 @@
 <?php
-
-
 namespace App\Admin\Controllers\Api;
 
-use App\Models\ProductAttr;
 use App\Services\ProductAttrService;
 use App\Services\ProductAttrValuesService;
 use Illuminate\Http\Request;
-use Illuminate\Support\MessageBag;
 
 class ProductController extends BaseController {
 
