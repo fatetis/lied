@@ -51,7 +51,7 @@ class OrderBase extends BaseModel
 
     public function order()
     {
-        return $this->hasOne(Order::class, 'base_id', 'id')->with('orderchild');
+        return $this->hasOne(Order::class, 'base_id', 'id')->with('orderchild', 'brand');
     }
 
     public function user()
@@ -59,9 +59,16 @@ class OrderBase extends BaseModel
         return $this->belongsTo(Users::class, 'user_id', 'id');
     }
 
+
+
     public function snapshot()
     {
         return $this->belongsTo(Snapshots::class, 'id', 'id_value')->where('type', Snapshots::TYPE_ORDER);
+    }
+
+    public function paylog()
+    {
+        return $this->hasOne(PayLog::class, 'orderno', 'orderno');
     }
 
 }

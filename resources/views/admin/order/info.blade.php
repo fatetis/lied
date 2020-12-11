@@ -101,6 +101,7 @@
 
   #orderInfoModal #home table tbody {
     display: block;
+    max-height: 380px;
     overflow-y: scroll;
   }
 
@@ -251,15 +252,15 @@
   function get_order_info() {
     $.ajax({
       method: 'get',
-      {{--url: '{{route("admin_get_order_info",["_token"=>csrf_token()])}}',--}}
+      url: '{{route("admin.api.order.base",["_token" => csrf_token()])}}',
       data: {
-        orderid: oid
+        orderno: oid
       },
       beforeSend: function () {
         show_status('数据查询中...');
       },
       success: function (dt) {
-        if (dt.status && dt.status == true) {
+        if (dt.status && dt.status === 'success') {
           modal.find('.modal-body').empty().html(dt.data);
           show_status('');
         } else {

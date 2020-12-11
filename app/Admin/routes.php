@@ -33,20 +33,21 @@ Route::group([
             $router->post('attr/create', 'ProductController@createAttrData')->name('proAttrCreateApi');//创建规格名称
             $router->post('attr/value/get', 'ProductController@getAttrValueData')->name('proAttrValueGetApi');//获取规格名称
             $router->post('attr/value/create', 'ProductController@createAttrValueData')->name('proAttrValueCreateApi');//创建规格名称
+            $router->get('order/base', 'OrderController@firstOrderBaseById')->name('admin.api.order.base');//创建规格名称
         });
     });
 
     $router->get('download/excel', 'DownLoadExcelController@outside')->name('downLoadExcel');
 
 //    产品路由
-
     $router->group(['prefix' => 'product', 'namespace' => 'Product'], function ($router) {
         $router->resource('category', 'ProductCategoryController');//产品分类
         $router->resource('attr', 'ProductAttrController');//产品属性分类
         $router->resource('seckill', 'ProductSeckillController');//产品秒杀
-        $router->resource('/', 'Product\ProductController');//产品
-
+        $router->resource('/', 'ProductController');//产品
     });
+
+//    订单路由
     $router->group(['prefix' => 'order', 'namespace' => 'Order'], function ($router) {
         $router->resource('/base', 'OrderBaseController');//订单
     });

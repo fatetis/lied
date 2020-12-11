@@ -5,6 +5,7 @@ namespace App\Admin\Controllers\Order;
 use App\Admin\Extensions\Model\OrderBaseModal;
 use App\Models\Brand;
 use App\Models\OrderBase;
+use App\Models\Product;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -39,21 +40,22 @@ class OrderBaseController extends AdminController
         $grid->disableActions();
         // 关闭新增按钮
         $grid->disableCreateButton();
-        $grid->column('id', __('Id'));
+        $grid->column('id', __('Id'))->sortable();
         $grid->column('orderno', __('订单编号'))->display(function ($value) {
             return '<a data-toggle="modal" data-target="#orderInfoModal" style="margin:0 3px;cursor: pointer" data-oid="' . $value . '" title="点击查看订单详情" >' . $value . '</a>';
         });
-        $grid->column('paidno', __('支付编号'));
+        $grid->column('paidno', __('支付流水号'));
         $grid->column('user.name', __('用户名称'));
         $grid->column('order.brand_id', __('品牌名称'))->display(function ($value){
             return Brand::query()->find($value)['name'];
         });
-        $grid->column('price', __('订单总价格'));
-        $grid->column('shipping_price', __('配送价格'));
-        $grid->column('pay_price', __('实际支付价格'));
+        $grid->column('price', __('总价格'))->sortable();
+        $grid->column('shipping_price', __('配送价格'))->sortable();
+        $grid->column('pay_price', __('支付价格'))->sortable();
         $grid->column('order_status', __('订单状态'))->display(function ($value){
             return OrderBase::ORDER_STATUS[$value];
         });
+        $grid->column('paylog.pay_name', __('支付方式'));
         $grid->column('pay_status', __('支付状态'))->display(function ($value){
             return OrderBase::PAY_STATUS[$value];
         });
@@ -64,8 +66,20 @@ class OrderBaseController extends AdminController
         $grid->column('updated_at', __('更新时间'));
         $grid->filter(function ($filter) {
             $filter->like('orderno', '订单编号');
+            $filter->like('paidno', '支付流水号');
             $filter->like('user.name', '用户名称');
+            $filter->where(function ($query) {
+                $query->whereHas('order.brand', function ($query) {
+                    $query->where('name', 'like', "%{$this->input}%");
+                });
+            }, '品牌名称');
+            $filter->where(function ($query) {
+                $query->whereHas('order.orderchild', function ($query) {
+                    $query->whereIn('product_id', Product::query()->where('name', 'like', "%{$this->input}%")->pluck('id'));
+                });
+            }, '商品名称');
             $filter->equal('order_status', '订单状态')->select(OrderBase::ORDER_STATUS);
+            $filter->like('paylog.pay_name', '支付方式');
             $filter->equal('pay_status', '支付状态')->select(OrderBase::PAY_STATUS);
             $filter->equal('source', '订单来源')->select(OrderBase::SOURCE);
             $filter->between('created_at', '创建时间')->datetime();
@@ -89,9 +103,9 @@ class OrderBaseController extends AdminController
         $show->field('user_id', __('User id'));
         $show->field('price', __('Price'));
         $show->field('shipping_price', __('Shipping price'));
-        $show->field('pay_price', __('Pay price'));
+        $show->field('pay_price', __('PayLog price'));
         $show->field('order_status', __('Order status'));
-        $show->field('pay_status', __('Pay status'));
+        $show->field('pay_status', __('PayLog status'));
         $show->field('source', __('Source'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
@@ -114,9 +128,9 @@ class OrderBaseController extends AdminController
         $form->number('user_id', __('User id'));
         $form->decimal('price', __('Price'));
         $form->decimal('shipping_price', __('Shipping price'))->default(0.00);
-        $form->decimal('pay_price', __('Pay price'));
+        $form->decimal('pay_price', __('PayLog price'));
         $form->switch('order_status', __('Order status'));
-        $form->switch('pay_status', __('Pay status'));
+        $form->switch('pay_status', __('PayLog status'));
         $form->switch('source', __('Source'));
 
         return $form;
