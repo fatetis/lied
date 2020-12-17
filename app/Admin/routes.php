@@ -33,7 +33,8 @@ Route::group([
             $router->post('attr/create', 'ProductController@createAttrData')->name('proAttrCreateApi');//创建规格名称
             $router->post('attr/value/get', 'ProductController@getAttrValueData')->name('proAttrValueGetApi');//获取规格名称
             $router->post('attr/value/create', 'ProductController@createAttrValueData')->name('proAttrValueCreateApi');//创建规格名称
-            $router->get('order/base', 'OrderController@firstOrderBaseById')->name('admin.api.order.base');//创建规格名称
+            $router->get('order/base', 'OrderController@firstOrderBaseById')->name('admin.api.order.base');//获取订单详细信息
+            $router->post('order/delivery', 'OrderController@orderDelivery')->name('admin.api.order.delivery');//确认收货
         });
     });
 
@@ -44,8 +45,8 @@ Route::group([
         $router->resource('category', 'ProductCategoryController');//产品分类
         $router->resource('attr', 'ProductAttrController');//产品属性分类
         $router->resource('seckill', 'ProductSeckillController');//产品秒杀
-        $router->resource('/', 'ProductController');//产品
     });
+    $router->resource('product', 'Product\ProductController');//产品
 
 //    订单路由
     $router->group(['prefix' => 'order', 'namespace' => 'Order'], function ($router) {

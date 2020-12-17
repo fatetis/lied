@@ -17,7 +17,7 @@
 </div>
 <style>
   #orderInfoModal .modal-dialog {
-    width: 980px !important;
+    width: 1480px !important;
     position: absolute;
     left: 50%;
     top: 48%;
@@ -90,6 +90,11 @@
     height: 120px;
   }
 
+  #orderInfoModal #delivery img {
+    width: 120px;
+    height: 120px;
+  }
+
   #orderInfoModal #home table th,
   #orderInfoModal #home table td {
     text-align: center !important;
@@ -99,7 +104,7 @@
     word-break: break-word;
   }
 
-  #orderInfoModal #home table tbody {
+  #orderInfoModal  table tbody {
     display: block;
     max-height: 380px;
     overflow-y: scroll;
@@ -117,18 +122,18 @@
     display: none;
   }
 
-  #orderInfoModal #home table thead,
-  #orderInfoModal #home table tbody tr {
+  #orderInfoModal  table thead,
+  #orderInfoModal  table tbody tr {
     display: table;
     width: 100%;
     table-layout: fixed;
   }
 
-  #orderInfoModal #home table thead {
+  #orderInfoModal  table thead {
     width: calc(100% - 1em);
   }
 
-  #orderInfoModal #home .div-out-height {
+  #orderInfoModal  .div-out-height {
     border: none;
     border-radius: 3px;
     background-color: #fff;
@@ -152,10 +157,6 @@
     overflow-x: hidden;
     clear: both;
     max-height: calc(100% - 150px);
-  }
-
-  #orderInfoModal #home .out_scoll thead {
-    display: none !important;
   }
 
   #orderInfoModal .form-receiver label i,
@@ -223,7 +224,7 @@
         {{--url = '{{route("admin_update_order_receiver_info",["_token"=>csrf_token()])}}';--}}
         break;
       case 'delivery':
-        {{--url = '{{route("admin_order_confirm_delivery_info",["_token"=>csrf_token()])}}';--}}
+        url = '{{route("admin.api.order.delivery", ["_token"=>csrf_token()])}}';
         break;
       case 'refund':
         {{--url = '{{route("admin_deal_order_refund",["_token"=>csrf_token()])}}';--}}
@@ -242,8 +243,8 @@
       cancelButtonText: "取消"
     }).then(function(result) {
       if (result.value) {
-        let id = modal.find('#detail-content-wrap').data('id');
-        check.id = id;
+        let orderno = modal.find('#detail-content-wrap').data('id');
+        check.orderno = orderno;
         ajax_handler(url, check);
       }
     });
@@ -283,7 +284,7 @@
         show_save_load();
       },
       success: function (dt) {
-        if (dt.status && dt.status == true) {
+        if (dt.status && dt.status === 'success') {
           modal_force_close = {
             status: 'success',
             message: dt.message
@@ -338,7 +339,7 @@
       title: '服务器处理中，请勿刷新页面',
       timer: 15000,
       allowOutsideClick: false,
-      padding: '3.5rem',
+      padding: '30px',
       onBeforeOpen: () => {
         Swal.showLoading()
         timerInterval = setInterval(() => {
@@ -347,6 +348,7 @@
             clearInterval(timerInterval);
             stop_page_reload(false);
             Swal.close();
+            $.pjax.reload('#pjax-container');
             swal(res.message, '', res.status);
             if (res.status == 'success') {
               modal.modal('toggle');

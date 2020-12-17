@@ -11,12 +11,15 @@ class OrderBase extends BaseModel
     const ORDER_STATUS = [
         0 => '待付款',
         1 => '待发货',
-        2 => '待收货',
-        3 => '待评价',
-        4 => '交易成功',
-        5 => '交易关闭',
-        6 => '退款中',
-        7 => '退款完成',
+        2 => '部分发货',
+        3 => '已发货',
+        4 => '配送中',
+        5 => '待收货',
+        6 => '待评价',
+        7 => '交易成功',
+        8 => '交易关闭',
+        9 => '退款中',
+        10 => '退款完成',
     ];
 
     /**
@@ -24,12 +27,15 @@ class OrderBase extends BaseModel
      */
     const ORDER_STATUS_WAIT_PAY = 0; // 待付款
     const ORDER_STATUS_WAIT_DELIVERY = 1; // 待发货
-    const ORDER_STATUS_WAIT_TAKE = 2; // 待收货
-    const ORDER_STATUS_WAIT_APPRAISE = 3; // 待评价
-    const ORDER_STATUS_SUCCESS = 4; // 交易成功
-    const ORDER_STATUS_CLOSE = 5; // 交易关闭
-    const ORDER_STATUS_REFUNDING = 6; // 退款中
-    const ORDER_STATUS_REFUNDED = 7; // 退款完成
+    const ORDER_STATUS_WAIT_PART_DELIVERY = 2; // 部分发货
+    const ORDER_STATUS_WAIT_DELIVERED = 3; // 已发货
+    const ORDER_STATUS_WAIT_SHIPPING = 4; // 配送中
+    const ORDER_STATUS_WAIT_TAKE = 5; // 待收货
+    const ORDER_STATUS_WAIT_APPRAISE = 6; // 待评价
+    const ORDER_STATUS_SUCCESS = 7; // 交易成功
+    const ORDER_STATUS_CLOSE = 8; // 交易关闭
+    const ORDER_STATUS_REFUNDING = 9; // 退款中
+    const ORDER_STATUS_REFUNDED = 10; // 退款完成
 
     const PAY_STATUS = [
         0 => '待支付',
@@ -51,7 +57,7 @@ class OrderBase extends BaseModel
 
     public function order()
     {
-        return $this->hasOne(Order::class, 'base_id', 'id')->with('orderchild', 'brand');
+        return $this->hasOne(Order::class, 'base_id', 'id')->with('orderchild', 'orderchild.orderdelivery', 'brand', 'shippingaddress');
     }
 
     public function user()

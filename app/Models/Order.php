@@ -23,4 +23,10 @@ class Order extends BaseModel
     {
         return $this->belongsTo(Brand::class, 'brand_id', 'id');
     }
+
+    public function shippingaddress()
+    {
+        return $this->hasOne(ShippingAddress::class, 'id', 'shipping_address_id');
+    }
+
 }

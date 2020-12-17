@@ -23,7 +23,7 @@ CREATE TABLE `lied_order_base` (
   `price` decimal(8,2) unsigned NOT NULL COMMENT '订单总价格',
   `shipping_price` decimal(8,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '配送总价格',
   `pay_price` decimal(8,2) unsigned DEFAULT NULL COMMENT '实际支付价格',
-  `order_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '订单状态0待付款,1待发货,2待收货,3待评价,4交易成功,5交易关闭,6退款中,7退款完成',
+  `order_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '订单状态',
   `pay_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '支付状态',
   `source` tinyint(1) unsigned DEFAULT NULL COMMENT '订单来源',
   `created_at` datetime DEFAULT NULL,
