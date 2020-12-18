@@ -20,8 +20,8 @@ Route::group([
         $router->get('loadpro', 'ApiController@loadpro')->name('loadPro');
         $router->get('product/category', 'ApiController@productCategory');
 //      单选城市三级联动
-        $router->get('city', 'ApiController@city');
-        $router->get('area', 'ApiController@area');
+        $router->get('city', 'ApiController@city')->name('api.city');
+        $router->get('area', 'ApiController@area')->name('api.area');
 
         $router->get('adv/position', 'ApiController@advPosition');
         $router->get('region/city', 'ApiController@regionsCity');
@@ -34,7 +34,8 @@ Route::group([
             $router->post('attr/value/get', 'ProductController@getAttrValueData')->name('proAttrValueGetApi');//获取规格名称
             $router->post('attr/value/create', 'ProductController@createAttrValueData')->name('proAttrValueCreateApi');//创建规格名称
             $router->get('order/base', 'OrderController@firstOrderBaseById')->name('admin.api.order.base');//获取订单详细信息
-            $router->post('order/delivery', 'OrderController@orderDelivery')->name('admin.api.order.delivery');//确认收货
+            $router->post('order/delivery', 'OrderController@orderDelivery')->name('admin.api.order.delivery');//确认发货
+            $router->post('order/address/update', 'OrderController@updateOrderAddress')->name('admin.api.order.address.update');//修改订单信息
         });
     });
 

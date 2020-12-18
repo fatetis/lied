@@ -14,9 +14,9 @@
     </li>
 
     @if($data['show_delivery'])
-    <li role="presentation">
-        <a href="#delivery" aria-controls="delivery" role="tab" data-toggle="tab">配送信息</a>
-    </li>
+        <li role="presentation">
+            <a href="#delivery" aria-controls="delivery" role="tab" data-toggle="tab">配送信息</a>
+        </li>
     @endif
 
     <li role="presentation">
@@ -159,13 +159,14 @@
                 </div>
 
                 @if($data['order_status_num'] != \App\Models\OrderBase::ORDER_STATUS_WAIT_DELIVERY)
-                <div class="form-group">
-                    <label for="inputReceiveAddress" class="col-sm-2 control-label"><i
-                                class="text-danger">*</i>详细地址</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputReceiveAddress" placeholder="收货地址" value="{{ $data['shipping_address']['address'] }}" required disabled>
+                    <div class="form-group">
+                        <label for="inputReceiveAddress" class="col-sm-2 control-label"><i
+                                    class="text-danger">*</i>详细地址</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputReceiveAddress" placeholder="收货地址"
+                                   value="{{ $data['shipping_address']['address'] }}" required disabled>
+                        </div>
                     </div>
-                </div>
                 @else
                     <div class="form-group">
                         <label class="control-label col-sm-2">收货地址</label>
@@ -174,18 +175,24 @@
                                 <select name="input_province" id="input_province" class="form-control">
                                     <option value="">--请选择--</option>
                                     @foreach($data['province_data'] as $key => $value)
-                                        <option value="{{ $key }}">{{ $value }}</option>
+                                        <option value="{{ $key }}" @if($key == $data['shipping_address']['region_pid']) selected @endif>{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-sm-4">
                                 <select name="input_city" id="input_city" class="form-control">
-                                    <option value=""></option>
+                                    <option value="">--请选择--</option>
+                                    @foreach($data['city_data'] as $key => $value)
+                                        <option value="{{ $key }}" @if($key == $data['shipping_address']['region_cid']) selected @endif>{{ $value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-sm-4">
                                 <select name="input_area" id="input_area" class="form-control">
-                                    <option value=""></option>
+                                    <option value="">--请选择--</option>
+                                    @foreach($data['area_data'] as $key => $value)
+                                        <option value="{{ $key }}" @if($key == $data['shipping_address']['region_aid']) selected @endif>{{ $value }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -195,61 +202,22 @@
                                     class="text-danger">*</i>详细地址</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputReceiveAddress" placeholder="收货地址"
-                                   name="address" value="{{ $data['shipping_address']['address'] }}" required>
+                                   name="address_detail" value="{{ $data['shipping_address']['address_detail'] }}" required>
                         </div>
                     </div>
                 @endif
                 @if($data['order_status_num'] == \App\Models\OrderBase::ORDER_STATUS_WAIT_DELIVERY)
-                <div class="form-group">
-                    <div class="col-sm-2 control-label"></div>
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary" onclick="save_event_listener('receiver')">保存
-                        </button>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary" onclick="save_event_listener('receiver')">保存
+                            </button>
+                        </div>
                     </div>
-                </div>
                 @endif
             </form>
         </div>
     </div>
-
-    <script>
-        $(function () {
-            var html = "";
-            $("#input_city").append(html); $("#input_area").append(html);
-
-            $.each(pdata, function(idx,item){
-                console.log(idx, item); return false;
-                if (parseInt(item.level) == 0) {
-                    html += "<option value='" + item.names + "' exid='" + item.code + "'>" + item.names + "</option>";
-                }
-            });
-            $("#input_province").append(html);
-            $("#input_province").change(function(){
-                if ($(this).val() == "") return;
-                $("#input_city option").remove(); $("#input_area option").remove();
-                var code = $(this).find("option:selected").attr("exid"); code = code.substring(0,2);
-                var html = "<option value=''>--请选择--</option>"; $("#input_area").append(html);
-                $.each(pdata,function(idx,item){
-                    if (parseInt(item.level) == 1 && code == item.code.substring(0,2)) {
-                        html += "<option value='" + item.names + "' exid='" + item.code + "'>" + item.names + "</option>";
-                    }
-                });
-                $("#input_city").append(html);
-            });
-            $("#input_city").change(function(){
-                if ($(this).val() == "") return;
-                $("#input_area option").remove();
-                var code = $(this).find("option:selected").attr("exid"); code = code.substring(0,4);
-                var html = "<option value=''>--请选择--</option>";
-                $.each(pdata,function(idx,item){
-                    if (parseInt(item.level) == 2 && code == item.code.substring(0,4)) {
-                        html += "<option value='" + item.names + "' exid='" + item.code + "'>" + item.names + "</option>";
-                    }
-                });
-                $("#input_area").append(html);
-            });
-        });
-    </script>
     {{-- 收货结束 --}}
 
     {{-- 物流开始 --}}
@@ -274,7 +242,8 @@
                                 <tr>
                                     <td>
                                         @if(!isset($value['delino']))
-                                        <input name="order_child_ids" value="{{ $value['id'] }}" checked="true" type="checkbox" style="margin:0 8px;">
+                                            <input name="order_child_ids" value="{{ $value['id'] }}" checked="true"
+                                                   type="checkbox" style="margin:0 8px;">
                                         @endif
                                         <span>{{ $value['product_id'] ?? '' }}</span>
                                     </td>
@@ -293,22 +262,22 @@
                     </div>
                 </div>
                 @if($data['show_delivery_save'])
-                <div class="form-group delivery_show">
-                    <label for="inputDeliveryNum" class="col-sm-2 control-label">
-                        <i class="text-danger">*</i>发货单号</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputDeliveryNum" placeholder="发货单号"
-                               name="delino" required>
+                    <div class="form-group delivery_show">
+                        <label for="inputDeliveryNum" class="col-sm-2 control-label">
+                            <i class="text-danger">*</i>发货单号</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputDeliveryNum" placeholder="发货单号"
+                                   name="delino" required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group delivery_show">
-                    <div class="col-sm-2 control-label"></div>
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary" onclick="save_event_listener('delivery')">
-                            保存
-                        </button>
+                    <div class="form-group delivery_show">
+                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary" onclick="save_event_listener('delivery')">
+                                保存
+                            </button>
+                        </div>
                     </div>
-                </div>
                 @endif
             </form>
         </div>

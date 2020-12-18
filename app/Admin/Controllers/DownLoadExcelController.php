@@ -24,7 +24,10 @@ class DownLoadExcelController extends Controller
             throw new SelfException(r('DLE001'));
         }catch (SelfException $exception){
             $msg = $exception->getMessage();
-            elog($msg.'参数为'.$id);
+            elog('表格下载抛出异常', $exception, [
+                'id' => $id,
+                'type' => $type,
+            ]);
             return abort('403', $msg);
         }
 //        finally {

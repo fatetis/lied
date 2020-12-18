@@ -221,7 +221,7 @@
     let url = '';
     switch(name) {
       case 'receiver':
-        {{--url = '{{route("admin_update_order_receiver_info",["_token"=>csrf_token()])}}';--}}
+        url = '{{route("admin.api.order.address.update",["_token"=>csrf_token()])}}';
         break;
       case 'delivery':
         url = '{{route("admin.api.order.delivery", ["_token"=>csrf_token()])}}';
@@ -290,16 +290,16 @@
             message: dt.message
           };
         } else {
-          modal_force_close = {
+            modal_force_close = {
             status: 'error',
-            message: dt.message || '请求失败'
+            message: dt.message
           };
         }
       },
-      error: function () {
+      error: function (dt) {
         modal_force_close = {
           status: 'error',
-          message: '请求错误'
+          message: dt.responseJSON.message
         };
       }
     });
@@ -348,9 +348,9 @@
             clearInterval(timerInterval);
             stop_page_reload(false);
             Swal.close();
-            $.pjax.reload('#pjax-container');
             swal(res.message, '', res.status);
             if (res.status == 'success') {
+                $.pjax.reload('#pjax-container');
               modal.modal('toggle');
             }
             modal_force_close = null;
@@ -415,4 +415,50 @@
       ele_money.removeAttr('required').parents('.form-group').find('i').remove();
     }
   }
+</script>
+<script>
+    $(function () {
+        var html = "";
+        $("#input_city").append(html);
+        $("#input_area").append(html);
+        $(document).on('change', '#input_province', function () {
+            let that = $(this);
+            $.get(
+                "{{ route('api.city', ['_token' => csrf_token()]) }}",
+                {q: $('#input_province option:selected').val()},
+                function (data) {
+                    $("#input_city option").remove();
+                    $("#input_area option").remove();
+                    let html = "<option value=''>--请选择--</option>";
+                    $("#input_city").append(html);
+                    $("#input_area").append(html);
+                    if (that.val() == "") return;
+
+                    $.each(data, function (idx, item) {
+                        html += "<option value='" + item.id + "'>" + item.text + "</option>";
+                    });
+                    $("#input_city option").remove();
+                    $("#input_city").append(html);
+                })
+        });
+
+        $(document).on('change', '#input_city', function () {
+            let that = $(this);
+            $.get(
+                "{{ route('api.area', ['_token' => csrf_token()]) }}",
+                {q: $('#input_city option:selected').val()},
+                function (data) {
+                    $("#input_area option").remove();
+                    let html = "<option value=''>--请选择--</option>";
+                    $("#input_area").append(html);
+                    if (that.val() == "") return;
+
+                    $.each(data, function (idx, item) {
+                        html += "<option value='" + item.id + "'>" + item.text + "</option>";
+                    });
+                    $("#input_area option").remove();
+                    $("#input_area").append(html);
+                })
+        });
+    });
 </script>

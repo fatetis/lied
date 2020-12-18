@@ -10,6 +10,22 @@ class RegionsService extends BaseService {
 
     protected $table = Regions::class;
 
+    public function getCityByProvinceId($id)
+    {
+        return Regions::query()->where([
+            'region_grade'=> Regions::GRADE_CITY,
+            'parent_id' => $id
+        ])->pluck('region_name', 'region_id');
+    }
+
+    public function getAreaByProvinceId($id)
+    {
+        return Regions::query()->where([
+            'region_grade'=> Regions::GRADE_AREA,
+            'parent_id' => $id
+        ])->pluck('region_name', 'region_id');
+    }
+
     /**
      * 获取所有省份
      * @return \Illuminate\Support\Collection

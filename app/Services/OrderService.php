@@ -3,11 +3,13 @@
 namespace App\Services;
 
 
+use App\Exceptions\SelfException;
 use App\Models\Order;
 use App\Models\OrderBase;
 use App\Models\OrderChild;
 use App\Models\OrderDelivery;
 use App\Models\Regions;
+use App\Models\ShippingAddress;
 use Encore\Admin\Facades\Admin;
 use Illuminate\Support\Facades\DB;
 
@@ -60,15 +62,24 @@ class OrderService extends BaseService
                 $result['show_delivery'] = true;
             }
         }
-        if($result['show_delivery'] && $result['show_delivery_save']) {
-            $result['province_data'] = RegionsService::getAllProvince();
-        }
+
         // 收货人数据
         if($base_info['order']['shippingaddress']) {
             $result['shipping_address']['name'] = $base_info['order']['shippingaddress']['name'];
             $region_data = Regions::query()->whereIn('region_id', [$base_info['order']['shippingaddress']['region_pid'], $base_info['order']['shippingaddress']['region_cid'], $base_info['order']['shippingaddress']['region_aid']])->pluck('region_name', 'region_id');
             $result['shipping_address']['address'] = $region_data[$base_info['order']['shippingaddress']['region_pid']]." ".$region_data[$base_info['order']['shippingaddress']['region_cid']]." ".$region_data[$base_info['order']['shippingaddress']['region_aid']]." ".$base_info['order']['shippingaddress']['address'];
+            $result['shipping_address']['address_detail'] = $base_info['order']['shippingaddress']['address'];
             $result['shipping_address']['mobile'] = $base_info['order']['shippingaddress']['mobile'];
+            $result['shipping_address']['region_pid'] = $base_info['order']['shippingaddress']['region_pid'];
+            $result['shipping_address']['region_cid'] = $base_info['order']['shippingaddress']['region_cid'];
+            $result['shipping_address']['region_aid'] = $base_info['order']['shippingaddress']['region_aid'];
+            // 收货人数据
+            if($base_info['order_status'] == OrderBase::ORDER_STATUS_WAIT_DELIVERY){
+                $region_service = new RegionsService();
+                $result['province_data'] = RegionsService::getAllProvince();
+                $result['city_data'] = $region_service->getCityByProvinceId($result['shipping_address']['region_pid']);
+                $result['area_data'] = $region_service->getAreaByProvinceId($result['shipping_address']['region_cid']);
+            }
         }
         // 支付数据
         if($base_info['paylog']) {
@@ -109,18 +120,28 @@ class OrderService extends BaseService
         $delivery_data = [];
         DB::transaction(function () use($data, &$delivery_data){
             $order_child_ids = $data['order_child_ids'];
+            #TODO 物流单号需查找校验
             $delivery_data = OrderDelivery::query()->create([
                 'delino' => $data['delino'],
                 'created_id' => Admin::user()->id,
             ]);
+            // 写入订单发货id
             $order_child_sql = OrderChild::query();
             is_array($order_child_ids)
                 ? $order_child_sql->whereIn('id', $order_child_ids)
                 : $order_child_sql->where('id', $order_child_ids);
-            $order_child_sql->update([
+            $order_child_sql->where('delivery_id')->update([
                 'delivery_id' => $delivery_data['id']
             ]);
-            $base_id = OrderBase::query()->where('orderno', $data['orderno'])->value('id');
+            // 修改订单状态
+            $order_base = $this->firstOrderBaseWithOrderByOrderno($data['orderno']);
+            // 校验订单状态
+            if(!in_array($order_base['order_status'], [
+                OrderBase::ORDER_STATUS_WAIT_DELIVERY,
+                OrderBase::ORDER_STATUS_WAIT_PART_DELIVERY
+            ]) || $order_base['pay_status'] != OrderBase::PAY_STATUS_PAID)
+                throw new SelfException('修改失败，订单不在发货阶段');
+            $base_id = $order_base['id'];
             $not_delivery_count = OrderChild::query()->where('base_id', $base_id)->where('delivery_id')->count();
             $order_status = empty($not_delivery_count)
                 ? OrderBase::ORDER_STATUS_WAIT_DELIVERED
@@ -130,6 +151,34 @@ class OrderService extends BaseService
             ]);
         });
         return $delivery_data;
+    }
+
+
+    public function updateOrderAddress($data)
+    {
+        $order_base = $this->firstOrderBaseWithOrderByOrderno($data['orderno']);
+        $region_data = Regions::query()->where('region_id', $data['input_area'])->first();
+        // 判断订单状态
+//        if($order_base['order_status'] !== OrderBase::ORDER_STATUS_WAIT_DELIVERY)
+//            throw new SelfException('修改失败，订单不在发货阶段');
+        $arr['name'] = $data['name'];
+        list($arr['region_pid'], $arr['region_cid'], $arr['region_aid']) = array_values(array_filter(explode(',', $region_data['region_path'])));
+        $arr['mobile'] = $data['mobile'];
+        $arr['address'] = $data['address_detail'];
+        return ShippingAddress::query()->where('id', $order_base['order']['shipping_address_id'])->update($arr);
+
+    }
+
+    /**
+     * 获取订单基础信息与关联的order表信息-orderno
+     * @param $orderno
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|null
+     * Author: fatetis
+     * Date:2020/12/18 001816:05
+     */
+    public function firstOrderBaseWithOrderByOrderno($orderno)
+    {
+        return OrderBase::query()->with('order')->where('orderno', $orderno)->first();
     }
 
 

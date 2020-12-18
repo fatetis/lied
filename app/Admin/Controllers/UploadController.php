@@ -80,7 +80,7 @@ class UploadController extends Controller
                 ]
             ];
         } catch (\Exception $exception) {
-            elog('图片上传报错,第' . $exception->getLine() . '行:' . $exception->getMessage());
+            elog('图片上传抛出异常', $exception);
             return [
                 "uploaded" => false,
                 "fileName" => '',

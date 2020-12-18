@@ -57,10 +57,13 @@ class ProductService extends BaseService {
 
             return true;
         } catch (SelfException $selfException) {
-            elog("商品规格上传失败" . $selfException->getMessage());
+            elog("商品规格上传失败", $selfException);
             return $selfException->getMessage();
         } catch (\Exception $exception) {
-            elog("商品规格上传异常，产品id：{$product_id},商品规格数据：" . je($sku_data) .",文件路径：".$exception->getFile(). ",第" . $exception->getLine() . '行:' . $exception->getMessage());
+            elog("商品规格上传异常", $exception, [
+                '产品id' => $product_id,
+                '商品规格数据' => $sku_data,
+            ]);
             return $exception->getMessage();
         }
 
