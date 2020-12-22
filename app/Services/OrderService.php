@@ -73,6 +73,8 @@ class OrderService extends BaseService
             $result['shipping_address']['region_pid'] = $base_info['order']['shippingaddress']['region_pid'];
             $result['shipping_address']['region_cid'] = $base_info['order']['shippingaddress']['region_cid'];
             $result['shipping_address']['region_aid'] = $base_info['order']['shippingaddress']['region_aid'];
+            // 判断是否可修改收货地址信息 true:不可修改
+            $result['shipping_address']['read_only'] = $result['order_status_num'] != OrderBase::ORDER_STATUS_WAIT_DELIVERY;
             // 收货人数据
             if($base_info['order_status'] == OrderBase::ORDER_STATUS_WAIT_DELIVERY){
                 $region_service = new RegionsService();
@@ -81,6 +83,9 @@ class OrderService extends BaseService
                 $result['area_data'] = $region_service->getAreaByProvinceId($result['shipping_address']['region_cid']);
             }
         }
+
+        // 判断是否可修改订单价格 true:可修改
+        $result['price_modify'] = $result['order_status_num'] == OrderBase::ORDER_STATUS_WAIT_PAY;
         // 支付数据
         if($base_info['paylog']) {
             $result['pay_log']['pay_price'] = $base_info['paylog']['pay_price'];
@@ -130,9 +135,12 @@ class OrderService extends BaseService
             is_array($order_child_ids)
                 ? $order_child_sql->whereIn('id', $order_child_ids)
                 : $order_child_sql->where('id', $order_child_ids);
-            $order_child_sql->where('delivery_id')->update([
-                'delivery_id' => $delivery_data['id']
-            ]);
+            // 采用乐观锁
+            $order_child_result = $order_child_sql
+                ->where('delivery_id')
+                ->update([
+                    'delivery_id' => $delivery_data['id']
+                ]);
             // 修改订单状态
             $order_base = $this->firstOrderBaseWithOrderByOrderno($data['orderno']);
             // 校验订单状态
@@ -142,31 +150,44 @@ class OrderService extends BaseService
             ]) || $order_base['pay_status'] != OrderBase::PAY_STATUS_PAID)
                 throw new SelfException('修改失败，订单不在发货阶段');
             $base_id = $order_base['id'];
-            $not_delivery_count = OrderChild::query()->where('base_id', $base_id)->where('delivery_id')->count();
+            $not_delivery_count = OrderChild::query()
+                ->where('base_id', $base_id)
+                ->where('delivery_id')
+                ->count();
             $order_status = empty($not_delivery_count)
                 ? OrderBase::ORDER_STATUS_WAIT_DELIVERED
                 : OrderBase::ORDER_STATUS_WAIT_PART_DELIVERY;
-            OrderBase::query()->where('id', $base_id)->update([
-                'order_status' => $order_status
-            ]);
+            // 采用乐观锁
+            $order_base_result = OrderBase::query()
+                ->where('id', $base_id)
+                ->where('order_status', $order_base['order_status'])
+                ->update([
+                    'order_status' => $order_status
+                ]);
+            if(empty($order_base_result) || empty($order_child_result)) {
+                throw new SelfException('操作失败');
+            }
         });
         return $delivery_data;
     }
 
 
+    /**
+     * 更新订单地址
+     * @param $data
+     * @return int
+     * Author: fatetis
+     * Date:2020/12/22 002215:31
+     */
     public function updateOrderAddress($data)
     {
         $order_base = $this->firstOrderBaseWithOrderByOrderno($data['orderno']);
-        $region_data = Regions::query()->where('region_id', $data['input_area'])->first();
-        // 判断订单状态
-//        if($order_base['order_status'] !== OrderBase::ORDER_STATUS_WAIT_DELIVERY)
-//            throw new SelfException('修改失败，订单不在发货阶段');
         $arr['name'] = $data['name'];
-        list($arr['region_pid'], $arr['region_cid'], $arr['region_aid']) = array_values(array_filter(explode(',', $region_data['region_path'])));
         $arr['mobile'] = $data['mobile'];
         $arr['address'] = $data['address_detail'];
+        $region_data = Regions::query()->where('region_id', $data['input_area'])->first();
+        list($arr['region_pid'], $arr['region_cid'], $arr['region_aid']) = array_values(array_filter(explode(',', $region_data['region_path'])));
         return ShippingAddress::query()->where('id', $order_base['order']['shipping_address_id'])->update($arr);
-
     }
 
     /**
@@ -179,6 +200,15 @@ class OrderService extends BaseService
     public function firstOrderBaseWithOrderByOrderno($orderno)
     {
         return OrderBase::query()->with('order')->where('orderno', $orderno)->first();
+    }
+
+    public function updateOrderPrice($data)
+    {
+        $order_base_info = $this->firstOrderBaseWithOrderByOrderno($data['orderno']);
+        return OrderBase::query()
+            ->where('id', $order_base_info['id'])
+            ->where('price', $order_base_info['price'])
+            ->update(['price' => $data['price']]);
     }
 
 

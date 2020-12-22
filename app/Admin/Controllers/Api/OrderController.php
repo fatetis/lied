@@ -96,10 +96,35 @@ class OrderController extends BaseController {
         }catch (SelfException $selfException) {
             return $this->failed($selfException->getMessage());
         }catch (\Throwable $throwable) {
-            dd($throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
             elog('修改订单配送信息抛出异常', $throwable, $request_data);
             return $this->failed('系统异常，请刷新重试');
         }
+    }
+
+    public function updateOrderPrice(Request $request)
+    {
+        $request_data = $request->only('orderno', 'price');
+        try{
+            $rules = [
+                'orderno' => 'required|exists:order_base,orderno,pay_status,'.OrderBase::PAY_STATUS_PAY.',deleted_at,NULL',
+                'price' => 'required',
+            ];
+            $messages = [
+                'orderno.required' => '缺少必要参数【orderno】，请刷新页面重试',
+                'orderno.exists' => '数据不存在【orderno】，请退出重试',
+                'price.required' => '缺少必要参数【price】，请刷新页面重试',
+            ];
+            $validator = Validator::make($request_data, $rules, $messages);
+            if ($validator->fails()) throw new SelfException($validator->errors()->first());
+            $result = $this->order_service->updateOrderPrice($request_data);
+            return $this->success($result);
+        }catch (SelfException $selfException) {
+            return $this->failed($selfException->getMessage());
+        }catch (\Throwable $throwable) {
+            elog('修改订单价格抛出异常', $throwable, $request_data);
+            return $this->failed('系统异常，请刷新重试');
+        }
+
     }
 
 

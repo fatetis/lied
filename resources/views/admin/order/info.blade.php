@@ -229,8 +229,8 @@
       case 'refund':
         {{--url = '{{route("admin_deal_order_refund",["_token"=>csrf_token()])}}';--}}
         break;
-      case 'confirm':
-        {{--url = '{{route("admin_deal_order_confirm",["_token"=>csrf_token()])}}';--}}
+      case 'pay':
+        url = '{{route("admin.api.order.price.update", ["_token" => csrf_token()])}}';
         break;
     }
     let title = name == 'confirm' ? '收货' : '提交';

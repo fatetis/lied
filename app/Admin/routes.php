@@ -35,7 +35,8 @@ Route::group([
             $router->post('attr/value/create', 'ProductController@createAttrValueData')->name('proAttrValueCreateApi');//创建规格名称
             $router->get('order/base', 'OrderController@firstOrderBaseById')->name('admin.api.order.base');//获取订单详细信息
             $router->post('order/delivery', 'OrderController@orderDelivery')->name('admin.api.order.delivery');//确认发货
-            $router->post('order/address/update', 'OrderController@updateOrderAddress')->name('admin.api.order.address.update');//修改订单信息
+            $router->post('order/address/update', 'OrderController@updateOrderAddress')->name('admin.api.order.address.update');//修改订单收货信息
+            $router->post('order/price/update', 'OrderController@updateOrderPrice')->name('admin.api.order.price.update');//修改订单收货信息
         });
     });
 

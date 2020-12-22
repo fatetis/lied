@@ -131,6 +131,26 @@
                     <dt>支付时间</dt>
                     <dd>{{ $data['pay_log']['created_at'] }}</dd>
                 </dl>
+            @elseif($data['price_modify'])
+                <form class="form-horizontal form-pay" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="inputReceiver" class="col-sm-2 control-label">
+                            <i class="text-danger">*</i>
+                            待支付金额
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputReceiver" placeholder="待支付金额" name="price"
+                                   value="{{ $data['price'] }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary" onclick="save_event_listener('pay')">保存
+                            </button>
+                        </div>
+                    </div>
+                </form>
             @endif
         </div>
     </div>
@@ -145,7 +165,7 @@
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="inputReceiver" placeholder="收货人" name="name"
                                value="{{ $data['shipping_address']['name'] }}" required
-                               @if($data['order_status_num'] != \App\Models\OrderBase::ORDER_STATUS_WAIT_DELIVERY) disabled @endif>
+                               @if($data['shipping_address']['read_only']) disabled @endif>
                     </div>
                 </div>
                 <div class="form-group">
@@ -154,11 +174,10 @@
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="inputReceiveMobile" placeholder="手机号码" name="mobile"
                                value="{{ $data['shipping_address']['mobile'] }}" required
-                               @if($data['order_status_num'] != \App\Models\OrderBase::ORDER_STATUS_WAIT_DELIVERY) disabled @endif>
+                               @if($data['shipping_address']['read_only']) disabled @endif>
                     </div>
                 </div>
-
-                @if($data['order_status_num'] != \App\Models\OrderBase::ORDER_STATUS_WAIT_DELIVERY)
+                @if($data['shipping_address']['read_only'])
                     <div class="form-group">
                         <label for="inputReceiveAddress" class="col-sm-2 control-label"><i
                                     class="text-danger">*</i>详细地址</label>
@@ -169,13 +188,15 @@
                     </div>
                 @else
                     <div class="form-group">
-                        <label class="control-label col-sm-2">收货地址</label>
+                        <label class="control-label col-sm-2"><i
+                                    class="text-danger">*</i>收货地址</label>
                         <div class="col-sm-10">
                             <div class="col-sm-4">
                                 <select name="input_province" id="input_province" class="form-control">
                                     <option value="">--请选择--</option>
                                     @foreach($data['province_data'] as $key => $value)
-                                        <option value="{{ $key }}" @if($key == $data['shipping_address']['region_pid']) selected @endif>{{ $value }}</option>
+                                        <option value="{{ $key }}"
+                                                @if($key == $data['shipping_address']['region_pid']) selected @endif>{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -183,7 +204,8 @@
                                 <select name="input_city" id="input_city" class="form-control">
                                     <option value="">--请选择--</option>
                                     @foreach($data['city_data'] as $key => $value)
-                                        <option value="{{ $key }}" @if($key == $data['shipping_address']['region_cid']) selected @endif>{{ $value }}</option>
+                                        <option value="{{ $key }}"
+                                                @if($key == $data['shipping_address']['region_cid']) selected @endif>{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -191,7 +213,8 @@
                                 <select name="input_area" id="input_area" class="form-control">
                                     <option value="">--请选择--</option>
                                     @foreach($data['area_data'] as $key => $value)
-                                        <option value="{{ $key }}" @if($key == $data['shipping_address']['region_aid']) selected @endif>{{ $value }}</option>
+                                        <option value="{{ $key }}"
+                                                @if($key == $data['shipping_address']['region_aid']) selected @endif>{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -202,11 +225,12 @@
                                     class="text-danger">*</i>详细地址</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputReceiveAddress" placeholder="收货地址"
-                                   name="address_detail" value="{{ $data['shipping_address']['address_detail'] }}" required>
+                                   name="address_detail" value="{{ $data['shipping_address']['address_detail'] }}"
+                                   required>
                         </div>
                     </div>
                 @endif
-                @if($data['order_status_num'] == \App\Models\OrderBase::ORDER_STATUS_WAIT_DELIVERY)
+                @if(!$data['shipping_address']['read_only'])
                     <div class="form-group">
                         <div class="col-sm-2 control-label"></div>
                         <div class="col-sm-10">
