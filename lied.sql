@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-11-27 17:13:29
+Date: 2020-12-23 17:38:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -52,7 +52,8 @@ INSERT INTO `lied_admin_menu` VALUES ('14', '8', '24', '产品分类', 'fa-bars'
 INSERT INTO `lied_admin_menu` VALUES ('15', '8', '26', '秒杀管理', 'fa-align-left', 'product/seckill', null, '2019-01-24 09:24:16', '2020-06-05 09:06:37');
 INSERT INTO `lied_admin_menu` VALUES ('16', '0', '17', '用户管理', 'fa-bars', 'user', null, '2019-02-16 14:10:10', '2020-06-05 09:06:37');
 INSERT INTO `lied_admin_menu` VALUES ('17', '16', '18', '用户列表', 'fa-bars', 'user', null, '2019-02-16 14:10:28', '2020-06-05 09:06:37');
-INSERT INTO `lied_admin_menu` VALUES ('20', '43', '28', '订单管理', 'fa-bars', 'product/order', null, '2019-02-18 14:57:08', '2020-06-08 13:43:39');
+INSERT INTO `lied_admin_menu`
+VALUES ('20', '43', '28', '订单管理', 'fa-bars', 'order/base', null, '2019-02-18 14:57:08', '2020-12-09 15:30:59');
 INSERT INTO `lied_admin_menu` VALUES ('21', '0', '33', '地域管理', 'fa-bars', null, null, '2019-02-18 15:25:13', '2020-06-08 13:43:39');
 INSERT INTO `lied_admin_menu` VALUES ('22', '21', '34', '地域列表', 'fa-bars', 'region', null, '2019-02-18 15:25:31', '2020-06-08 13:43:39');
 INSERT INTO `lied_admin_menu` VALUES ('23', '0', '36', '广告管理', 'fa-bars', null, null, '2019-02-19 09:23:06', '2020-06-08 13:43:39');
@@ -81,7 +82,7 @@ INSERT INTO `lied_admin_menu` VALUES ('43', '0', '27', '订单管理', 'fa-bars'
 -- Table structure for `lied_admin_operation_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_admin_operation_log`;
-CREATE TABLE `lied_admin_operation_log` (
+CREATE TABLE `lied_admin_operation_log`(
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `path` varchar(255) NOT NULL,
@@ -92,7 +93,7 @@ CREATE TABLE `lied_admin_operation_log` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lied_admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1020 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1872 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lied_admin_operation_log
@@ -1116,6 +1117,2639 @@ INSERT INTO `lied_admin_operation_log` VALUES ('1016', '1', 'admin/product', 'GE
 INSERT INTO `lied_admin_operation_log` VALUES ('1017', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-08-25 13:58:28', '2020-08-25 13:58:28');
 INSERT INTO `lied_admin_operation_log` VALUES ('1018', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-25 13:58:32', '2020-08-25 13:58:32');
 INSERT INTO `lied_admin_operation_log` VALUES ('1019', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-08-25 13:58:34', '2020-08-25 13:58:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1020', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-01 13:39:39', '2020-12-01 13:39:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1021', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:39:45',
+        '2020-12-01 13:39:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1022', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:39:48', '2020-12-01 13:39:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1023', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2020-12-01 13:40:07', '2020-12-01 13:40:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1024', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:40:38', '2020-12-01 13:40:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1025', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2020-12-01 13:40:42', '2020-12-01 13:40:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1026', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:40:43',
+        '2020-12-01 13:40:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1027', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:40:47',
+        '2020-12-01 13:40:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1028', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:40:48',
+        '2020-12-01 13:40:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1029', '1', 'admin/coupon/offline', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:40:49', '2020-12-01 13:40:49');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1030', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:40:51',
+        '2020-12-01 13:40:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1031', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:40:53',
+        '2020-12-01 13:40:53');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1032', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:41:03',
+        '2020-12-01 13:41:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1033', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:41:06',
+        '2020-12-01 13:41:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1034', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:41:07',
+        '2020-12-01 13:41:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1035', '1', 'admin/article/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:41:09', '2020-12-01 13:41:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1036', '1', 'admin/article', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:41:10',
+        '2020-12-01 13:41:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1037', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:41:12',
+        '2020-12-01 13:41:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1038', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:41:14',
+        '2020-12-01 13:41:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1039', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:41:14', '2020-12-01 13:41:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1040', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:41:16',
+        '2020-12-01 13:41:16');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1041', '1', 'admin/auth/users', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:41:21',
+        '2020-12-01 13:41:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1042', '1', 'admin/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:41:21',
+        '2020-12-01 13:41:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1043', '1', 'admin/helpers/scaffold', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:41:23', '2020-12-01 13:41:23');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1044', '1', 'admin/helpers/terminal/database', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:41:25', '2020-12-01 13:41:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1045', '1', 'admin/helpers/terminal/artisan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:41:27', '2020-12-01 13:41:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1046', '1', 'admin/helpers/routes', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:41:28', '2020-12-01 13:41:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1047', '1', 'admin/helpers/terminal/artisan', 'GET', '127.0.0.1', '[]', '2020-12-01 13:41:30',
+        '2020-12-01 13:41:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1048', '1', 'admin/redis', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:41:31',
+        '2020-12-01 13:41:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1049', '1', 'admin/logs', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:41:41',
+        '2020-12-01 13:41:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1050', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:42:15',
+        '2020-12-01 13:42:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1051', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:42:16',
+        '2020-12-01 13:42:16');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1052', '1', 'admin/coupon/offline', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:42:17', '2020-12-01 13:42:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1053', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:42:19',
+        '2020-12-01 13:42:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1054', '1', 'admin/region', 'GET', '127.0.0.1', '[]', '2020-12-01 13:42:31', '2020-12-01 13:42:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1055', '1', 'admin/coupon/offline', 'GET', '127.0.0.1', '[]', '2020-12-01 13:42:33', '2020-12-01 13:42:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1056', '1', 'admin/region', 'GET', '127.0.0.1', '[]', '2020-12-01 13:42:33', '2020-12-01 13:42:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1057', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-01 13:42:46', '2020-12-01 13:42:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1058', '1', 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:43:28',
+        '2020-12-01 13:43:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1059', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:43:30',
+        '2020-12-01 13:43:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1060', '1', 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:43:34',
+        '2020-12-01 13:43:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1061', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:43:37',
+        '2020-12-01 13:43:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1062', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:43:42', '2020-12-01 13:43:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1063', '1', 'admin/product/attr', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-01 13:43:49',
+        '2020-12-01 13:43:49');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1064', '1', 'admin/product/seckill', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-01 13:43:52', '2020-12-01 13:43:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1065', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-09 11:23:01', '2020-12-09 11:23:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1066', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:23:36',
+        '2020-12-09 11:23:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1067', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-09 11:23:38', '2020-12-09 11:23:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1068', '1', 'admin/product/attr', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:23:39',
+        '2020-12-09 11:23:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1069', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-09 11:23:40', '2020-12-09 11:23:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1070', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:23:49',
+        '2020-12-09 11:23:49');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1071', '1', 'admin/brand/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-09 11:23:51', '2020-12-09 11:23:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1072', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:23:54',
+        '2020-12-09 11:23:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1073', '1', 'admin/product/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-09 11:24:00', '2020-12-09 11:24:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1074', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:24:04',
+        '2020-12-09 11:24:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1075', '1', 'admin/coupon/batch', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:24:07',
+        '2020-12-09 11:24:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1076', '1', 'admin/coupon/offline', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-09 11:24:08', '2020-12-09 11:24:08');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1077', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:24:09',
+        '2020-12-09 11:24:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1078', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:24:12',
+        '2020-12-09 11:24:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1079', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:24:15',
+        '2020-12-09 11:24:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1080', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:24:17',
+        '2020-12-09 11:24:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1081', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:24:18',
+        '2020-12-09 11:24:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1082', '1', 'admin/article/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-09 11:24:20', '2020-12-09 11:24:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1083', '1', 'admin/article', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 11:24:21',
+        '2020-12-09 11:24:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1084', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-09 15:10:33', '2020-12-09 15:10:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1085', '1', 'admin/auth/logout', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 15:10:37',
+        '2020-12-09 15:10:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1086', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-09 15:18:58', '2020-12-09 15:18:58');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1087', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 15:23:10',
+        '2020-12-09 15:23:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1088', '1', 'admin/auth/menu/20/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-09 15:23:17', '2020-12-09 15:23:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1089', '1', 'admin/auth/menu/20', 'PUT', '127.0.0.1',
+        '{\"parent_id\":\"43\",\"title\":\"\\u8ba2\\u5355\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":\"order\",\"roles\":[null],\"permission\":null,\"_token\":\"7tuO3nUYLddg3RFb82x6sWf8bxtZVfn8XsxMiAas\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/auth\\/menu\"}',
+        '2020-12-09 15:23:21', '2020-12-09 15:23:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1090', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2020-12-09 15:23:22', '2020-12-09 15:23:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1091', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2020-12-09 15:23:25', '2020-12-09 15:23:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1092', '1', 'admin/order', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 15:23:29',
+        '2020-12-09 15:23:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1093', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2020-12-09 15:25:14', '2020-12-09 15:25:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1094', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2020-12-09 15:25:25', '2020-12-09 15:25:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1095', '1', 'admin/order', 'GET', '127.0.0.1', '[]', '2020-12-09 15:25:35', '2020-12-09 15:25:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1096', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 15:30:42',
+        '2020-12-09 15:30:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1097', '1', 'admin/auth/menu/20/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-09 15:30:54', '2020-12-09 15:30:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1098', '1', 'admin/auth/menu/20', 'PUT', '127.0.0.1',
+        '{\"parent_id\":\"43\",\"title\":\"\\u8ba2\\u5355\\u7ba1\\u7406\",\"icon\":\"fa-bars\",\"uri\":\"order\\/base\",\"roles\":[null],\"permission\":null,\"_token\":\"7tuO3nUYLddg3RFb82x6sWf8bxtZVfn8XsxMiAas\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/www.lied.com\\/admin\\/auth\\/menu\"}',
+        '2020-12-09 15:30:59', '2020-12-09 15:30:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1099', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2020-12-09 15:30:59', '2020-12-09 15:30:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1100', '1', 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2020-12-09 15:31:01', '2020-12-09 15:31:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1101', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 15:31:07',
+        '2020-12-09 15:31:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1102', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 15:35:50', '2020-12-09 15:35:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1103', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 15:39:40', '2020-12-09 15:39:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1104', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 15:40:33', '2020-12-09 15:40:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1105', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 15:41:05', '2020-12-09 15:41:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1106', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 15:42:23', '2020-12-09 15:42:23');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1107', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 15:43:53', '2020-12-09 15:43:53');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1108', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 15:46:40', '2020-12-09 15:46:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1109', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"order_status\":\"3\",\"pay_status\":null,\"source\":null,\"_pjax\":\"#pjax-container\"}',
+        '2020-12-09 15:46:48', '2020-12-09 15:46:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1110', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 15:46:51',
+        '2020-12-09 15:46:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1111', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 15:51:33', '2020-12-09 15:51:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1112', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 15:54:40', '2020-12-09 15:54:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1113', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 15:56:13', '2020-12-09 15:56:13');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1114', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":\"2020-11-20 00:00:00\",\"end\":\"2020-12-21 00:00:00\"},\"_pjax\":\"#pjax-container\"}',
+        '2020-12-09 15:56:35', '2020-12-09 15:56:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1115', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 15:56:48',
+        '2020-12-09 15:56:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1116', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":\"2020-11-20\",\"end\":\"2020-11-20\"}}',
+        '2020-12-09 15:56:58', '2020-12-09 15:56:58');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1117', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-09 15:57:14',
+        '2020-12-09 15:57:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1118', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:02:15', '2020-12-09 16:02:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1119', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:03:15', '2020-12-09 16:03:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1120', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:04:07', '2020-12-09 16:04:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1121', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:05:21', '2020-12-09 16:05:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1122', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:07:14', '2020-12-09 16:07:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1123', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:08:05', '2020-12-09 16:08:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1124', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:08:14', '2020-12-09 16:08:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1125', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:16:25', '2020-12-09 16:16:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1126', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:17:22', '2020-12-09 16:17:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1127', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:17:45', '2020-12-09 16:17:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1128', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:24:06', '2020-12-09 16:24:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1129', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:27:27', '2020-12-09 16:27:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1130', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:27:30', '2020-12-09 16:27:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1131', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:27:49', '2020-12-09 16:27:49');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1132', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:28:32', '2020-12-09 16:28:32');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1133', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:30:27', '2020-12-09 16:30:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1134', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:30:48', '2020-12-09 16:30:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1135', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:30:57', '2020-12-09 16:30:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1136', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:38:22', '2020-12-09 16:38:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1137', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:38:24', '2020-12-09 16:38:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1138', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:38:37', '2020-12-09 16:38:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1139', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:45:28', '2020-12-09 16:45:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1140', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:47:10', '2020-12-09 16:47:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1141', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:47:29', '2020-12-09 16:47:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1142', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:48:06', '2020-12-09 16:48:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1143', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:49:27', '2020-12-09 16:49:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1144', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:50:33', '2020-12-09 16:50:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1145', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:55:45', '2020-12-09 16:55:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1146', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:56:07', '2020-12-09 16:56:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1147', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:56:09', '2020-12-09 16:56:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1148', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:56:45', '2020-12-09 16:56:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1149', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:56:53', '2020-12-09 16:56:53');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1150', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:56:54', '2020-12-09 16:56:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1151', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:57:25', '2020-12-09 16:57:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1152', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:57:58', '2020-12-09 16:57:58');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1153', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:58:16', '2020-12-09 16:58:16');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1154', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:58:33', '2020-12-09 16:58:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1155', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:59:02', '2020-12-09 16:59:02');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1156', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:59:22', '2020-12-09 16:59:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1157', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 16:59:39', '2020-12-09 16:59:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1158', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:00:30', '2020-12-09 17:00:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1159', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:01:37', '2020-12-09 17:01:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1160', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:03:38', '2020-12-09 17:03:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1161', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:05:02', '2020-12-09 17:05:02');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1162', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:05:25', '2020-12-09 17:05:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1163', '1', 'admin/_handle_renderable_', 'GET', '127.0.0.1',
+        '{\"renderable\":\"App_Admin_Extensions_Model_OrderBaseModal\",\"key\":\"27\"}', '2020-12-09 17:05:26',
+        '2020-12-09 17:05:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1164', '1', 'admin/_handle_renderable_', 'GET', '127.0.0.1',
+        '{\"renderable\":\"App_Admin_Extensions_Model_OrderBaseModal\",\"key\":\"21\"}', '2020-12-09 17:05:46',
+        '2020-12-09 17:05:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1165', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:05:50', '2020-12-09 17:05:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1166', '1', 'admin/_handle_renderable_', 'GET', '127.0.0.1',
+        '{\"renderable\":\"App_Admin_Extensions_Model_OrderBaseModal\",\"key\":\"27\"}', '2020-12-09 17:05:52',
+        '2020-12-09 17:05:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1167', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:06:06', '2020-12-09 17:06:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1168', '1', 'admin/_handle_renderable_', 'GET', '127.0.0.1',
+        '{\"renderable\":\"App_Admin_Extensions_Model_OrderBaseModal\",\"key\":\"27\"}', '2020-12-09 17:06:07',
+        '2020-12-09 17:06:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1169', '1', 'admin/_handle_renderable_', 'GET', '127.0.0.1',
+        '{\"renderable\":\"App_Admin_Extensions_Model_OrderBaseModal\",\"key\":\"20\"}', '2020-12-09 17:06:10',
+        '2020-12-09 17:06:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1170', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:06:28', '2020-12-09 17:06:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1171', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:07:23', '2020-12-09 17:07:23');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1172', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:08:06', '2020-12-09 17:08:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1173', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:08:30', '2020-12-09 17:08:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1174', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:09:17', '2020-12-09 17:09:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1175', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:32:21', '2020-12-09 17:32:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1176', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:52:24', '2020-12-09 17:52:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1177', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:52:53', '2020-12-09 17:52:53');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1178', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-09 17:53:05', '2020-12-09 17:53:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1179', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"orderid\":\"2020112040191000000180649\"}',
+        '2020-12-09 17:53:12', '2020-12-09 17:53:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1180', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"orderid\":\"2020112040191000000180649\"}',
+        '2020-12-09 17:53:14', '2020-12-09 17:53:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1181', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"orderid\":\"2020101445007000000110966\"}',
+        '2020-12-09 18:07:00', '2020-12-09 18:07:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1182', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-10 09:59:45', '2020-12-10 09:59:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1183', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-10 09:59:51',
+        '2020-12-10 09:59:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1184', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"id\":\"2020112040191000000180649\"}',
+        '2020-12-10 10:02:08', '2020-12-10 10:02:08');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1185', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 10:03:21', '2020-12-10 10:03:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1186', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 10:03:23', '2020-12-10 10:03:23');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1187', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 10:03:30', '2020-12-10 10:03:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1188', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 10:03:32', '2020-12-10 10:03:32');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1189', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 10:03:41', '2020-12-10 10:03:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1190', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 10:24:42', '2020-12-10 10:24:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1191', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 10:37:34', '2020-12-10 10:37:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1192', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:00:24', '2020-12-10 11:00:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1193', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:00:30', '2020-12-10 11:00:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1194', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:00:48', '2020-12-10 11:00:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1195', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:01:07', '2020-12-10 11:01:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1196', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:01:25', '2020-12-10 11:01:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1197', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:01:31', '2020-12-10 11:01:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1198', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:01:40', '2020-12-10 11:01:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1199', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:01:51', '2020-12-10 11:01:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1200', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:02:41', '2020-12-10 11:02:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1201', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:10:51', '2020-12-10 11:10:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1202', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:11:55', '2020-12-10 11:11:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1203', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:17:00', '2020-12-10 11:17:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1204', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:26:48', '2020-12-10 11:26:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1205', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-10 11:27:14', '2020-12-10 11:27:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1206', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 11:29:42', '2020-12-10 11:29:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1207', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 11:31:01', '2020-12-10 11:31:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1208', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"id\":\"2020110273594000000196987\"}',
+        '2020-12-10 11:34:09', '2020-12-10 11:34:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1209', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 11:34:11', '2020-12-10 11:34:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1210', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 11:34:14', '2020-12-10 11:34:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1211', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 11:34:36', '2020-12-10 11:34:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1212', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:36:40', '2020-12-10 11:36:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1213', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 11:37:43', '2020-12-10 11:37:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1214', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 11:37:46', '2020-12-10 11:37:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1215', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 11:39:00', '2020-12-10 11:39:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1216', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 11:40:00', '2020-12-10 11:40:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1217', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 11:42:55', '2020-12-10 11:42:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1218', '1', 'admin/api/order/base', 'GET', '127.0.0.1', '{\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 11:54:24', '2020-12-10 11:54:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1219', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-10 15:20:40', '2020-12-10 15:20:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1220', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-10 15:20:55', '2020-12-10 15:20:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1221', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:21:26', '2020-12-10 15:21:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1222', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:21:55', '2020-12-10 15:21:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1223', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"iojuJCm7tKGKtLyV1SSIk5DcpZd7TRGInNWwT9l3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:22:00', '2020-12-10 15:22:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1224', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:22:04', '2020-12-10 15:22:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1225', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:22:06', '2020-12-10 15:22:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1226', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:22:52', '2020-12-10 15:22:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1227', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:22:54', '2020-12-10 15:22:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1228', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:23:22', '2020-12-10 15:23:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1229', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:23:24', '2020-12-10 15:23:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1230', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:24:05', '2020-12-10 15:24:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1231', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:24:07', '2020-12-10 15:24:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1232', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:24:21', '2020-12-10 15:24:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1233', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:24:35', '2020-12-10 15:24:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1234', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:24:36', '2020-12-10 15:24:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1235', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:24:44', '2020-12-10 15:24:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1236', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:24:45', '2020-12-10 15:24:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1237', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:25:06', '2020-12-10 15:25:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1238', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:25:08', '2020-12-10 15:25:08');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1239', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:25:49', '2020-12-10 15:25:49');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1240', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:25:51', '2020-12-10 15:25:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1241', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:26:09', '2020-12-10 15:26:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1242', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:26:11', '2020-12-10 15:26:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1243', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:27:19', '2020-12-10 15:27:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1244', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:27:20', '2020-12-10 15:27:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1245', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:29:07', '2020-12-10 15:29:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1246', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:29:09', '2020-12-10 15:29:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1247', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:30:02', '2020-12-10 15:30:02');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1248', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:30:04', '2020-12-10 15:30:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1249', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:30:34', '2020-12-10 15:30:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1250', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:30:35', '2020-12-10 15:30:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1251', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:33:23', '2020-12-10 15:33:23');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1252', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:33:25', '2020-12-10 15:33:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1253', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-10 15:34:12', '2020-12-10 15:34:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1254', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"9C5nFFfIbj1UCjw2DMNcUuRP8OIlHlywVYNKoY5p\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-10 15:34:14', '2020-12-10 15:34:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1255', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-11 09:31:10', '2020-12-11 09:31:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1256', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 09:31:15',
+        '2020-12-11 09:31:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1257', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 09:31:23',
+        '2020-12-11 09:31:23');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1258', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"aiYffn9BLG2TQMMVAfno47zwCJdWF0M1UA0MYWM6\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 09:31:28', '2020-12-11 09:31:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1259', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-11 11:36:30', '2020-12-11 11:36:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1260', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-11 15:25:20', '2020-12-11 15:25:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1261', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 15:26:26',
+        '2020-12-11 15:26:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1262', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 15:36:37', '2020-12-11 15:36:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1263', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 15:36:39', '2020-12-11 15:36:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1264', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 15:36:43', '2020-12-11 15:36:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1265', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 15:39:52', '2020-12-11 15:39:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1266', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 15:40:50', '2020-12-11 15:40:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1267', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 15:41:00', '2020-12-11 15:41:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1268', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 15:41:12', '2020-12-11 15:41:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1269', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 15:46:43', '2020-12-11 15:46:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1270', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 15:51:43', '2020-12-11 15:51:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1271', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 15:52:01', '2020-12-11 15:52:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1272', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 15:52:26', '2020-12-11 15:52:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1273', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 15:52:28', '2020-12-11 15:52:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1274', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 15:53:37', '2020-12-11 15:53:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1275', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 15:53:39', '2020-12-11 15:53:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1276', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 15:56:34', '2020-12-11 15:56:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1277', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 15:57:34', '2020-12-11 15:57:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1278', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 15:58:54', '2020-12-11 15:58:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1279', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 15:59:04', '2020-12-11 15:59:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1280', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 15:59:06', '2020-12-11 15:59:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1281', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:00:33', '2020-12-11 16:00:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1282', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 16:00:35', '2020-12-11 16:00:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1283', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:01:09', '2020-12-11 16:01:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1284', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 16:01:10', '2020-12-11 16:01:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1285', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:01:27', '2020-12-11 16:01:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1286', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 16:01:29', '2020-12-11 16:01:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1287', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:02:52', '2020-12-11 16:02:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1288', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 16:02:54', '2020-12-11 16:02:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1289', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:03:41', '2020-12-11 16:03:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1290', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 16:03:43', '2020-12-11 16:03:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1291', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:04:02', '2020-12-11 16:04:02');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1292', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 16:04:03', '2020-12-11 16:04:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1293', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:04:19', '2020-12-11 16:04:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1294', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 16:04:20', '2020-12-11 16:04:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1295', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:05:26', '2020-12-11 16:05:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1296', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 16:05:30', '2020-12-11 16:05:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1297', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 16:05:34', '2020-12-11 16:05:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1298', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-11 16:08:32', '2020-12-11 16:08:32');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1299', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 16:08:37', '2020-12-11 16:08:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1300', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:13:35', '2020-12-11 16:13:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1301', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null},\"_pjax\":\"#pjax-container\"}',
+        '2020-12-11 16:13:41', '2020-12-11 16:13:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1302', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 16:14:11',
+        '2020-12-11 16:14:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1303', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:14:15', '2020-12-11 16:14:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1304', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 16:14:35',
+        '2020-12-11 16:14:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1305', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:14:39', '2020-12-11 16:14:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1306', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 16:15:08',
+        '2020-12-11 16:15:08');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1307', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:15:11', '2020-12-11 16:15:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1308', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:17:21', '2020-12-11 16:17:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1309', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"b431a56de8cbafc37dda12ff7b0230df\":\"lied\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null},\"_pjax\":\"#pjax-container\"}',
+        '2020-12-11 16:17:29', '2020-12-11 16:17:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1310', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"b431a56de8cbafc37dda12ff7b0230df\":\"lied1\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:17:34', '2020-12-11 16:17:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1311', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"b431a56de8cbafc37dda12ff7b0230df\":\"lied1\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:17:39', '2020-12-11 16:17:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1312', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"b431a56de8cbafc37dda12ff7b0230df\":\"lied\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:17:44', '2020-12-11 16:17:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1313', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"b431a56de8cbafc37dda12ff7b0230df\":\"lied\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:19:24', '2020-12-11 16:19:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1314', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 16:19:26', '2020-12-11 16:19:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1315', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"b431a56de8cbafc37dda12ff7b0230df\":null,\"d61d7020517460d1726432d49cb7954f\":\"lied\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null},\"_pjax\":\"#pjax-container\"}',
+        '2020-12-11 16:19:32', '2020-12-11 16:19:32');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1316', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"b431a56de8cbafc37dda12ff7b0230df\":null,\"d61d7020517460d1726432d49cb7954f\":\"lied\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:19:35', '2020-12-11 16:19:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1317', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"7756251a793a580751ee3659ed4f6da1\":\"lied\",\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"b431a56de8cbafc37dda12ff7b0230df\":null,\"d61d7020517460d1726432d49cb7954f\":\"lied\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:19:43', '2020-12-11 16:19:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1318', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 16:20:21',
+        '2020-12-11 16:20:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1319', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 16:20:41',
+        '2020-12-11 16:20:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1320', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"3b50ed082eb8b3a66c08fb987989633e\":null,\"786d706ef33afeddf70e700a1134b5cb\":\"li\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:20:47', '2020-12-11 16:20:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1321', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"3b50ed082eb8b3a66c08fb987989633e\":null,\"786d706ef33afeddf70e700a1134b5cb\":\"li\",\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:21:26', '2020-12-11 16:21:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1322', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 16:22:54',
+        '2020-12-11 16:22:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1323', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"_pjax\":\"#pjax-container\",\"id\":null,\"orderno\":null,\"user\":{\"name\":null},\"3b50ed082eb8b3a66c08fb987989633e\":\"lied\",\"786d706ef33afeddf70e700a1134b5cb\":null,\"order_status\":null,\"pay_status\":null,\"source\":null,\"created_at\":{\"start\":null,\"end\":null}}',
+        '2020-12-11 16:23:00', '2020-12-11 16:23:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1324', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 16:23:01',
+        '2020-12-11 16:23:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1325', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:28:44', '2020-12-11 16:28:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1326', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:30:38', '2020-12-11 16:30:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1327', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:33:15', '2020-12-11 16:33:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1328', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 16:44:38',
+        '2020-12-11 16:44:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1329', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 16:44:39', '2020-12-11 16:44:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1330', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:45:25', '2020-12-11 16:45:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1331', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:45:57', '2020-12-11 16:45:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1332', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-11 16:46:22', '2020-12-11 16:46:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1333', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"xuU1WjtllUr6Gr5grtoTaKnoC80dvJ2Q9HgdFyrw\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-11 16:46:48', '2020-12-11 16:46:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1334', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-12-11 16:48:10', '2020-12-11 16:48:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1335', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-11 16:48:39',
+        '2020-12-11 16:48:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1336', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-14 16:47:27', '2020-12-14 16:47:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1337', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-14 16:47:32',
+        '2020-12-14 16:47:32');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1338', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"FHXRsHeyfZNwnk7sdb9L4VwFbIs4fGU8VHkyrNlp\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-14 16:47:36', '2020-12-14 16:47:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1339', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-15 09:20:37', '2020-12-15 09:20:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1340', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-15 09:32:47',
+        '2020-12-15 09:32:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1341', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"QRsFmg793jtLsoS4CQ38QbGnP3whxYypUpJMKVLQ\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 09:32:48', '2020-12-15 09:32:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1342', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"QRsFmg793jtLsoS4CQ38QbGnP3whxYypUpJMKVLQ\",\"orderno\":\"2020110258349000000191501\"}',
+        '2020-12-15 11:03:35', '2020-12-15 11:03:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1343', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"QRsFmg793jtLsoS4CQ38QbGnP3whxYypUpJMKVLQ\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 11:03:38', '2020-12-15 11:03:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1344', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"QRsFmg793jtLsoS4CQ38QbGnP3whxYypUpJMKVLQ\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 11:03:56', '2020-12-15 11:03:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1345', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-15 13:38:36', '2020-12-15 13:38:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1346', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-15 13:38:46',
+        '2020-12-15 13:38:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1347', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 13:38:48', '2020-12-15 13:38:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1348', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 13:38:51', '2020-12-15 13:38:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1349', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 13:42:56', '2020-12-15 13:42:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1350', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 13:42:58', '2020-12-15 13:42:58');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1351', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 13:43:02', '2020-12-15 13:43:02');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1352', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 13:43:04', '2020-12-15 13:43:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1353', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 13:43:45', '2020-12-15 13:43:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1354', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 13:43:47', '2020-12-15 13:43:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1355', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 13:43:58', '2020-12-15 13:43:58');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1356', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 13:43:59', '2020-12-15 13:43:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1357', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 13:44:09', '2020-12-15 13:44:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1358', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 13:44:11', '2020-12-15 13:44:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1359', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:00:55', '2020-12-15 14:00:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1360', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:01:00', '2020-12-15 14:01:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1361', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:01:29', '2020-12-15 14:01:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1362', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:06:38', '2020-12-15 14:06:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1363', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:10:16', '2020-12-15 14:10:16');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1364', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:12:01', '2020-12-15 14:12:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1365', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:12:03', '2020-12-15 14:12:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1366', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:12:22', '2020-12-15 14:12:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1367', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:12:24', '2020-12-15 14:12:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1368', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:12:40', '2020-12-15 14:12:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1369', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:12:42', '2020-12-15 14:12:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1370', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:18:03', '2020-12-15 14:18:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1371', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:18:06', '2020-12-15 14:18:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1372', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 14:18:17', '2020-12-15 14:18:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1373', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:19:08', '2020-12-15 14:19:08');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1374', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:19:10', '2020-12-15 14:19:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1375', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-15 14:19:17', '2020-12-15 14:19:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1376', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:19:35', '2020-12-15 14:19:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1377', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 14:19:37', '2020-12-15 14:19:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1378', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:20:42', '2020-12-15 14:20:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1379', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 14:20:44', '2020-12-15 14:20:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1380', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:20:50', '2020-12-15 14:20:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1381', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 14:20:52', '2020-12-15 14:20:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1382', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:21:40', '2020-12-15 14:21:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1383', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:23:00', '2020-12-15 14:23:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1384', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 14:23:03', '2020-12-15 14:23:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1385', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:23:19', '2020-12-15 14:23:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1386', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 14:23:28', '2020-12-15 14:23:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1387', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 14:23:47', '2020-12-15 14:23:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1388', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:24:38', '2020-12-15 14:24:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1389', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 14:24:42', '2020-12-15 14:24:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1390', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 14:28:31', '2020-12-15 14:28:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1391', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:29:44', '2020-12-15 14:29:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1392', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:29:46', '2020-12-15 14:29:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1393', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:30:04', '2020-12-15 14:30:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1394', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-15 14:34:29', '2020-12-15 14:34:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1395', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:40:28', '2020-12-15 14:40:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1396', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:40:34', '2020-12-15 14:40:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1397', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:40:44', '2020-12-15 14:40:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1398', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:40:51', '2020-12-15 14:40:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1399', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:41:39', '2020-12-15 14:41:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1400', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:41:54', '2020-12-15 14:41:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1401', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:43:43', '2020-12-15 14:43:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1402', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:43:44', '2020-12-15 14:43:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1403', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:44:06', '2020-12-15 14:44:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1404', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:44:07', '2020-12-15 14:44:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1405', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:44:26', '2020-12-15 14:44:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1406', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:44:27', '2020-12-15 14:44:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1407', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:44:38', '2020-12-15 14:44:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1408', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:44:40', '2020-12-15 14:44:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1409', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:44:43', '2020-12-15 14:44:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1410', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:44:45', '2020-12-15 14:44:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1411', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:45:00', '2020-12-15 14:45:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1412', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:45:02', '2020-12-15 14:45:02');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1413', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:45:34', '2020-12-15 14:45:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1414', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:45:35', '2020-12-15 14:45:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1415', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:46:07', '2020-12-15 14:46:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1416', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:46:10', '2020-12-15 14:46:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1417', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:46:11', '2020-12-15 14:46:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1418', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:48:38', '2020-12-15 14:48:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1419', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:48:40', '2020-12-15 14:48:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1420', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:49:40', '2020-12-15 14:49:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1421', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:49:42', '2020-12-15 14:49:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1422', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:51:59', '2020-12-15 14:51:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1423', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:52:00', '2020-12-15 14:52:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1424', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:53:40', '2020-12-15 14:53:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1425', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:53:56', '2020-12-15 14:53:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1426', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:54:28', '2020-12-15 14:54:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1427', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:54:29', '2020-12-15 14:54:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1428', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:55:13', '2020-12-15 14:55:13');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1429', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:55:14', '2020-12-15 14:55:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1430', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:55:26', '2020-12-15 14:55:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1431', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:55:28', '2020-12-15 14:55:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1432', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:56:13', '2020-12-15 14:56:13');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1433', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:56:14', '2020-12-15 14:56:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1434', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:57:08', '2020-12-15 14:57:08');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1435', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:57:09', '2020-12-15 14:57:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1436', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 14:57:58', '2020-12-15 14:57:58');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1437', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 14:58:03', '2020-12-15 14:58:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1438', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 15:00:39', '2020-12-15 15:00:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1439', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 15:00:41', '2020-12-15 15:00:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1440', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 15:01:48', '2020-12-15 15:01:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1441', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 15:01:50', '2020-12-15 15:01:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1442', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 15:04:44', '2020-12-15 15:04:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1443', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 15:04:46', '2020-12-15 15:04:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1444', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 15:06:01', '2020-12-15 15:06:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1445', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 15:06:03', '2020-12-15 15:06:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1446', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-15 15:08:42', '2020-12-15 15:08:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1447', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"4BXd0plKnfuibM9ITn2oDQPG48kiLT8IqvjT0noV\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-15 15:08:46', '2020-12-15 15:08:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1448', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-17 10:14:12', '2020-12-17 10:14:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1449', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-17 13:58:16', '2020-12-17 13:58:16');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1450', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 13:58:23',
+        '2020-12-17 13:58:23');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1451', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:04:04', '2020-12-17 14:04:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1452', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:06:18', '2020-12-17 14:06:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1453', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:06:21', '2020-12-17 14:06:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1454', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:13:57', '2020-12-17 14:13:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1455', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:14:00', '2020-12-17 14:14:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1456', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:14:49', '2020-12-17 14:14:49');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1457', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:14:52', '2020-12-17 14:14:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1458', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:15:40', '2020-12-17 14:15:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1459', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:15:42', '2020-12-17 14:15:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1460', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:15:57', '2020-12-17 14:15:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1461', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:15:59', '2020-12-17 14:15:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1462', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:16:36', '2020-12-17 14:16:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1463', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:16:38', '2020-12-17 14:16:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1464', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:16:57', '2020-12-17 14:16:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1465', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:17:00', '2020-12-17 14:17:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1466', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:17:15', '2020-12-17 14:17:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1467', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:17:17', '2020-12-17 14:17:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1468', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:18:53', '2020-12-17 14:18:53');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1469', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:18:55', '2020-12-17 14:18:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1470', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:20:00', '2020-12-17 14:20:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1471', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:20:06', '2020-12-17 14:20:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1472', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:21:01', '2020-12-17 14:21:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1473', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:21:05', '2020-12-17 14:21:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1474', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:22:08', '2020-12-17 14:22:08');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1475', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:22:10', '2020-12-17 14:22:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1476', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:22:50', '2020-12-17 14:22:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1477', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:22:53', '2020-12-17 14:22:53');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1478', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:24:13', '2020-12-17 14:24:13');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1479', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:24:15', '2020-12-17 14:24:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1480', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:26:06', '2020-12-17 14:26:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1481', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:26:08', '2020-12-17 14:26:08');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1482', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:26:39', '2020-12-17 14:26:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1483', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:26:41', '2020-12-17 14:26:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1484', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:30:24', '2020-12-17 14:30:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1485', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:30:31', '2020-12-17 14:30:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1486', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:31:51', '2020-12-17 14:31:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1487', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:31:58', '2020-12-17 14:31:58');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1488', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:33:14', '2020-12-17 14:33:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1489', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:33:21', '2020-12-17 14:33:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1490', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:34:50', '2020-12-17 14:34:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1491', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:34:51', '2020-12-17 14:34:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1492', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:39:10', '2020-12-17 14:39:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1493', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:39:16', '2020-12-17 14:39:16');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1494', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:40:11', '2020-12-17 14:40:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1495', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:40:13', '2020-12-17 14:40:13');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1496', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:41:10', '2020-12-17 14:41:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1497', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:41:14', '2020-12-17 14:41:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1498', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:43:48', '2020-12-17 14:43:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1499', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:43:51', '2020-12-17 14:43:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1500', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:44:24', '2020-12-17 14:44:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1501', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 14:45:09', '2020-12-17 14:45:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1502', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 14:45:14', '2020-12-17 14:45:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1503', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 15:22:37', '2020-12-17 15:22:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1504', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 15:23:16', '2020-12-17 15:23:16');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1505', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:23:28', '2020-12-17 15:23:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1506', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 15:25:20', '2020-12-17 15:25:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1507', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:25:23', '2020-12-17 15:25:23');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1508', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 15:26:22', '2020-12-17 15:26:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1509', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:26:23', '2020-12-17 15:26:23');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1510', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 15:27:10', '2020-12-17 15:27:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1511', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:27:12', '2020-12-17 15:27:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1512', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 15:28:19', '2020-12-17 15:28:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1513', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:28:22', '2020-12-17 15:28:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1514', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 15:38:18', '2020-12-17 15:38:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1515', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:38:22', '2020-12-17 15:38:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1516', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":[\"48\",\"49\"],\"delino\":\"1234567\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:38:33', '2020-12-17 15:38:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1517', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":[\"48\",\"49\"],\"delino\":\"1234567\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:39:40', '2020-12-17 15:39:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1518', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":[\"48\",\"49\"],\"delino\":\"1234567\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:40:20', '2020-12-17 15:40:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1519', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":[\"48\",\"49\"],\"delino\":\"1234567\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:40:37', '2020-12-17 15:40:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1520', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":[\"48\",\"49\"],\"delino\":\"1234567\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:42:11', '2020-12-17 15:42:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1521', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 15:43:11', '2020-12-17 15:43:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1522', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:43:14', '2020-12-17 15:43:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1523', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":[\"48\",\"49\"],\"delino\":\"1234567\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:43:22', '2020-12-17 15:43:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1524', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":[\"48\",\"49\"],\"delino\":\"12345678\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:43:28', '2020-12-17 15:43:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1525', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:43:33', '2020-12-17 15:43:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1526', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 15:44:00', '2020-12-17 15:44:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1527', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:44:01', '2020-12-17 15:44:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1528', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":\"48\",\"delino\":\"123456789\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:44:12', '2020-12-17 15:44:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1529', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":\"48\",\"delino\":\"123456789\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:44:36', '2020-12-17 15:44:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1530', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":\"48\",\"delino\":\"123456789\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:45:25', '2020-12-17 15:45:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1531', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":\"48\",\"delino\":\"123456789\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:47:20', '2020-12-17 15:47:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1532', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:47:23', '2020-12-17 15:47:23');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1533', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":\"49\",\"delino\":\"1234567890\",\"id\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 15:47:57', '2020-12-17 15:47:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1534', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:47:59', '2020-12-17 15:47:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1535', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 15:52:45', '2020-12-17 15:52:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1536', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 15:52:48', '2020-12-17 15:52:48');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1537', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-17 15:53:39', '2020-12-17 15:53:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1538', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:04:14', '2020-12-17 16:04:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1539', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:04:21', '2020-12-17 16:04:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1540', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:04:52', '2020-12-17 16:04:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1541', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:04:59', '2020-12-17 16:04:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1542', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:16:03', '2020-12-17 16:16:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1543', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:16:10', '2020-12-17 16:16:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1544', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:16:19', '2020-12-17 16:16:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1545', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:17:30', '2020-12-17 16:17:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1546', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:17:32', '2020-12-17 16:17:32');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1547', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":\"48\",\"delino\":\"123457\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 16:17:41', '2020-12-17 16:17:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1548', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":\"48\",\"delino\":\"123457\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 16:17:51', '2020-12-17 16:17:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1549', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:18:19', '2020-12-17 16:18:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1550', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:18:21', '2020-12-17 16:18:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1551', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":\"48\",\"delino\":\"1231\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 16:18:34', '2020-12-17 16:18:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1552', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:19:18', '2020-12-17 16:19:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1553', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:19:20', '2020-12-17 16:19:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1554', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":\"48\",\"delino\":\"1231231\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 16:19:27', '2020-12-17 16:19:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1555', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:19:36', '2020-12-17 16:19:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1556', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:27:56', '2020-12-17 16:27:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1557', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:27:59', '2020-12-17 16:27:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1558', '1', 'admin/api/order/delivery/modify', 'POST', '127.0.0.1',
+        '{\"order_child_ids\":\"49\",\"delino\":\"123457\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\"}',
+        '2020-12-17 16:28:10', '2020-12-17 16:28:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1559', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:28:10',
+        '2020-12-17 16:28:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1560', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:29:56', '2020-12-17 16:29:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1561', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:32:18', '2020-12-17 16:32:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1562', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:33:41', '2020-12-17 16:33:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1563', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:33:43', '2020-12-17 16:33:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1564', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:33:55', '2020-12-17 16:33:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1565', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:33:57', '2020-12-17 16:33:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1566', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:34:56', '2020-12-17 16:34:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1567', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:34:58', '2020-12-17 16:34:58');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1568', '1', 'admin/region/open', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:36:46',
+        '2020-12-17 16:36:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1569', '1', 'admin/region/open/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 16:36:52', '2020-12-17 16:36:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1570', '1', 'admin/region', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:37:04',
+        '2020-12-17 16:37:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1571', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:37:16',
+        '2020-12-17 16:37:16');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1572', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 16:37:18', '2020-12-17 16:37:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1573', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:37:30',
+        '2020-12-17 16:37:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1574', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:37:33',
+        '2020-12-17 16:37:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1575', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 16:37:34', '2020-12-17 16:37:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1576', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2020-12-17 16:37:44', '2020-12-17 16:37:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1577', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2020-12-17 16:38:14', '2020-12-17 16:38:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1578', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:38:14',
+        '2020-12-17 16:38:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1579', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:38:16',
+        '2020-12-17 16:38:16');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1580', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 16:38:22', '2020-12-17 16:38:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1581', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:38:59',
+        '2020-12-17 16:38:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1582', '1', 'admin/product', 'GET', '127.0.0.1', '[]', '2020-12-17 16:40:34', '2020-12-17 16:40:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1583', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '[]', '2020-12-17 16:42:46', '2020-12-17 16:42:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1584', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:43:05',
+        '2020-12-17 16:43:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1585', '1', 'admin/product/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 16:43:07', '2020-12-17 16:43:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1586', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:43:15',
+        '2020-12-17 16:43:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1587', '1', 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:43:27',
+        '2020-12-17 16:43:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1588', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:43:34',
+        '2020-12-17 16:43:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1589', '1', 'admin/brand/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:43:35',
+        '2020-12-17 16:43:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1590', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:43:47',
+        '2020-12-17 16:43:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1591', '1', 'admin/brand', 'GET', '127.0.0.1', '[]', '2020-12-17 16:44:21', '2020-12-17 16:44:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1592', '1', 'admin/brand/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:44:24',
+        '2020-12-17 16:44:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1593', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 16:44:28',
+        '2020-12-17 16:44:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1594', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 16:54:31', '2020-12-17 16:54:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1595', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 16:54:38', '2020-12-17 16:54:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1596', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:00:43', '2020-12-17 17:00:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1597', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:01:06', '2020-12-17 17:01:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1598', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 17:17:14', '2020-12-17 17:17:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1599', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2020-12-17 17:17:36', '2020-12-17 17:17:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1600', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:17:47',
+        '2020-12-17 17:17:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1601', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 17:17:50', '2020-12-17 17:17:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1602', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:17:54',
+        '2020-12-17 17:17:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1603', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:18:14',
+        '2020-12-17 17:18:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1604', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 17:18:17', '2020-12-17 17:18:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1605', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:18:29',
+        '2020-12-17 17:18:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1606', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 17:18:31', '2020-12-17 17:18:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1607', '1', 'admin/product/create', 'GET', '127.0.0.1', '[]', '2020-12-17 17:18:34', '2020-12-17 17:18:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1608', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:18:37',
+        '2020-12-17 17:18:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1609', '1', 'admin/brand', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:18:50',
+        '2020-12-17 17:18:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1610', '1', 'admin/brand/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:18:52',
+        '2020-12-17 17:18:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1611', '1', 'admin/product/attr', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:19:02',
+        '2020-12-17 17:19:02');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1612', '1', 'admin/product/category', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 17:19:04', '2020-12-17 17:19:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1613', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:19:10',
+        '2020-12-17 17:19:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1614', '1', 'admin/coupon/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 17:19:12', '2020-12-17 17:19:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1615', '1', 'admin/article', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:19:18',
+        '2020-12-17 17:19:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1616', '1', 'admin/article/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 17:19:21', '2020-12-17 17:19:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1617', '1', 'admin/adv', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:19:27',
+        '2020-12-17 17:19:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1618', '1', 'admin/adv/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:19:28',
+        '2020-12-17 17:19:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1619', '1', 'admin/adv/position', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:19:35',
+        '2020-12-17 17:19:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1620', '1', 'admin/adv/position/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 17:19:37', '2020-12-17 17:19:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1621', '1', 'admin/coupon', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:19:42',
+        '2020-12-17 17:19:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1622', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:19:44',
+        '2020-12-17 17:19:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1623', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:19:49',
+        '2020-12-17 17:19:49');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1624', '1', 'admin/product/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}',
+        '2020-12-17 17:19:51', '2020-12-17 17:19:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1625', '1', 'admin/product', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:20:05',
+        '2020-12-17 17:20:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1626', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-17 17:20:13',
+        '2020-12-17 17:20:13');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1627', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:23:14', '2020-12-17 17:23:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1628', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:23:18', '2020-12-17 17:23:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1629', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:24:38', '2020-12-17 17:24:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1630', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:24:41', '2020-12-17 17:24:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1631', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:25:00', '2020-12-17 17:25:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1632', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:25:03', '2020-12-17 17:25:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1633', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:25:15', '2020-12-17 17:25:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1634', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:25:18', '2020-12-17 17:25:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1635', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:25:59', '2020-12-17 17:25:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1636', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:26:26', '2020-12-17 17:26:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1637', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:26:45', '2020-12-17 17:26:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1638', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:29:39', '2020-12-17 17:29:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1639', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:29:42', '2020-12-17 17:29:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1640', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:34:11', '2020-12-17 17:34:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1641', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:34:14', '2020-12-17 17:34:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1642', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:36:30', '2020-12-17 17:36:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1643', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:36:33', '2020-12-17 17:36:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1644', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:36:50', '2020-12-17 17:36:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1645', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:36:54', '2020-12-17 17:36:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1646', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:37:12', '2020-12-17 17:37:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1647', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:37:14', '2020-12-17 17:37:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1648', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:37:43', '2020-12-17 17:37:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1649', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:37:46', '2020-12-17 17:37:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1650', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:38:01', '2020-12-17 17:38:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1651', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:38:17', '2020-12-17 17:38:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1652', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:38:52', '2020-12-17 17:38:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1653', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:38:55', '2020-12-17 17:38:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1654', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:39:06', '2020-12-17 17:39:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1655', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:39:09', '2020-12-17 17:39:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1656', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:48:12', '2020-12-17 17:48:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1657', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:48:21', '2020-12-17 17:48:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1658', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:48:45', '2020-12-17 17:48:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1659', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:49:56', '2020-12-17 17:49:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1660', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:58:24', '2020-12-17 17:58:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1661', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:58:37', '2020-12-17 17:58:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1662', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:58:40', '2020-12-17 17:58:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1663', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:58:51', '2020-12-17 17:58:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1664', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:58:53', '2020-12-17 17:58:53');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1665', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:59:18', '2020-12-17 17:59:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1666', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:59:20', '2020-12-17 17:59:20');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1667', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 17:59:51', '2020-12-17 17:59:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1668', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 17:59:54', '2020-12-17 17:59:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1669', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 18:00:10', '2020-12-17 18:00:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1670', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 18:00:12', '2020-12-17 18:00:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1671', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 18:01:03', '2020-12-17 18:01:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1672', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 18:01:05', '2020-12-17 18:01:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1673', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 18:01:40', '2020-12-17 18:01:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1674', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 18:01:42', '2020-12-17 18:01:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1675', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 18:01:57', '2020-12-17 18:01:57');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1676', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 18:02:00', '2020-12-17 18:02:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1677', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 18:03:11', '2020-12-17 18:03:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1678', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 18:03:13', '2020-12-17 18:03:13');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1679', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 18:04:40', '2020-12-17 18:04:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1680', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 18:04:43', '2020-12-17 18:04:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1681', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 18:05:13', '2020-12-17 18:05:13');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1682', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 18:05:15', '2020-12-17 18:05:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1683', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 18:13:07', '2020-12-17 18:13:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1684', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 18:13:10', '2020-12-17 18:13:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1685', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 18:13:26', '2020-12-17 18:13:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1686', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 18:13:29', '2020-12-17 18:13:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1687', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-17 18:20:36', '2020-12-17 18:20:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1688', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"3CuJulzaeoaDDb3JjHQQT5RZGvaYtm4O8MtSSPP3\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-17 18:20:43', '2020-12-17 18:20:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1689', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-18 09:06:51', '2020-12-18 09:06:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1690', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-18 09:06:54',
+        '2020-12-18 09:06:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1691', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:07:03', '2020-12-18 09:07:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1692', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:07:43', '2020-12-18 09:07:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1693', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:07:46', '2020-12-18 09:07:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1694', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"1\"}', '2020-12-18 09:07:52',
+        '2020-12-18 09:07:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1695', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:10:38', '2020-12-18 09:10:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1696', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:10:40', '2020-12-18 09:10:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1697', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"62\"}', '2020-12-18 09:10:47',
+        '2020-12-18 09:10:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1698', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:11:26', '2020-12-18 09:11:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1699', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:11:32', '2020-12-18 09:11:32');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1700', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"42\"}', '2020-12-18 09:11:36',
+        '2020-12-18 09:11:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1701', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:14:10', '2020-12-18 09:14:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1702', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:14:16', '2020-12-18 09:14:16');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1703', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"104\"}', '2020-12-18 09:14:24',
+        '2020-12-18 09:14:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1704', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:14:43', '2020-12-18 09:14:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1705', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:14:46', '2020-12-18 09:14:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1706', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"104\"}', '2020-12-18 09:14:49',
+        '2020-12-18 09:14:49');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1707', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":null}', '2020-12-18 09:16:24',
+        '2020-12-18 09:16:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1708', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:16:26', '2020-12-18 09:16:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1709', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:16:29', '2020-12-18 09:16:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1710', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"104\"}', '2020-12-18 09:16:33',
+        '2020-12-18 09:16:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1711', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"423\"}', '2020-12-18 09:16:43',
+        '2020-12-18 09:16:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1712', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:19:19', '2020-12-18 09:19:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1713', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:19:22', '2020-12-18 09:19:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1714', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"322\"}', '2020-12-18 09:19:25',
+        '2020-12-18 09:19:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1715', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"346\"}', '2020-12-18 09:19:27',
+        '2020-12-18 09:19:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1716', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"359\"}', '2020-12-18 09:20:02',
+        '2020-12-18 09:20:02');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1717', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"386\"}', '2020-12-18 09:20:17',
+        '2020-12-18 09:20:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1718', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":null}', '2020-12-18 09:20:32',
+        '2020-12-18 09:20:32');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1719', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:22:04', '2020-12-18 09:22:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1720', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:22:07', '2020-12-18 09:22:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1721', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"42\"}', '2020-12-18 09:22:11',
+        '2020-12-18 09:22:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1722', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"43\"}', '2020-12-18 09:22:15',
+        '2020-12-18 09:22:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1723', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"423\"}', '2020-12-18 09:23:25',
+        '2020-12-18 09:23:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1724', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"469\"}', '2020-12-18 09:23:31',
+        '2020-12-18 09:23:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1725', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"448\"}', '2020-12-18 09:23:37',
+        '2020-12-18 09:23:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1726', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:24:00', '2020-12-18 09:24:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1727', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:24:03', '2020-12-18 09:24:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1728', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"62\"}', '2020-12-18 09:24:07',
+        '2020-12-18 09:24:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1729', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"63\"}', '2020-12-18 09:24:10',
+        '2020-12-18 09:24:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1730', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:24:25', '2020-12-18 09:24:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1731', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:24:28', '2020-12-18 09:24:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1732', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"104\"}', '2020-12-18 09:24:31',
+        '2020-12-18 09:24:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1733', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"133\"}', '2020-12-18 09:24:34',
+        '2020-12-18 09:24:34');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1734', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":null}', '2020-12-18 09:24:51',
+        '2020-12-18 09:24:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1735', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"113\"}', '2020-12-18 09:24:59',
+        '2020-12-18 09:24:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1736', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":null}', '2020-12-18 09:25:45',
+        '2020-12-18 09:25:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1737', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"227\"}', '2020-12-18 09:25:50',
+        '2020-12-18 09:25:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1738', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"250\"}', '2020-12-18 09:25:52',
+        '2020-12-18 09:25:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1739', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:27:40', '2020-12-18 09:27:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1740', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:27:43', '2020-12-18 09:27:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1741', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"21\"}', '2020-12-18 09:27:47',
+        '2020-12-18 09:27:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1742', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"22\"}', '2020-12-18 09:27:49',
+        '2020-12-18 09:27:49');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1743', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:29:05', '2020-12-18 09:29:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1744', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:29:08', '2020-12-18 09:29:08');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1745', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"423\"}', '2020-12-18 09:29:13',
+        '2020-12-18 09:29:13');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1746', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"469\"}', '2020-12-18 09:29:16',
+        '2020-12-18 09:29:16');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1747', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"442\"}', '2020-12-18 09:29:21',
+        '2020-12-18 09:29:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1748', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"500\"}', '2020-12-18 09:29:25',
+        '2020-12-18 09:29:25');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1749', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"62\"}', '2020-12-18 09:29:28',
+        '2020-12-18 09:29:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1750', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"63\"}', '2020-12-18 09:29:30',
+        '2020-12-18 09:29:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1751', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":null}', '2020-12-18 09:29:33',
+        '2020-12-18 09:29:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1752', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:30:09', '2020-12-18 09:30:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1753', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:30:12', '2020-12-18 09:30:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1754', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"42\"}', '2020-12-18 09:30:15',
+        '2020-12-18 09:30:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1755', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"43\"}', '2020-12-18 09:30:17',
+        '2020-12-18 09:30:17');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1756', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"1\"}', '2020-12-18 09:30:19',
+        '2020-12-18 09:30:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1757', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"2\"}', '2020-12-18 09:30:21',
+        '2020-12-18 09:30:21');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1758', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":null}', '2020-12-18 09:30:22',
+        '2020-12-18 09:30:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1759', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"814\"}', '2020-12-18 09:30:27',
+        '2020-12-18 09:30:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1760', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"894\"}', '2020-12-18 09:30:30',
+        '2020-12-18 09:30:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1761', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:31:19', '2020-12-18 09:31:19');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1762', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:31:22', '2020-12-18 09:31:22');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1763', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:32:07', '2020-12-18 09:32:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1764', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 09:32:09', '2020-12-18 09:32:09');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1765', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"f28o1ldUnWYEj1BlEkqJKXM9oSwvaODg6XSaYgNX\",\"q\":\"62\"}', '2020-12-18 09:32:12',
+        '2020-12-18 09:32:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1766', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:36:38', '2020-12-18 09:36:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1767', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 09:36:52', '2020-12-18 09:36:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1768', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"_sort\":{\"column\":\"id\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2020-12-18 09:37:27',
+        '2020-12-18 09:37:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1769', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"_sort\":{\"column\":\"id\",\"type\":\"asc\"},\"_pjax\":\"#pjax-container\"}', '2020-12-18 09:37:29',
+        '2020-12-18 09:37:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1770', '1', 'admin/order/base', 'GET', '127.0.0.1',
+        '{\"_sort\":{\"column\":\"id\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2020-12-18 09:37:33',
+        '2020-12-18 09:37:33');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1771', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-18 16:50:28', '2020-12-18 16:50:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1772', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-18 16:53:12',
+        '2020-12-18 16:53:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1773', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 17:39:54', '2020-12-18 17:39:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1774', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"q\":\"21\"}', '2020-12-18 17:39:59',
+        '2020-12-18 17:39:59');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1775', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"q\":\"22\"}', '2020-12-18 17:40:01',
+        '2020-12-18 17:40:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1776', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":\"21\",\"input_city\":\"22\",\"input_area\":\"24\",\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 17:40:06', '2020-12-18 17:40:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1777', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-18 17:40:06',
+        '2020-12-18 17:40:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1778', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 17:41:07', '2020-12-18 17:41:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1779', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 17:41:10', '2020-12-18 17:41:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1780', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":null,\"input_city\":null,\"input_area\":null,\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 17:41:14', '2020-12-18 17:41:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1781', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-18 17:41:14',
+        '2020-12-18 17:41:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1782', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 17:41:38', '2020-12-18 17:41:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1783', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 17:41:40', '2020-12-18 17:41:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1784', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":null,\"input_city\":null,\"input_area\":null,\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 17:41:45', '2020-12-18 17:41:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1785', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-18 17:41:46',
+        '2020-12-18 17:41:46');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1786', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 17:42:06', '2020-12-18 17:42:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1787', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 17:42:10', '2020-12-18 17:42:10');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1788', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":null,\"input_city\":null,\"input_area\":null,\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 17:42:15', '2020-12-18 17:42:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1789', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-18 17:42:15',
+        '2020-12-18 17:42:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1790', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 17:42:50', '2020-12-18 17:42:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1791', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 17:42:52', '2020-12-18 17:42:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1792', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":null,\"input_city\":null,\"input_area\":null,\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 17:42:56', '2020-12-18 17:42:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1793', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-18 17:42:56',
+        '2020-12-18 17:42:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1794', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 17:43:12', '2020-12-18 17:43:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1795', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 17:43:14', '2020-12-18 17:43:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1796', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":null,\"input_city\":null,\"input_area\":null,\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 17:43:18', '2020-12-18 17:43:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1797', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-18 17:43:18',
+        '2020-12-18 17:43:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1798', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 17:43:26', '2020-12-18 17:43:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1799', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 17:43:28', '2020-12-18 17:43:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1800', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":null,\"input_city\":null,\"input_area\":null,\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 17:43:31', '2020-12-18 17:43:31');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1801', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-18 17:43:32',
+        '2020-12-18 17:43:32');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1802', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 17:44:37', '2020-12-18 17:44:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1803', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 17:44:41', '2020-12-18 17:44:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1804', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":null,\"input_city\":null,\"input_area\":null,\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 17:44:44', '2020-12-18 17:44:44');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1805', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 17:45:45', '2020-12-18 17:45:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1806', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 17:45:47', '2020-12-18 17:45:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1807', '1', 'admin/api/city', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"q\":\"42\"}', '2020-12-18 17:45:50',
+        '2020-12-18 17:45:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1808', '1', 'admin/api/area', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"q\":\"43\"}', '2020-12-18 17:45:51',
+        '2020-12-18 17:45:51');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1809', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":\"42\",\"input_city\":\"43\",\"input_area\":\"47\",\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 17:45:55', '2020-12-18 17:45:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1810', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":\"42\",\"input_city\":\"43\",\"input_area\":\"47\",\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 17:46:35', '2020-12-18 17:46:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1811', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":\"42\",\"input_city\":\"43\",\"input_area\":\"47\",\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 17:47:03', '2020-12-18 17:47:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1812', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-18 17:47:04',
+        '2020-12-18 17:47:04');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1813', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 18:17:56', '2020-12-18 18:17:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1814', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:18:03', '2020-12-18 18:18:03');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1815', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:18:06', '2020-12-18 18:18:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1816', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:18:27', '2020-12-18 18:18:27');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1817', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:23:56', '2020-12-18 18:23:56');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1818', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:24:14', '2020-12-18 18:24:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1819', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:24:23', '2020-12-18 18:24:23');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1820', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 18:27:41', '2020-12-18 18:27:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1821', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:27:43', '2020-12-18 18:27:43');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1822', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 18:28:36', '2020-12-18 18:28:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1823', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:28:39', '2020-12-18 18:28:39');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1824', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:29:14', '2020-12-18 18:29:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1825', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:29:40', '2020-12-18 18:29:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1826', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-18 18:33:45', '2020-12-18 18:33:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1827', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:33:47', '2020-12-18 18:33:47');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1828', '1', 'admin/api/order/address/update', 'POST', '127.0.0.1',
+        '{\"name\":\"\\u86c7\\u5f62\",\"mobile\":\"18825099088\",\"input_province\":\"42\",\"input_city\":\"43\",\"input_area\":\"47\",\"address_detail\":\"\\u6109\\u666f\\u5927\\u53a63\\u697c12\",\"orderno\":\"2020121021274000000129360\",\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\"}',
+        '2020-12-18 18:34:06', '2020-12-18 18:34:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1829', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-18 18:34:06',
+        '2020-12-18 18:34:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1830', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:34:08', '2020-12-18 18:34:08');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1831', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"pHGNTHA2AYmnsvPjo20ZhhJpcsG40KOhKTAkQMrN\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-18 18:34:14', '2020-12-18 18:34:14');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1832', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-22 13:31:50', '2020-12-22 13:31:50');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1833', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-22 13:32:07',
+        '2020-12-22 13:32:07');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1834', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"74blSU0Dv96kiRtiaWLvjks1NHgmvsTyvnJ99BWL\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-22 13:32:18', '2020-12-22 13:32:18');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1835', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"74blSU0Dv96kiRtiaWLvjks1NHgmvsTyvnJ99BWL\",\"orderno\":\"2020110247713000000116461\"}',
+        '2020-12-22 13:39:06', '2020-12-22 13:39:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1836', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"74blSU0Dv96kiRtiaWLvjks1NHgmvsTyvnJ99BWL\",\"orderno\":\"2020110273594000000196987\"}',
+        '2020-12-22 13:39:12', '2020-12-22 13:39:12');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1837', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"74blSU0Dv96kiRtiaWLvjks1NHgmvsTyvnJ99BWL\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-22 13:39:42', '2020-12-22 13:39:42');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1838', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"74blSU0Dv96kiRtiaWLvjks1NHgmvsTyvnJ99BWL\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 13:40:02', '2020-12-22 13:40:02');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1839', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"74blSU0Dv96kiRtiaWLvjks1NHgmvsTyvnJ99BWL\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-22 13:40:24', '2020-12-22 13:40:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1840', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-22 13:49:35', '2020-12-22 13:49:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1841', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"74blSU0Dv96kiRtiaWLvjks1NHgmvsTyvnJ99BWL\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-22 13:49:38', '2020-12-22 13:49:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1842', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"74blSU0Dv96kiRtiaWLvjks1NHgmvsTyvnJ99BWL\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 13:49:49', '2020-12-22 13:49:49');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1843', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-22 13:51:52', '2020-12-22 13:51:52');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1844', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"74blSU0Dv96kiRtiaWLvjks1NHgmvsTyvnJ99BWL\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 13:51:55', '2020-12-22 13:51:55');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1845', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-22 13:52:26', '2020-12-22 13:52:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1846', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"74blSU0Dv96kiRtiaWLvjks1NHgmvsTyvnJ99BWL\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 13:52:28', '2020-12-22 13:52:28');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1847', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-22 17:30:24', '2020-12-22 17:30:24');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1848', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-22 17:37:35',
+        '2020-12-22 17:37:35');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1849', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-22 17:37:41', '2020-12-22 17:37:41');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1850', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 17:37:53', '2020-12-22 17:37:53');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1851', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-22 17:38:05', '2020-12-22 17:38:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1852', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 17:38:13', '2020-12-22 17:38:13');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1853', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-22 17:39:26', '2020-12-22 17:39:26');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1854', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 17:39:29', '2020-12-22 17:39:29');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1855', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-22 17:40:01', '2020-12-22 17:40:01');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1856', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 17:40:05', '2020-12-22 17:40:05');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1857', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 17:40:11', '2020-12-22 17:40:11');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1858', '1', 'admin/api/order/price/update', 'POST', '127.0.0.1',
+        '{\"orderno\":\"2020121047873000000111915\",\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\"}',
+        '2020-12-22 17:40:30', '2020-12-22 17:40:30');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1859', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-22 17:42:00', '2020-12-22 17:42:00');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1860', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 17:42:06', '2020-12-22 17:42:06');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1861', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-22 17:42:38', '2020-12-22 17:42:38');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1862', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 17:42:40', '2020-12-22 17:42:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1863', '1', 'admin/order/base', 'GET', '127.0.0.1', '[]', '2020-12-22 17:44:37', '2020-12-22 17:44:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1864', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 17:44:40', '2020-12-22 17:44:40');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1865', '1', 'admin/api/order/price/update', 'POST', '127.0.0.1',
+        '{\"price\":\"3\",\"orderno\":\"2020121047873000000111915\",\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\"}',
+        '2020-12-22 17:44:45', '2020-12-22 17:44:45');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1866', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-22 17:44:49',
+        '2020-12-22 17:44:49');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1867', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\",\"orderno\":\"2020121047873000000111915\"}',
+        '2020-12-22 17:44:54', '2020-12-22 17:44:54');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1868', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"ndpVjWfDMtOXcQGiPIYY53OwhES0lyKd0kGPSkfz\",\"orderno\":\"2020112040191000000180649\"}',
+        '2020-12-22 17:47:37', '2020-12-22 17:47:37');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1869', '1', 'admin', 'GET', '127.0.0.1', '[]', '2020-12-23 10:55:15', '2020-12-23 10:55:15');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1870', '1', 'admin/order/base', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2020-12-23 10:55:36',
+        '2020-12-23 10:55:36');
+INSERT INTO `lied_admin_operation_log`
+VALUES ('1871', '1', 'admin/api/order/base', 'GET', '127.0.0.1',
+        '{\"_token\":\"WLgBVesNSMtooAjisCjs4SmAIvbNQps9HKTqd7jn\",\"orderno\":\"2020121021274000000129360\"}',
+        '2020-12-23 10:55:39', '2020-12-23 10:55:39');
 
 -- ----------------------------
 -- Table structure for `lied_admin_permissions`
@@ -1238,7 +3872,9 @@ CREATE TABLE `lied_admin_users` (
 -- ----------------------------
 -- Records of lied_admin_users
 -- ----------------------------
-INSERT INTO `lied_admin_users` VALUES ('1', 'admin', '$2y$10$7QvNbNNMgfrh8UmBcnhfdOJExSbF6jayvpFmBxf1JYWX/snjwc5Qi', 'Administrator', null, 'vhsnCXo1NJJGcQ5gERzZFHVJZ3lo3mhih2yqMBMydYA1fIWeJTgAgv07ZqCF', '2018-12-19 09:35:18', '2018-12-19 09:35:18');
+INSERT INTO `lied_admin_users`
+VALUES ('1', 'admin', '$2y$10$7QvNbNNMgfrh8UmBcnhfdOJExSbF6jayvpFmBxf1JYWX/snjwc5Qi', 'Administrator', null,
+        '2F11ZTwYT9VkJH2Q75TZqvtLY2lEMRzQB5FEAgq3IFLNLn9N5ywzVHgrsTuX', '2018-12-19 09:35:18', '2018-12-19 09:35:18');
 
 -- ----------------------------
 -- Table structure for `lied_admin_user_permissions`
@@ -1429,22 +4065,28 @@ CREATE TABLE `lied_brand_category` (
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_cart`;
 CREATE TABLE `lied_cart` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
-  `sku_id` int(11) unsigned NOT NULL COMMENT 'sku表主键id',
-  `number` int(4) unsigned NOT NULL COMMENT '产品书数量',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                           `id`          int(11) unsigned NOT NULL AUTO_INCREMENT,
+                           `user_id`     int(11) unsigned NOT NULL COMMENT '用户id',
+                           `product_id`  int(11) unsigned NOT NULL COMMENT '产品表id',
+                           `brand_id`    int(11) unsigned NOT NULL COMMENT '品牌表id',
+                           `sku_id`      int(11) unsigned NOT NULL COMMENT 'sku表主键id',
+                           `number`      int(4) unsigned NOT NULL COMMENT '产品数量',
+                           `is_selected` tinyint(1) unsigned DEFAULT '0' COMMENT '是否被选中',
+                           `created_at`  datetime DEFAULT NULL,
+                           `updated_at`  datetime DEFAULT NULL,
+                           `deleted_at`  datetime DEFAULT NULL,
+                           PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='购物车';
 
 -- ----------------------------
 -- Records of lied_cart
 -- ----------------------------
-INSERT INTO `lied_cart` VALUES ('1', '1', '9', '3', '2020-11-10 10:29:33', '2020-11-10 10:30:46', null);
-INSERT INTO `lied_cart` VALUES ('2', '1', '10', '1', '2020-11-10 10:33:39', '2020-11-10 11:18:20', '2020-11-10 11:18:20');
-INSERT INTO `lied_cart` VALUES ('3', '1', '10', '2', '2020-11-10 11:18:28', '2020-11-10 13:39:58', null);
+INSERT INTO `lied_cart`
+VALUES ('1', '1', '1', '2', '9', '3', '0', '2020-11-10 10:29:33', '2020-11-10 10:30:46', null);
+INSERT INTO `lied_cart`
+VALUES ('2', '1', '0', '0', '10', '1', '0', '2020-11-10 10:33:39', '2020-11-10 11:18:20', '2020-11-10 11:18:20');
+INSERT INTO `lied_cart`
+VALUES ('3', '1', '1', '2', '10', '1', '0', '2020-11-10 11:18:28', '2020-12-23 14:20:12', null);
 
 -- ----------------------------
 -- Table structure for `lied_comments`
@@ -2143,6 +4785,21 @@ INSERT INTO `lied_oauth_access_tokens` VALUES ('b48c3f9f643da82ea4ad36f4f2edd235
 INSERT INTO `lied_oauth_access_tokens` VALUES ('f713145bf7bcb6d8b7e0718e4ad54175c040e16a9d04851140206da12326c459fa87a0c6f61df3d6', '1', '5', null, '[]', '0', '2020-11-23 15:48:57', '2020-11-23 15:48:57', '2020-11-24 15:48:57');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('176a3aabf60bde35b04775d36bbbf0193c837509423440edf978aaf85eb29fcda8814bdaae45d802', '1', '5', null, '[]', '0', '2020-11-26 09:30:05', '2020-11-26 09:30:05', '2020-11-27 09:30:05');
 INSERT INTO `lied_oauth_access_tokens` VALUES ('5bba7eef70bf952d1b73b68b224727f40455f6fd7efac28fcdf598e78949862cba0907bc5ac17689', '1', '5', null, '[]', '0', '2020-11-27 16:53:10', '2020-11-27 16:53:10', '2020-11-28 16:53:09');
+INSERT INTO `lied_oauth_access_tokens`
+VALUES ('e818925ea2999649ae2793967e824fcb4dde1f62c41e3c8fa11eb7cef2a353bef8b88d3ada9c6a96', '1', '5', null, '[]', '0',
+        '2020-12-09 09:24:36', '2020-12-09 09:24:36', '2020-12-10 09:24:35');
+INSERT INTO `lied_oauth_access_tokens`
+VALUES ('b68f1c15399431b6042fccfe3a740daf10ba81fec56938e3a1d90d2615d461a4e7fe4b82a706510e', '1', '5', null, '[]', '0',
+        '2020-12-10 11:25:06', '2020-12-10 11:25:06', '2020-12-11 11:25:06');
+INSERT INTO `lied_oauth_access_tokens`
+VALUES ('c190097f67716538a061a0e2dbad5cdd39c9c5b9564f4fe39853136166dbcce5415f8deff3ed7bc9', '1', '5', null, '[]', '0',
+        '2020-12-23 10:38:16', '2020-12-23 10:38:16', '2020-12-24 10:38:14');
+INSERT INTO `lied_oauth_access_tokens`
+VALUES ('12fa06d7f2ecb957cc281f7b1134c234a034ce353c0a3064a06ae5c821b3708e676c75952c03bb65', '1', '5', null, '[]', '0',
+        '2020-12-23 10:44:32', '2020-12-23 10:44:32', '2020-12-24 10:44:32');
+INSERT INTO `lied_oauth_access_tokens`
+VALUES ('0352a6bc439720eadc1482e888a7e1b55ac64e3f30069f5db2a2c4bb57629ac4c3cc3f24ceaa8dc9', '1', '5', null, '[]', '0',
+        '2020-12-23 13:53:10', '2020-12-23 13:53:10', '2020-12-24 13:53:10');
 
 -- ----------------------------
 -- Table structure for `lied_oauth_auth_codes`
@@ -2375,53 +5032,92 @@ INSERT INTO `lied_oauth_refresh_tokens` VALUES ('a92f40deb865479ed2cb0790752e9fa
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('63d620b6f05d809dabf1ba4560071b6c5e25fc308eb0f1f27b80d9e5d0b2419741c4b4df0ef6f696', 'f713145bf7bcb6d8b7e0718e4ad54175c040e16a9d04851140206da12326c459fa87a0c6f61df3d6', '0', '2020-12-23 15:48:57');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('6e2cca8ff377a74e871a705de626c0d3ed5e903e568ceda5de63594247f9da68e50dfdc73923443e', '176a3aabf60bde35b04775d36bbbf0193c837509423440edf978aaf85eb29fcda8814bdaae45d802', '0', '2020-12-26 09:30:05');
 INSERT INTO `lied_oauth_refresh_tokens` VALUES ('64924696a5297a3a0c4107b269b239886278cda4e7f96e392c8f39a5ab8864d9104c9feaba4917a3', '5bba7eef70bf952d1b73b68b224727f40455f6fd7efac28fcdf598e78949862cba0907bc5ac17689', '0', '2020-12-27 16:53:09');
+INSERT INTO `lied_oauth_refresh_tokens`
+VALUES ('a788120f3a4afcdd6ea6c9ecaded536b8fc7eb43c5827508871bc620cd97268ac0be1c8e60f49248',
+        'e818925ea2999649ae2793967e824fcb4dde1f62c41e3c8fa11eb7cef2a353bef8b88d3ada9c6a96', '0', '2021-01-08 09:24:35');
+INSERT INTO `lied_oauth_refresh_tokens`
+VALUES ('2794056bd706e5d9c4a074e4683a9aaacf4f7cd9cdaa022e3ff5e1843622c5d5a8f6fef71471754e',
+        'b68f1c15399431b6042fccfe3a740daf10ba81fec56938e3a1d90d2615d461a4e7fe4b82a706510e', '0', '2021-01-09 11:25:06');
+INSERT INTO `lied_oauth_refresh_tokens`
+VALUES ('ea40860cbe0410c2759f3eac9b0cb78dc73d16b2d26020b3d572ca591bca5efc95e97f1520f88650',
+        'c190097f67716538a061a0e2dbad5cdd39c9c5b9564f4fe39853136166dbcce5415f8deff3ed7bc9', '0', '2021-01-22 10:38:14');
+INSERT INTO `lied_oauth_refresh_tokens`
+VALUES ('d6315a10fd38f8d65d38420534ebcffdfebd15707c81ad24bc52308c4c805f27964a6362233f9b5b',
+        '12fa06d7f2ecb957cc281f7b1134c234a034ce353c0a3064a06ae5c821b3708e676c75952c03bb65', '0', '2021-01-22 10:44:32');
+INSERT INTO `lied_oauth_refresh_tokens`
+VALUES ('43a89f0e0cdbdac3bcd20819294041b48244524abe4c73821bad00fb728fc07bd6a8b30eb9a8684a',
+        '0352a6bc439720eadc1482e888a7e1b55ac64e3f30069f5db2a2c4bb57629ac4c3cc3f24ceaa8dc9', '0', '2021-01-22 13:53:10');
 
 -- ----------------------------
 -- Table structure for `lied_order`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_order`;
-CREATE TABLE `lied_order` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `base_id` int(11) unsigned NOT NULL COMMENT '订单基础表id',
-  `brand_id` int(11) unsigned NOT NULL COMMENT '商家id',
-  `message` varchar(255) DEFAULT NULL COMMENT '用户留言',
-  `order_type` tinyint(1) unsigned NOT NULL COMMENT '订单类型',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `order-base_id` (`base_id`),
-  CONSTRAINT `order-base_id` FOREIGN KEY (`base_id`) REFERENCES `lied_order_base` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='单商家订单表';
+CREATE TABLE `lied_order`(
+                           `id`                  int(11) unsigned NOT NULL AUTO_INCREMENT,
+                           `base_id`             int(11) unsigned NOT NULL COMMENT '订单基础表id',
+                           `brand_id`            int(11) unsigned NOT NULL COMMENT '商家id',
+                           `shipping_address_id` int(11) unsigned DEFAULT NULL COMMENT '配送地址表id',
+                           `message`             varchar(255) DEFAULT NULL COMMENT '用户留言',
+                           `order_type`          tinyint(1) unsigned NOT NULL COMMENT '订单类型',
+                           `created_at`          datetime DEFAULT NULL,
+                           `updated_at`          datetime DEFAULT NULL,
+                           `deleted_at`          datetime DEFAULT NULL,
+                           PRIMARY KEY (`id`),
+                           KEY                   `order-base_id` (`base_id`),
+                           CONSTRAINT `order-base_id` FOREIGN KEY (`base_id`) REFERENCES `lied_order_base` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='单商家订单表';
 
 -- ----------------------------
 -- Records of lied_order
 -- ----------------------------
-INSERT INTO `lied_order` VALUES ('1', '2', '2', null, '0', '2020-10-14 11:28:58', '2020-10-14 11:28:58', null);
-INSERT INTO `lied_order` VALUES ('2', '3', '2', null, '0', '2020-10-14 11:31:45', '2020-10-14 11:31:45', null);
-INSERT INTO `lied_order` VALUES ('3', '4', '2', null, '0', '2020-10-14 11:36:53', '2020-10-14 11:36:53', null);
-INSERT INTO `lied_order` VALUES ('4', '6', '2', null, '0', '2020-10-14 11:41:38', '2020-10-14 11:41:38', null);
-INSERT INTO `lied_order` VALUES ('5', '7', '2', null, '0', '2020-10-14 11:41:57', '2020-10-14 11:41:57', null);
-INSERT INTO `lied_order` VALUES ('6', '8', '2', null, '0', '2020-10-14 11:42:17', '2020-10-14 11:42:17', null);
-INSERT INTO `lied_order` VALUES ('7', '9', '2', null, '0', '2020-10-14 11:42:39', '2020-10-14 11:42:39', null);
-INSERT INTO `lied_order` VALUES ('8', '10', '2', null, '0', '2020-10-14 11:43:30', '2020-10-14 11:43:30', null);
-INSERT INTO `lied_order` VALUES ('9', '11', '2', null, '0', '2020-10-14 11:43:52', '2020-10-14 11:43:52', null);
-INSERT INTO `lied_order` VALUES ('10', '13', '2', null, '0', '2020-11-02 14:29:20', '2020-11-02 14:29:20', null);
-INSERT INTO `lied_order` VALUES ('11', '14', '2', null, '0', '2020-11-02 14:46:53', '2020-11-02 14:46:53', null);
-INSERT INTO `lied_order` VALUES ('12', '15', '2', null, '0', '2020-11-02 14:48:18', '2020-11-02 14:48:18', null);
-INSERT INTO `lied_order` VALUES ('13', '16', '2', null, '0', '2020-11-02 14:53:21', '2020-11-02 14:53:21', null);
-INSERT INTO `lied_order` VALUES ('14', '17', '2', null, '0', '2020-11-02 14:53:31', '2020-11-02 14:53:31', null);
-INSERT INTO `lied_order` VALUES ('15', '18', '2', null, '0', '2020-11-02 15:04:09', '2020-11-02 15:04:09', null);
-INSERT INTO `lied_order` VALUES ('16', '19', '2', null, '0', '2020-11-02 15:20:03', '2020-11-02 15:20:03', null);
-INSERT INTO `lied_order` VALUES ('17', '20', '2', null, '0', '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
-INSERT INTO `lied_order` VALUES ('18', '21', '2', null, '0', '2020-11-05 08:58:31', '2020-11-05 08:58:31', null);
-INSERT INTO `lied_order` VALUES ('24', '27', '2', null, '0', '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
+INSERT INTO `lied_order`
+VALUES ('1', '2', '2', '26', null, '0', '2020-10-14 11:28:58', '2020-10-14 11:28:58', null);
+INSERT INTO `lied_order`
+VALUES ('2', '3', '2', '26', null, '0', '2020-10-14 11:31:45', '2020-10-14 11:31:45', null);
+INSERT INTO `lied_order`
+VALUES ('3', '4', '2', '26', null, '0', '2020-10-14 11:36:53', '2020-10-14 11:36:53', null);
+INSERT INTO `lied_order`
+VALUES ('4', '6', '2', '26', null, '0', '2020-10-14 11:41:38', '2020-10-14 11:41:38', null);
+INSERT INTO `lied_order`
+VALUES ('5', '7', '2', '26', null, '0', '2020-10-14 11:41:57', '2020-10-14 11:41:57', null);
+INSERT INTO `lied_order`
+VALUES ('6', '8', '2', '26', null, '0', '2020-10-14 11:42:17', '2020-10-14 11:42:17', null);
+INSERT INTO `lied_order`
+VALUES ('7', '9', '2', '26', null, '0', '2020-10-14 11:42:39', '2020-10-14 11:42:39', null);
+INSERT INTO `lied_order`
+VALUES ('8', '10', '2', '26', null, '0', '2020-10-14 11:43:30', '2020-10-14 11:43:30', null);
+INSERT INTO `lied_order`
+VALUES ('9', '11', '2', '26', null, '0', '2020-10-14 11:43:52', '2020-10-14 11:43:52', null);
+INSERT INTO `lied_order`
+VALUES ('10', '13', '2', '26', null, '0', '2020-11-02 14:29:20', '2020-11-02 14:29:20', null);
+INSERT INTO `lied_order`
+VALUES ('11', '14', '2', '26', null, '0', '2020-11-02 14:46:53', '2020-11-02 14:46:53', null);
+INSERT INTO `lied_order`
+VALUES ('12', '15', '2', '26', null, '0', '2020-11-02 14:48:18', '2020-11-02 14:48:18', null);
+INSERT INTO `lied_order`
+VALUES ('13', '16', '2', '26', null, '0', '2020-11-02 14:53:21', '2020-11-02 14:53:21', null);
+INSERT INTO `lied_order`
+VALUES ('14', '17', '2', '26', null, '0', '2020-11-02 14:53:31', '2020-11-02 14:53:31', null);
+INSERT INTO `lied_order`
+VALUES ('15', '18', '2', '26', null, '0', '2020-11-02 15:04:09', '2020-11-02 15:04:09', null);
+INSERT INTO `lied_order`
+VALUES ('16', '19', '2', '26', null, '0', '2020-11-02 15:20:03', '2020-11-02 15:20:03', null);
+INSERT INTO `lied_order`
+VALUES ('17', '20', '2', '26', null, '0', '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
+INSERT INTO `lied_order`
+VALUES ('18', '21', '2', '26', null, '0', '2020-11-05 08:58:31', '2020-11-05 08:58:31', null);
+INSERT INTO `lied_order`
+VALUES ('24', '27', '2', '26', null, '0', '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
+INSERT INTO `lied_order`
+VALUES ('25', '28', '2', '26', null, '0', '2020-12-10 11:26:05', '2020-12-10 11:26:05', null);
+INSERT INTO `lied_order`
+VALUES ('26', '29', '2', '26', null, '0', '2020-12-10 11:29:29', '2020-12-10 11:29:29', null);
 
 -- ----------------------------
 -- Table structure for `lied_order_base`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_order_base`;
-CREATE TABLE `lied_order_base` (
+CREATE TABLE `lied_order_base`(
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `orderno` varchar(64) NOT NULL COMMENT '订单流水号',
   `paidno` varchar(64) DEFAULT NULL COMMENT '支付流水号',
@@ -2436,7 +5132,7 @@ CREATE TABLE `lied_order_base` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COMMENT='订单基础表';
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='订单基础表';
 
 -- ----------------------------
 -- Records of lied_order_base
@@ -2460,12 +5156,18 @@ INSERT INTO `lied_order_base` VALUES ('19', '2020110269990000000117090', null, '
 INSERT INTO `lied_order_base` VALUES ('20', '2020110273594000000196987', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
 INSERT INTO `lied_order_base` VALUES ('21', '2020110533221000000150163', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-05 08:58:31', '2020-11-05 08:58:31', null);
 INSERT INTO `lied_order_base` VALUES ('27', '2020112040191000000180649', null, '1', '2.00', '0.00', null, '0', '0', '0', '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
+INSERT INTO `lied_order_base`
+VALUES ('28', '2020121047873000000111915', null, '1', '3.00', '0.00', null, '0', '0', '0', '2020-12-10 11:26:04',
+        '2020-12-22 17:44:45', null);
+INSERT INTO `lied_order_base`
+VALUES ('29', '2020121021274000000129360', null, '1', '2.00', '0.00', null, '1', '1', '0', '2020-12-10 11:29:29',
+        '2020-12-17 16:28:10', null);
 
 -- ----------------------------
 -- Table structure for `lied_order_child`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_order_child`;
-CREATE TABLE `lied_order_child` (
+CREATE TABLE `lied_order_child`(
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `base_id` int(11) unsigned NOT NULL COMMENT '订单基础表id',
   `order_id` int(11) unsigned NOT NULL COMMENT '订单id',
@@ -2483,7 +5185,7 @@ CREATE TABLE `lied_order_child` (
   KEY `order_child-order_id` (`order_id`),
   CONSTRAINT `order_child-base_id` FOREIGN KEY (`base_id`) REFERENCES `lied_order_base` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `order_child-order_id` FOREIGN KEY (`order_id`) REFERENCES `lied_order` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COMMENT='单产品订单表';
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COMMENT='单产品订单表';
 
 -- ----------------------------
 -- Records of lied_order_child
@@ -2526,6 +5228,38 @@ INSERT INTO `lied_order_child` VALUES ('35', '21', '18', '1', '10', '1.00', '0.0
 INSERT INTO `lied_order_child` VALUES ('36', '21', '18', '1', '9', '1.00', '0.00', '1', null, '2020-11-05 08:58:31', '2020-11-05 08:58:31', null);
 INSERT INTO `lied_order_child` VALUES ('44', '27', '24', '1', '10', '1.00', '0.00', '1', null, '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
 INSERT INTO `lied_order_child` VALUES ('45', '27', '24', '1', '9', '1.00', '0.00', '1', null, '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
+INSERT INTO `lied_order_child`
+VALUES ('46', '28', '25', '1', '10', '1.00', '0.00', '1', null, '2020-12-10 11:26:05', '2020-12-10 11:26:05', null);
+INSERT INTO `lied_order_child`
+VALUES ('47', '28', '25', '1', '9', '1.00', '0.00', '1', null, '2020-12-10 11:26:05', '2020-12-10 11:26:05', null);
+INSERT INTO `lied_order_child`
+VALUES ('48', '29', '26', '1', '10', '1.00', '0.00', '1', null, '2020-12-10 11:29:29', '2020-12-17 16:19:27', null);
+INSERT INTO `lied_order_child`
+VALUES ('49', '29', '26', '1', '9', '1.00', '0.00', '1', null, '2020-12-10 11:29:29', '2020-12-17 16:28:10', null);
+
+-- ----------------------------
+-- Table structure for `lied_order_delivery`
+-- ----------------------------
+DROP TABLE IF EXISTS `lied_order_delivery`;
+CREATE TABLE `lied_order_delivery`
+(
+  `id`         int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `delino`     varchar(64) NOT NULL COMMENT '发货单号',
+  `status`     tinyint(1) unsigned DEFAULT '0' COMMENT '物流状态',
+  `created_id` int(11) unsigned NOT NULL COMMENT '创建者id',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='发货订单';
+
+-- ----------------------------
+-- Records of lied_order_delivery
+-- ----------------------------
+INSERT INTO `lied_order_delivery`
+VALUES ('8', '1231231', '0', '1', '2020-12-17 16:19:27', '2020-12-17 16:19:27', null);
+INSERT INTO `lied_order_delivery`
+VALUES ('9', '123457', '0', '1', '2020-12-17 16:28:10', '2020-12-17 16:28:10', null);
 
 -- ----------------------------
 -- Table structure for `lied_password_resets`
@@ -2595,7 +5329,7 @@ CREATE TABLE `lied_payment_transactions` (
 -- Table structure for `lied_pay_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_pay_log`;
-CREATE TABLE `lied_pay_log` (
+CREATE TABLE `lied_pay_log`(
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `reqno` varchar(64) DEFAULT NULL COMMENT '请求流水号',
   `resno` varchar(64) DEFAULT NULL COMMENT '响应流水号',
@@ -2609,11 +5343,14 @@ CREATE TABLE `lied_pay_log` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单支付记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='订单支付记录表';
 
 -- ----------------------------
 -- Records of lied_pay_log
 -- ----------------------------
+INSERT INTO `lied_pay_log`
+VALUES ('1', null, null, '2020121021274000000129360', '2020121021274000000129361', '4.00', '1', '余额', '1',
+        '2020-12-11 15:47:52', '2020-12-11 15:47:55', null);
 
 -- ----------------------------
 -- Table structure for `lied_permissions`
@@ -2918,8 +5655,10 @@ CREATE TABLE `lied_product_sku_stock` (
 -- ----------------------------
 -- Records of lied_product_sku_stock
 -- ----------------------------
-INSERT INTO `lied_product_sku_stock` VALUES ('9', '1', '9', '9', '4', '2020-08-03 15:24:14', '2020-11-20 10:54:27', null);
-INSERT INTO `lied_product_sku_stock` VALUES ('10', '1', '10', '11', '4', '2020-08-03 15:24:14', '2020-11-20 10:54:27', null);
+INSERT INTO `lied_product_sku_stock`
+VALUES ('9', '1', '9', '7', '4', '2020-08-03 15:24:14', '2020-12-10 11:29:29', null);
+INSERT INTO `lied_product_sku_stock`
+VALUES ('10', '1', '10', '9', '4', '2020-08-03 15:24:14', '2020-12-10 11:29:29', null);
 INSERT INTO `lied_product_sku_stock` VALUES ('11', '1', '11', '3', '4', '2020-08-03 15:24:14', '2020-08-03 15:24:14', null);
 INSERT INTO `lied_product_sku_stock` VALUES ('12', '1', '12', '2', '4', '2020-08-03 15:24:14', '2020-08-03 15:38:42', '2020-08-03 15:38:42');
 INSERT INTO `lied_product_sku_stock` VALUES ('13', '1', '13', '4', '1', '2020-08-03 15:39:38', '2020-08-03 15:39:38', null);
@@ -6359,51 +9098,72 @@ CREATE TABLE `lied_settings` (
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_shipping_address`;
 CREATE TABLE `lied_shipping_address` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `order_base_id` int(11) unsigned NOT NULL COMMENT '订单基础id',
-  `name` varchar(16) NOT NULL COMMENT '收货人姓名',
-  `region_pid` int(11) unsigned NOT NULL COMMENT '省id',
-  `region_cid` int(11) unsigned NOT NULL COMMENT '市id',
-  `region_aid` int(11) unsigned NOT NULL COMMENT '区id',
-  `address` varchar(255) NOT NULL COMMENT '收货人地址',
-  `mobile` char(11) NOT NULL COMMENT '收货人手机号',
-  `code` char(6) DEFAULT NULL COMMENT '邮政编码',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `shipping_address-order_id` (`order_base_id`),
-  CONSTRAINT `shipping_address-order_id` FOREIGN KEY (`order_base_id`) REFERENCES `lied_order_base` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='配送地址表';
+                                       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                       `name` varchar(16) NOT NULL COMMENT '收货人姓名',
+                                       `region_pid` int(11) unsigned NOT NULL COMMENT '省id',
+                                       `region_cid` int(11) unsigned NOT NULL COMMENT '市id',
+                                       `region_aid` int(11) unsigned NOT NULL COMMENT '区id',
+                                       `address` varchar(255) NOT NULL COMMENT '收货人地址',
+                                       `mobile` char(11) NOT NULL COMMENT '收货人手机号',
+                                       `code` char(6) DEFAULT NULL COMMENT '邮政编码',
+                                       `created_at` datetime DEFAULT NULL,
+                                       `updated_at` datetime DEFAULT NULL,
+                                       `deleted_at` datetime DEFAULT NULL,
+                                       PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='配送地址表';
 
 -- ----------------------------
 -- Records of lied_shipping_address
 -- ----------------------------
-INSERT INTO `lied_shipping_address` VALUES ('1', '2', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:28:58', '2020-10-14 11:28:58', null);
-INSERT INTO `lied_shipping_address` VALUES ('2', '3', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:31:45', '2020-10-14 11:31:45', null);
-INSERT INTO `lied_shipping_address` VALUES ('3', '4', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:36:53', '2020-10-14 11:36:53', null);
-INSERT INTO `lied_shipping_address` VALUES ('4', '6', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:41:38', '2020-10-14 11:41:38', null);
-INSERT INTO `lied_shipping_address` VALUES ('5', '7', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:41:57', '2020-10-14 11:41:57', null);
-INSERT INTO `lied_shipping_address` VALUES ('6', '8', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:42:17', '2020-10-14 11:42:17', null);
-INSERT INTO `lied_shipping_address` VALUES ('7', '9', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:42:39', '2020-10-14 11:42:39', null);
-INSERT INTO `lied_shipping_address` VALUES ('8', '10', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:43:30', '2020-10-14 11:43:30', null);
-INSERT INTO `lied_shipping_address` VALUES ('9', '11', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:43:52', '2020-10-14 11:43:52', null);
-INSERT INTO `lied_shipping_address` VALUES ('10', '13', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 14:29:20', '2020-11-02 14:29:20', null);
-INSERT INTO `lied_shipping_address` VALUES ('11', '14', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 14:46:53', '2020-11-02 14:46:53', null);
-INSERT INTO `lied_shipping_address` VALUES ('12', '15', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 14:48:18', '2020-11-02 14:48:18', null);
-INSERT INTO `lied_shipping_address` VALUES ('13', '16', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 14:53:21', '2020-11-02 14:53:21', null);
-INSERT INTO `lied_shipping_address` VALUES ('14', '17', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 14:53:31', '2020-11-02 14:53:31', null);
-INSERT INTO `lied_shipping_address` VALUES ('15', '18', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 15:04:09', '2020-11-02 15:04:09', null);
-INSERT INTO `lied_shipping_address` VALUES ('16', '19', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 15:20:03', '2020-11-02 15:20:03', null);
-INSERT INTO `lied_shipping_address` VALUES ('17', '20', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
-INSERT INTO `lied_shipping_address` VALUES ('18', '21', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-05 08:58:31', '2020-11-05 08:58:31', null);
-INSERT INTO `lied_shipping_address` VALUES ('24', '27', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('1', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:28:58', '2020-10-14 11:28:58', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('2', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:31:45', '2020-10-14 11:31:45', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('3', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:36:53', '2020-10-14 11:36:53', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('4', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:41:38', '2020-10-14 11:41:38', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('5', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:41:57', '2020-10-14 11:41:57', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('6', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:42:17', '2020-10-14 11:42:17', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('7', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:42:39', '2020-10-14 11:42:39', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('8', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:43:30', '2020-10-14 11:43:30', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('9', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-10-14 11:43:52', '2020-10-14 11:43:52', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('10', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 14:29:20', '2020-11-02 14:29:20', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('11', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 14:46:53', '2020-11-02 14:46:53', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('12', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 14:48:18', '2020-11-02 14:48:18', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('13', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 14:53:21', '2020-11-02 14:53:21', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('14', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 14:53:31', '2020-11-02 14:53:31', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('15', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 15:04:09', '2020-11-02 15:04:09', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('16', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 15:20:03', '2020-11-02 15:20:03', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('17', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-02 17:12:09', '2020-11-02 17:12:09', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('18', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-05 08:58:31', '2020-11-05 08:58:31', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('24', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('25', '蛇形', '1', '2', '3', '愉景大厦3楼', '18825099088', null, '2020-12-10 11:26:05', '2020-12-10 11:26:05', null);
+INSERT INTO `lied_shipping_address`
+VALUES ('26', '蛇形', '42', '43', '47', '愉景大厦3楼12', '18825099088', null, '2020-12-10 11:29:29', '2020-12-18 18:34:06',
+        null);
 
 -- ----------------------------
 -- Table structure for `lied_snapshots`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_snapshots`;
-CREATE TABLE `lied_snapshots` (
+CREATE TABLE `lied_snapshots`(
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `type` tinyint(1) unsigned NOT NULL COMMENT '类型',
   `id_value` int(11) unsigned NOT NULL COMMENT '所属类型对应的id',
@@ -6412,12 +9172,15 @@ CREATE TABLE `lied_snapshots` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='快照记录';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='快照记录';
 
 -- ----------------------------
 -- Records of lied_snapshots
 -- ----------------------------
-INSERT INTO `lied_snapshots` VALUES ('1', '0', '27', '{\"sku_info\":{\"0\":{\"id\":10,\"product_id\":1,\"attr_key\":\"2-6\",\"media_id\":20,\"price\":\"1.00\",\"cost_price\":\"3.00\",\"sold_num\":0,\"code\":\"2\",\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-08-03 15:24:14\",\"deleted_at\":null,\"attr_values\":{\"2\":{\"id\":2,\"product_attr_id\":1,\"name\":\"绿\",\"sort\":0,\"created_at\":\"2020-08-03 15:10:58\",\"updated_at\":\"2020-08-03 15:10:58\",\"deleted_at\":null,\"attr\":{\"id\":1,\"name\":\"颜色\",\"sort\":0,\"created_at\":\"2020-08-03 15:10:28\",\"updated_at\":\"2020-08-03 15:10:28\",\"deleted_at\":null}},\"6\":{\"id\":6,\"product_attr_id\":2,\"name\":\"X\",\"sort\":0,\"created_at\":\"2020-08-03 15:12:20\",\"updated_at\":\"2020-08-03 15:12:20\",\"deleted_at\":null,\"attr\":{\"id\":2,\"name\":\"尺寸\",\"sort\":0,\"created_at\":\"2020-08-03 15:11:27\",\"updated_at\":\"2020-08-03 15:11:27\",\"deleted_at\":null}}},\"product\":{\"id\":1,\"name\":\"lied\",\"brand_id\":2,\"category_id\":1,\"virtual_quantity\":1,\"line_price\":\"112.00\",\"price\":\"1.00\",\"description\":\"1231\",\"content\":\"<p>12313<\\/p>\",\"is_real\":1,\"is_audit\":1,\"is_on_sale\":1,\"created_id\":1,\"sort\":99,\"created_at\":\"2020-08-03 10:43:33\",\"updated_at\":\"2020-08-24 16:26:50\",\"deleted_at\":null},\"stock\":{\"id\":10,\"product_id\":1,\"sku_id\":10,\"quantity\":12,\"warn_number\":4,\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-11-05 08:58:31\",\"deleted_at\":null}},\"1\":{\"id\":9,\"product_id\":1,\"attr_key\":\"3-6\",\"media_id\":20,\"price\":\"1.00\",\"cost_price\":\"3.00\",\"sold_num\":0,\"code\":\"1\",\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-08-03 15:24:14\",\"deleted_at\":null,\"attr_values\":{\"3\":{\"id\":3,\"product_attr_id\":1,\"name\":\"蓝\",\"sort\":0,\"created_at\":\"2020-08-03 15:11:09\",\"updated_at\":\"2020-08-03 15:11:09\",\"deleted_at\":null,\"attr\":{\"id\":1,\"name\":\"颜色\",\"sort\":0,\"created_at\":\"2020-08-03 15:10:28\",\"updated_at\":\"2020-08-03 15:10:28\",\"deleted_at\":null}},\"6\":{\"id\":6,\"product_attr_id\":2,\"name\":\"X\",\"sort\":0,\"created_at\":\"2020-08-03 15:12:20\",\"updated_at\":\"2020-08-03 15:12:20\",\"deleted_at\":null,\"attr\":{\"id\":2,\"name\":\"尺寸\",\"sort\":0,\"created_at\":\"2020-08-03 15:11:27\",\"updated_at\":\"2020-08-03 15:11:27\",\"deleted_at\":null}}},\"product\":{\"id\":1,\"name\":\"lied\",\"brand_id\":2,\"category_id\":1,\"virtual_quantity\":1,\"line_price\":\"112.00\",\"price\":\"1.00\",\"description\":\"1231\",\"content\":\"<p>12313<\\/p>\",\"is_real\":1,\"is_audit\":1,\"is_on_sale\":1,\"created_id\":1,\"sort\":99,\"created_at\":\"2020-08-03 10:43:33\",\"updated_at\":\"2020-08-24 16:26:50\",\"deleted_at\":null},\"stock\":{\"id\":9,\"product_id\":1,\"sku_id\":9,\"quantity\":10,\"warn_number\":4,\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-11-05 08:58:31\",\"deleted_at\":null}}},\"order_base\":{\"orderno\":\"2020112040191000000180649\",\"user_id\":1,\"price\":\"2.00\",\"pay_price\":null,\"order_status\":0,\"pay_status\":0,\"source\":0},\"order\":{\"base_id\":27,\"brand_id\":2,\"message\":null,\"order_type\":0},\"shipping_address\":{\"order_base_id\":27,\"name\":\"蛇形\",\"region_pid\":1,\"region_cid\":2,\"region_aid\":3,\"address\":\"愉景大厦3楼\",\"mobile\":\"18825099088\",\"code\":null},\"order_child\":{\"0\":{\"product_id\":1,\"sku_id\":10,\"product_price\":\"1.00\",\"number\":\"1\",\"order_id\":24,\"base_id\":27},\"1\":{\"product_id\":1,\"sku_id\":9,\"product_price\":\"1.00\",\"number\":\"1\",\"order_id\":24,\"base_id\":27}}}', '2020-11-20 10:54:27', '2020-11-20 10:54:27', null);
+INSERT INTO `lied_snapshots`
+VALUES ('3', '0', '29',
+        '{\"sku_info\":{\"0\":{\"id\":10,\"product_id\":1,\"attr_key\":\"2-6\",\"media_id\":20,\"price\":\"1.00\",\"cost_price\":\"3.00\",\"sold_num\":0,\"code\":\"2\",\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-08-03 15:24:14\",\"deleted_at\":null,\"attr_values\":{\"2\":{\"id\":2,\"product_attr_id\":1,\"name\":\"绿\",\"sort\":0,\"created_at\":\"2020-08-03 15:10:58\",\"updated_at\":\"2020-08-03 15:10:58\",\"deleted_at\":null,\"attr\":{\"id\":1,\"name\":\"颜色\",\"sort\":0,\"created_at\":\"2020-08-03 15:10:28\",\"updated_at\":\"2020-08-03 15:10:28\",\"deleted_at\":null}},\"6\":{\"id\":6,\"product_attr_id\":2,\"name\":\"X\",\"sort\":0,\"created_at\":\"2020-08-03 15:12:20\",\"updated_at\":\"2020-08-03 15:12:20\",\"deleted_at\":null,\"attr\":{\"id\":2,\"name\":\"尺寸\",\"sort\":0,\"created_at\":\"2020-08-03 15:11:27\",\"updated_at\":\"2020-08-03 15:11:27\",\"deleted_at\":null}}},\"product\":{\"id\":1,\"name\":\"lied\",\"brand_id\":2,\"category_id\":1,\"virtual_quantity\":1,\"line_price\":\"112.00\",\"price\":\"1.00\",\"description\":\"1231\",\"content\":\"<p>12313<\\/p>\",\"is_real\":1,\"is_audit\":1,\"is_on_sale\":1,\"created_id\":1,\"sort\":99,\"created_at\":\"2020-08-03 10:43:33\",\"updated_at\":\"2020-08-24 16:26:50\",\"deleted_at\":null,\"medias\":{\"0\":{\"id\":18,\"product_id\":1,\"media_id\":13,\"sort\":3,\"created_at\":\"2020-08-03 11:51:46\",\"updated_at\":\"2020-08-03 11:51:46\",\"deleted_at\":null,\"media\":{\"id\":13,\"type\":1,\"link\":\"http:\\/\\/www.lied.com\\/uploads\\/images\\/product_picture\\/20200803\\/f41845d89051a1934ca1c3579187ca82.png\",\"rlink\":\"0\",\"size\":327,\"file_ext\":\"png\",\"file_name\":\"f41845d89051a1934ca1c3579187ca82.png\",\"is_lock\":0,\"is_show\":1,\"created_at\":\"2020-08-03 11:07:25\",\"updated_at\":\"2020-08-03 11:07:25\",\"deleted_at\":null}},\"1\":{\"id\":22,\"product_id\":1,\"media_id\":14,\"sort\":2,\"created_at\":\"2020-08-03 11:56:25\",\"updated_at\":\"2020-08-03 11:56:25\",\"deleted_at\":null,\"media\":{\"id\":14,\"type\":1,\"link\":\"http:\\/\\/www.lied.com\\/uploads\\/images\\/product_picture\\/20200803\\/1a1b7ce1c1979509636b599f58cf0ca3.png\",\"rlink\":\"0\",\"size\":279,\"file_ext\":\"png\",\"file_name\":\"1a1b7ce1c1979509636b599f58cf0ca3.png\",\"is_lock\":0,\"is_show\":1,\"created_at\":\"2020-08-03 11:09:52\",\"updated_at\":\"2020-08-03 11:09:52\",\"deleted_at\":null}},\"2\":{\"id\":24,\"product_id\":1,\"media_id\":12,\"sort\":1,\"created_at\":\"2020-08-03 11:56:25\",\"updated_at\":\"2020-08-03 11:56:54\",\"deleted_at\":null,\"media\":{\"id\":12,\"type\":1,\"link\":\"http:\\/\\/www.lied.com\\/uploads\\/images\\/product_picture\\/20200803\\/4ea63c55428a214edca940aa511691af.jpeg\",\"rlink\":\"0\",\"size\":365,\"file_ext\":\"jpeg\",\"file_name\":\"4ea63c55428a214edca940aa511691af.jpeg\",\"is_lock\":0,\"is_show\":1,\"created_at\":\"2020-08-03 11:07:25\",\"updated_at\":\"2020-08-03 11:07:25\",\"deleted_at\":null}},\"3\":{\"id\":23,\"product_id\":1,\"media_id\":11,\"sort\":0,\"created_at\":\"2020-08-03 11:56:25\",\"updated_at\":\"2020-08-03 11:56:54\",\"deleted_at\":null,\"media\":{\"id\":11,\"type\":1,\"link\":\"http:\\/\\/www.lied.com\\/uploads\\/images\\/product_picture\\/20200803\\/8f07bb6bbd65489d0dd5564253623664.jpeg\",\"rlink\":\"0\",\"size\":22,\"file_ext\":\"jpeg\",\"file_name\":\"8f07bb6bbd65489d0dd5564253623664.jpeg\",\"is_lock\":0,\"is_show\":1,\"created_at\":\"2020-08-03 11:07:25\",\"updated_at\":\"2020-08-03 11:07:25\",\"deleted_at\":null}}}},\"stock\":{\"id\":10,\"product_id\":1,\"sku_id\":10,\"quantity\":10,\"warn_number\":4,\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-12-10 11:26:05\",\"deleted_at\":null},\"media\":{\"id\":20,\"type\":1,\"link\":\"http:\\/\\/www.lied.com\\/uploads\\/images\\/sku\\/20200803\\/68562cb301eeae026614cc842a4e6a2f.jpeg\",\"rlink\":\"0\",\"size\":365,\"file_ext\":\"jpeg\",\"file_name\":\"68562cb301eeae026614cc842a4e6a2f.jpeg\",\"is_lock\":0,\"is_show\":1,\"created_at\":\"2020-08-03 15:20:48\",\"updated_at\":\"2020-08-03 15:20:48\",\"deleted_at\":null}},\"1\":{\"id\":9,\"product_id\":1,\"attr_key\":\"3-6\",\"media_id\":20,\"price\":\"1.00\",\"cost_price\":\"3.00\",\"sold_num\":0,\"code\":\"1\",\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-08-03 15:24:14\",\"deleted_at\":null,\"attr_values\":{\"3\":{\"id\":3,\"product_attr_id\":1,\"name\":\"蓝\",\"sort\":0,\"created_at\":\"2020-08-03 15:11:09\",\"updated_at\":\"2020-08-03 15:11:09\",\"deleted_at\":null,\"attr\":{\"id\":1,\"name\":\"颜色\",\"sort\":0,\"created_at\":\"2020-08-03 15:10:28\",\"updated_at\":\"2020-08-03 15:10:28\",\"deleted_at\":null}},\"6\":{\"id\":6,\"product_attr_id\":2,\"name\":\"X\",\"sort\":0,\"created_at\":\"2020-08-03 15:12:20\",\"updated_at\":\"2020-08-03 15:12:20\",\"deleted_at\":null,\"attr\":{\"id\":2,\"name\":\"尺寸\",\"sort\":0,\"created_at\":\"2020-08-03 15:11:27\",\"updated_at\":\"2020-08-03 15:11:27\",\"deleted_at\":null}}},\"product\":{\"id\":1,\"name\":\"lied\",\"brand_id\":2,\"category_id\":1,\"virtual_quantity\":1,\"line_price\":\"112.00\",\"price\":\"1.00\",\"description\":\"1231\",\"content\":\"<p>12313<\\/p>\",\"is_real\":1,\"is_audit\":1,\"is_on_sale\":1,\"created_id\":1,\"sort\":99,\"created_at\":\"2020-08-03 10:43:33\",\"updated_at\":\"2020-08-24 16:26:50\",\"deleted_at\":null,\"medias\":{\"0\":{\"id\":18,\"product_id\":1,\"media_id\":13,\"sort\":3,\"created_at\":\"2020-08-03 11:51:46\",\"updated_at\":\"2020-08-03 11:51:46\",\"deleted_at\":null,\"media\":{\"id\":13,\"type\":1,\"link\":\"http:\\/\\/www.lied.com\\/uploads\\/images\\/product_picture\\/20200803\\/f41845d89051a1934ca1c3579187ca82.png\",\"rlink\":\"0\",\"size\":327,\"file_ext\":\"png\",\"file_name\":\"f41845d89051a1934ca1c3579187ca82.png\",\"is_lock\":0,\"is_show\":1,\"created_at\":\"2020-08-03 11:07:25\",\"updated_at\":\"2020-08-03 11:07:25\",\"deleted_at\":null}},\"1\":{\"id\":22,\"product_id\":1,\"media_id\":14,\"sort\":2,\"created_at\":\"2020-08-03 11:56:25\",\"updated_at\":\"2020-08-03 11:56:25\",\"deleted_at\":null,\"media\":{\"id\":14,\"type\":1,\"link\":\"http:\\/\\/www.lied.com\\/uploads\\/images\\/product_picture\\/20200803\\/1a1b7ce1c1979509636b599f58cf0ca3.png\",\"rlink\":\"0\",\"size\":279,\"file_ext\":\"png\",\"file_name\":\"1a1b7ce1c1979509636b599f58cf0ca3.png\",\"is_lock\":0,\"is_show\":1,\"created_at\":\"2020-08-03 11:09:52\",\"updated_at\":\"2020-08-03 11:09:52\",\"deleted_at\":null}},\"2\":{\"id\":24,\"product_id\":1,\"media_id\":12,\"sort\":1,\"created_at\":\"2020-08-03 11:56:25\",\"updated_at\":\"2020-08-03 11:56:54\",\"deleted_at\":null,\"media\":{\"id\":12,\"type\":1,\"link\":\"http:\\/\\/www.lied.com\\/uploads\\/images\\/product_picture\\/20200803\\/4ea63c55428a214edca940aa511691af.jpeg\",\"rlink\":\"0\",\"size\":365,\"file_ext\":\"jpeg\",\"file_name\":\"4ea63c55428a214edca940aa511691af.jpeg\",\"is_lock\":0,\"is_show\":1,\"created_at\":\"2020-08-03 11:07:25\",\"updated_at\":\"2020-08-03 11:07:25\",\"deleted_at\":null}},\"3\":{\"id\":23,\"product_id\":1,\"media_id\":11,\"sort\":0,\"created_at\":\"2020-08-03 11:56:25\",\"updated_at\":\"2020-08-03 11:56:54\",\"deleted_at\":null,\"media\":{\"id\":11,\"type\":1,\"link\":\"http:\\/\\/www.lied.com\\/uploads\\/images\\/product_picture\\/20200803\\/8f07bb6bbd65489d0dd5564253623664.jpeg\",\"rlink\":\"0\",\"size\":22,\"file_ext\":\"jpeg\",\"file_name\":\"8f07bb6bbd65489d0dd5564253623664.jpeg\",\"is_lock\":0,\"is_show\":1,\"created_at\":\"2020-08-03 11:07:25\",\"updated_at\":\"2020-08-03 11:07:25\",\"deleted_at\":null}}}},\"stock\":{\"id\":9,\"product_id\":1,\"sku_id\":9,\"quantity\":8,\"warn_number\":4,\"created_at\":\"2020-08-03 15:24:14\",\"updated_at\":\"2020-12-10 11:26:05\",\"deleted_at\":null},\"media\":{\"id\":20,\"type\":1,\"link\":\"http:\\/\\/www.lied.com\\/uploads\\/images\\/sku\\/20200803\\/68562cb301eeae026614cc842a4e6a2f.jpeg\",\"rlink\":\"0\",\"size\":365,\"file_ext\":\"jpeg\",\"file_name\":\"68562cb301eeae026614cc842a4e6a2f.jpeg\",\"is_lock\":0,\"is_show\":1,\"created_at\":\"2020-08-03 15:20:48\",\"updated_at\":\"2020-08-03 15:20:48\",\"deleted_at\":null}}},\"order_base\":{\"orderno\":\"2020121021274000000129360\",\"user_id\":1,\"price\":\"2.00\",\"pay_price\":null,\"order_status\":0,\"pay_status\":0,\"source\":0},\"order\":{\"base_id\":29,\"brand_id\":2,\"message\":null,\"order_type\":0},\"shipping_address\":{\"order_base_id\":29,\"name\":\"蛇形\",\"region_pid\":1,\"region_cid\":2,\"region_aid\":3,\"address\":\"愉景大厦3楼\",\"mobile\":\"18825099088\",\"code\":null},\"order_child\":{\"0\":{\"product_id\":1,\"sku_id\":10,\"product_price\":\"1.00\",\"number\":\"1\",\"order_id\":26,\"base_id\":29},\"1\":{\"product_id\":1,\"sku_id\":9,\"product_price\":\"1.00\",\"number\":\"1\",\"order_id\":26,\"base_id\":29}}}',
+        '2020-12-10 11:29:29', '2020-12-10 11:29:29', null);
 
 -- ----------------------------
 -- Table structure for `lied_stripe_accounts`
@@ -6606,7 +9369,7 @@ CREATE TABLE `lied_user_oauth` (
 -- Table structure for `lied_verify_code`
 -- ----------------------------
 DROP TABLE IF EXISTS `lied_verify_code`;
-CREATE TABLE `lied_verify_code` (
+CREATE TABLE `lied_verify_code`(
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `account` varchar(32) NOT NULL COMMENT '账户',
   `type` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '类型 0-手机 1-邮箱',
@@ -6618,7 +9381,7 @@ CREATE TABLE `lied_verify_code` (
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `verify_code-mobile-normal` (`account`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lied_verify_code
@@ -6642,3 +9405,6 @@ INSERT INTO `lied_verify_code` VALUES ('50', '18825099087', '0', '594637', '0', 
 INSERT INTO `lied_verify_code` VALUES ('51', '18825099087', '0', '496224', '0', '1', '2020-08-21 16:13:42', '2020-08-21 16:13:42', '2020-08-21 16:13:51');
 INSERT INTO `lied_verify_code` VALUES ('52', '18825099087', '0', '681492', '0', '1', '2020-08-21 16:19:44', '2020-08-21 16:19:44', '2020-08-21 16:19:54');
 INSERT INTO `lied_verify_code` VALUES ('53', '18825099087', '0', '490821', '0', '0', '2020-09-30 11:11:02', '2020-09-30 11:11:02', null);
+INSERT INTO `lied_verify_code`
+VALUES ('54', '18825099087', '0', '840271', '0', '1', '2020-12-23 10:38:04', '2020-12-23 10:38:16',
+        '2020-12-23 10:38:16');

@@ -1,0 +1,39 @@
+ALTER TABLE `lied_shipping_address` DROP FOREIGN KEY `shipping_address-order_id`;
+
+
+ALTER TABLE `lied_shipping_address`
+DROP COLUMN `order_base_id`;
+
+
+
+ALTER TABLE `lied_order`
+ADD COLUMN `shipping_address_id`  int(11) UNSIGNED NULL COMMENT '配送地址表id' AFTER `brand_id`;
+
+
+CREATE TABLE `lied_order_delivery` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `delino` varchar(64) NOT NULL COMMENT '发货单号',
+  `shipping_id` int(11) unsigned DEFAULT NULL COMMENT '配送物流id',
+  `status` tinyint(1) unsigned DEFAULT '0' COMMENT '物流状态',
+  `created_id` int(11) unsigned NOT NULL COMMENT '创建者id',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='发货订单';
+
+
+
+
+ALTER TABLE `lied_cart`
+ADD COLUMN `product_id`  int(11) UNSIGNED NOT NULL COMMENT '产品表id' AFTER `user_id`,
+ADD COLUMN `brand_id`  int(11) UNSIGNED NOT NULL COMMENT '品牌表id' AFTER `product_id`;
+
+
+
+
+ALTER TABLE `lied_cart`
+MODIFY COLUMN `number`  int(4) UNSIGNED NOT NULL COMMENT '产品数量' AFTER `sku_id`,
+ADD COLUMN `is_selected`  tinyint(1) UNSIGNED NULL DEFAULT 0 COMMENT '是否被选中' AFTER `number`;
+
+
