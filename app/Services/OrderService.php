@@ -155,7 +155,7 @@ class OrderService extends BaseService
                 ->where('delivery_id')
                 ->count();
             $order_status = empty($not_delivery_count)
-                ? OrderBase::ORDER_STATUS_WAIT_DELIVERED
+                ? OrderBase::ORDER_STATUS_WAIT_TAKE
                 : OrderBase::ORDER_STATUS_WAIT_PART_DELIVERY;
             // 采用乐观锁
             $order_base_result = OrderBase::query()

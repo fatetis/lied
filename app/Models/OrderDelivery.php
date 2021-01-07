@@ -11,7 +11,8 @@ class OrderDelivery extends BaseModel
     const STATUS_WAIT_RECEIPT = 0;
 
     const STATUS = [
-        0 => '待揽件'
+        0 => '待揽件',
+        1 => '配送中'
     ];
 
 }
