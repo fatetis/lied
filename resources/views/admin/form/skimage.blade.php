@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="{{ asset('vendor/laravel-admin-ext/sk-image/skimage_style.css') }}">
+{{--<link rel="stylesheet" href="{{ asset('vendor/laravel-admin-ext/sk-image/skimage_style.css') }}">--}}
 {{--lightbox2 灯箱--}}
-<link rel="stylesheet" href="{{ asset('vendor/laravel-admin-ext/lightbox/lightbox/lightbox.min.css') }}">
+{{--<link rel="stylesheet" href="{{ asset('vendor/laravel-admin-ext/lightbox/lightbox/lightbox.min.css') }}">--}}
 <div class="{{$viewClass['form-group']}} {!! !$errors->has($errorKey) ? '' : 'has-error' !!}">
     <label for="{{$id}}" class="{{$viewClass['label']}} control-label">{{$label}}</label>
 
@@ -98,8 +98,8 @@
         @include('admin::form.help-block')
     </div>
 </div>
-<script src="{{ asset('vendor/laravel-admin-ext/sk-image/Sortable.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('vendor/laravel-admin-ext/sk-image/plupload/plupload.full.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('vendor/laravel-admin-ext/sk-image/alioss.js') }}" type="text/javascript"></script>
+{{--<script src="{{ asset('vendor/laravel-admin-ext/sk-image/Sortable.min.js') }}" type="text/javascript"></script>--}}
+{{--<script src="{{ asset('vendor/laravel-admin-ext/sk-image/plupload/plupload.full.min.js') }}" type="text/javascript"></script>--}}
+{{--<script src="{{ asset('vendor/laravel-admin-ext/sk-image/alioss.js') }}" type="text/javascript"></script>--}}
 {{--lightbox2 灯箱--}}
-<script src="{{ asset('vendor/laravel-admin-ext/lightbox/lightbox/lightbox.min.js') }}" type="text/javascript"></script>
+{{--<script src="{{ asset('vendor/laravel-admin-ext/lightbox/lightbox/lightbox.min.js') }}" type="text/javascript"></script>--}}

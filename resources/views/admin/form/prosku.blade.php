@@ -1,7 +1,7 @@
-{{--<link rel="stylesheet" href="{{ asset('vendor/store/5.chunk.css') }}">--}}
-<link rel="stylesheet" href="{{ asset('vendor/store/6.chunk.css') }}">
-<link rel="stylesheet" href="{{ asset('vendor/store/umi.css') }}">
-<link rel="stylesheet" href="{{ asset('vendor/store/vendors.chunk.css') }}">
+{{--<link rel="stylesheet" href="{{ asset('vendor/store/6.chunk.css') }}">--}}
+{{--<link rel="stylesheet" href="{{ asset('vendor/store/umi.css') }}">--}}
+{{--<link rel="stylesheet" href="{{ asset('vendor/store/vendors.chunk.css') }}">--}}
+
 {{--ant-select-dropdown元素隐藏：ant-select-dropdown-hidden--}}
 {{--li被选中状态：ant-select-dropdown-menu-item-active--}}
 {{--li不可选状态：ant-select-dropdown-menu-item-disabled--}}

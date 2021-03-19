@@ -20,6 +20,9 @@ class ProductSku extends Field
     protected $variables = [];
 
     protected static $css = [
+        'vendor/store/6.chunk.css',
+        'vendor/store/umi.css',
+        'vendor/store/vendors.chunk.css'
     ];
 
     protected static $js = [

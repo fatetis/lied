@@ -55,6 +55,7 @@ class MediaController extends Controller
         if($result){
             $data = [
                 'id' => $result['id'],
+                'file_name' => $result['file_name'],
                 'link' => $result['link']
             ];
             //约定返回数据
