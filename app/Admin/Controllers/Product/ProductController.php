@@ -233,8 +233,9 @@ class ProductController extends Controller
 
 
         $form->saving(function (Form $form){
-
-//            商品规格属性判断
+            /**
+             * 商品规格属性判断
+             */
             $prosku = request('prosku');
 
             if (!empty($prosku) && count($prosku) != count(array_filter(array_column($prosku, 'media_id')))) {

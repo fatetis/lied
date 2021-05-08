@@ -34,11 +34,11 @@
                             <img src="{{ $media_link[$p] ?? '' }}" data-original="{{ $media_link[$p] ?? '' }}"
                                  style="margin-bottom: 3px;width: 80%;height: 80%">
                             <div class="operat_warp" style="display: inline-block">
-                                @if(count(old($id, $value)) >= 2)
+{{--                                @if(count(old($id, $value)) >= 2)--}}
                                     <input type="hidden" name="{{$id}}[]" value="{{$p}}">
-                                    @else
-                                    <input type="hidden" name="{{$id}}" value="{{$p}}">
-                                @endif
+{{--                                    @else--}}
+{{--                                    <input type="hidden" name="{{$id}}" value="{{$p}}">--}}
+{{--                                @endif--}}
                                 <a class='example-image-link ' href="{{ $media_link[$p] ?? '' }}"
                                    data-lightbox='example-set' data-title=''>预览</a>
                                 / <a href="javascript:void(0);" onclick="alioss_del_file(this,1,true)" data-filename="{{$p}}">删除</a>

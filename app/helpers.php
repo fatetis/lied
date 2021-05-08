@@ -209,25 +209,10 @@ if (!function_exists('videoUrlStandard')) {
     }
 }
 
-//if (!function_exists('elog')) {
-//    function elog($input)
-//    {
-//        $elog = new LogError();
-//        $elog->input = $input;
-//        if (!empty(request()->getRequestUri())) {
-//            $elog->path = request()->getRequestUri();
-//            $elog->method = request()->getRealMethod();
-//            $elog->ip = getIP();
-//        }
-//        $elog->save();
-//        return $elog;
-//    }
-//}
-
 if (!function_exists('elog')) {
     function elog($msg, $throwable, $data = [])
     {
-        Log::error($msg.'。文件目录：'.$throwable->getFile().'.'.$throwable->getLine().'行，异常信息：'.$throwable->getMessage().'，报错堆栈信息：'.$throwable->getTraceAsString().'。数据：'.je($data));
+        Log::error($msg.'。报错数据：'.je($data).'。文件目录：'.$throwable->getFile().'.'.$throwable->getLine().'行，异常信息：'.$throwable->getMessage().'，报错堆栈信息：'.$throwable->getTraceAsString());
     }
 }
 

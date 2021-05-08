@@ -22,7 +22,7 @@ class UploadController extends Controller
     public function index(Request $request, MediaController $MediaController)
     {
         try {
-            $savepath = $this->uploadImg($request, $MediaController);
+            $savepath = $this->uploadImageRequest($request, $MediaController);
             $data = $savepath->getData()->data->id;
             $src = $savepath->getData()->data->link;
             $filename = $savepath->getData()->data->file_name;
@@ -59,13 +59,61 @@ class UploadController extends Controller
     }
 
 
-    public function editUploadImg(Request $request)
+    /**
+     * 富文本框图片上传
+     * @param Request $request
+     * @param MediaController $MediaController
+     * @return array|string[]
+     * Author: fatetis
+     * Date:2021/4/2410:44
+     */
+    public function editUploadImg(Request $request, MediaController $MediaController)
     {
+        try {
+            $savepath = $this->UploadMultiImageRequest($request, $MediaController);
+            $data = collect($savepath)->map(function ($value) {
+                return $value->getData()->data->link;
+            });
+            return [
+                "errno" => 0,
+                "data" => $data->toArray()
+            ];
+        } catch (SelfException $e) {
+            return [
+                'errno' => '上传出错！' . $e->getMessage()
+            ];
+        } catch (\Exception $exception) {
+            elog('图片上传抛出异常', $exception);
+            return [
+                'errno' => '上传出错！' . $exception->getMessage()
+            ];
+        }
 
     }
 
     /**
-     * 图片上传处理接口
+     * 多图上传
+     * @param $request
+     * @param $mediaController
+     * @return array
+     * @throws SelfException
+     * Author: fatetis
+     * Date:2021/4/2410:44
+     */
+    public function UploadMultiImageRequest($request, $mediaController)
+    {
+        $path = $request->input('upload_url', '');
+        $is_lock = $request->input('is_lock', 0);
+        $file_key = key($request->file());
+        $file = $request->$file_key;
+        foreach ($file as $value){
+            $arr[] = $this->uploadImage($path, $is_lock, $value, $mediaController);
+        }
+        return $arr ?? [];
+    }
+
+    /**
+     * 单图图片上传
      * @param $request
      * @param $mediaController
      * @return mixed
@@ -73,21 +121,37 @@ class UploadController extends Controller
      * Author: fatetis
      * Date:2021/3/1216:12
      */
-    public function uploadImg($request, $mediaController)
+    public function uploadImageRequest($request, $mediaController)
     {
         $path = $request->input('upload_url', '');
         $is_lock = $request->input('is_lock', 0);
         $file_key = key($request->file());
-        if (!$request->file($file_key)->isValid())
+        $file = $request->$file_key;
+        return $this->uploadImage($path, $is_lock, $file, $mediaController);
+    }
+
+    /**
+     * 图片上传接口
+     * @param $path
+     * @param $is_lock
+     * @param $file
+     * @param $mediaController
+     * @return mixed
+     * @throws SelfException
+     * Author: fatetis
+     * Date:2021/4/2410:45
+     */
+    public function uploadImage($path, $is_lock, $file, $mediaController)
+    {
+        if (!$file->isValid())
             throw new SelfException('文件无效');
-        $file_extension = $request->$file_key->extension();
-        $size = ceil($request->$file_key->getSize() / 1024); //转换为kb单位
+        $file_extension = $file->extension();
+        $size = ceil($file->getSize() / 1024); //转换为kb单位
         $filename = randStr() . "." . $file_extension;
-        $filepath = urlStandard('skimage') . '/';
         /**
          * 自定义上传地址
          */
-        !empty($path) && $filepath = $path . '/';
+        $filepath = !empty($path) ? $path . '/' : urlStandard('skimage') . '/';
         /**
          * 校验目录是否存在，不存咋则创建上传目录
          */
@@ -96,7 +160,7 @@ class UploadController extends Controller
          * 将图片内容导入指定文件
          */
         $savepath = $filepath . $filename;
-        $bool = Storage::put($savepath, file_get_contents($request->$file_key->getRealPath()));//上传
+        $bool = Storage::put($savepath, file_get_contents($file->getRealPath()));//上传
         if (!$bool) throw new SelfException('文件保存失败');
         /**
          * 数据组装
