@@ -209,7 +209,7 @@ class ProductController extends Controller
             ])->help('上传图片宽*高为750*750')->required();
 
             $form->text('description', '简要描述');
-            $form->wangeditor('content', '描述');
+            $form->UEditor('content', '描述');
             $form->number('sort', '产品排序')->value(99)->max(99);
             $form->switch('is_real', '实物')->value(0);
             $form->switch('is_on_sale', '显示')->value(1);

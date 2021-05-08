@@ -354,6 +354,19 @@ return [
             // 如果要关掉这个扩展，设置为false
             //服务器配置crontab： * * * * * php /your web dir/artisan autotask:run >>/home/crontab.log 2>&1
             'enable' => true,
+        ],
+        'ueditor' => [
+
+            // 如果要关掉这个扩展，设置为false
+            'enable' => true,
+
+            // 编辑器的前端配置 参考：http://fex.baidu.com/ueditor/#start-config
+            'config' => [
+                'initialFrameHeight' => 400, // 例如初始化高度
+                'serverUrl' => env('APP_URL', 'localhost'),
+                'initialFrameWidth' => '100%'
+            ],
+            // 'field_type' => '自定义名字'
         ]
     ],
 ];
