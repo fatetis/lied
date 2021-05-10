@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User;
+
 class Article extends BaseModel
 {
     protected $table = 'article';
@@ -15,6 +17,11 @@ class Article extends BaseModel
     public function category()
     {
         return $this->belongsTo(ArticleCategory::class,'category_id','id');
+    }
+
+    public function adminUser()
+    {
+        return $this->belongsTo(AdminUsers::class, 'user_id', 'id');
     }
 
 }

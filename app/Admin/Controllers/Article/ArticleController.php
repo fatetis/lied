@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Http\Controllers\Controller;
 use App\Models\ArticleCategory;
 use Encore\Admin\Controllers\HasResourceActions;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
@@ -84,10 +85,9 @@ class ArticleController extends Controller
 
         $grid->id('Id');
         $grid->category()->name('分类名称');
-        $grid->user_id('User id');
+        $grid->adminUser()->username('创建者');
         $grid->title('标题');
-        $grid->thumb('缩略图')->image('','35','35');
-        $grid->desc('简介');
+        $grid->description('简介');
         $grid->is_hot('热门')->switch();
         $grid->is_show('显示')->switch();
         $grid->sort_order('排序')->editable();
@@ -112,7 +112,7 @@ class ArticleController extends Controller
         $show->user_id('创建者ID');
         $show->title('标题');
         $show->thumb('缩略图')->image();
-        $show->desc('简介');
+        $show->description('简介');
         $show->content('内容');
         $show->is_hot('热门')->using(['0'=>'否','1'=>'是']);
         $show->is_show('显示')->using(['0'=>'否','1'=>'是']);
@@ -131,18 +131,19 @@ class ArticleController extends Controller
     protected function form()
     {
         $form = new Form(new Article);
-        $form->text('title', '文章标题')->rules('required');
+        $form->text('title', '文章标题')->required();
         $form->select('category_id', '文章分类')->options(ArticleCategory::selectOptions());
+        $form->skmedia('thumb', '分类icon')->attribute('images')->attribute([
+            'upload_url' => urlStandard('article_thumb')
+        ])->help('上传图片宽*高为140*140')->required();
 
-        $form->image('thumb', '文章缩略图')->move(urlStandard('article_thumb'))->uniqueName()->removable();
-
-        $form->wangeditor('description', '文章简介');
-        $form->wangeditor('content', '文章内容');
+        $form->UEditor('description', '文章简介');
+        $form->UEditor('content', '文章内容');
 
         $form->number('sort_order', '排序')->value(99);
         $form->switch('is_show', '显示')->value(1);
         $form->switch('is_hot', '热门')->value(1);
-//        $form->hidden('user_id')->value(getAdminUserId());
+        $form->hidden('user_id')->value(Admin::user()->id);
         return $form;
     }
 }
