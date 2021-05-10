@@ -60,7 +60,7 @@ class UploadController extends Controller
 
 
     /**
-     * 富文本框图片上传
+     * 富文本框wangeditor图片上传
      * @param Request $request
      * @param MediaController $MediaController
      * @return array|string[]
@@ -92,7 +92,7 @@ class UploadController extends Controller
     }
 
     /**
-     * 多图上传
+     * 富文本wangeditor多图上传
      * @param $request
      * @param $mediaController
      * @return array

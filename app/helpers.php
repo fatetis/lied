@@ -246,9 +246,9 @@ if (!function_exists('r')) {
  * 封装json_encode函数
  */
 if (!function_exists('je')) {
-    function je($data)
+    function je($data, $param = JSON_UNESCAPED_UNICODE|JSON_FORCE_OBJECT)
     {
-        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_FORCE_OBJECT);
+        return json_encode($data, (int)$param);
     }
 }
 

@@ -363,7 +363,7 @@ return [
             // 编辑器的前端配置 参考：http://fex.baidu.com/ueditor/#start-config
             'config' => [
                 'initialFrameHeight' => 400, // 例如初始化高度
-                'serverUrl' => env('APP_URL', 'localhost'),
+                'serverUrl' => env('APP_URL', 'localhost').'/admin/api/ueditor',
                 'initialFrameWidth' => '100%'
             ],
             // 'field_type' => '自定义名字'

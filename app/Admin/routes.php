@@ -31,6 +31,8 @@ Route::group([
             $router->post('order/delivery', 'OrderController@orderDelivery')->name('admin.api.order.delivery');
             $router->post('order/address/update', 'OrderController@updateOrderAddress')->name('admin.api.order.address.update');
             $router->post('order/price/update', 'OrderController@updateOrderPrice')->name('admin.api.order.price.update');
+            $router->any('ueditor', 'UeditorController@index')->name('api.ueditor');
+
         });
         $router->post('upload/image', 'UploadController@editUploadImg')->name('apiUploadImage');
     });
