@@ -18,6 +18,7 @@
  *
  */
 
+use App\Admin\Extensions\Form\Editor;
 use App\Admin\Extensions\Form\ProductSku;
 use App\Admin\Extensions\Form\SkImage;
 use App\Admin\Extensions\WangEditor;
@@ -28,3 +29,4 @@ Encore\Admin\Form::forget(['map','editor']);
 //Form::extend('wangeditor', WangEditor::class);
 Form::extend('prosku', ProductSku::class);
 Form::extend('skmedia', SkImage::class);
+Form::extend('UEditor', Editor::class);
