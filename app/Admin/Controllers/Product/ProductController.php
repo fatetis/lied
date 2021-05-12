@@ -248,17 +248,18 @@ class ProductController extends Controller
         });
 
         $form->saved(function (Form $form){
-            $prosku = request('prosku');
-            $picture = request('picture');
-
-            $prosku_result = $this->productService->saveProduct($form->model()->id, $prosku, $picture);
-            if ($prosku_result !== true) {
-                if ($form->isCreating()) $form->model()->delete();
-                $error = new MessageBag([
-                    'title' => '错误信息',
-                    'message' => $prosku_result
-                ]);
-                return back()->with(compact('error'));
+            if(request()->has('name')) {
+                $prosku = request('prosku');
+                $picture = request('picture');
+                $prosku_result = $this->productService->saveProduct($form->model()->id, $prosku, $picture);
+                if ($prosku_result !== true) {
+                    if ($form->isCreating()) $form->model()->delete();
+                    $error = new MessageBag([
+                        'title' => '错误信息',
+                        'message' => $prosku_result
+                    ]);
+                    return back()->with(compact('error'));
+                }
             }
         });
         return $form;
