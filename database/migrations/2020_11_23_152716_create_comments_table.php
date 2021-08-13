@@ -18,8 +18,8 @@ class CreateCommentsTable extends Migration
 
 CREATE TABLE `lied_comments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `base_id` int(11) unsigned NOT NULL COMMENT '订单基础表id',
-  `product_id` int(11) unsigned NOT NULL COMMENT '产品id',
+  `type` tinyint(1) unsigned NOT NULL COMMENT '类型 0-订单',
+  `id_value` int(11) unsigned NOT NULL COMMENT '对应类型type的唯一标识',
   `pid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '评论父节点',
   `from_uid` int(11) unsigned NOT NULL COMMENT '用户id',
   `from_name` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '用户名-name-冗余字段',
@@ -32,7 +32,6 @@ CREATE TABLE `lied_comments` (
   `like_num` int(4) unsigned DEFAULT '0' COMMENT '点赞数量',
   `is_quality` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否优质评论',
   `is_show` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否显示',
-  `is_brand` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否商家评论',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,

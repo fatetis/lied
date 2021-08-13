@@ -1,14 +1,16 @@
-ALTER TABLE `lied_shipping_address` DROP FOREIGN KEY `shipping_address-order_id`;
+2021-07-08
 
+
+
+2021-07-08之前
+
+ALTER TABLE `lied_shipping_address` DROP FOREIGN KEY `shipping_address-order_id`;
 
 ALTER TABLE `lied_shipping_address`
 DROP COLUMN `order_base_id`;
 
-
-
 ALTER TABLE `lied_order`
 ADD COLUMN `shipping_address_id`  int(11) UNSIGNED NULL COMMENT '配送地址表id' AFTER `brand_id`;
-
 
 CREATE TABLE `lied_order_delivery` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -22,15 +24,9 @@ CREATE TABLE `lied_order_delivery` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='发货订单';
 
-
-
-
 ALTER TABLE `lied_cart`
 ADD COLUMN `product_id`  int(11) UNSIGNED NOT NULL COMMENT '产品表id' AFTER `user_id`,
 ADD COLUMN `brand_id`  int(11) UNSIGNED NOT NULL COMMENT '品牌表id' AFTER `product_id`;
-
-
-
 
 ALTER TABLE `lied_cart`
 MODIFY COLUMN `number`  int(4) UNSIGNED NOT NULL COMMENT '产品数量' AFTER `sku_id`,
