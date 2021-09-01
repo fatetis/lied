@@ -20,7 +20,7 @@ class Product extends BaseModel
 
     public function order()
     {
-        return $this->belongsTo(Order::class, 'id', 'product_id');
+        return $this->belongsTo(ProductOrder::class, 'id', 'product_id');
     }
 
     public function seckill()

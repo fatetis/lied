@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-class OrderChild extends BaseModel
+class ProductOrderChild extends BaseModel
 {
-    protected $table = 'order_child';
+    protected $table = 'product_order_child';
     protected $primaryKey = 'id';
-    protected $guarded  = ['id'];
+    protected $guarded = ['id'];
 
     public function product()
     {

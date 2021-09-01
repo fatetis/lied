@@ -4,7 +4,8 @@ namespace App\Admin\Controllers\Order;
 
 use App\Admin\Extensions\Model\OrderBaseModal;
 use App\Models\Brand;
-use App\Models\OrderBase;
+use App\Models\Order;
+use App\Models\ProductOrder;
 use App\Models\Product;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -12,7 +13,7 @@ use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
 
-class OrderBaseController extends AdminController
+class OrderController extends AdminController
 {
     /**
      * Title for current resource.
@@ -34,7 +35,7 @@ class OrderBaseController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new OrderBase());
+        $grid = new Grid(new Order());
         $grid->model()->orderByDesc('created_at');
         // 关闭操作列
         $grid->disableActions();
@@ -46,21 +47,21 @@ class OrderBaseController extends AdminController
         });
         $grid->column('paidno', __('支付流水号'));
         $grid->column('user.name', __('用户名称'));
-        $grid->column('order.brand_id', __('品牌名称'))->display(function ($value){
+        $grid->column('productOrder.brand_id', __('品牌名称'))->display(function ($value) {
             return Brand::query()->find($value)['name'];
         });
         $grid->column('price', __('总价格'))->sortable();
         $grid->column('shipping_price', __('配送价格'))->sortable();
         $grid->column('pay_price', __('支付价格'))->sortable();
-        $grid->column('order_status', __('订单状态'))->display(function ($value){
-            return OrderBase::ORDER_STATUS[$value];
+        $grid->column('productOrder.show_status', __('订单状态'))->display(function ($value) {
+            return ProductOrder::SHOW_STATUS[$value];
         });
         $grid->column('paylog.pay_name', __('支付方式'));
-        $grid->column('pay_status', __('支付状态'))->display(function ($value){
-            return OrderBase::PAY_STATUS[$value];
+        $grid->column('pay_status', __('支付状态'))->display(function ($value) {
+            return Order::PAY_STATUS[$value];
         });
-        $grid->column('source', __('订单来源'))->display(function ($value){
-            return OrderBase::SOURCE[$value];
+        $grid->column('source', __('订单来源'))->display(function ($value) {
+            return Order::SOURCE[$value];
         });
         $grid->column('created_at', __('创建时间'));
         $grid->column('updated_at', __('更新时间'));
@@ -69,19 +70,19 @@ class OrderBaseController extends AdminController
             $filter->like('paidno', '支付流水号');
             $filter->like('user.name', '用户名称');
             $filter->where(function ($query) {
-                $query->whereHas('order.brand', function ($query) {
+                $query->whereHas('productOrder.brand', function ($query) {
                     $query->where('name', 'like', "%{$this->input}%");
                 });
             }, '品牌名称');
             $filter->where(function ($query) {
-                $query->whereHas('order.orderchild', function ($query) {
+                $query->whereHas('productOrder.productOrderChild', function ($query) {
                     $query->whereIn('product_id', Product::query()->where('name', 'like', "%{$this->input}%")->pluck('id'));
                 });
             }, '商品名称');
-            $filter->equal('order_status', '订单状态')->select(OrderBase::ORDER_STATUS);
+            $filter->equal('order_status', '订单状态')->select(Order::ORDER_STATUS);
             $filter->like('paylog.pay_name', '支付方式');
-            $filter->equal('pay_status', '支付状态')->select(OrderBase::PAY_STATUS);
-            $filter->equal('source', '订单来源')->select(OrderBase::SOURCE);
+            $filter->equal('pay_status', '支付状态')->select(Order::PAY_STATUS);
+            $filter->equal('source', '订单来源')->select(Order::SOURCE);
             $filter->between('created_at', '创建时间')->datetime();
         });
         return $grid;
@@ -95,7 +96,7 @@ class OrderBaseController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(OrderBase::findOrFail($id));
+        $show = new Show(Order::findOrFail($id));
 
         $show->field('id', __('Id'));
         $show->field('orderno', __('Orderno'));
@@ -121,7 +122,7 @@ class OrderBaseController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new OrderBase());
+        $form = new Form(new Order());
 
         $form->text('orderno', __('Orderno'));
         $form->text('paidno', __('Paidno'));

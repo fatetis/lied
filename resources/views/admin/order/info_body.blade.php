@@ -90,7 +90,7 @@
                 <dl class="dl-horizontal">
                     <dt>订单状态</dt>
                     <dd>
-                        {{ $data['order_status'] }}
+                        {{ $data['show_status'] }}
                     </dd>
                 </dl>
             </div>

@@ -27,7 +27,7 @@ Route::group([
             $router->post('attr/create', 'ProductController@createAttrData')->name('proAttrCreateApi');
             $router->post('attr/value/get', 'ProductController@getAttrValueData')->name('proAttrValueGetApi');
             $router->post('attr/value/create', 'ProductController@createAttrValueData')->name('proAttrValueCreateApi');
-            $router->get('order/base', 'OrderController@firstOrderBaseById')->name('admin.api.order.base');
+            $router->get('order', 'OrderController@firstOrderById')->name('admin.api.order');
             $router->post('order/delivery', 'OrderController@orderDelivery')->name('admin.api.order.delivery');
             $router->post('order/address/update', 'OrderController@updateOrderAddress')->name('admin.api.order.address.update');
             $router->post('order/price/update', 'OrderController@updateOrderPrice')->name('admin.api.order.price.update');
@@ -44,7 +44,7 @@ Route::group([
     });
     $router->resource('product', 'Product\ProductController');
     $router->group(['prefix' => 'order', 'namespace' => 'Order'], function ($router) {
-        $router->resource('/base', 'OrderBaseController');
+        $router->resource('/', 'OrderController');
     });
     $router->resource('brand/category', 'Brand\BrandCategoryController');
     $router->resource('brand', 'Brand\BrandController');

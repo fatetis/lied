@@ -253,7 +253,7 @@
   function get_order_info() {
     $.ajax({
       method: 'get',
-      url: '{{route("admin.api.order.base",["_token" => csrf_token()])}}',
+      url: '{{route("admin.api.order",["_token" => csrf_token()])}}',
       data: {
         orderno: oid
       },
