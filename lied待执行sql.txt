@@ -32,4 +32,9 @@ ALTER TABLE `lied_cart`
 MODIFY COLUMN `number`  int(4) UNSIGNED NOT NULL COMMENT '产品数量' AFTER `sku_id`,
 ADD COLUMN `is_selected`  tinyint(1) UNSIGNED NULL DEFAULT 0 COMMENT '是否被选中' AFTER `number`;
 
+ALTER TABLE `lied_order`
+ADD COLUMN `order_price`  decimal(8,2) UNSIGNED NOT NULL COMMENT '商品总价格' AFTER `user_id`;
+
+
+
 
