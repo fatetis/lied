@@ -37,6 +37,7 @@ CREATE TABLE `lied_product_refund` (
   CONSTRAINT `product_refund-user_id` FOREIGN KEY (`user_id`) REFERENCES `lied_users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品订单退款表';
 
+
         ");
     }
 

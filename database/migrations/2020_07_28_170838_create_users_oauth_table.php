@@ -40,6 +40,6 @@ CREATE TABLE `lied_user_oauth` (
      */
     public function down()
     {
-        Schema::dropIfExists('users_oauth');
+        Schema::dropIfExists('user_oauth');
     }
 }
